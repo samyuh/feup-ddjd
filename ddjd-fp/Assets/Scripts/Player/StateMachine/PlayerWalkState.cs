@@ -7,20 +7,24 @@ public class PlayerWalkState : PlayerState {
     : base (currentContext, playerStateFactory) {}
 
     public override void EnterState() {
-        Debug.Log("Player is walking yayy");
+        _context.TargetSpeed = _context.MoveSpeed;
+
+       // Debug.Log("Player is walking yayy");
+    }
+
+    public override void ExitState() {
+       // Debug.Log("Player stoped walking");
     }
 
     public override void UpdateState() {
+        _context.Move();
+
         CheckSwitchState();
     }
 
-    public override void ExitState() {}
-
 	public override void CheckSwitchState() {
-        if (false) {
-            //SwitchState(_factory.Idle());
+        if (_context.PlayerInput.move == Vector2.zero) {
+            SwitchState(_factory.Idle());
         } 
     }
-
-	public override void InitializeSubState() {}
 }

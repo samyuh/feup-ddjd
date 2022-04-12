@@ -29,6 +29,7 @@ public abstract class PlayerState {
 
 	protected void SetSubState(PlayerState newSubState) {
 		_currentSubState = newSubState;
+		newSubState.EnterState();
 
 		newSubState.SetSuperState(this);
 	}
@@ -47,5 +48,5 @@ public abstract class PlayerState {
 
 	public abstract void CheckSwitchState();
 
-	public abstract void InitializeSubState();
+	protected virtual void InitializeSubState() {}
 }
