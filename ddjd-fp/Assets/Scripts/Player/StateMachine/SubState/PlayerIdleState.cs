@@ -8,12 +8,9 @@ public class PlayerIdleState : PlayerState {
 
     public override void EnterState() {
         _context.TargetSpeed = 0f;
-        //Debug.Log("Player is idle yayy");
     }
 
-    public override void ExitState() {
-        //Debug.Log("Player stoped idle");
-    }
+    public override void ExitState() {}
 
     public override void UpdateState() {
         CheckSwitchState();

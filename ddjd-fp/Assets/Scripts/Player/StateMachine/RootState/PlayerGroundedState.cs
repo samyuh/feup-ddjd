@@ -10,32 +10,31 @@ public class PlayerGroundedState : PlayerState {
     }
 
     public override void EnterState() {
-        Debug.Log("Player is grounded yayy");
+        Debug.Log("Grounded");
     }
 
     public override void ExitState() {
-        Debug.Log("Player left ground yayy");
+        Debug.Log("Player left ground  and now is");
     }
 
     public override void UpdateState() {
-         _context.FallTimeoutDelta = _context.FallTimeout;
         if (_context.VerticalVelocity < 0.0f) {
             _context.VerticalVelocity = -2f;
         }
 
-        if (_context.JumpTimeoutDelta >= 0.0f) {
-            _context.JumpTimeoutDelta -= Time.deltaTime;
-        } 
-
         if (_context.VerticalVelocity < _context.TerminalVelocity) {
-            _context.VerticalVelocity += _context.Gravity * Time.deltaTime;
+            _context.VerticalVelocity += _context.PlayerSettings.Gravity * Time.deltaTime;
+        }
+
+        if (_context.PlayerInput.jump)  {
+            _context.VerticalVelocity = Mathf.Sqrt(_context.PlayerSettings.JumpHeight * -2f * _context.PlayerSettings.Gravity);
         }
 
         CheckSwitchState();
     }
 
 	public override void CheckSwitchState() {
-         if (_context.PlayerInput.jump  && _context.JumpTimeoutDelta <= 0.0f)  {
+        if (!_context.GroundedCheck()) {
             SwitchState(_factory.Jump());
         }
     }
