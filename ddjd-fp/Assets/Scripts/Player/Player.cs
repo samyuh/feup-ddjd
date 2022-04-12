@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
     #region GameObjects
     [SerializeField]
     private PlayerSettings _playerSettings;
+    [SerializeField]
+    private Animator _animator;
     private CharacterController _controller;
     private GameObject _mainCamera;
     private InputHandler _playerInput;
@@ -38,10 +40,11 @@ public class Player : MonoBehaviour {
     #endregion
 
     #region Getters and Setters
+    public PlayerSettings PlayerSettings {get { return _playerSettings; } set { _playerSettings = value;}}
+    public Animator Animator {get { return _animator; } set { _animator = value;}}
     public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
     public GameObject MainCamera  {get { return _mainCamera; } set { _mainCamera = value;}}
     public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
-    public PlayerSettings PlayerSettings {get { return _playerSettings; } set { _playerSettings = value;}}
 
     public PlayerState CurrentState {get { return _currentState; }  set { _currentState = value; }}
 
@@ -61,7 +64,6 @@ public class Player : MonoBehaviour {
 
         _controller = GetComponent<CharacterController>();
         _playerInput = GetComponent<InputHandler>();
-
         _jumpTimeoutDelta = _playerSettings.JumpTimeout;
         _fallTimeoutDelta = _playerSettings.FallTimeout;
 
