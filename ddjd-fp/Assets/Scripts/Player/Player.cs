@@ -170,5 +170,20 @@ public class Player : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
         }
     }
+
+    //Collect Items
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Health")
+        {
+            Debug.Log("Player picked up Health");
+            other.gameObject.SetActive(false);
+        }
+        else if (other.gameObject.tag == "Crystal")
+        {
+            Debug.Log("Player picked up Crystal");
+            other.gameObject.SetActive(false);
+        }
+    }
     #endregion 
 }
