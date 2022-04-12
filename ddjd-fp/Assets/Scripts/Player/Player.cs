@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     [Header("Player")]
     public float MoveSpeed = 2.0f;
     public float SprintSpeed = 5.335f;
+    public int NumberofCrystals = 0;
 
     [Tooltip("How fast the character turns to face movement direction")]
     [Range(0.0f, 0.3f)]
@@ -58,8 +59,7 @@ public class Player : MonoBehaviour {
     #region GameObjects
     private CharacterController _controller;
     private GameObject _mainCamera;
-    private InputHandler _playerInput;
-    
+    private InputHandler _playerInput;    
     #endregion
 
     #region Runtime Attributes
@@ -172,17 +172,27 @@ public class Player : MonoBehaviour {
     }
 
     //Collect Items
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Health")
         {
-            Debug.Log("Player picked up Health");
-            other.gameObject.SetActive(false);
+            Debug.Log("Press E to pick up Health");
+
+            if (_playerInput.interact){
+                Debug.Log("Player picked up Health");
+                other.gameObject.SetActive(false);
+            }
         }
         else if (other.gameObject.tag == "Crystal")
         {
-            Debug.Log("Player picked up Crystal");
-            other.gameObject.SetActive(false);
+            Debug.Log("Press E to pick up Crystal");
+
+            if (_playerInput.interact){
+                Debug.Log("Player picked up Crystal");
+                NumberofCrystals++;
+                Debug.Log("Player has " + NumberofCrystals + " crystals");
+                other.gameObject.SetActive(false);
+            }
         }
     }
     #endregion 
