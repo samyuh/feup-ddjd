@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour {
+public class Player : MonoBehaviour {
+    #region Public Data
     [Header("Player")]
     public float MoveSpeed = 2.0f;
     public float SprintSpeed = 5.335f;
@@ -46,61 +47,66 @@ public class PlayerMovement : MonoBehaviour {
     public float CameraAngleOverride = 0.0f;
     [Tooltip("For locking the camera position on all axis")]
     public bool LockCameraPosition = false;
+    #endregion
 
-    // cinemachine
+    #region Camera
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
+    private const float _threshold = 0.01f;
+    #endregion
 
-    // player
+    #region Runtime Attributes
+    private PlayerState _currentState;
+    private PlayerStateFactory _states;
+
+    // Player
     private float _speed;
-    private float _animationBlend;
     private float _targetRotation = 0.0f;
     private float _rotationVelocity;
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
 
-    // timeout deltatime
+    // Jump
     private float _jumpTimeoutDelta;
     private float _fallTimeoutDelta;
+    #endregion
 
-    // animation IDs
-    private int _animIDSpeed;
-    private int _animIDGrounded;
-    private int _animIDJump;
-    private int _animIDFreeFall;
-    private int _animIDMotionSpeed;
+    #region Getters and Setters
+    public InputHandler PlayerInput { get { return _playerInput; } set { _playerInput = value;} }
+    public PlayerState CurrentState {get { return _currentState; }  set { _currentState = value; }}
 
-    //private PlayerInput _playerInput;
-    private Animator _animator;
+    public float Speed  {get { return _speed; }  set { _speed = value; }}
+    public float TargetRotation  {get { return _targetRotation; }  set { _targetRotation = value; }}
+    public float RotationVelocity {get { return _rotationVelocity; }  set { _rotationVelocity = value; }}
+    public float VerticalVelocity {get { return _verticalVelocity; }  set { _verticalVelocity = value; }}
+    public float TerminalVelocity  {get { return _terminalVelocity; }  set { _terminalVelocity = value; }}
+    
+    public float JumpTimeoutDelta {get { return _jumpTimeoutDelta; }  set { _jumpTimeoutDelta = value; }}
+    public float FallTimeoutDelta  {get { return _fallTimeoutDelta; }  set { _fallTimeoutDelta = value; }}
+    #endregion
+    
+    #region GameObjects
     private CharacterController _controller;
-    private InputHandler _input;
+    private InputHandler _playerInput;
     private GameObject _mainCamera;
-
-    private const float _threshold = 0.01f;
-
-    private bool _hasAnimator;
+    #endregion
 
     private void Awake() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-    }
-    // Start is called before the first frame update
-    void Start() {
-        //_hasAnimator = TryGetComponent(out _animator);
-        _controller = GetComponent<CharacterController>();
-        _input = GetComponent<InputHandler>();
-       //_playerInput = GetComponent<PlayerInput>();
 
-        //AssignAnimationIDs();
+        _states = new PlayerStateFactory(this);
+        _currentState = _states.Grounded();
+        _currentState.EnterState();
+
+        _controller = GetComponent<CharacterController>();
+        _playerInput = GetComponent<InputHandler>();
 
         _jumpTimeoutDelta = JumpTimeout;
         _fallTimeoutDelta = FallTimeout;
     }
 
-    // Update is called once per frame
-    void Update() {
-        JumpAndGravity();
-        GroundedCheck();
-        Move();
+    private void Update() {
+        _currentState.UpdateState();
     }
 
     private void LateUpdate() {
@@ -109,67 +115,33 @@ public class PlayerMovement : MonoBehaviour {
 
     #region Camera
     private void CameraRotation() {
-        if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition) {
-            //Don't multiply mouse input by Time.deltaTime;
-            float deltaTimeMultiplier = 1.0f;
-            
-            _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-            _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+        if (_playerInput.look.sqrMagnitude >= _threshold && !LockCameraPosition) {
+            _cinemachineTargetYaw += _playerInput.look.x;
+            _cinemachineTargetPitch += _playerInput.look.y;
         }
 
-        // clamp our rotations so our values are limited 360 degrees
         _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
         _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
-        // Cinemachine will follow this target
         CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
     }
 
-    private static float ClampAngle(float lfAngle, float lfMin, float lfMax) {
-        if (lfAngle < -360f) lfAngle += 360f;
-        if (lfAngle > 360f) lfAngle -= 360f;
-        return Mathf.Clamp(lfAngle, lfMin, lfMax);
+    private static float ClampAngle(float ifAngle, float ifMin, float ifMax) {
+        if (ifAngle < -360f) ifAngle += 360f;
+        if (ifAngle > 360f) ifAngle -= 360f;
+        return Mathf.Clamp(ifAngle, ifMin, ifMax);
     }
     #endregion
 
-    #region BasicMovement
-    private void JumpAndGravity() {
-        if (Grounded) {
-            _fallTimeoutDelta = FallTimeout;
-            if (_verticalVelocity < 0.0f) {
-                _verticalVelocity = -2f;
-            }
-
-            if (_input.jump && _jumpTimeoutDelta <= 0.0f)  {
-                _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-            }
-            if (_jumpTimeoutDelta >= 0.0f) {
-                _jumpTimeoutDelta -= Time.deltaTime;
-            }
-        }
-        else  {
-            _jumpTimeoutDelta = JumpTimeout;
-
-            if (_fallTimeoutDelta >= 0.0f) {
-                _fallTimeoutDelta -= Time.deltaTime;
-            }
-
-            _input.jump = false;
-        }
-
-        if (_verticalVelocity < _terminalVelocity) {
-            _verticalVelocity += Gravity * Time.deltaTime;
-        }
-    }
-
-    private void GroundedCheck() {
+    #region Player State Functions
+    public bool GroundedCheck() {
         Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-        Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+        return Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
     }
 
-    private void Move() {
-        float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
-        if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+    public void Move() {
+        float targetSpeed = _playerInput.sprint ? SprintSpeed : MoveSpeed;
+        if (_playerInput.move == Vector2.zero) targetSpeed = 0.0f;
 
         float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
@@ -183,12 +155,11 @@ public class PlayerMovement : MonoBehaviour {
         else {
             _speed = targetSpeed;
         }
-        _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
 
 
-        Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+        Vector3 inputDirection = new Vector3(_playerInput.move.x, 0.0f, _playerInput.move.y).normalized;
 
-        if (_input.move != Vector2.zero) {
+        if (_playerInput.move != Vector2.zero) {
             _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
             float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, RotationSmoothTime);
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
