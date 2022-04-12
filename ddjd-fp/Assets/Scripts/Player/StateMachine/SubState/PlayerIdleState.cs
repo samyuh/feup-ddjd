@@ -19,6 +19,8 @@ public class PlayerIdleState : PlayerState {
 	public override void CheckSwitchState() {
         if (_context.PlayerInput.move != Vector2.zero) {
             SwitchState(_factory.Walk());
-        } 
+        } else if (_context.PlayerInput.meleeAttack) {
+            SwitchState(_factory.Attack());
+        }
     }
 }

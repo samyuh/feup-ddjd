@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour {
     public Vector2 look;
     public bool jump;
     public bool sprint;
+    public bool meleeAttack;
 
     [Header("Mouse Cursor Settings")]
 	public bool cursorLocked = true;
@@ -35,6 +36,12 @@ public class InputHandler : MonoBehaviour {
     }
     
     #region Mouse
+    public void OnMeleeAttack(InputValue value) {
+        meleeAttack = value.isPressed;
+        Debug.Log("here 1");
+        Debug.Log(meleeAttack);
+    }
+
     public void OnMove(InputValue value) {
         move = value.Get<Vector2>();
     }

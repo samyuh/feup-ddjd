@@ -12,6 +12,7 @@ public class PlayerWalkState : PlayerState {
     }
 
     public override void ExitState() {
+        _context.TargetSpeed = 0f;
         _context.Animator.SetBool("Walk", false);
     }
 
@@ -23,6 +24,8 @@ public class PlayerWalkState : PlayerState {
 	public override void CheckSwitchState() {
         if (_context.PlayerInput.move == Vector2.zero) {
             SwitchState(_factory.Idle());
-        } 
+        } else if (_context.PlayerInput.meleeAttack) {
+            SwitchState(_factory.Attack());
+        }
     }
 }

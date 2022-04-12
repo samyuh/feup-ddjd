@@ -22,5 +22,9 @@ public class PlayerStateFactory {
     public PlayerState Idle() {
         return new PlayerIdleState(_context, this);
     }
+
+    public PlayerState Attack() {
+        return new PlayerAttackState(_context, this);
+    }
     #endregion
 }

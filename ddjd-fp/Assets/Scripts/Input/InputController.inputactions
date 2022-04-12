@@ -33,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
+                    "name": "MeleeAttack",
                     "type": "Button",
                     "id": "c1e3fa50-37d9-4bfb-b4d8-ba1b234d0de2",
                     "expectedControlType": "Button",
@@ -134,11 +134,11 @@
                 {
                     "name": "",
                     "id": "a21e0f08-33fe-4176-90aa-c084cb2849b6",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "MeleeAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
