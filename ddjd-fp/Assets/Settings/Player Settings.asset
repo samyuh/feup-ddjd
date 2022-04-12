@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a3294bdb77829469ac20d15eddde5f, type: 3}
   m_Name: Player Settings
   m_EditorClassIdentifier: 
-  MoveSpeed: 12
+  MoveSpeed: 9
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
-  JumpHeight: 5
+  JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.5
   FallTimeout: 0.15

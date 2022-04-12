@@ -30,13 +30,12 @@ public class PlayerGroundedState : PlayerState {
             _context.VerticalVelocity = Mathf.Sqrt(_context.PlayerSettings.JumpHeight * -2f * _context.PlayerSettings.Gravity);
         }
 
-        _context.Animator.SetBool("Attack", false);
+        
         CheckSwitchState();
     }
 
 	public override void CheckSwitchState() {
         if (!_context.GroundedCheck()) {
-            _context.Animator.SetBool("Attack", true);
             SwitchState(_factory.Jump());
         }
     }

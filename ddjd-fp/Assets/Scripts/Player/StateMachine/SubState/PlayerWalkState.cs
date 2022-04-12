@@ -8,9 +8,12 @@ public class PlayerWalkState : PlayerState {
 
     public override void EnterState() {
         _context.TargetSpeed = _context.PlayerSettings.MoveSpeed;
+        _context.Animator.SetBool("Walk", true);
     }
 
-    public override void ExitState() {}
+    public override void ExitState() {
+        _context.Animator.SetBool("Walk", false);
+    }
 
     public override void UpdateState() {
         _context.Move();
