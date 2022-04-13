@@ -172,22 +172,19 @@ public class Player : MonoBehaviour {
     }
 
     //Collect Items
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Health")
-        {
+    public void OnTriggerStay(Collider other) {
+        if (other.gameObject.tag == "Health") {
             Debug.Log("Press E to pick up Health");
 
-            if (_playerInput.interact){
+            if (_playerInput.interact) {
                 Debug.Log("Player picked up Health");
                 other.gameObject.SetActive(false);
             }
         }
-        else if (other.gameObject.tag == "Crystal")
-        {
+        else if (other.gameObject.tag == "Crystal") {
             Debug.Log("Press E to pick up Crystal");
-
-            if (_playerInput.interact){
+            
+            if (_playerInput.interact) {
                 Debug.Log("Player picked up Crystal");
                 NumberofCrystals++;
                 Debug.Log("Player has " + NumberofCrystals + " crystals");
