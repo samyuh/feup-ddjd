@@ -7,6 +7,7 @@ public class PlayerIdleState : PlayerState {
     : base (currentContext, playerStateFactory) {}
 
     public override void EnterState() {
+        Debug.Log("Start Idle");
         _context.TargetSpeed = 0f;
     }
 

@@ -7,6 +7,7 @@ public class PlayerWalkState : PlayerState {
     : base (currentContext, playerStateFactory) {}
 
     public override void EnterState() {
+        Debug.Log("Start Walk");
         _context.TargetSpeed = _context.PlayerSettings.MoveSpeed;
         _context.Animator.SetBool("Walk", true);
     }

@@ -132,4 +132,12 @@ public class Player : MonoBehaviour {
         }
     }
     #endregion 
+
+    #region Debug
+    private void OnDrawGizmosSelected() {
+        // Attack Shepere
+        //Vector3 spherePosition = new Vector3(transform.position.x + 1.616f * transform.TransformDirection(Vector3.forward).x, 0.515f, transform.position.z + 1.616f * transform.TransformDirection(Vector3.forward).z) ;
+        //Gizmos.DrawSphere(spherePosition, 0.9f);
+    }
+    #endregion
 }

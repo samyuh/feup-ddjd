@@ -38,8 +38,6 @@ public class InputHandler : MonoBehaviour {
     #region Mouse
     public void OnMeleeAttack(InputValue value) {
         meleeAttack = value.isPressed;
-        Debug.Log("here 1");
-        Debug.Log(meleeAttack);
     }
 
     public void OnMove(InputValue value) {
