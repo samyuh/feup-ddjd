@@ -8,12 +8,12 @@ public class PlayerAttackState : PlayerState {
 
     public override void EnterState() {
         Debug.Log("Start Attacking");
+        _context.PlayerInput.meleeAttack = false;
         _context.Animator.SetBool("Attack", true);
         DealDamage();
     }
 
     public override void ExitState() {
-        _context.PlayerInput.meleeAttack = false;
         _context.Animator.SetBool("Attack", false);
     }
 

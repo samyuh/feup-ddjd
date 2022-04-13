@@ -14,9 +14,8 @@ public abstract class PlayerState {
 	protected void SwitchState(PlayerState newState) {
 		ExitState();
 
-		newState.EnterState();
-
 		if (_isRootState) {
+			newState.EnterState();
 			_context.CurrentState = newState;
 		} else if (_currentSuperState != null) {
 			_currentSuperState.SetSubState(newState);
@@ -28,9 +27,9 @@ public abstract class PlayerState {
 	}
 
 	protected void SetSubState(PlayerState newSubState) {
-		_currentSubState = newSubState;
 		newSubState.EnterState();
-
+		
+		_currentSubState = newSubState;
 		newSubState.SetSuperState(this);
 	}
 
