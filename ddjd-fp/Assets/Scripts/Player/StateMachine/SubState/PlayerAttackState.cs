@@ -8,6 +8,7 @@ public class PlayerAttackState : PlayerState {
 
     public override void EnterState() {
         Debug.Log("Start Attacking");
+        _context.TakeDamage();
         _context.PlayerInput.meleeAttack = false;
         _context.Animator.SetBool("Attack", true);
         DealDamage();

@@ -11,6 +11,12 @@ public abstract class PlayerState {
 		_factory = playerStateFactory;
 	}
 
+	public void UpdateStates() {
+		UpdateState();
+
+		_currentSubState?.UpdateStates();
+	}
+
 	protected void SwitchState(PlayerState newState) {
 		ExitState();
 
@@ -31,12 +37,6 @@ public abstract class PlayerState {
 		
 		_currentSubState = newSubState;
 		newSubState.SetSuperState(this);
-	}
-
-	public void UpdateStates() {
-		UpdateState();
-
-		_currentSubState?.UpdateStates();
 	}
 
 	public abstract void EnterState();

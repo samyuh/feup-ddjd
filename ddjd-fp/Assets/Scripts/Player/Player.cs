@@ -5,27 +5,34 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour {
     #region Camera
-    [SerializeField]
-    private GameObject _cinemachineCameraTarget;
+    private GameObject _mainCamera;
+    [SerializeField] private GameObject _cinemachineCameraTarget;
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
     private const float _threshold = 0.01f;
     #endregion
 
-    #region GameObjects
-    [SerializeField]
-    private PlayerSettings _playerSettings;
-    [SerializeField]
-    private Animator _animator;
+    #region Game Objects
+    [SerializeField] private PlayerSettings _playerSettings;
+    [SerializeField] private Animator _animator;
     private CharacterController _controller;
-    private GameObject _mainCamera;
     private InputHandler _playerInput;
+
+    public PlayerSettings PlayerSettings {get { return _playerSettings; } set { _playerSettings = value;}}
+    public Animator Animator {get { return _animator; } set { _animator = value;}}
+    public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
+    public GameObject MainCamera  {get { return _mainCamera; } set { _mainCamera = value;}}
+    public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
     #endregion
 
-    #region Runtime Attributes
+    #region State Machine
     private PlayerState _currentState;
     private PlayerStateFactory _states;
 
+    public PlayerState CurrentState {get { return _currentState; }  set { _currentState = value; }}
+    #endregion
+
+    #region Runtime Attributes
     // Player
     private float _targetSpeed;
     private float _speed;
@@ -34,39 +41,29 @@ public class Player : MonoBehaviour {
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
 
-    // Jump
-    private float _jumpTimeoutDelta;
-    private float _fallTimeoutDelta;
-    #endregion
-
-    #region Getters and Setters
-    public PlayerSettings PlayerSettings {get { return _playerSettings; } set { _playerSettings = value;}}
-    public Animator Animator {get { return _animator; } set { _animator = value;}}
-    public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
-    public GameObject MainCamera  {get { return _mainCamera; } set { _mainCamera = value;}}
-    public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
-
-    public PlayerState CurrentState {get { return _currentState; }  set { _currentState = value; }}
-
     public float TargetSpeed  {get { return _targetSpeed; }  set { _targetSpeed = value; }}
     public float Speed  {get { return _speed; }  set { _speed = value; }}
     public float TargetRotation  {get { return _targetRotation; }  set { _targetRotation = value; }}
     public float RotationVelocity {get { return _rotationVelocity; }  set { _rotationVelocity = value; }}
     public float VerticalVelocity {get { return _verticalVelocity; }  set { _verticalVelocity = value; }}
     public float TerminalVelocity  {get { return _terminalVelocity; }  set { _terminalVelocity = value; }}
-    
-    public float JumpTimeoutDelta {get { return _jumpTimeoutDelta; }  set { _jumpTimeoutDelta = value; }}
-    public float FallTimeoutDelta  {get { return _fallTimeoutDelta; }  set { _fallTimeoutDelta = value; }}
+    #endregion
+
+    #region Player Status
+    [SerializeField] private HealthEvent _healthEvent; 
+    private int _currentHealth = 700;
+    private int _maxHealth = 700;
     #endregion
 
     private void Awake() {
+        // External Components needed
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
 
+        // Player Controller
         _controller = GetComponent<CharacterController>();
-        _playerInput = GetComponent<InputHandler>();
-        _jumpTimeoutDelta = _playerSettings.JumpTimeout;
-        _fallTimeoutDelta = _playerSettings.FallTimeout;
 
+        // State Machine
         _states = new PlayerStateFactory(this);
         _currentState = _states.Grounded();
         _currentState.EnterState();
@@ -78,6 +75,11 @@ public class Player : MonoBehaviour {
         CalculateSpeed();
         Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
         _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+    }
+
+    public void TakeDamage() {
+        _currentHealth -= 100;
+        if(_currentHealth > 0) _healthEvent?.Invoke(_currentHealth, _maxHealth);
     }
 
     private void LateUpdate() {

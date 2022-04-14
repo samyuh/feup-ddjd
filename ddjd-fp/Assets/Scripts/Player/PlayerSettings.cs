@@ -20,12 +20,6 @@ public class PlayerSettings : ScriptableObject {
     [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
     public float Gravity = -15.0f;
 
-    [Space(10)]
-    [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
-    public float JumpTimeout = 0.50f;
-    [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
-    public float FallTimeout = 0.15f;
-
     [Header("Player Grounded")]
     [Tooltip("Useful for rough ground")]
     public float GroundedOffset = -0.14f;
