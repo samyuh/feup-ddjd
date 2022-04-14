@@ -8,6 +8,7 @@ TagManager:
   - HealthBar
   - Crystal
   - CrystalBar
+  - PlayerCameraTarget
   layers:
   - Default
   - TransparentFX

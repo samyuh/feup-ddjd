@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour {
     #region Camera
     private GameObject _mainCamera;
-    [SerializeField] private GameObject _cinemachineCameraTarget;
+    private GameObject _cinemachineCameraTarget;
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
     private const float _threshold = 0.01f;
@@ -57,6 +57,7 @@ public class Player : MonoBehaviour {
     private void Awake() {
         // External Components needed
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _cinemachineCameraTarget = GameObject.FindGameObjectWithTag("PlayerCameraTarget");
         _playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
 
         // Player Controller
@@ -77,7 +78,7 @@ public class Player : MonoBehaviour {
     public void TakeDamage() {
         _currentHealth -= 100;
 
-        if (_currentHealth < 0) Events.OnDeath.Invoke(_currentHealth, _maxHealth);
+        if (_currentHealth < 0) Events.OnDeath.Invoke();
         else Events.OnHealthUpdate.Invoke(_currentHealth, _maxHealth);
     }
 
@@ -138,32 +139,25 @@ public class Player : MonoBehaviour {
     }
     #endregion 
 
+    // TODO: 
+    // Create a Substate to catch
+    // Instead of collider, raycast a sphere
     public void OnTriggerStay(Collider other) {
-        if (other.gameObject.tag == "Health") {
-            Debug.Log("Press E to pick up Health");
-
-            if (_playerInput.interact) {
-                Debug.Log("Player picked up Health");
-                other.gameObject.SetActive(false);
-            }
-        }
-        else if (other.gameObject.tag == "Crystal") {
-            Debug.Log("Press E to pick up Crystal");
-            
-            if (_playerInput.interact) {
-                Debug.Log("Player picked up Crystal");
-                //NumberofCrystals++;
-                //Debug.Log("Player has " + NumberofCrystals + " crystals");
-                other.gameObject.SetActive(false);
+        if (_playerInput.interact) {
+            if (other.gameObject.tag == "Health") {
+                Events.OnCatchHealthPlant.Invoke();
+                Destroy(other.gameObject);
+            } 
+            else if (other.gameObject.tag == "Crystal") {
+                Events.OnCatchCrystal.Invoke();
+                Destroy(other.gameObject);
             }
         }
     }
 
-    #region Debug
     private void OnDrawGizmosSelected() {
         // Attack Shepere
-        //Vector3 spherePosition = new Vector3(transform.position.x + 1.616f * transform.TransformDirection(Vector3.forward).x, 0.515f, transform.position.z + 1.616f * transform.TransformDirection(Vector3.forward).z) ;
-        //Gizmos.DrawSphere(spherePosition, 0.9f);
+        Vector3 spherePosition = new Vector3(transform.position.x + 1.616f * transform.TransformDirection(Vector3.forward).x, 0.515f, transform.position.z + 1.616f * transform.TransformDirection(Vector3.forward).z) ;
+        Gizmos.DrawSphere(spherePosition, 0.9f);
     }
-    #endregion
 }

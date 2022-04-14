@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour {
 
     #region Camera
     private GameObject _mainCamera;
-    public GameObject MainCamera  { get { return _mainCamera; } set { _mainCamera = value;} }
     #endregion
 
     #region Player
@@ -29,6 +28,8 @@ public class GameManager : MonoBehaviour {
         _input = GetComponent<InputHandler>();
 
         Events.OnHealthUpdate.AddListener(HealthUpdate);
+        Events.OnCatchHealthPlant.AddListener(CatchHealthPlant);
+        Events.OnCatchCrystal.AddListener(CatchCrystal);
     }
 
     private void HealthUpdate(int currentHealth, int maxHealth) {
@@ -36,7 +37,13 @@ public class GameManager : MonoBehaviour {
         _data.MaxHealth = maxHealth;
     }
 
-    private void PlayerDeath() {
-        // Restore last checkpoint
+    private void CatchHealthPlant() {
+       _data.NumHealthPlants += 1;
+       Debug.Log("Collected Health Plant");
+    }
+
+    private void CatchCrystal() {
+        _data.NumCrystals += 1;
+        Debug.Log("Collected Crystal");
     }
 }

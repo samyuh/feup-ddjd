@@ -5,13 +5,13 @@ using UnityEngine;
 
 public static class Events {
     // Player Events
-    public static readonly EventNative<int, int> OnSpawn = new EventNative<int, int>();
-    public static readonly EventNative<int, int> OnDeath = new EventNative<int, int>();
-    
-    public static readonly EventNative<int, int> OnTakeDamage = new EventNative<int, int>();
-    public static readonly EventNative<int, int> OnCatchCrystal = new EventNative<int, int>();
-    public static readonly EventNative<int, int> OnCatchHealthPlant = new EventNative<int, int>();
+    public static readonly EventNative OnSpawn = new EventNative(); // TODO
+    public static readonly EventNative OnDeath = new EventNative(); // TODO
+    public static readonly EventNative<int> OnTakeDamage = new EventNative<int>(); // TODO
     public static readonly EventNative<int, int> OnHealthUpdate = new EventNative<int, int>();
+
+    public static readonly EventNative OnCatchCrystal = new EventNative();
+    public static readonly EventNative OnCatchHealthPlant = new EventNative();
 
     // Input Events
     public static readonly EventNative OnInteract = new EventNative();
