@@ -23,21 +23,20 @@ public class GameManager : MonoBehaviour {
     public InputHandler Input { get { return _input; } set { _input = value;} }
     #endregion
 
-    #region UI
-    private Slider _healthBar;
-    #endregion
-
     private void Awake() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         _player = GameObject.FindGameObjectWithTag("Player");
-        _healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
-
         _input = GetComponent<InputHandler>();
+
+        Events.OnHealthUpdate.AddListener(HealthUpdate);
     }
 
-    public void HealthUpdate(int currentHealth, int maxHealth) {
-        _healthBar.value = (float) currentHealth/ (float) maxHealth;
+    private void HealthUpdate(int currentHealth, int maxHealth) {
         _data.CurrentHealth = currentHealth;
         _data.MaxHealth = maxHealth;
+    }
+
+    private void PlayerDeath() {
+        // Restore last checkpoint
     }
 }

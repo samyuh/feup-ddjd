@@ -9,6 +9,7 @@ public class GameData: ScriptableObject {
 
         public int currentHealth;
         public int maxHealth;
+        
         public int numCrystals;
         
         public static Data GetInstance() {
@@ -22,6 +23,7 @@ public class GameData: ScriptableObject {
                 // Initialize Values
                 _instance.currentHealth = 0;
                 _instance.maxHealth = 0;
+
                 _instance.numCrystals = 0;
             }
 
