@@ -4,87 +4,42 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour {
-    #region Public Data
-    [Header("Player")]
-    public float MoveSpeed = 2.0f;
-    public float SprintSpeed = 5.335f;
-    public int NumberofCrystals = 0;
-
-    [Tooltip("How fast the character turns to face movement direction")]
-    [Range(0.0f, 0.3f)]
-    public float RotationSmoothTime = 0.12f;
-    [Tooltip("Acceleration and deceleration")]
-    public float SpeedChangeRate = 10.0f;
-
-    [Space(10)]
-    [Tooltip("The height the player can jump")]
-    public float JumpHeight = 1.2f;
-    [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
-    public float Gravity = -15.0f;
-
-    [Space(10)]
-    [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
-    public float JumpTimeout = 0.50f;
-    [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
-    public float FallTimeout = 0.15f;
-
-    [Header("Player Grounded")]
-    public bool Grounded = true;
-    [Tooltip("Useful for rough ground")]
-    public float GroundedOffset = -0.14f;
-    [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
-    public float GroundedRadius = 0.28f;
-    [Tooltip("What layers the character uses as ground")]
-    public LayerMask GroundLayers;
-
-    [Header("Cinemachine")]
-    [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
-    public GameObject CinemachineCameraTarget;
-    [Tooltip("How far in degrees can you move the camera up")]
-    public float TopClamp = 70.0f;
-    [Tooltip("How far in degrees can you move the camera down")]
-    public float BottomClamp = -30.0f;
-    [Tooltip("Additional degress to override the camera. Useful for fine tuning camera position when locked")]
-    public float CameraAngleOverride = 0.0f;
-    [Tooltip("For locking the camera position on all axis")]
-    public bool LockCameraPosition = false;
-    #endregion
-
     #region Camera
+    private GameObject _mainCamera;
+    [SerializeField] private GameObject _cinemachineCameraTarget;
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
     private const float _threshold = 0.01f;
     #endregion
 
-    #region GameObjects
+    #region Game Objects
+    [SerializeField] private PlayerSettings _playerSettings;
+    [SerializeField] private Animator _animator;
     private CharacterController _controller;
-    private GameObject _mainCamera;
-    private InputHandler _playerInput;    
+    private InputHandler _playerInput;
+
+    public PlayerSettings PlayerSettings {get { return _playerSettings; } set { _playerSettings = value;}}
+    public Animator Animator {get { return _animator; } set { _animator = value;}}
+    public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
+    public GameObject MainCamera  {get { return _mainCamera; } set { _mainCamera = value;}}
+    public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
     #endregion
 
-    #region Runtime Attributes
+    #region State Machine
     private PlayerState _currentState;
     private PlayerStateFactory _states;
 
+    public PlayerState CurrentState {get { return _currentState; }  set { _currentState = value; }}
+    #endregion
+
+    #region Runtime Attributes
     // Player
     private float _targetSpeed;
-
     private float _speed;
     private float _targetRotation = 0.0f;
     private float _rotationVelocity;
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
-
-    // Jump
-    private float _jumpTimeoutDelta;
-    private float _fallTimeoutDelta;
-    #endregion
-
-    #region Getters and Setters
-    public CharacterController Controller  { get { return _controller; } set { _controller = value;} }
-    public GameObject MainCamera  { get { return _mainCamera; } set { _mainCamera = value;} }
-    public InputHandler PlayerInput { get { return _playerInput; } set { _playerInput = value;} }
-    public PlayerState CurrentState {get { return _currentState; }  set { _currentState = value; }}
 
     public float TargetSpeed  {get { return _targetSpeed; }  set { _targetSpeed = value; }}
     public float Speed  {get { return _speed; }  set { _speed = value; }}
@@ -92,20 +47,23 @@ public class Player : MonoBehaviour {
     public float RotationVelocity {get { return _rotationVelocity; }  set { _rotationVelocity = value; }}
     public float VerticalVelocity {get { return _verticalVelocity; }  set { _verticalVelocity = value; }}
     public float TerminalVelocity  {get { return _terminalVelocity; }  set { _terminalVelocity = value; }}
-    
-    public float JumpTimeoutDelta {get { return _jumpTimeoutDelta; }  set { _jumpTimeoutDelta = value; }}
-    public float FallTimeoutDelta  {get { return _fallTimeoutDelta; }  set { _fallTimeoutDelta = value; }}
+    #endregion
+
+    #region Player Status
+    [SerializeField] private HealthEvent _healthEvent; 
+    private int _currentHealth = 700;
+    private int _maxHealth = 700;
     #endregion
 
     private void Awake() {
+        // External Components needed
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
 
+        // Player Controller
         _controller = GetComponent<CharacterController>();
-        _playerInput = GetComponent<InputHandler>();
 
-        _jumpTimeoutDelta = JumpTimeout;
-        _fallTimeoutDelta = FallTimeout;
-
+        // State Machine
         _states = new PlayerStateFactory(this);
         _currentState = _states.Grounded();
         _currentState.EnterState();
@@ -119,21 +77,26 @@ public class Player : MonoBehaviour {
         _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
     }
 
+    public void TakeDamage() {
+        _currentHealth -= 100;
+        if(_currentHealth > 0) _healthEvent?.Invoke(_currentHealth, _maxHealth);
+    }
+
     private void LateUpdate() {
 		CameraRotation();
 	}
 
     #region Camera
     private void CameraRotation() {
-        if (_playerInput.look.sqrMagnitude >= _threshold && !LockCameraPosition) {
+        if (_playerInput.look.sqrMagnitude >= _threshold && !_playerSettings.LockCameraPosition) {
             _cinemachineTargetYaw += _playerInput.look.x;
             _cinemachineTargetPitch += _playerInput.look.y;
         }
 
         _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
-        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
+        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, _playerSettings.BottomClamp, _playerSettings.TopClamp);
 
-        CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
+        _cinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + _playerSettings.CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
     }
 
     private static float ClampAngle(float ifAngle, float ifMin, float ifMax) {
@@ -144,9 +107,9 @@ public class Player : MonoBehaviour {
     #endregion
 
     #region Player State Functions
-    public void GroundedCheck() {
-        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-        Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+    public bool GroundedCheck() {
+        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - _playerSettings.GroundedOffset, transform.position.z);
+        return Physics.CheckSphere(spherePosition, _playerSettings.GroundedRadius, _playerSettings.GroundLayers, QueryTriggerInteraction.Ignore);
     }
 
     public void CalculateSpeed() {
@@ -154,7 +117,7 @@ public class Player : MonoBehaviour {
         float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
         
         if (currentHorizontalSpeed < _targetSpeed - speedOffset || currentHorizontalSpeed > _targetSpeed + speedOffset) {
-            _speed = Mathf.Lerp(currentHorizontalSpeed, _targetSpeed, Time.deltaTime * SpeedChangeRate);
+            _speed = Mathf.Lerp(currentHorizontalSpeed, _targetSpeed, Time.deltaTime * _playerSettings.SpeedChangeRate);
             _speed = Mathf.Round(_speed * 1000f) / 1000f;
         }
         else {
@@ -166,12 +129,12 @@ public class Player : MonoBehaviour {
         Vector3 inputDirection = new Vector3(_playerInput.move.x, 0.0f, _playerInput.move.y).normalized;
         if (_playerInput.move != Vector2.zero) {
             _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
-            float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, RotationSmoothTime);
+            float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, _playerSettings.RotationSmoothTime);
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
         }
     }
+    #endregion 
 
-    //Collect Items
     public void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Health") {
             Debug.Log("Press E to pick up Health");
@@ -186,11 +149,18 @@ public class Player : MonoBehaviour {
             
             if (_playerInput.interact) {
                 Debug.Log("Player picked up Crystal");
-                NumberofCrystals++;
-                Debug.Log("Player has " + NumberofCrystals + " crystals");
+                //NumberofCrystals++;
+                //Debug.Log("Player has " + NumberofCrystals + " crystals");
                 other.gameObject.SetActive(false);
             }
         }
     }
-    #endregion 
+
+    #region Debug
+    private void OnDrawGizmosSelected() {
+        // Attack Shepere
+        //Vector3 spherePosition = new Vector3(transform.position.x + 1.616f * transform.TransformDirection(Vector3.forward).x, 0.515f, transform.position.z + 1.616f * transform.TransformDirection(Vector3.forward).z) ;
+        //Gizmos.DrawSphere(spherePosition, 0.9f);
+    }
+    #endregion
 }

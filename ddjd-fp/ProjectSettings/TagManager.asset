@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Health
+  - HealthBar
   - Crystal
+  - CrystalBar
   layers:
   - Default
   - TransparentFX

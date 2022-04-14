@@ -10,31 +10,25 @@ public class PlayerJumpState : PlayerState {
     }
 
     public override void EnterState() {
-        Debug.Log("Player is flyiing yayy");
-        _context.VerticalVelocity = Mathf.Sqrt(_context.JumpHeight * -2f * _context.Gravity);
+        Debug.Log("Jumping");
+    }
+
+    public override void ExitState() {
+        Debug.Log("Player left Jumping and now is");
     }
 
     public override void UpdateState() {
-        _context.JumpTimeoutDelta = _context.JumpTimeout;
-
-        if (_context.FallTimeoutDelta >= 0.0f) {
-            _context.FallTimeoutDelta -= Time.deltaTime;
-        }
-
         if (_context.VerticalVelocity < _context.TerminalVelocity) {
-            _context.VerticalVelocity += _context.Gravity * Time.deltaTime;
+            _context.VerticalVelocity += _context.PlayerSettings.Gravity * Time.deltaTime;
         }
 
         _context.PlayerInput.jump = false;
-        _context.GroundedCheck();
 
-        CheckSwitchState(); // Check this only after 0.5 seconds
+        CheckSwitchState();
     }
 
-    public override void ExitState() {}
-
 	public override void CheckSwitchState() {
-        if (_context.Grounded) {
+        if (_context.GroundedCheck()) {
             SwitchState(_factory.Grounded());
         }
     }

@@ -7,13 +7,11 @@ public class PlayerIdleState : PlayerState {
     : base (currentContext, playerStateFactory) {}
 
     public override void EnterState() {
+        Debug.Log("Start Idle");
         _context.TargetSpeed = 0f;
-        //Debug.Log("Player is idle yayy");
     }
 
-    public override void ExitState() {
-        //Debug.Log("Player stoped idle");
-    }
+    public override void ExitState() {}
 
     public override void UpdateState() {
         CheckSwitchState();
@@ -22,6 +20,8 @@ public class PlayerIdleState : PlayerState {
 	public override void CheckSwitchState() {
         if (_context.PlayerInput.move != Vector2.zero) {
             SwitchState(_factory.Walk());
-        } 
+        } else if (_context.PlayerInput.meleeAttack) {
+            SwitchState(_factory.Attack());
+        }
     }
 }
