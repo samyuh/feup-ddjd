@@ -11,12 +11,17 @@ public abstract class PlayerState {
 		_factory = playerStateFactory;
 	}
 
+	public void UpdateStates() {
+		UpdateState();
+
+		_currentSubState?.UpdateStates();
+	}
+
 	protected void SwitchState(PlayerState newState) {
 		ExitState();
 
-		newState.EnterState();
-
 		if (_isRootState) {
+			newState.EnterState();
 			_context.CurrentState = newState;
 		} else if (_currentSuperState != null) {
 			_currentSuperState.SetSubState(newState);
@@ -28,16 +33,10 @@ public abstract class PlayerState {
 	}
 
 	protected void SetSubState(PlayerState newSubState) {
-		_currentSubState = newSubState;
 		newSubState.EnterState();
-
+		
+		_currentSubState = newSubState;
 		newSubState.SetSuperState(this);
-	}
-
-	public void UpdateStates() {
-		UpdateState();
-
-		_currentSubState?.UpdateStates();
 	}
 
 	public abstract void EnterState();

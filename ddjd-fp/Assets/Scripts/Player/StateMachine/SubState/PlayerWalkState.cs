@@ -7,24 +7,26 @@ public class PlayerWalkState : PlayerState {
     : base (currentContext, playerStateFactory) {}
 
     public override void EnterState() {
-        _context.TargetSpeed = _context.MoveSpeed;
-
-       // Debug.Log("Player is walking yayy");
+        Debug.Log("Start Walk");
+        _context.TargetSpeed = _context.PlayerSettings.MoveSpeed;
+        _context.Animator.SetBool("Walk", true);
     }
 
     public override void ExitState() {
-       // Debug.Log("Player stoped walking");
+        _context.TargetSpeed = 0f;
+        _context.Animator.SetBool("Walk", false);
     }
 
     public override void UpdateState() {
         _context.Move();
-
         CheckSwitchState();
     }
 
 	public override void CheckSwitchState() {
         if (_context.PlayerInput.move == Vector2.zero) {
             SwitchState(_factory.Idle());
-        } 
+        } else if (_context.PlayerInput.meleeAttack) {
+            SwitchState(_factory.Attack());
+        }
     }
 }
