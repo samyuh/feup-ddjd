@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        transform.LookAt(player.transform);
         RaycastHit hit;
         if(Physics.Raycast(transform.position, player.transform.position - transform.position, out hit)){
 
