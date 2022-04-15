@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+public abstract class Enemy{
 
-public class Enemy : MonoBehaviour {
-    // Start is called before the first frame update
-    void Start() {
-        
+    private int _hp;
+
+    public Enemy(int hp = 5){
+        _hp = hp;
     }
 
-    // Update is called once per frame
-    void Update() {
-        
-    }
+    protected abstract void Attack();
+
 }
