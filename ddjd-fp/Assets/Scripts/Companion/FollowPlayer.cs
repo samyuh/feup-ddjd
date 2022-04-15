@@ -2,46 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
-{   
-
+public class FollowPlayer : MonoBehaviour {   
     public float moveSpeed = 0.025f;
     public float stopDistance = 0.25f;
     public float followDistance = 3f;
     
-    private bool move = false;
-    private float distance;
-    private GameObject player;
+    private GameObject _target;
 
-    // Start is called before the first frame update
-    void Start(){
-        player = GameObject.Find("Player");
+    private void Start(){
+        _target = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
-    void Update() {
-        transform.LookAt(player.transform.position);
+    private void Update() {
+        transform.LookAt(_target.transform.position);
         
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit)){
-            distance = hit.distance;
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hit)) {
+            float distance = hit.distance;
 
-            Debug.Log(distance);
-
-            // Only follow after a certain distance from the player
-            // Follows the player until its close to his head
-            if(!move && distance > followDistance) move = true;
-            else if(distance < stopDistance) move = false;
-            
-            Move();
+            // Only follow after a certain _distance from the _target
+            // Follows the _target until its close to his head
+            if (distance > followDistance) Move();
         }
     }
 
-    private void Move(){
-        // Value is hard coded for 1f vertical to be placed aproxximately in the player's head (should change de code or the value if you wish to scale the player size)
-        if(move) transform.position = Vector3.MoveTowards(transform.position,player.transform.position + new Vector3(0f,1f,0f) ,moveSpeed);
+    private void Move() {
+        // Value is hard coded for 1f vertical to be placed aproxximately in the _target's head (should change de code or the value if you wish to scale the _target size)
+        transform.position = Vector3.MoveTowards(transform.position,_target.transform.position + new Vector3(0f, 1f, 0f) ,moveSpeed);
     }
-
-
-    
 }
