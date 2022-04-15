@@ -19,13 +19,11 @@ public class FollowPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
-        
+    void Update() {
         transform.LookAt(player.transform.position);
         
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit)){
-
             distance = hit.distance;
 
             Debug.Log(distance);

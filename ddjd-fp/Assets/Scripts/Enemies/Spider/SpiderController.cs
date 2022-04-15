@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
-    // Player movement script
-
-
+public class SpiderController : MonoBehaviour {
     private float MoveSpeed { get; } = 3.8f;
     private float RotSpeed { get; } = 80.0f;
 
@@ -15,26 +11,20 @@ public class PlayerController : MonoBehaviour
 
     private GameObject player;
 
-    void Start(){
-
+    void Start() {
         player = GameObject.Find("Player");
-        
-
     }
 
-    void Update()
-    {
-
+    void Update() {
         transform.LookAt(player.transform);
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position, player.transform.position - transform.position, out hit)){
 
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, player.transform.position - transform.position, out hit)) {
             distance = hit.distance;
 
-            if(distance >= minDistance){
-                transform.position = Vector3.MoveTowards(transform.position,player.transform.position,0.03f);
+            if (distance >= minDistance){
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.02f);
             }
-
         }
         // Handle keyboard control
         // This loop competes with AdjustBodyTransform() in LegController script to properly postion the body transform
