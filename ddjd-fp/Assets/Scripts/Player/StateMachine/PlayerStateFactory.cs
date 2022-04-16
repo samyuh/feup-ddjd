@@ -5,7 +5,7 @@ public class PlayerStateFactory {
         _context = currentContext;
     }
 
-    #region Root States
+    #region Super States
     public PlayerState Grounded() {
         return new PlayerGroundedState(_context, this);
     }

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour {
     #region Camera
     private GameObject _mainCamera;
-    [SerializeField] private GameObject _cinemachineCameraTarget;
+    private GameObject _cinemachineCameraTarget;
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
     private const float _threshold = 0.01f;
@@ -50,7 +50,6 @@ public class Player : MonoBehaviour {
     #endregion
 
     #region Player Status
-    [SerializeField] private HealthEvent _healthEvent; 
     private int _currentHealth = 700;
     private int _maxHealth = 700;
     #endregion
@@ -58,6 +57,7 @@ public class Player : MonoBehaviour {
     private void Awake() {
         // External Components needed
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _cinemachineCameraTarget = GameObject.FindGameObjectWithTag("PlayerCameraTarget");
         _playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
 
         // Player Controller
@@ -72,14 +72,14 @@ public class Player : MonoBehaviour {
     private void Update() {
         _currentState.UpdateStates();
 
-        CalculateSpeed();
-        Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
-        _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+        UpdatePlayerPosition();
     }
 
     public void TakeDamage() {
         _currentHealth -= 100;
-        if(_currentHealth > 0) _healthEvent?.Invoke(_currentHealth, _maxHealth);
+
+        if (_currentHealth < 0) Events.OnDeath.Invoke();
+        else Events.OnHealthUpdate.Invoke(_currentHealth, _maxHealth);
     }
 
     private void LateUpdate() {
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour {
         return Physics.CheckSphere(spherePosition, _playerSettings.GroundedRadius, _playerSettings.GroundLayers, QueryTriggerInteraction.Ignore);
     }
 
-    public void CalculateSpeed() {
+    public void UpdatePlayerPosition() {
         float speedOffset = 0.1f;
         float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
         
@@ -123,10 +123,14 @@ public class Player : MonoBehaviour {
         else {
             _speed = _targetSpeed;
         }
+
+        Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+        _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
     }
 
   public void Move() {
         Vector3 inputDirection = new Vector3(_playerInput.move.x, 0.0f, _playerInput.move.y).normalized;
+        
         if (_playerInput.move != Vector2.zero) {
             _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
             float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, _playerSettings.RotationSmoothTime);
@@ -135,11 +139,25 @@ public class Player : MonoBehaviour {
     }
     #endregion 
 
-    #region Debug
+    // TODO: 
+    // Create a Substate to catch
+    // Instead of collider, raycast a sphere
+    public void OnTriggerStay(Collider other) {
+        if (_playerInput.interact) {
+            if (other.gameObject.tag == "Health") {
+                Events.OnCatchHealthPlant.Invoke();
+                Destroy(other.gameObject);
+            } 
+            else if (other.gameObject.tag == "Crystal") {
+                Events.OnCatchCrystal.Invoke();
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
     private void OnDrawGizmosSelected() {
         // Attack Shepere
-        //Vector3 spherePosition = new Vector3(transform.position.x + 1.616f * transform.TransformDirection(Vector3.forward).x, 0.515f, transform.position.z + 1.616f * transform.TransformDirection(Vector3.forward).z) ;
-        //Gizmos.DrawSphere(spherePosition, 0.9f);
+        Vector3 spherePosition = new Vector3(transform.position.x + 1.616f * transform.TransformDirection(Vector3.forward).x, 0.515f, transform.position.z + 1.616f * transform.TransformDirection(Vector3.forward).z) ;
+        Gizmos.DrawSphere(spherePosition, 0.9f);
     }
-    #endregion
 }

@@ -1,5 +1,7 @@
+
+
 public abstract class PlayerState {
-	protected bool _isRootState = false;
+	protected bool _isSuperState = false;
 
 	protected Player _context;
 	protected PlayerStateFactory _factory;
@@ -11,6 +13,7 @@ public abstract class PlayerState {
 		_factory = playerStateFactory;
 	}
 
+	#region Update State
 	public void UpdateStates() {
 		UpdateState();
 
@@ -20,7 +23,7 @@ public abstract class PlayerState {
 	protected void SwitchState(PlayerState newState) {
 		ExitState();
 
-		if (_isRootState) {
+		if (_isSuperState) {
 			newState.EnterState();
 			_context.CurrentState = newState;
 		} else if (_currentSuperState != null) {
@@ -38,7 +41,9 @@ public abstract class PlayerState {
 		_currentSubState = newSubState;
 		newSubState.SetSuperState(this);
 	}
-
+	#endregion
+	
+	#region State Methods
 	public abstract void EnterState();
 
 	public abstract void UpdateState();
@@ -48,4 +53,5 @@ public abstract class PlayerState {
 	public abstract void CheckSwitchState();
 
 	protected virtual void InitializeSubState() {}
+	#endregion
 }

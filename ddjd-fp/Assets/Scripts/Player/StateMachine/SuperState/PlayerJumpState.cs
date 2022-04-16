@@ -5,26 +5,24 @@ using UnityEngine;
 public class PlayerJumpState : PlayerState {
     public PlayerJumpState(Player currentContext, PlayerStateFactory playerStateFactory) 
     : base (currentContext, playerStateFactory) {
-        _isRootState = true;
+        _isSuperState = true;
         InitializeSubState();
     }
 
     public override void EnterState() {
-        Debug.Log("Jumping");
-    }
+         _context.PlayerInput.jump = false;
+     }
 
     public override void ExitState() {
-        Debug.Log("Player left Jumping and now is");
+        _context.PlayerInput.jump = false;
     }
 
     public override void UpdateState() {
+        CheckSwitchState();
+
         if (_context.VerticalVelocity < _context.TerminalVelocity) {
             _context.VerticalVelocity += _context.PlayerSettings.Gravity * Time.deltaTime;
         }
-
-        _context.PlayerInput.jump = false;
-
-        CheckSwitchState();
     }
 
 	public override void CheckSwitchState() {

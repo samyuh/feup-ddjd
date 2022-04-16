@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour {
 
     #region Camera
     private GameObject _mainCamera;
-    public GameObject MainCamera  { get { return _mainCamera; } set { _mainCamera = value;} }
     #endregion
 
     #region Player
@@ -23,21 +22,28 @@ public class GameManager : MonoBehaviour {
     public InputHandler Input { get { return _input; } set { _input = value;} }
     #endregion
 
-    #region UI
-    private Slider _healthBar;
-    #endregion
-
     private void Awake() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         _player = GameObject.FindGameObjectWithTag("Player");
-        _healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
-
         _input = GetComponent<InputHandler>();
+
+        Events.OnHealthUpdate.AddListener(HealthUpdate);
+        Events.OnCatchHealthPlant.AddListener(CatchHealthPlant);
+        Events.OnCatchCrystal.AddListener(CatchCrystal);
     }
 
-    public void HealthUpdate(int currentHealth, int maxHealth) {
-        _healthBar.value = (float) currentHealth/ (float) maxHealth;
+    private void HealthUpdate(int currentHealth, int maxHealth) {
         _data.CurrentHealth = currentHealth;
         _data.MaxHealth = maxHealth;
+    }
+
+    private void CatchHealthPlant() {
+       _data.NumHealthPlants += 1;
+       Debug.Log("Collected Health Plant");
+    }
+
+    private void CatchCrystal() {
+        _data.NumCrystals += 1;
+        Debug.Log("Collected Crystal");
     }
 }

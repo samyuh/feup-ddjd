@@ -9,6 +9,7 @@ public class GameData: ScriptableObject {
 
         public int currentHealth;
         public int maxHealth;
+        public int numHealthPlants;
         public int numCrystals;
         
         public static Data GetInstance() {
@@ -22,6 +23,7 @@ public class GameData: ScriptableObject {
                 // Initialize Values
                 _instance.currentHealth = 0;
                 _instance.maxHealth = 0;
+                _instance.numHealthPlants = 0;
                 _instance.numCrystals = 0;
             }
 
@@ -36,7 +38,7 @@ public class GameData: ScriptableObject {
     #region Global Attributes
     public int CurrentHealth { get { return Data.GetInstance().currentHealth; } set { Data.GetInstance().currentHealth = value; } }
     public int MaxHealth { get { return Data.GetInstance().maxHealth; } set { Data.GetInstance().maxHealth = value; } }
-
+    public int NumHealthPlants { get { return Data.GetInstance().numHealthPlants; } set { Data.GetInstance().numHealthPlants = value; } }
     public int NumCrystals { get { return Data.GetInstance().numCrystals; } set { Data.GetInstance().numCrystals = value; } }
     #endregion
 }
