@@ -27,14 +27,4 @@ public class PlayerSettings : ScriptableObject {
     public float GroundedRadius = 0.28f;
     [Tooltip("What layers the character uses as ground")]
     public LayerMask GroundLayers;
-
-    [Header("Cinemachine")]
-    [Tooltip("How far in degrees can you move the camera up")]
-    public float TopClamp = 70.0f;
-    [Tooltip("How far in degrees can you move the camera down")]
-    public float BottomClamp = -30.0f;
-    [Tooltip("Additional degress to override the camera. Useful for fine tuning camera position when locked")]
-    public float CameraAngleOverride = 0.0f;
-    [Tooltip("For locking the camera position on all axis")]
-    public bool LockCameraPosition = false;
 }

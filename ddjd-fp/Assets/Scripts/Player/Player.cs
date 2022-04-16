@@ -4,13 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour {
-    #region Camera
     private GameObject _mainCamera;
-    private GameObject _cinemachineCameraTarget;
-    private float _cinemachineTargetYaw;
-    private float _cinemachineTargetPitch;
-    private const float _threshold = 0.01f;
-    #endregion
 
     #region Game Objects
     [SerializeField] private PlayerSettings _playerSettings;
@@ -28,8 +22,6 @@ public class Player : MonoBehaviour {
     #region State Machine
     public StateMachine StateMachine;
     public StateFactory StateFactory;
-
-    
     #endregion
 
     #region Runtime Attributes
@@ -57,8 +49,7 @@ public class Player : MonoBehaviour {
     private void Awake() {
         // External Components needed
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        _cinemachineCameraTarget = GameObject.FindGameObjectWithTag("PlayerCameraTarget");
-        _playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
+        PlayerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
 
         // Player Controller
         _controller = GetComponent<CharacterController>();
@@ -86,26 +77,6 @@ public class Player : MonoBehaviour {
 
         if (_currentHealth < 0) Events.OnDeath.Invoke();
         else Events.OnHealthUpdate.Invoke(_currentHealth, _maxHealth);
-    }
-    #endregion
-
-    #region Player Camera
-    public void CameraRotation() {
-        if (_playerInput.look.sqrMagnitude >= _threshold && !_playerSettings.LockCameraPosition) {
-            _cinemachineTargetYaw += _playerInput.look.x;
-            _cinemachineTargetPitch += _playerInput.look.y;
-        }
-
-        _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
-        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, _playerSettings.BottomClamp, _playerSettings.TopClamp);
-
-        _cinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + _playerSettings.CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
-    }
-
-    private static float ClampAngle(float ifAngle, float ifMin, float ifMax) {
-        if (ifAngle < -360f) ifAngle += 360f;
-        if (ifAngle > 360f) ifAngle -= 360f;
-        return Mathf.Clamp(ifAngle, ifMin, ifMax);
     }
     #endregion
 

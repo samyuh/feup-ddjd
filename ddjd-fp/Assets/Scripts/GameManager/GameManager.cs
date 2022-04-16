@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour {
 
     #region Camera
     private GameObject _mainCamera;
+    private Camera _targetCamera;
+    private PlayerCamera _playerCamera;
+    private PanoramicCamera _panoramicCamera;
     #endregion
 
     #region Player
@@ -19,21 +22,30 @@ public class GameManager : MonoBehaviour {
 
     #region Input
     private InputHandler _input;
-    public InputHandler Input { get { return _input; } set { _input = value;} }
     #endregion
 
     private void Awake() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _playerCamera = new PlayerCamera();
+        _panoramicCamera = new PanoramicCamera();
+
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         _input = GetComponent<InputHandler>();
 
-        Events.OnHealthUpdate.AddListener(HealthUpdate);
-        Events.OnCatchHealthPlant.AddListener(CatchHealthPlant);
-        Events.OnCatchCrystal.AddListener(CatchCrystal);
+        EnablePlayer();
     }
 
     private void LateUpdate() {
-        _player.CameraRotation();
+        _targetCamera.LateUpdateCamera(_input.look.sqrMagnitude, _input.look.x, _input.look.y);
+    }
+
+    #region Player
+    private void EnablePlayer() {
+        Events.OnHealthUpdate.AddListener(HealthUpdate);
+        Events.OnCatchHealthPlant.AddListener(CatchHealthPlant);
+        Events.OnCatchCrystal.AddListener(CatchCrystal);
+
+        _targetCamera = _playerCamera;
     }
 
     private void HealthUpdate(int currentHealth, int maxHealth) {
@@ -50,4 +62,5 @@ public class GameManager : MonoBehaviour {
         _data.NumCrystals += 1;
         Debug.Log("Collected Crystal");
     }
+    #endregion
 }

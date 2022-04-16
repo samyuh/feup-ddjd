@@ -30,7 +30,6 @@ public class InputHandler : MonoBehaviour {
         _inputAction = new InputController();
 
         EnablePlayerActions();
-        // EnableUIActions
     }
 
     private void EnablePlayerActions() {
