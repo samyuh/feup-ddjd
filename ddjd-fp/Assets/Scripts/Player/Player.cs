@@ -26,10 +26,10 @@ public class Player : MonoBehaviour {
     #endregion
 
     #region State Machine
-    private PlayerState _currentState;
-    private PlayerStateFactory _states;
+    public StateMachine StateMachine;
+    public StateFactory StateFactory;
 
-    public PlayerState CurrentState {get { return _currentState; }  set { _currentState = value; }}
+    
     #endregion
 
     #region Runtime Attributes
@@ -64,30 +64,33 @@ public class Player : MonoBehaviour {
         _controller = GetComponent<CharacterController>();
 
         // State Machine
-        _states = new PlayerStateFactory(this);
-        _currentState = _states.Grounded();
-        _currentState.EnterState();
+        StateMachine = new StateMachine(this);
+        StateFactory = new StateFactory(this, StateMachine);
+        
+        StateMachine.Initialize(StateFactory.IdleState);
     }
 
     private void Update() {
-        _currentState.UpdateStates();
+        StateMachine.CurrentState.LogicUpdate();
 
         UpdatePlayerPosition();
     }
 
+    private void FixedUpdate() {
+        StateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    #region Health
     public void ApplyDamage(int damage) {
         _currentHealth -= damage;
 
         if (_currentHealth < 0) Events.OnDeath.Invoke();
         else Events.OnHealthUpdate.Invoke(_currentHealth, _maxHealth);
     }
+    #endregion
 
-    private void LateUpdate() {
-		CameraRotation();
-	}
-
-    #region Camera
-    private void CameraRotation() {
+    #region Player Camera
+    public void CameraRotation() {
         if (_playerInput.look.sqrMagnitude >= _threshold && !_playerSettings.LockCameraPosition) {
             _cinemachineTargetYaw += _playerInput.look.x;
             _cinemachineTargetPitch += _playerInput.look.y;
@@ -106,7 +109,7 @@ public class Player : MonoBehaviour {
     }
     #endregion
 
-    #region Player State Functions
+    #region Player State
     public bool GroundedCheck() {
         Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - _playerSettings.GroundedOffset, transform.position.z);
         return Physics.CheckSphere(spherePosition, _playerSettings.GroundedRadius, _playerSettings.GroundLayers, QueryTriggerInteraction.Ignore);
@@ -128,16 +131,13 @@ public class Player : MonoBehaviour {
         _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
     }
 
-  public void Move() {
+    public void Move() {
         Vector3 inputDirection = new Vector3(_playerInput.move.x, 0.0f, _playerInput.move.y).normalized;
-        
-        if (_playerInput.move != Vector2.zero) {
-            _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
-            float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, _playerSettings.RotationSmoothTime);
-            transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
-        }
+
+        _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
+        float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, _playerSettings.RotationSmoothTime);
+        transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
     }
-    #endregion 
 
     // TODO: 
     // Create a Substate to catch
@@ -154,10 +154,5 @@ public class Player : MonoBehaviour {
             }
         }
     }
-
-    private void OnDrawGizmosSelected() {
-        // Attack Shepere
-        Vector3 spherePosition = new Vector3(transform.position.x + 1.616f * transform.TransformDirection(Vector3.forward).x, 0.515f, transform.position.z + 1.616f * transform.TransformDirection(Vector3.forward).z) ;
-        Gizmos.DrawSphere(spherePosition, 0.9f);
-    }
+    #endregion 
 }

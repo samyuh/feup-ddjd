@@ -4,57 +4,88 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour {
-    [Header("Character Input Values")]
-    public Vector2 move;
-    public Vector2 look;
-    public bool jump;
-    public bool interact;
-    public bool sprint;
-    public bool meleeAttack;
+    private InputController _inputAction;
 
-    [Header("Mouse Cursor Settings")]
-	public bool cursorLocked = true;
-	public bool cursorInputForLook = true;
+    #region Player Input Actions
+    private InputAction _playerMovement;
+    private InputAction _playerLook;
+    private InputAction _playerJump;
+    private InputAction _playerMeleeAttack;
+    private InputAction _playerInteract;
+    #endregion
 
-    public void OnDeviceRegained() {
-        Debug.Log("DeviceLost");
+    #region UI Input Actions
+    #endregion
+
+    #region Input Values
+    public Vector2 move {get; set;}
+    public Vector2 look {get; set;}
+    public bool jump {get; set;}
+    public bool interact {get; set;}
+    public bool sprint {get; set;}
+    public bool meleeAttack {get; set;}
+    #endregion
+    
+    private void Awake() {
+        _inputAction = new InputController();
+
+        EnablePlayerActions();
+        // EnableUIActions
     }
 
-    public void OnDeviceLost() {
-        Debug.Log("DeviceRegained");
+    private void EnablePlayerActions() {
+        _playerMovement = _inputAction.Player.Move;
+        _playerMovement.performed += OnMovement;
+        _playerMovement.canceled += OnMovement;
+        _playerMovement.Enable();
+
+        _playerLook = _inputAction.Player.Look;
+        _playerLook.performed += OnLook;
+        _playerLook.canceled += OnLook;
+        _playerLook.Enable();
+
+        _playerJump = _inputAction.Player.Jump;
+        _playerJump.performed += OnJump;
+        _playerJump.Enable();
+
+        _playerMeleeAttack = _inputAction.Player.MeleeAttack;
+        _playerMeleeAttack.performed += OnMeleeAttack;
+        _playerMeleeAttack.Enable();
+
+        _playerInteract = _inputAction.Player.Interact;
+        _playerInteract.performed += OnInteract;
+        _playerInteract.Enable();
     }
 
-    public void OnControlsChanged() {
-        Debug.Log("ControlsChanged");
+    private void Disable() {
+        
     }
 
-    public void OnLook(InputValue value) {
-        look = value.Get<Vector2>();
+    private void Rebind() {
+        // _playerJump.rebind("Gamepad/X");
+    }
+
+    private void OnMovement(InputAction.CallbackContext context) {
+        move = context.ReadValue<Vector2>();
+    }
+
+    private void OnLook(InputAction.CallbackContext context) {
+        look = context.ReadValue<Vector2>();
 	}
 
-    public void OnJump(InputValue value) {
-        jump = value.isPressed;
+    private void OnJump(InputAction.CallbackContext context) {
+        jump = true;
     }
     
-    #region Mouse
-    public void OnMeleeAttack(InputValue value) {
-        meleeAttack = value.isPressed;
+    private void OnMeleeAttack(InputAction.CallbackContext context) {
+        meleeAttack = true;
     }
 
-    public void OnMove(InputValue value) {
-        move = value.Get<Vector2>();
-    }
-
-    public void OnInteract(InputValue value){
-        interact = value.isPressed;
+    private void OnInteract(InputAction.CallbackContext context){
+        interact = true;
     }
 
     private void OnApplicationFocus(bool hasFocus) {
         Cursor.lockState =  CursorLockMode.Locked;
     }
-
-    private void SetCursorState(bool newState) {
-        Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
-    }
-    #endregion
 }

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region Player
-    private GameObject _player;
+    private Player _player;
     #endregion
 
     #region Input
@@ -24,12 +24,16 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         _input = GetComponent<InputHandler>();
 
         Events.OnHealthUpdate.AddListener(HealthUpdate);
         Events.OnCatchHealthPlant.AddListener(CatchHealthPlant);
         Events.OnCatchCrystal.AddListener(CatchCrystal);
+    }
+
+    private void LateUpdate() {
+        _player.CameraRotation();
     }
 
     private void HealthUpdate(int currentHealth, int maxHealth) {
