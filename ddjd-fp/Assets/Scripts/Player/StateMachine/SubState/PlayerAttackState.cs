@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttackGroundState : PlayerAbilityState {
-    public PlayerAttackGroundState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) 
-    : base (currentContext, playerStateFactory, stateFactory) {
-    }
+    public PlayerAttackGroundState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
+    base (currentContext, playerStateFactory, stateFactory) {}
 
     public override void EnterState() {
         base.EnterState();

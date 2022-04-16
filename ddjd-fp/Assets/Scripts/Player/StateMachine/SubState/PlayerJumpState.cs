@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJumpState : PlayerAbilityState {
-    public PlayerJumpState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) 
-    : base (currentContext, playerStateFactory, stateFactory) { }
+    public PlayerJumpState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory)  : 
+    base (currentContext, playerStateFactory, stateFactory) { }
 
     public override void EnterState() {
         base.EnterState();
@@ -25,5 +25,6 @@ public class PlayerJumpState : PlayerAbilityState {
 
     private void PerformJump() {
         _context.VerticalVelocity = Mathf.Sqrt(_context.PlayerSettings.JumpHeight * -2f * _context.PlayerSettings.Gravity);
+        _context.Move(0);
     }
 }
