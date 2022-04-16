@@ -21,15 +21,17 @@ public class PlayerInteractState : PlayerGroundState {
     public override void OnTriggerStay(Collider otherObject) {
         base.OnTriggerStay(otherObject);
 
-        if (_playerInput.interact) {
+        if (_context.PlayerInput.interact) {
             if (otherObject.gameObject.tag == "Health") {
                 Events.OnCatchHealthPlant.Invoke();
-                Destroy(other.gameObject);
+                _context.DestroyObject(otherObject.gameObject);
             } 
             else if (otherObject.gameObject.tag == "Crystal") {
                 Events.OnCatchCrystal.Invoke();
-                Destroy(other.gameObject);
+                _context.DestroyObject(otherObject.gameObject);
             }
+
+            _context.PlayerInput.interact = false;
         }
     }
 }

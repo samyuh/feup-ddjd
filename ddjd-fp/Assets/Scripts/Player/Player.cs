@@ -76,11 +76,11 @@ public class Player : MonoBehaviour {
         if (_playerInput.interact) {
             if (otherObject.gameObject.tag == "Health") {
                 Events.OnCatchHealthPlant.Invoke();
-                Destroy(other.gameObject);
+                Destroy(otherObject.gameObject);
             } 
             else if (otherObject.gameObject.tag == "Crystal") {
                 Events.OnCatchCrystal.Invoke();
-                Destroy(other.gameObject);
+                Destroy(otherObject.gameObject);
             }
         }
     }
@@ -95,6 +95,10 @@ public class Player : MonoBehaviour {
     #endregion
 
     #region Player State
+    public void DestroyObject(GameObject otherObject){
+        Destroy(otherObject);
+    }
+
     public bool GroundedCheck() {
         Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - _playerSettings.GroundedOffset, transform.position.z);
         return Physics.CheckSphere(spherePosition, _playerSettings.GroundedRadius, _playerSettings.GroundLayers, QueryTriggerInteraction.Ignore);

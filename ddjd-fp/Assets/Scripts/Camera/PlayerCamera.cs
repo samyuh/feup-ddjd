@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCamera : Camera {
+public class PlayerCamera : AbstractCamera {
     public float TopClamp = 70.0f;
     public float BottomClamp = -30.0f;
     public float CameraAngleOverride = 0.0f;

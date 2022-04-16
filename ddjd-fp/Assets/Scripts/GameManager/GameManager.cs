@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 
     #region Camera
     private GameObject _mainCamera;
-    private Camera _targetCamera;
+    private AbstractCamera _targetCamera;
     private PlayerCamera _playerCamera;
     private PanoramicCamera _panoramicCamera;
     #endregion
