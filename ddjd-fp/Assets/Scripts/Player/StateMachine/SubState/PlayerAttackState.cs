@@ -7,13 +7,13 @@ public class PlayerAttackState : PlayerState {
     : base (currentContext, playerStateFactory) {}
 
     public override void EnterState() {
-        _context.TakeDamage();
         _context.PlayerInput.meleeAttack = false;
         _context.Animator.SetBool("Attack", true);
-        DealDamage();
     }
 
     public override void ExitState() {
+        DealDamage();
+        _context.PlayerInput.meleeAttack = false;
         _context.Animator.SetBool("Attack", false);
     }
 
@@ -32,10 +32,13 @@ public class PlayerAttackState : PlayerState {
     private void DealDamage() {
         Vector3 spherePosition = new Vector3(_context.transform.position.x + 1.616f * _context.transform.TransformDirection(Vector3.forward).x, 0.515f, 
                                         _context.transform.position.z + 1.616f * _context.transform.TransformDirection(Vector3.forward).z);
-        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 0.9f);
+        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 3f);
 
         foreach (var hitCollider in hitColliders) {
             Debug.Log(hitCollider.gameObject.name);
+            if (hitCollider.gameObject.tag == "Enemy") {
+                hitCollider.gameObject.SendMessage("ApplyDamage", 100);
+            }
         }
     }
 }

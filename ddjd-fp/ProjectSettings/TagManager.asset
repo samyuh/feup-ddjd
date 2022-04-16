@@ -9,6 +9,7 @@ TagManager:
   - Crystal
   - CrystalBar
   - PlayerCameraTarget
+  - Enemy
   layers:
   - Default
   - TransparentFX
