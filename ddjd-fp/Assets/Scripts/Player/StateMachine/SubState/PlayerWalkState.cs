@@ -2,31 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWalkState : PlayerState {
-    public PlayerWalkState(Player currentContext, PlayerStateFactory playerStateFactory) 
-    : base (currentContext, playerStateFactory) {}
+public class PlayerWalkState : PlayerGroundState {
+    public PlayerWalkState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
+    base (currentContext, playerStateFactory, stateFactory) { }
 
     public override void EnterState() {
-        _context.TargetSpeed = _context.PlayerSettings.MoveSpeed;
+        base.EnterState();
         _context.Animator.SetBool("Walk", true);
-    }
+    }  
 
     public override void ExitState() {
-        _context.TargetSpeed = 0f;
         _context.Animator.SetBool("Walk", false);
+        base.ExitState();
     }
 
-    public override void UpdateState() {
-        CheckSwitchState();
+    public override void LogicUpdate() {
+        base.LogicUpdate();
 
-        _context.Move();
-    }
-
-	public override void CheckSwitchState() {
-        if (_context.PlayerInput.move == Vector2.zero) {
-            SwitchState(_factory.Idle());
-        } else if (_context.PlayerInput.meleeAttack) {
-            SwitchState(_factory.Attack());
+        if(_context.PlayerInput.move != Vector2.zero) {
+            _context.Move(10);
+		} else {
+            _stateMachine.ChangeState(_factory.IdleState);
         }
     }
 }

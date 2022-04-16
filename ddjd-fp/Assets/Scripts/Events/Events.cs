@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Events {
+    // Mobs
+
+
     // Player Events
     public static readonly EventNative OnSpawn = new EventNative(); // TODO
     public static readonly EventNative OnDeath = new EventNative(); // TODO
-    public static readonly EventNative<int> OnTakeDamage = new EventNative<int>(); // TODO
     public static readonly EventNative<int, int> OnHealthUpdate = new EventNative<int, int>();
 
     public static readonly EventNative OnCatchCrystal = new EventNative();
