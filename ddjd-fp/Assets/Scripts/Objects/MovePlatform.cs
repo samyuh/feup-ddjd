@@ -12,10 +12,8 @@ public class MovePlatform : MonoBehaviour {
     private float _elapsedTime;
     private int _nextPlatform;
 
-    private Rigidbody _rBody;
 
     void Start() {
-        _rBody = GetComponent<Rigidbody>();
 
         _startPosition = targetPositions[0].transform.position;
         _targetPosition = targetPositions[1].transform.position;
@@ -24,11 +22,12 @@ public class MovePlatform : MonoBehaviour {
         _elapsedTime = 0f;
     }
  
-    void FixedUpdate() {
-        if (_rBody.position == _targetPosition) {
-            _startPosition = _rBody.position;
+    void Update() {
+        if (transform.position == _targetPosition) {
+            _startPosition = transform.position;
             _targetPosition =  targetPositions[_nextPlatform].transform.position;
-            _distance = Vector3.Distance(_rBody.position, _targetPosition);
+
+            _distance = Vector3.Distance(_startPosition, _targetPosition);
             _elapsedTime = 0f;
 
             _nextPlatform = (_nextPlatform + 1) % targetPositions.Count;
@@ -37,9 +36,9 @@ public class MovePlatform : MonoBehaviour {
         _elapsedTime += Time.fixedDeltaTime;
 
         // Distance moved equals elapsed time times speed
-        float distanceDisplacement = _elapsedTime * speed;
+        float distanceDisplacement = _elapsedTime * speed / 10;
         float interpolationRatio = distanceDisplacement / _distance;
 
-        _rBody.MovePosition(Vector3.Lerp(_startPosition, _targetPosition, interpolationRatio));
+        transform.position = Vector3.Lerp(_startPosition, _targetPosition, interpolationRatio);
     }
 }
