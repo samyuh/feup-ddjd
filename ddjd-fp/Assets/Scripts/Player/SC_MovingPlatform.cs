@@ -21,7 +21,7 @@ public class SC_MovingPlatform : MonoBehaviour {
         if (activePlatform != null) {
             Vector3 newGlobalPlatformPoint = activePlatform.TransformPoint(activeLocalPlatformPoint);
             moveDirection = newGlobalPlatformPoint - activeGlobalPlatformPoint;
-            if (moveDirection.magnitude > 0.001f)  {
+            if (moveDirection.magnitude > 0.0005f)  {
                 controller.Move(moveDirection);
             }
 

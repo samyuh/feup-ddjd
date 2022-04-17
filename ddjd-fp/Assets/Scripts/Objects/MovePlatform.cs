@@ -33,12 +33,10 @@ public class MovePlatform : MonoBehaviour {
             _nextPlatform = (_nextPlatform + 1) % targetPositions.Count;
         } 
 
-        _elapsedTime += Time.fixedDeltaTime;
-
         // Distance moved equals elapsed time times speed
-        float distanceDisplacement = _elapsedTime * speed / 10;
+        _elapsedTime += Time.deltaTime;
+        float distanceDisplacement = _elapsedTime * speed;
         float interpolationRatio = distanceDisplacement / _distance;
-
         transform.position = Vector3.Lerp(_startPosition, _targetPosition, interpolationRatio);
     }
 }
