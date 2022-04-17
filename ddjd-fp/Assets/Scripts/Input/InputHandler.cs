@@ -28,36 +28,30 @@ public class InputHandler : MonoBehaviour {
     
     private void Awake() {
         _inputAction = new InputController();
+        
+        _playerMovement = _inputAction.Player.Move;
+        _playerLook = _inputAction.Player.Look;
+        _playerJump = _inputAction.Player.Jump;
+        _playerMeleeAttack = _inputAction.Player.MeleeAttack;
+        _playerInteract = _inputAction.Player.Interact;
 
-        EnablePlayerActions();
+        EnablePlayerInput();
     }
 
-    private void EnablePlayerActions() {
-        _playerMovement = _inputAction.Player.Move;
+    private void EnablePlayerInput() {
         _playerMovement.performed += OnMovement;
         _playerMovement.canceled += OnMovement;
-        _playerMovement.Enable();
-
-        _playerLook = _inputAction.Player.Look;
         _playerLook.performed += OnLook;
         _playerLook.canceled += OnLook;
-        _playerLook.Enable();
-
-        _playerJump = _inputAction.Player.Jump;
         _playerJump.performed += OnJump;
-        _playerJump.Enable();
-
-        _playerMeleeAttack = _inputAction.Player.MeleeAttack;
         _playerMeleeAttack.performed += OnMeleeAttack;
-        _playerMeleeAttack.Enable();
-
-        _playerInteract = _inputAction.Player.Interact;
         _playerInteract.performed += OnInteract;
-        _playerInteract.Enable();
+
+        _inputAction.actions.Player.Enable();
     }
 
-    private void Disable() {
-        
+    private void DisablePlayerInput() {
+        _inputAction.Player.Disable();
     }
 
     private void Rebind() {
