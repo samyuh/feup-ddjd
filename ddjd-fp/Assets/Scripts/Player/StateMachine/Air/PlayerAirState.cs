@@ -17,8 +17,8 @@ public class PlayerAirState : PlayerState {
             _context.Move(0);
         }
 
-        if (_context.VerticalVelocity < _context.TerminalVelocity) {
-            _context.VerticalVelocity += _context.PlayerSettings.Gravity * Time.deltaTime;
+        if (_context.Data.VerticalVelocity < _context.Data.TerminalVelocity) {
+            _context.Data.VerticalVelocity += _context.Data.Gravity * Time.deltaTime;
         }
 
         if (_context.GroundedCheck()) {

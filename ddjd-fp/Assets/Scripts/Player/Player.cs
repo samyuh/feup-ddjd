@@ -8,12 +8,12 @@ public class Player : MonoBehaviour {
     public GameObject MainCamera  {get { return _mainCamera; } set { _mainCamera = value;}}
 
     #region Game Objects
-    [SerializeField] private PlayerSettings _playerSettings;
-    [SerializeField] private Animator _animator;
+    private PlayerData _data;
+    private Animator _animator;
     private CharacterController _controller;
     private InputHandler _playerInput;
 
-    public PlayerSettings PlayerSettings {get { return _playerSettings; } set { _playerSettings = value;}}
+    public PlayerData Data {get { return _data; } set { _data = value;}}
     public Animator Animator {get { return _animator; } set { _animator = value;}}
     public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
     public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
@@ -24,26 +24,6 @@ public class Player : MonoBehaviour {
     public StateFactory StateFactory;
     #endregion
 
-    #region Runtime Attributes
-    // Player
-    private float _speed;
-    private float _targetRotation = 0.0f;
-    private float _rotationVelocity;
-    private float _verticalVelocity;
-    private float _terminalVelocity = 53.0f;
-
-    public float Speed  {get { return _speed; }  set { _speed = value; }}
-    public float TargetRotation  {get { return _targetRotation; }  set { _targetRotation = value; }}
-    public float RotationVelocity {get { return _rotationVelocity; }  set { _rotationVelocity = value; }}
-    public float VerticalVelocity {get { return _verticalVelocity; }  set { _verticalVelocity = value; }}
-    public float TerminalVelocity  {get { return _terminalVelocity; }  set { _terminalVelocity = value; }}
-    #endregion
-
-    #region Player Status
-    private int _currentHealth = 700;
-    private int _maxHealth = 700;
-    #endregion
-
     private void Awake() {
         // External Components needed
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -51,6 +31,8 @@ public class Player : MonoBehaviour {
 
         // Player Controller
         _controller = GetComponent<CharacterController>();
+        _animator = GetComponent<Animator>();
+        _data = new PlayerData();
 
         // State Machine
         StateMachine = new StateMachine(this);
@@ -65,6 +47,20 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate() {
         StateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    #region Health
+    public void ApplyDamage(int damage) {
+        _data.CurrentHealth -= damage;
+
+        if (_data.CurrentHealth < 0) Events.OnDeath.Invoke();
+        else Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
+    }
+    #endregion
+
+    #region Player State
+    public void DestroyObject(GameObject otherObject){
+        Destroy(otherObject);
     }
 
     public void OnTriggerStay(Collider otherObject) {
@@ -85,46 +81,36 @@ public class Player : MonoBehaviour {
         }
     }
 
-    #region Health
-    public void ApplyDamage(int damage) {
-        _currentHealth -= damage;
-
-        if (_currentHealth < 0) Events.OnDeath.Invoke();
-        else Events.OnHealthUpdate.Invoke(_currentHealth, _maxHealth);
-    }
-    #endregion
-
-    #region Player State
-    public void DestroyObject(GameObject otherObject){
-        Destroy(otherObject);
-    }
-
     public bool GroundedCheck() {
-        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - _playerSettings.GroundedOffset, transform.position.z);
-        return Physics.CheckSphere(spherePosition, _playerSettings.GroundedRadius, _playerSettings.GroundLayers, QueryTriggerInteraction.Ignore);
+        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - _data.GroundedOffset, transform.position.z);
+        return Physics.CheckSphere(spherePosition, _data.GroundedRadius, _data.GroundLayers, QueryTriggerInteraction.Ignore);
     }
 
     public void Move(float targetSpeed) {
         if (targetSpeed != 0) {
             Vector3 inputDirection = new Vector3(_playerInput.move.x, 0.0f, _playerInput.move.y).normalized;
 
-            _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
-            float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, _playerSettings.RotationSmoothTime);
+            _data.TargetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
+            
+            float rotationVelocity = _data.RotationVelocity;
+            float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _data.TargetRotation, ref rotationVelocity, _data.RotationSmoothTime);
+            _data.RotationVelocity = rotationVelocity;
+            
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
         }
         
         float speedOffset = 0.1f;
         float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
         if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset) {
-            _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed, Time.deltaTime * _playerSettings.SpeedChangeRate);
-            _speed = Mathf.Round(_speed * 1000f) / 1000f;
+            _data.Speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed, Time.deltaTime * _data.SpeedChangeRate);
+            _data.Speed = Mathf.Round(_data.Speed * 1000f) / 1000f;
         }
         else {
-            _speed = targetSpeed;
+            _data.Speed = targetSpeed;
         }
 
-        Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
-        _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+        Vector3 targetDirection = Quaternion.Euler(0.0f, _data.TargetRotation, 0.0f) * Vector3.forward;
+        _controller.Move(targetDirection.normalized * (_data.Speed * Time.deltaTime) + new Vector3(0.0f, _data.VerticalVelocity, 0.0f) * Time.deltaTime);
     }
     #endregion 
 }

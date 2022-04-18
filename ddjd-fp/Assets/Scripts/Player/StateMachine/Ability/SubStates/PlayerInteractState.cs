@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteractState : PlayerGroundState {
+public class PlayerInteractState : PlayerAbilityState {
     public PlayerInteractState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
     base (currentContext, playerStateFactory, stateFactory) { }
 

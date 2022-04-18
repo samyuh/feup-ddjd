@@ -28,11 +28,7 @@ public class PlayerGroundState : PlayerState {
             _stateMachine.ChangeState(_factory.AirState);
         }
 
-        
-        _context.VerticalVelocity = -2f;
-        
-
-        Debug.Log(_context.VerticalVelocity);
+        _context.Data.VerticalVelocity = -2f;
     }
 
     protected virtual void OnJump(InputAction.CallbackContext context) {

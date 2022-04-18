@@ -8,12 +8,13 @@ public class PlayerAttackGroundState : PlayerAbilityState {
 
     public override void EnterState() {
         base.EnterState();
+
         _context.Animator.SetBool("Attack", true);
     }
 
     public override void ExitState() {
         base.ExitState();
-
+        
         _context.Animator.SetBool("Attack", false);
     }
 

@@ -25,7 +25,7 @@ public class PlayerJumpState : PlayerAbilityState {
     }
 
     private void PerformJump() {
-        _context.VerticalVelocity = Mathf.Sqrt(_context.PlayerSettings.JumpHeight * -2f * _context.PlayerSettings.Gravity);
+        _context.Data.VerticalVelocity = Mathf.Sqrt(_context.Data.JumpHeight * -2f * _context.Data.Gravity);
         _context.Move(0);
     }
 }
