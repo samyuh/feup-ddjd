@@ -11,9 +11,6 @@ public class StateMachine {
     }
 
 	public void ChangeState(PlayerState newState) {
-		if (CurrentState.ExitingState)
-			return;
-
 		CurrentState.ExitState();
 		CurrentState = newState;
 		CurrentState.EnterState();

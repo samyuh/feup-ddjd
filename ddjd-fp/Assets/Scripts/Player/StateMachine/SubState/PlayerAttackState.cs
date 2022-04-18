@@ -8,14 +8,13 @@ public class PlayerAttackGroundState : PlayerAbilityState {
 
     public override void EnterState() {
         base.EnterState();
-        _context.PlayerInput.meleeAttack = false;
         _context.Animator.SetBool("Attack", true);
     }
 
     public override void ExitState() {
-        _context.Animator.SetBool("Attack", false);
-        _context.PlayerInput.meleeAttack = false;
         base.ExitState();
+
+        _context.Animator.SetBool("Attack", false);
     }
 
     public override void LogicUpdate() {

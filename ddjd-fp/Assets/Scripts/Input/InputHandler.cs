@@ -12,6 +12,12 @@ public class InputHandler : MonoBehaviour {
     private InputAction _playerJump;
     private InputAction _playerMeleeAttack;
     private InputAction _playerInteract;
+
+    public InputAction PlayerMovement { get { return _playerMovement; } set { _playerMovement = value; } }
+    public InputAction PlayerLook { get { return _playerLook; } set { _playerLook = value; } }
+    public InputAction PlayerJump { get { return _playerJump; } set { _playerJump = value; } }
+    public InputAction PlayerMeleeAttack { get { return _playerMeleeAttack; } set { _playerMeleeAttack = value; } }
+    public InputAction PlayerInteract { get { return _playerInteract; } set { _playerInteract = value; } }
     #endregion
 
     #region UI Input Actions
@@ -20,10 +26,8 @@ public class InputHandler : MonoBehaviour {
     #region Input Values
     public Vector2 move {get; set;}
     public Vector2 look {get; set;}
-    public bool jump {get; set;}
     public bool interact {get; set;}
     public bool sprint {get; set;}
-    public bool meleeAttack {get; set;}
     #endregion
     
     private void Awake() {
@@ -43,11 +47,9 @@ public class InputHandler : MonoBehaviour {
         _playerMovement.canceled += OnMovement;
         _playerLook.performed += OnLook;
         _playerLook.canceled += OnLook;
-        _playerJump.performed += OnJump;
-        _playerMeleeAttack.performed += OnMeleeAttack;
         _playerInteract.performed += OnInteract;
 
-        _inputAction.actions.Player.Enable();
+        _inputAction.Player.Enable();
     }
 
     private void DisablePlayerInput() {
@@ -65,14 +67,6 @@ public class InputHandler : MonoBehaviour {
     private void OnLook(InputAction.CallbackContext context) {
         look = context.ReadValue<Vector2>();
 	}
-
-    private void OnJump(InputAction.CallbackContext context) {
-        jump = true;
-    }
-    
-    private void OnMeleeAttack(InputAction.CallbackContext context) {
-        meleeAttack = true;
-    }
 
     private void OnInteract(InputAction.CallbackContext context){
         interact = true;

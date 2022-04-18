@@ -8,17 +8,18 @@ public class PlayerJumpState : PlayerAbilityState {
 
     public override void EnterState() {
         base.EnterState();
-        _context.PlayerInput.jump = false;
+
         PerformJump();
     }
 
     public override void ExitState() {
-        _context.PlayerInput.jump = false;
+
         base.ExitState();
     }
 
     public override void LogicUpdate() {
         base.LogicUpdate();
+
 
 		_stateMachine.ChangeState(_factory.AirState);
     }

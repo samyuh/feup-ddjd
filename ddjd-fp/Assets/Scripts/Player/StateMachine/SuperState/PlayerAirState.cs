@@ -11,10 +11,6 @@ public class PlayerAirState : PlayerState {
     public override void ExitState() { }
 
     public override void LogicUpdate() {
-        if (_context.GroundedCheck()) {
-            _stateMachine.ChangeState(_factory.IdleState);
-        } 
-
         if(_context.PlayerInput.move != Vector2.zero) {
 			_context.Move(5);
 		} else {
@@ -24,5 +20,9 @@ public class PlayerAirState : PlayerState {
         if (_context.VerticalVelocity < _context.TerminalVelocity) {
             _context.VerticalVelocity += _context.PlayerSettings.Gravity * Time.deltaTime;
         }
+
+        if (_context.GroundedCheck()) {
+            _stateMachine.ChangeState(_factory.IdleState);
+        } 
     }
 }

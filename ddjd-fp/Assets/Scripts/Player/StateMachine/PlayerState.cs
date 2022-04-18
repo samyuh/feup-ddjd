@@ -7,21 +7,15 @@ public abstract class PlayerState {
 	protected StateMachine _stateMachine;
 	protected StateFactory _factory;
 
-	public bool ExitingState = false;
-
 	public PlayerState(Player currentContext, StateMachine stateMachine, StateFactory stateFactory) {
 		_context = currentContext;
 		_stateMachine = stateMachine;
 		_factory = stateFactory;
 	}
 	
-	public virtual void EnterState() {
-		ExitingState = false;
-	}
+	public virtual void EnterState() { }
 
-	public virtual void ExitState() {
-		//ExitingState = true;
-	}
+	public virtual void ExitState() { }
 
 	public virtual void LogicUpdate() { }
 
