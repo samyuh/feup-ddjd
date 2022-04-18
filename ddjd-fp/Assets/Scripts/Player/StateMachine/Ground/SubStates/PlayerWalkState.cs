@@ -20,7 +20,7 @@ public class PlayerWalkState : PlayerGroundState {
         base.LogicUpdate();
 
         if(_context.PlayerInput.move != Vector2.zero) {
-            _context.Move(10);
+            Move(10);
 		} else {
             _stateMachine.ChangeState(_factory.IdleState);
         }

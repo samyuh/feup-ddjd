@@ -12,16 +12,16 @@ public class PlayerAirState : PlayerState {
 
     public override void LogicUpdate() {
         if(_context.PlayerInput.move != Vector2.zero) {
-			_context.Move(5);
+			Move(5);
 		} else {
-            _context.Move(0);
+            Move(0);
         }
 
         if (_context.Data.VerticalVelocity < _context.Data.TerminalVelocity) {
             _context.Data.VerticalVelocity += _context.Data.Gravity * Time.deltaTime;
         }
 
-        if (_context.GroundedCheck()) {
+        if (GroundedCheck()) {
             _stateMachine.ChangeState(_factory.IdleState);
         } 
     }

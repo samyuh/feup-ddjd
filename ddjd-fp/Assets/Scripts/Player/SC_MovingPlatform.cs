@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TO HELP BUILD PLAYER STAY ON PLATFORM
 // OBTAINED FROM https://sharpcoderblog.com/blog/unity-3d-character-controller-moving-platform-support
 public class SC_MovingPlatform : MonoBehaviour {
     public Transform activePlatform;

@@ -24,7 +24,7 @@ public class PlayerGroundState : PlayerState {
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-        if (!_context.GroundedCheck()) {
+        if (!GroundedCheck()) {
             _stateMachine.ChangeState(_factory.AirState);
         }
 
