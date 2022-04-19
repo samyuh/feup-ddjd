@@ -458,10 +458,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -415.9999694824219,
-            "y": -708.7999877929688,
-            "width": 208.0000457763672,
-            "height": 373.6000061035156
+            "x": -396.79998779296877,
+            "y": -1227.2000732421875,
+            "width": 208.00001525878907,
+            "height": 373.5999755859375
         }
     },
     "m_Slots": [
@@ -724,10 +724,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2403.199951171875,
-            "y": 156.80006408691407,
+            "x": -2405.600341796875,
+            "y": 184.00003051757813,
             "width": 127.199951171875,
-            "height": 100.79988098144531
+            "height": 100.79998779296875
         }
     },
     "m_Slots": [
@@ -828,10 +828,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -3252.800048828125,
-            "y": 889.5999755859375,
-            "width": 136.0,
-            "height": 33.60009765625
+            "x": -3254.400146484375,
+            "y": 681.5999755859375,
+            "width": 136.800048828125,
+            "height": 33.60003662109375
         }
     },
     "m_Slots": [
@@ -863,10 +863,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -3092.0,
-            "y": 683.2000122070313,
-            "width": 172.0,
-            "height": 33.60009765625
+            "x": -3011.199951171875,
+            "y": 681.5999755859375,
+            "width": 172.7998046875,
+            "height": 33.60003662109375
         }
     },
     "m_Slots": [
@@ -940,9 +940,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1616.7999267578125,
-            "y": -14.39993953704834,
-            "width": 207.999755859375,
+            "x": -1616.8001708984375,
+            "y": -23.999984741210939,
+            "width": 208.0,
             "height": 301.60003662109377
         }
     },
@@ -1192,8 +1192,8 @@
     "m_ObjectId": "457131b46db646ada3a39c71ee5f2413",
     "m_Title": "Base material",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": -884.800048828125,
+        "y": -1287.199951171875
     }
 }
 
@@ -1329,10 +1329,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -665.5999755859375,
-            "y": -695.2000122070313,
-            "width": 184.00006103515626,
-            "height": 33.60003662109375
+            "x": -646.4000854492188,
+            "y": -1213.60009765625,
+            "width": 183.20001220703126,
+            "height": 33.5999755859375
         }
     },
     "m_Slots": [
@@ -1359,10 +1359,10 @@
     "m_Guid": {
         "m_GuidSerialized": "cb8fe66e-8146-4d34-a756-034507c5e271"
     },
-    "m_Name": "Companion texture",
+    "m_Name": "Companion Texture",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Companion texture",
-    "m_DefaultReferenceName": "_Companion_texture",
+    "m_RefNameGeneratedByDisplayName": "Companion Texture",
+    "m_DefaultReferenceName": "_Companion_Texture",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1828,10 +1828,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2547.199951171875,
-            "y": 157.60009765625,
+            "x": -2556.000244140625,
+            "y": 183.20001220703126,
             "width": 135.199951171875,
-            "height": 33.59989929199219
+            "height": 33.5999755859375
         }
     },
     "m_Slots": [
@@ -1863,10 +1863,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -608.7999877929688,
-            "y": -281.6000061035156,
-            "width": 208.0,
-            "height": 432.0
+            "x": -589.5999755859375,
+            "y": -800.0001220703125,
+            "width": 207.99990844726563,
+            "height": 432.0001220703125
         }
     },
     "m_Slots": [
@@ -2195,7 +2195,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "a982f82028fe464e9acb107f242d996c",
     "m_Id": 0,
-    "m_DisplayName": "Companion texture",
+    "m_DisplayName": "Companion Texture",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -2239,10 +2239,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -876.0000610351563,
-            "y": -294.4000244140625,
+            "x": -856.7999877929688,
+            "y": -812.8001098632813,
             "width": 188.79998779296876,
-            "height": 33.600006103515628
+            "height": 33.60003662109375
         }
     },
     "m_Slots": [

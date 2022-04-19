@@ -32,6 +32,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 15437365480e78a4a9a0267a49ca433e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Companion_Texture:
+        m_Texture: {fileID: 2800000, guid: 9e6ef7a820cb9c44cadd19e5b1e1bc74, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Companion_texture:
         m_Texture: {fileID: 2800000, guid: 9e6ef7a820cb9c44cadd19e5b1e1bc74, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -49,6 +53,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission_Mask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
