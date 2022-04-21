@@ -8,12 +8,18 @@ public class InputHandler : MonoBehaviour {
 
     #region Player Input Actions
     private InputAction _playerMovement;
+    private InputAction _playerRun;
+    private InputAction _playerDash;
+    private InputAction _playerAim;
     private InputAction _playerLook;
     private InputAction _playerJump;
     private InputAction _playerMeleeAttack;
     private InputAction _playerInteract;
 
     public InputAction PlayerMovement { get { return _playerMovement; } set { _playerMovement = value; } }
+    public InputAction PlayerRun { get { return _playerRun; } set { _playerRun = value; } }
+    public InputAction PlayerDash { get { return _playerDash; } set { _playerDash = value; } }
+    public InputAction PlayerAim { get { return _playerAim; } set { _playerAim = value; } }
     public InputAction PlayerLook { get { return _playerLook; } set { _playerLook = value; } }
     public InputAction PlayerJump { get { return _playerJump; } set { _playerJump = value; } }
     public InputAction PlayerMeleeAttack { get { return _playerMeleeAttack; } set { _playerMeleeAttack = value; } }
@@ -24,16 +30,18 @@ public class InputHandler : MonoBehaviour {
     #endregion
 
     #region Input Values
-    public Vector2 move {get; set;}
-    public Vector2 look {get; set;}
-    public bool interact {get; set;}
-    public bool sprint {get; set;}
+    public Vector2 Movement {get; set;}
+    public Vector2 Look {get; set;}
+    public bool Interact {get; set;}
     #endregion
     
     private void Awake() {
         _inputAction = new InputController();
         
         _playerMovement = _inputAction.Player.Move;
+        _playerRun = _inputAction.Player.Run;
+        _playerDash = _inputAction.Player.Dash;
+        _playerAim = _inputAction.Player.Aim;
         _playerLook = _inputAction.Player.Look;
         _playerJump = _inputAction.Player.Jump;
         _playerMeleeAttack = _inputAction.Player.MeleeAttack;
@@ -61,15 +69,15 @@ public class InputHandler : MonoBehaviour {
     }
 
     private void OnMovement(InputAction.CallbackContext context) {
-        move = context.ReadValue<Vector2>();
+        Movement = context.ReadValue<Vector2>();
     }
 
     private void OnLook(InputAction.CallbackContext context) {
-        look = context.ReadValue<Vector2>();
+        Look = context.ReadValue<Vector2>();
 	}
 
     private void OnInteract(InputAction.CallbackContext context){
-        interact = true;
+        Interact = true;
     }
 
     private void OnApplicationFocus(bool hasFocus) {

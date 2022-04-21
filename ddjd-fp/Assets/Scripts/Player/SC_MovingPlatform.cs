@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TO HELP BUILD PLAYER STAY ON PLATFORM
-// OBTAINED FROM https://sharpcoderblog.com/blog/unity-3d-character-controller-moving-platform-support
-public class SC_MovingPlatform : MonoBehaviour {
+public class SC_MovingPlatform : MonoBehaviour
+{
     public Transform activePlatform;
 
     CharacterController controller;
@@ -14,23 +13,28 @@ public class SC_MovingPlatform : MonoBehaviour {
     Quaternion activeGlobalPlatformRotation;
     Quaternion activeLocalPlatformRotation;
 
-    void Start() {
+    // Start is called before the first frame update
+    void Start()
+    {
         controller = GetComponent<CharacterController>();
     }
 
-    void Update() {
-        if (activePlatform != null) {
+    // Update is called once per frame
+    void Update()
+    {
+        if (activePlatform != null)
+        {
             Vector3 newGlobalPlatformPoint = activePlatform.TransformPoint(activeLocalPlatformPoint);
             moveDirection = newGlobalPlatformPoint - activeGlobalPlatformPoint;
-            if (moveDirection.magnitude > 0.0005f)  {
+            if (moveDirection.magnitude > 0.01f)
+            {
                 controller.Move(moveDirection);
             }
-
-            if (activePlatform) {
+            if (activePlatform)
+            {
                 // Support moving platform rotation
                 Quaternion newGlobalPlatformRotation = activePlatform.rotation * activeLocalPlatformRotation;
                 Quaternion rotationDiff = newGlobalPlatformRotation * Quaternion.Inverse(activeGlobalPlatformRotation);
-
                 // Prevent rotation of the local up vector
                 rotationDiff = Quaternion.FromToRotation(rotationDiff * Vector3.up, Vector3.up) * rotationDiff;
                 transform.rotation = rotationDiff * transform.rotation;
@@ -39,25 +43,40 @@ public class SC_MovingPlatform : MonoBehaviour {
                 UpdateMovingPlatform();
             }
         }
+        else
+        {
+            if (moveDirection.magnitude > 0.01f)
+            {
+                moveDirection = Vector3.Lerp(moveDirection, Vector3.zero, Time.deltaTime);
+                controller.Move(moveDirection);
+            }
+        }
     }
 
-    void UpdateMovingPlatform() {
-        activeGlobalPlatformPoint = transform.position;
-        activeLocalPlatformPoint = activePlatform.InverseTransformPoint(transform.position);
-
-        // Support moving platform rotation
-        activeGlobalPlatformRotation = transform.rotation;
-        activeLocalPlatformRotation = Quaternion.Inverse(activePlatform.rotation) * transform.rotation;
-    }
-
-    void OnControllerColliderHit(ControllerColliderHit hit) {
-        if (hit.moveDirection.y < -0.9 && hit.normal.y > 0.41) {
-            if (activePlatform != hit.collider.transform){
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Make sure we are really standing on a straight platform *NEW*
+        // Not on the underside of one and not falling down from it either!
+        if (hit.moveDirection.y < -0.9 && hit.normal.y > 0.41)
+        {
+            if (activePlatform != hit.collider.transform)
+            {
                 activePlatform = hit.collider.transform;
                 UpdateMovingPlatform();
             }
-        } else {
+        }
+        else
+        {
             activePlatform = null;
         }
+    }
+
+    void UpdateMovingPlatform()
+    {
+        activeGlobalPlatformPoint = transform.position;
+        activeLocalPlatformPoint = activePlatform.InverseTransformPoint(transform.position);
+        // Support moving platform rotation
+        activeGlobalPlatformRotation = transform.rotation;
+        activeLocalPlatformRotation = Quaternion.Inverse(activePlatform.rotation) * transform.rotation;
     }
 }

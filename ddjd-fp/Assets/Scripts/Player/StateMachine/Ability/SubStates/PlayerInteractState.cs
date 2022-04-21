@@ -21,7 +21,7 @@ public class PlayerInteractState : PlayerAbilityState {
     public override void OnTriggerStay(Collider otherObject) {
         base.OnTriggerStay(otherObject);
 
-        if (_context.PlayerInput.interact) {
+        if (_context.PlayerInput.Interact) {
             if (otherObject.gameObject.tag == "Health") {
                 Events.OnCatchHealthPlant.Invoke();
                 _context.DestroyObject(otherObject.gameObject);
@@ -31,7 +31,7 @@ public class PlayerInteractState : PlayerAbilityState {
                 _context.DestroyObject(otherObject.gameObject);
             }
 
-            _context.PlayerInput.interact = false;
+            _context.PlayerInput.Interact = false;
         }
     }
 }

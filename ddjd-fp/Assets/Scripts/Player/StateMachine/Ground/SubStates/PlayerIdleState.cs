@@ -8,6 +8,7 @@ public class PlayerIdleState : PlayerGroundState {
 
     public override void EnterState() {
         base.EnterState();
+        _targetVelocity = 0f;
     }
 
     public override void ExitState() {
@@ -17,7 +18,7 @@ public class PlayerIdleState : PlayerGroundState {
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-        if(_context.PlayerInput.move != Vector2.zero) {
+        if(_context.PlayerInput.Movement != Vector2.zero) {
 			_stateMachine.ChangeState(_factory.WalkState);
 		} 
     }

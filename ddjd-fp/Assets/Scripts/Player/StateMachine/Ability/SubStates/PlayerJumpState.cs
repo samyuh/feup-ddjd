@@ -13,19 +13,16 @@ public class PlayerJumpState : PlayerAbilityState {
     }
 
     public override void ExitState() {
-
         base.ExitState();
     }
 
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-
-		_stateMachine.ChangeState(_factory.AirState);
+		_stateMachine.ChangeState(_factory.FallingState);
     }
 
     private void PerformJump() {
         _context.Data.VerticalVelocity = Mathf.Sqrt(_context.Data.JumpHeight * -2f * _context.Data.Gravity);
-        Move(0);
     }
 }

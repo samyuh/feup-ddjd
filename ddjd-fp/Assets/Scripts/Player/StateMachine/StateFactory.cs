@@ -1,28 +1,31 @@
 public class StateFactory {
-    public PlayerGroundState GroundState;
-    public PlayerAirState AirState;
-    public PlayerAbilityState AbilityState;
+    public PlayerFallingState FallingState;
 
     public PlayerAttackGroundState AttackState;
     public PlayerIdleState IdleState;
     public PlayerJumpState JumpState;
     public PlayerWalkState WalkState;
 
+    public PlayerRunState RunState;
+    public PlayerAimState AimState;
+    public PlayerDashState DashState;
+
     public StateFactory(Player context, StateMachine stateMachine) {
         #region Ability States
-        AbilityState = new PlayerAbilityState(context, stateMachine, this);
         AttackState = new PlayerAttackGroundState(context, stateMachine, this);
         JumpState = new PlayerJumpState(context, stateMachine, this);
+        AimState = new PlayerAimState(context, stateMachine, this);
+        DashState = new PlayerDashState(context, stateMachine, this);
         #endregion
 
         #region Ground
-        GroundState = new PlayerGroundState(context, stateMachine, this);
         IdleState = new PlayerIdleState(context, stateMachine, this);
+        RunState = new PlayerRunState(context, stateMachine, this);
         WalkState = new PlayerWalkState(context, stateMachine, this);
         #endregion
 
         #region Air
-        AirState = new PlayerAirState(context, stateMachine, this);
+        FallingState = new PlayerFallingState(context, stateMachine, this);
         #endregion
     }
 }

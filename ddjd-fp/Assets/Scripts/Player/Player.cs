@@ -50,7 +50,11 @@ public class Player : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        _camera.LateUpdateCamera( _playerInput.look.sqrMagnitude,  _playerInput.look.x, _playerInput.look.y);
+        _camera.LateUpdateCamera( _playerInput.Look.sqrMagnitude,  _playerInput.Look.x, _playerInput.Look.y);
+    }
+
+    public void OnControllerColliderHit(ControllerColliderHit hit) {
+        StateMachine.CurrentState.OnControllerColliderHit(hit);
     }
 
     public void ApplyDamage(int damage) {
@@ -64,13 +68,15 @@ public class Player : MonoBehaviour {
         Destroy(otherObject);
     }
     
+    
+
     public void OnTriggerStay(Collider otherObject) {
         StateMachine.CurrentState.OnTriggerStay(otherObject);
 
         // TODO: 
         // Create a Substate to catch
         // Instead of collider, raycast a sphere
-        if (_playerInput.interact) {
+        if (_playerInput.Interact) {
             if (otherObject.gameObject.tag == "Health") {
                 Events.OnCatchHealthPlant.Invoke();
                 Destroy(otherObject.gameObject);
