@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerInteractState : PlayerAbilityState {
     public PlayerInteractState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
     base (currentContext, playerStateFactory, stateFactory) { }
-    bool interactionExecuted = false;
 
     public override void EnterState() {
         base.EnterState();
+
+        HandleObject();
     }
 
     public override void ExitState() {
@@ -17,26 +18,19 @@ public class PlayerInteractState : PlayerAbilityState {
 
     public override void LogicUpdate() {
         base.LogicUpdate();
-
-        if (interactionExecuted){
-            interactionExecuted = false;
-            _stateMachine.ChangeState(_factory.IdleState);
-        }
     }
 
-    public override void OnTriggerStay(Collider otherObject) {
-        base.OnTriggerStay(otherObject);
-
-        if (otherObject.gameObject.tag == "Health") {
-            Events.OnCatchHealthPlant.Invoke();
-            _context.DestroyObject(otherObject.gameObject);
-        } 
-        else if (otherObject.gameObject.tag == "Crystal") {
-            Events.OnCatchCrystal.Invoke();
-            _context.DestroyObject(otherObject.gameObject);
+    private void HandleObject() {
+        if(_context.InteractableItem != null) {
+            if (_context.InteractableItem.tag == "Health") {
+                Events.OnCatchHealthPlant.Invoke();
+                _context.DestroyObject(_context.InteractableItem);
+            } else if (_context.InteractableItem.tag == "Crystal") {
+                Events.OnCatchCrystal.Invoke();
+                _context.DestroyObject(_context.InteractableItem);
+            }    
         }
-        interactionExecuted = true;
-        
-        //_stateMachine.ChangeState(_factory.IdleState);
+
+        _stateMachine.ChangeState(_factory.IdleState);
     }
 }

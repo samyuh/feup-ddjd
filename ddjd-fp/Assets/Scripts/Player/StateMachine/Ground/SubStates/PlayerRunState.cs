@@ -13,6 +13,7 @@ public class PlayerRunState : PlayerGroundState {
         //_context.Animator.SetBool("Run", true);
 
         _context.PlayerInput.PlayerRun.performed += OnRun;
+        _context.PlayerInput.PlayerDash.performed += OnDash;
     }
 
     public override void ExitState() {
@@ -20,6 +21,7 @@ public class PlayerRunState : PlayerGroundState {
         //_context.Animator.SetBool("Run", true);
 
         _context.PlayerInput.PlayerRun.performed -= OnRun;
+        _context.PlayerInput.PlayerDash.performed -= OnDash;
     }
 
     public override void LogicUpdate() {
@@ -36,5 +38,9 @@ public class PlayerRunState : PlayerGroundState {
 
     protected virtual void OnRun(InputAction.CallbackContext context) {
         _stateMachine.ChangeState(_factory.WalkState);
+    }
+
+    protected virtual void OnDash(InputAction.CallbackContext context) {
+        _stateMachine.ChangeState(_factory.DashState);
     }
 }

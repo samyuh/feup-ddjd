@@ -13,6 +13,7 @@ public class PlayerWalkState : PlayerGroundState {
         _context.Animator.SetBool("Walk", true);
 
         _context.PlayerInput.PlayerRun.performed += OnRun;
+        _context.PlayerInput.PlayerDash.performed += OnDash;
     }  
 
     public override void ExitState() {
@@ -20,6 +21,7 @@ public class PlayerWalkState : PlayerGroundState {
         _context.Animator.SetBool("Walk", false);
 
         _context.PlayerInput.PlayerRun.performed -= OnRun;
+        _context.PlayerInput.PlayerDash.performed -= OnDash;
     }
 
     public override void LogicUpdate() {
@@ -36,5 +38,9 @@ public class PlayerWalkState : PlayerGroundState {
 
     protected virtual void OnRun(InputAction.CallbackContext context) {
         _stateMachine.ChangeState(_factory.RunState);
+    }
+
+    protected virtual void OnDash(InputAction.CallbackContext context) {
+        _stateMachine.ChangeState(_factory.DashState);
     }
 }

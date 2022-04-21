@@ -25,6 +25,10 @@ public class Player : MonoBehaviour {
     public StateFactory StateFactory;
     #endregion
 
+    #region Interactable Items
+    public GameObject InteractableItem = null;
+    #endregion
+
     private void Awake() {
         // External Components needed
         _camera = new PlayerCamera();
@@ -53,7 +57,15 @@ public class Player : MonoBehaviour {
         _camera.LateUpdateCamera( _playerInput.Look.sqrMagnitude,  _playerInput.Look.x, _playerInput.Look.y);
     }
 
-    public void OnControllerColliderHit(ControllerColliderHit hit) {
+    private void OnTriggerEnter(Collider otherObject) {
+        InteractableItem = otherObject.gameObject;
+    }
+
+    private void OnTriggerExit(Collider otherObject) {
+        InteractableItem = null;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit) {
         StateMachine.CurrentState.OnControllerColliderHit(hit);
     }
 
@@ -66,25 +78,5 @@ public class Player : MonoBehaviour {
 
     public void DestroyObject(GameObject otherObject){
         Destroy(otherObject);
-    }
-    
-    
-
-    public void OnTriggerStay(Collider otherObject) {
-        StateMachine.CurrentState.OnTriggerStay(otherObject);
-
-        // TODO: 
-        // Create a Substate to catch
-        // Instead of collider, raycast a sphere
-        if (_playerInput.Interact) {
-            /*if (otherObject.gameObject.tag == "Health") {
-                Events.OnCatchHealthPlant.Invoke();
-                Destroy(otherObject.gameObject);
-            } 
-            else if (otherObject.gameObject.tag == "Crystal") {
-                Events.OnCatchCrystal.Invoke();
-                Destroy(otherObject.gameObject);
-            }*/
-        }
     }
 }

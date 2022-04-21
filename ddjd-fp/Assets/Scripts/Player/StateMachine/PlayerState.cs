@@ -21,7 +21,7 @@ public abstract class PlayerState {
 
 	public virtual void LogicUpdate() { 
         PlayerRotation();
-        
+
         Vector3 verticalVelocity = MoveVertical(_context.Data.Gravity);
         Vector3 horizontalVelocity = MoveHorizontal(_targetVelocity);
 		_context.Controller.Move(verticalVelocity + horizontalVelocity);
@@ -31,18 +31,17 @@ public abstract class PlayerState {
 
     public virtual void OnControllerColliderHit(ControllerColliderHit hit) { }
 
-	public virtual void OnTriggerStay(Collider otherObject) { }
-
 	public bool GroundedCheck() {
         Vector3 spherePosition = new Vector3(_context.transform.position.x, _context.transform.position.y - _context.Data.GroundedOffset, _context.transform.position.z);
         return Physics.CheckSphere(spherePosition, _context.Data.GroundedRadius, _context.Data.GroundLayers, QueryTriggerInteraction.Ignore);
     }
 
+    #region General Movement
     protected Vector3 GetMovementInputDirection() {
         return new Vector3(_context.PlayerInput.Movement.x, 0f, _context.PlayerInput.Movement.y);
     }
 
-    private void PlayerRotation() {
+    protected void PlayerRotation() {
         Vector3 inputDirectionVector = GetMovementInputDirection();
         if (inputDirectionVector != new Vector3(0f, 0f, 0f)) {
             Vector3 inputDirection = inputDirectionVector.normalized;
@@ -78,4 +77,5 @@ public abstract class PlayerState {
         Vector3 targetDirection = Quaternion.Euler(0.0f, _context.Data.TargetRotation, 0.0f) * Vector3.forward;
         return targetDirection.normalized * (_context.Data.Speed * Time.deltaTime);
     }
+    #endregion
 }

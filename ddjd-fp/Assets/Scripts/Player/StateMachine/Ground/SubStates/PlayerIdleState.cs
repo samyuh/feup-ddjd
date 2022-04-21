@@ -8,7 +8,6 @@ public class PlayerIdleState : PlayerGroundState {
 
     public override void EnterState() {
         base.EnterState();
-        Debug.Log("Sou Idle e sou lindo");
         _targetVelocity = 0f;
     }
 
@@ -20,7 +19,6 @@ public class PlayerIdleState : PlayerGroundState {
         base.LogicUpdate();
 
         if(_context.PlayerInput.Movement != Vector2.zero) {
-            Debug.Log("Andar é uma necessidade");
 			_stateMachine.ChangeState(_factory.WalkState);
 		} 
     }
