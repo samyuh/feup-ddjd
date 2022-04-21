@@ -47,6 +47,7 @@ public class PlayerGroundState : PlayerState {
     }
 
     protected virtual void OnMeleeAttack(InputAction.CallbackContext context) {
+        Debug.Log("here");
         _stateMachine.ChangeState(_factory.AttackState);
     }
 
