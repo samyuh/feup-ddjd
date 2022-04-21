@@ -18,7 +18,6 @@ public abstract class PlayerState {
 	public virtual void ExitState() { }
 
 	public virtual void LogicUpdate() { 
-
 		// if movement != 0
 		// call Move
 	}
@@ -36,7 +35,7 @@ public abstract class PlayerState {
     public void Move(float targetSpeed) {
         if (targetSpeed != 0) {
             Vector3 inputDirection = new Vector3(_context.PlayerInput.move.x, 0.0f, _context.PlayerInput.move.y).normalized;
-            _context.Data.TargetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _context.MainCamera.transform.eulerAngles.y;
+            _context.Data.TargetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _context.Camera.MainCamera.transform.eulerAngles.y;
             
             float rotationVelocity = _context.Data.RotationVelocity;
             float rotation = Mathf.SmoothDampAngle(_context.transform.eulerAngles.y, _context.Data.TargetRotation, ref rotationVelocity, _context.Data.RotationSmoothTime);

@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCamera : AbstractCamera {
+public class PlayerCamera{
+    private GameObject _mainCamera;
+    public GameObject MainCamera {get {return _mainCamera;} set {_mainCamera = value;}}
+    
     public float TopClamp = 70.0f;
     public float BottomClamp = -30.0f;
     public float CameraAngleOverride = 0.0f;
@@ -19,7 +22,7 @@ public class PlayerCamera : AbstractCamera {
         _cinemachineCameraTarget = GameObject.FindGameObjectWithTag("PlayerCameraTarget");
     }
 
-    public override void LateUpdateCamera(float magnitude, float lookAxisX, float lookAxisY) {
+    public void LateUpdateCamera(float magnitude, float lookAxisX, float lookAxisY) {
         if (magnitude >= _threshold && !LockCameraPosition) {
             _cinemachineTargetYaw += lookAxisX;
             _cinemachineTargetPitch += lookAxisY;

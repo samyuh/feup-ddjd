@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour {
-    private GameObject _mainCamera;
-    public GameObject MainCamera  {get { return _mainCamera; } set { _mainCamera = value;}}
+    private PlayerCamera _camera;
+    public PlayerCamera Camera {get { return _camera; } set { _camera = value;}}
 
     private PlayerData _data;
     public PlayerData Data {get { return _data; } set { _data = value;}}
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 
     private void Awake() {
         // External Components needed
-        _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        _camera = new PlayerCamera();
         _playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<InputHandler>();
 
         // Player Controller
@@ -47,6 +47,10 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate() {
         StateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    private void LateUpdate() {
+        _camera.LateUpdateCamera( _playerInput.look.sqrMagnitude,  _playerInput.look.x, _playerInput.look.y);
     }
 
     public void ApplyDamage(int damage) {
