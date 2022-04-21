@@ -8,7 +8,7 @@ public class PlayerJumpState : PlayerAbilityState {
 
     public override void EnterState() {
         base.EnterState();
-
+        _context.Animator.SetBool("Jump", true);
         PerformJump();
     }
 

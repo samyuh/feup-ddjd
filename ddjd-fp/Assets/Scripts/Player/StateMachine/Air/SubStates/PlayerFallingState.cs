@@ -13,6 +13,8 @@ public class PlayerFallingState : PlayerAirState {
 
     public override void ExitState() {
         base.ExitState();
+
+        _context.Animator.SetBool("Jump", false);
      }
 
     public override void LogicUpdate() {

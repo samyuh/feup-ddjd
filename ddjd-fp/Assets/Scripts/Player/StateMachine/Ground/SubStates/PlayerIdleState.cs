@@ -9,10 +9,14 @@ public class PlayerIdleState : PlayerGroundState {
     public override void EnterState() {
         base.EnterState();
         _targetVelocity = 0f;
+
+        _context.Animator.SetBool("Idle", true);
     }
 
     public override void ExitState() {
         base.ExitState();
+
+        _context.Animator.SetBool("Idle", false);
     }
 
     public override void LogicUpdate() {

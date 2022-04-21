@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a63657a6-e70d-4c12-8b44-638504f7b956}">
+		<property name="assetPath">
+			<value>01 Light Wind Wispy.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>129.03999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{38cc5cfc-ede5-4794-806d-293c61a942cc}</destination>
+		</relationship>
+	</object>
+</objects>

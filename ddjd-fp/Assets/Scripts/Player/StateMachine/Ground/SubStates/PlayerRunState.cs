@@ -10,7 +10,7 @@ public class PlayerRunState : PlayerGroundState {
     public override void EnterState() {
         base.EnterState();
         _targetVelocity = 15f;
-        //_context.Animator.SetBool("Run", true);
+        _context.Animator.SetBool("Run", true);
 
         _context.PlayerInput.PlayerRun.performed += OnRun;
         _context.PlayerInput.PlayerDash.performed += OnDash;
@@ -18,7 +18,7 @@ public class PlayerRunState : PlayerGroundState {
 
     public override void ExitState() {
         base.ExitState();
-        //_context.Animator.SetBool("Run", true);
+        _context.Animator.SetBool("Run", false);
 
         _context.PlayerInput.PlayerRun.performed -= OnRun;
         _context.PlayerInput.PlayerDash.performed -= OnDash;
