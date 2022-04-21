@@ -77,14 +77,14 @@ public class Player : MonoBehaviour {
         // Create a Substate to catch
         // Instead of collider, raycast a sphere
         if (_playerInput.Interact) {
-            if (otherObject.gameObject.tag == "Health") {
+            /*if (otherObject.gameObject.tag == "Health") {
                 Events.OnCatchHealthPlant.Invoke();
                 Destroy(otherObject.gameObject);
             } 
             else if (otherObject.gameObject.tag == "Crystal") {
                 Events.OnCatchCrystal.Invoke();
                 Destroy(otherObject.gameObject);
-            }
+            }*/
         }
     }
 }

@@ -9,6 +9,7 @@ public class StateFactory {
     public PlayerRunState RunState;
     public PlayerAimState AimState;
     public PlayerDashState DashState;
+    public PlayerInteractState InteractState;
 
     public StateFactory(Player context, StateMachine stateMachine) {
         #region Ability States
@@ -16,6 +17,7 @@ public class StateFactory {
         JumpState = new PlayerJumpState(context, stateMachine, this);
         AimState = new PlayerAimState(context, stateMachine, this);
         DashState = new PlayerDashState(context, stateMachine, this);
+        InteractState = new PlayerInteractState(context, stateMachine, this);
         #endregion
 
         #region Ground
