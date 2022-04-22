@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 
     #region Interactable Items
     public GameObject InteractableItem = null;
+    public GameObject ObjectToThrow = null;
     #endregion
 
     private void Awake() {
@@ -63,6 +64,10 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerExit(Collider otherObject) {
         InteractableItem = null;
+    }
+
+    public GameObject InstantiateObj(GameObject prefab, Vector3 second, Quaternion third) {
+        return Instantiate(prefab, second, third);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit) {
