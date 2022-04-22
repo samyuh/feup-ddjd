@@ -6,8 +6,13 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour {
     private InputController _inputAction;
 
+    #region UI Input Actions
+    // Maybe Tab here?
+    #endregion
+
     #region Player Input Actions
     private InputAction _playerMovement;
+    private InputAction _playerCrystalWheel;
     private InputAction _playerRun;
     private InputAction _playerDash;
     private InputAction _playerAim;
@@ -39,6 +44,7 @@ public class InputHandler : MonoBehaviour {
         _inputAction = new InputController();
         
         _playerMovement = _inputAction.Player.Move;
+        _playerCrystalWheel = _inputAction.Player.CrystalWheel;
         _playerRun = _inputAction.Player.Run;
         _playerDash = _inputAction.Player.Dash;
         _playerAim = _inputAction.Player.Aim;
@@ -51,10 +57,15 @@ public class InputHandler : MonoBehaviour {
     }
 
     private void EnablePlayerInput() {
+        _playerCrystalWheel.performed += OnToggleCrystalWheel;
+        _playerCrystalWheel.canceled += OnToggleCrystalWheel;
+
         _playerMovement.performed += OnMovement;
         _playerMovement.canceled += OnMovement;
+
         _playerLook.performed += OnLook;
         _playerLook.canceled += OnLook;
+
         _playerInteract.performed += OnInteract;
 
         _inputAction.Player.Enable();
@@ -66,6 +77,10 @@ public class InputHandler : MonoBehaviour {
 
     private void Rebind() {
         // _playerJump.rebind("Gamepad/X");
+    }
+
+    private void OnToggleCrystalWheel(InputAction.CallbackContext context) {
+        Events.OnToggleCrystalWheel.Invoke();
     }
 
     private void OnMovement(InputAction.CallbackContext context) {
@@ -81,6 +96,6 @@ public class InputHandler : MonoBehaviour {
     }
 
     private void OnApplicationFocus(bool hasFocus) {
-        Cursor.lockState =  CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

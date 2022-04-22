@@ -98,6 +98,15 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CrystalWheel"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea2451b6-528c-4964-8b52-a8e25c6ee127"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -243,6 +252,17 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04133287-6214-4ab8-a913-4db7556bdbae"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CrystalWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -259,6 +279,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
+        m_Player_CrystalWheel = m_Player.FindAction("CrystalWheel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -326,6 +347,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Aim;
+    private readonly InputAction m_Player_CrystalWheel;
     public struct PlayerActions
     {
         private @InputController m_Wrapper;
@@ -338,6 +360,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
+        public InputAction @CrystalWheel => m_Wrapper.m_Player_CrystalWheel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -371,6 +394,9 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 @Aim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
+                @CrystalWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrystalWheel;
+                @CrystalWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrystalWheel;
+                @CrystalWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrystalWheel;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -399,6 +425,9 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @CrystalWheel.started += instance.OnCrystalWheel;
+                @CrystalWheel.performed += instance.OnCrystalWheel;
+                @CrystalWheel.canceled += instance.OnCrystalWheel;
             }
         }
     }
@@ -413,5 +442,6 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnCrystalWheel(InputAction.CallbackContext context);
     }
 }
