@@ -16,6 +16,7 @@ public class PlayerGroundState : PlayerState {
         _context.PlayerInput.PlayerJump.performed += OnJump;
         _context.PlayerInput.PlayerMeleeAttack.performed += OnMeleeAttack;
         _context.PlayerInput.PlayerInteract.performed += OnInteract;
+        _context.PlayerInput.PlayerUseItem.performed += OnUseItem;
     }
 
     public override void ExitState() {
@@ -26,7 +27,9 @@ public class PlayerGroundState : PlayerState {
         _context.PlayerInput.PlayerJump.performed -= OnJump;
         _context.PlayerInput.PlayerMeleeAttack.performed -= OnMeleeAttack;
         _context.PlayerInput.PlayerInteract.performed -= OnInteract;
-     }
+        _context.PlayerInput.PlayerUseItem.performed -= OnUseItem;
+
+    }
 
     public override void LogicUpdate() {
         base.LogicUpdate();
@@ -53,5 +56,9 @@ public class PlayerGroundState : PlayerState {
 
     protected virtual void OnInteract(InputAction.CallbackContext context) {
         _stateMachine.ChangeState(_factory.InteractState);
+    }
+
+    protected virtual void OnUseItem(InputAction.CallbackContext context) {
+        _stateMachine.ChangeState(_factory.UseItemState);
     }
 }

@@ -89,7 +89,6 @@ public class Player : MonoBehaviour {
     }
 
     public void ApplyHealth(int health) {
-        print(_data.HealthCrystal);
         if(_data.HealthCrystal > 0) {
             if ((_data.CurrentHealth + health) < _data.MaxHealth)
             {
