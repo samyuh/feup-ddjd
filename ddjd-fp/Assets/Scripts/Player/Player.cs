@@ -78,7 +78,7 @@ public class Player : MonoBehaviour {
 
 
     public void GetItem(int item) {
-        if(item == 0) {
+        if(item == 0 && _data.HealthCrystal < _data.MaxHealthCrystal) {
             _data.HealthCrystal += 1;
             print("Health Crystal: " + _data.HealthCrystal);
         }
@@ -101,6 +101,8 @@ public class Player : MonoBehaviour {
                 Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
             }
             _data.HealthCrystal -= 1;
+        } else {
+            print("No Health Crystals");
         }
     }
 

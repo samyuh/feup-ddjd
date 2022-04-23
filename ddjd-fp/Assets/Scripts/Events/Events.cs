@@ -12,8 +12,8 @@ public static class Events {
     public static readonly EventNative OnDeath = new EventNative(); // TODO
     public static readonly EventNative<int, int> OnHealthUpdate = new EventNative<int, int>();
 
-    public static readonly EventNative OnCatchCrystal = new EventNative();
-    public static readonly EventNative OnCatchHealthPlant = new EventNative();
+    public static readonly EventNative OnCatchManaCrystal = new EventNative();
+    public static readonly EventNative OnCatchHealthCrystal = new EventNative();
 
     // Input Events
     public static readonly EventNative OnInteract = new EventNative();

@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour {
     #region Player
     private void EnablePlayer() {
         Events.OnHealthUpdate.AddListener(HealthUpdate);
-        Events.OnCatchHealthPlant.AddListener(CatchHealthPlant);
-        Events.OnCatchCrystal.AddListener(CatchCrystal);
+        Events.OnCatchHealthCrystal.AddListener(CatchHealthCrystal);
+        Events.OnCatchManaCrystal.AddListener(CatchManaCrystal);
         Events.OnUseHealthCrystal.AddListener(UseHealthCrystal);
         Events.OnUseManaCrystal.AddListener(UseManaCrystal);
     }
@@ -38,14 +38,19 @@ public class GameManager : MonoBehaviour {
         _data.MaxHealth = maxHealth;
     }
 
-    private void CatchHealthPlant() {
-       _data.HealthCrystal += 1;
-       Debug.Log("Collected Health Plant");
+    private void CatchHealthCrystal() {
+        if(_data.HealthCrystal > _data.MaxHealthCrystal) {
+            Debug.Log("Can't Carry More Health Crystals");
+        } else {
+            _data.HealthCrystal += 1;
+            Debug.Log("Collected Health Crystal");
+
+        }
     }
 
-    private void CatchCrystal() {
+    private void CatchManaCrystal() {
         _data.ManaCrystal += 1;
-        Debug.Log("Collected Crystal");
+        Debug.Log("Collected Mana Crystal");
     }
 
     private void UseHealthCrystal()

@@ -28,7 +28,7 @@ public class PlayerUseItemState : PlayerAbilityState
     private void ConsumeItem()
     {
         Events.OnUseHealthCrystal.Invoke();
-        _context.ApplyHealth(50);
+        _context.ApplyHealth(100);
 
         _stateMachine.ChangeState(_factory.IdleState);
     }
