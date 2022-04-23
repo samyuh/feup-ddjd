@@ -6,8 +6,12 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour {
     private InputController _inputAction;
 
+    #region UI Input Actions
+    #endregion
+
     #region Player Input Actions
     private InputAction _playerMovement;
+    private InputAction _playerCrystalWheel;
     private InputAction _playerRun;
     private InputAction _playerDash;
     private InputAction _playerAim;
@@ -16,6 +20,7 @@ public class InputHandler : MonoBehaviour {
     private InputAction _playerMeleeAttack;
     private InputAction _playerInteract;
     private InputAction _playerUseItem;
+    private InputAction _toggleInventory;
 
     public InputAction PlayerMovement { get { return _playerMovement; } set { _playerMovement = value; } }
     public InputAction PlayerRun { get { return _playerRun; } set { _playerRun = value; } }
@@ -43,6 +48,7 @@ public class InputHandler : MonoBehaviour {
         _inputAction = new InputController();
         
         _playerMovement = _inputAction.Player.Move;
+        _playerCrystalWheel = _inputAction.Player.CrystalWheel;
         _playerRun = _inputAction.Player.Run;
         _playerDash = _inputAction.Player.Dash;
         _playerAim = _inputAction.Player.Aim;
@@ -51,15 +57,23 @@ public class InputHandler : MonoBehaviour {
         _playerMeleeAttack = _inputAction.Player.MeleeAttack;
         _playerInteract = _inputAction.Player.Interact;
         _playerUseItem = _inputAction.Player.UseItem;
+        _toggleInventory = _inputAction.Player.Inventory;
 
         EnablePlayerInput();
     }
 
     private void EnablePlayerInput() {
+        _playerCrystalWheel.performed += OnToggleCrystalWheel;
+        _playerCrystalWheel.canceled += OnToggleCrystalWheel;
+
+        _toggleInventory.performed += OnToggleInventory;
+
         _playerMovement.performed += OnMovement;
         _playerMovement.canceled += OnMovement;
+
         _playerLook.performed += OnLook;
         _playerLook.canceled += OnLook;
+
         _playerInteract.performed += OnInteract;
         _playerUseItem.performed += OnUseItem;
 
@@ -72,6 +86,19 @@ public class InputHandler : MonoBehaviour {
 
     private void Rebind() {
         // _playerJump.rebind("Gamepad/X");
+    }
+
+    private void OnTogglePauseMenu(InputAction.CallbackContext context) {
+        Events.OnTogglePauseMenu.Invoke();
+    }
+
+    private void OnToggleInventory(InputAction.CallbackContext context) {
+        Events.OnToggleInventory.Invoke();
+    }
+
+    private void OnToggleCrystalWheel(InputAction.CallbackContext context) {
+                Debug.Log("here");
+        Events.OnToggleCrystalWheel.Invoke();
     }
 
     private void OnMovement(InputAction.CallbackContext context) {
@@ -92,6 +119,6 @@ public class InputHandler : MonoBehaviour {
     }
 
     private void OnApplicationFocus(bool hasFocus) {
-        Cursor.lockState =  CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
