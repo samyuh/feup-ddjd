@@ -78,13 +78,22 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CrystalWheel",
-                    "type": "Button",
-                    "id": "ea2451b6-528c-4964-8b52-a8e25c6ee127",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    ""name"": ""CrystalWheel"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea2451b6-528c-4964-8b52-a8e25c6ee127"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""61baa77d-288e-4138-9627-5c764cf88cc2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             "bindings": [
@@ -239,6 +248,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CrystalWheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f289429f-00f3-4dfb-8c4e-ed67c107b3bf",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

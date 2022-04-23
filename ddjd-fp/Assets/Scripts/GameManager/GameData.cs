@@ -9,8 +9,9 @@ public class GameData: ScriptableObject {
 
         public int currentHealth;
         public int maxHealth;
-        public int numHealthPlants;
-        public int numCrystals;
+        public int healthCrystal;
+        public int maxHealthCrystal;
+        public int manaCrystal;
         
         public static Data GetInstance() {
             if (!_instance) {
@@ -23,8 +24,9 @@ public class GameData: ScriptableObject {
                 // Initialize Values
                 _instance.currentHealth = 0;
                 _instance.maxHealth = 0;
-                _instance.numHealthPlants = 0;
-                _instance.numCrystals = 0;
+                _instance.healthCrystal = 0;
+                _instance.manaCrystal = 0;
+                _instance.maxHealthCrystal = 10;
             }
 
             return _instance;
@@ -38,7 +40,8 @@ public class GameData: ScriptableObject {
     #region Global Attributes
     public int CurrentHealth { get { return Data.GetInstance().currentHealth; } set { Data.GetInstance().currentHealth = value; } }
     public int MaxHealth { get { return Data.GetInstance().maxHealth; } set { Data.GetInstance().maxHealth = value; } }
-    public int NumHealthPlants { get { return Data.GetInstance().numHealthPlants; } set { Data.GetInstance().numHealthPlants = value; } }
-    public int NumCrystals { get { return Data.GetInstance().numCrystals; } set { Data.GetInstance().numCrystals = value; } }
+    public int HealthCrystal { get { return Data.GetInstance().healthCrystal; } set { Data.GetInstance().healthCrystal = value; } }
+    public int MaxHealthCrystal { get { return Data.GetInstance().maxHealthCrystal; } set { Data.GetInstance().maxHealthCrystal = value; } }
+    public int ManaCrystal { get { return Data.GetInstance().manaCrystal; } set { Data.GetInstance().manaCrystal = value; } }
     #endregion
 }

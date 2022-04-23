@@ -76,6 +76,36 @@ public class Player : MonoBehaviour {
         else Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
     }
 
+
+    public void GetItem(int item) {
+        if(item == 0 && _data.HealthCrystal < _data.MaxHealthCrystal) {
+            _data.HealthCrystal += 1;
+            print("Health Crystal: " + _data.HealthCrystal);
+        }
+        else if(item == 1) {
+            _data.ManaCrystal += 1;
+            print("Mana Crystal: " + _data.ManaCrystal);
+        }
+    }
+
+    public void ApplyHealth(int health) {
+        if(_data.HealthCrystal > 0) {
+            if ((_data.CurrentHealth + health) < _data.MaxHealth)
+            {
+                _data.CurrentHealth += health;
+                Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
+            }
+            else
+            {
+                _data.CurrentHealth = _data.MaxHealth;
+                Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
+            }
+            _data.HealthCrystal -= 1;
+        } else {
+            print("No Health Crystals");
+        }
+    }
+
     public void DestroyObject(GameObject otherObject){
         Destroy(otherObject);
     }

@@ -34,12 +34,18 @@ public class PlayerInteractState : PlayerAbilityState {
     }
 
     private void HandleObject() {
-        if (_context.InteractableItem.tag == "Health") {
-            Events.OnCatchHealthPlant.Invoke();
-            _context.DestroyObject(_context.InteractableItem);
-        } else if (_context.InteractableItem.tag == "Crystal") {
-            Events.OnCatchCrystal.Invoke();
-            _context.DestroyObject(_context.InteractableItem);
-        }    
+        if(_context.InteractableItem != null) {
+            if (_context.InteractableItem.tag == "Health" && _context.Data.HealthCrystal < _context.Data.MaxHealthCrystal) {
+                Events.OnCatchHealthCrystal.Invoke();
+                _context.DestroyObject(_context.InteractableItem);
+                _context.GetItem(0);
+            } else if (_context.InteractableItem.tag == "Crystal") {
+                Events.OnCatchManaCrystal.Invoke();
+                _context.DestroyObject(_context.InteractableItem);
+                _context.GetItem(1);
+            }    
+        }
+
+        _stateMachine.ChangeState(_factory.IdleState);
     }
 }
