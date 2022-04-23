@@ -7,7 +7,6 @@ public class InputHandler : MonoBehaviour {
     private InputController _inputAction;
 
     #region UI Input Actions
-    // Maybe Tab here?
     #endregion
 
     #region Player Input Actions
@@ -21,6 +20,7 @@ public class InputHandler : MonoBehaviour {
     private InputAction _playerMeleeAttack;
     private InputAction _playerInteract;
     private InputAction _playerUseItem;
+    private InputAction _toggleInventory;
 
     public InputAction PlayerMovement { get { return _playerMovement; } set { _playerMovement = value; } }
     public InputAction PlayerRun { get { return _playerRun; } set { _playerRun = value; } }
@@ -57,6 +57,7 @@ public class InputHandler : MonoBehaviour {
         _playerMeleeAttack = _inputAction.Player.MeleeAttack;
         _playerInteract = _inputAction.Player.Interact;
         _playerUseItem = _inputAction.Player.UseItem;
+        _toggleInventory = _inputAction.Player.Inventory;
 
         EnablePlayerInput();
     }
@@ -64,6 +65,8 @@ public class InputHandler : MonoBehaviour {
     private void EnablePlayerInput() {
         _playerCrystalWheel.performed += OnToggleCrystalWheel;
         _playerCrystalWheel.canceled += OnToggleCrystalWheel;
+
+        _toggleInventory.performed += OnToggleInventory;
 
         _playerMovement.performed += OnMovement;
         _playerMovement.canceled += OnMovement;
@@ -85,7 +88,16 @@ public class InputHandler : MonoBehaviour {
         // _playerJump.rebind("Gamepad/X");
     }
 
+    private void OnTogglePauseMenu(InputAction.CallbackContext context) {
+        Events.OnTogglePauseMenu.Invoke();
+    }
+
+    private void OnToggleInventory(InputAction.CallbackContext context) {
+        Events.OnToggleInventory.Invoke();
+    }
+
     private void OnToggleCrystalWheel(InputAction.CallbackContext context) {
+                Debug.Log("here");
         Events.OnToggleCrystalWheel.Invoke();
     }
 

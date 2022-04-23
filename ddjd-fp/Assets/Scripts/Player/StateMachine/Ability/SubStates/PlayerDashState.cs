@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDashState : PlayerAbilityState {
-    private bool alreadyDashed;
     private float _elapsedTime;
 
     public PlayerDashState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
@@ -13,7 +12,6 @@ public class PlayerDashState : PlayerAbilityState {
         base.EnterState();
         _elapsedTime = 0f;
         _context.Animator.SetBool("Dash", true);
-        alreadyDashed = false;
     }  
 
     public override void ExitState() {

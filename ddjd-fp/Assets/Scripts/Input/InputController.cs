@@ -107,6 +107,24 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""61baa77d-288e-4138-9627-5c764cf88cc2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""5c10436b-f11c-4ca1-8d22-d3f05d91495b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -263,6 +281,28 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                     ""action"": ""CrystalWheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f289429f-00f3-4dfb-8c4e-ed67c107b3bf"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""559d0a62-14e2-4b03-8f10-146a59005862"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -280,6 +320,8 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_CrystalWheel = m_Player.FindAction("CrystalWheel", throwIfNotFound: true);
+        m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
+        m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -348,6 +390,8 @@ public partial class @InputController : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_CrystalWheel;
+    private readonly InputAction m_Player_UseItem;
+    private readonly InputAction m_Player_Inventory;
     public struct PlayerActions
     {
         private @InputController m_Wrapper;
@@ -361,6 +405,8 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @CrystalWheel => m_Wrapper.m_Player_CrystalWheel;
+        public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
+        public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -397,6 +443,12 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 @CrystalWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrystalWheel;
                 @CrystalWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrystalWheel;
                 @CrystalWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrystalWheel;
+                @UseItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseItem;
+                @UseItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseItem;
+                @UseItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUseItem;
+                @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -428,6 +480,12 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 @CrystalWheel.started += instance.OnCrystalWheel;
                 @CrystalWheel.performed += instance.OnCrystalWheel;
                 @CrystalWheel.canceled += instance.OnCrystalWheel;
+                @UseItem.started += instance.OnUseItem;
+                @UseItem.performed += instance.OnUseItem;
+                @UseItem.canceled += instance.OnUseItem;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -443,5 +501,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnCrystalWheel(InputAction.CallbackContext context);
+        void OnUseItem(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }
