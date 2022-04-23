@@ -17,6 +17,8 @@ public static class Events {
 
     // Input Events
     public static readonly EventNative OnInteract = new EventNative();
+    public static readonly EventNative OnUseHealthCrystal = new EventNative();
+    public static readonly EventNative OnUseManaCrystal = new EventNative();
     public static readonly EventNative OnJump = new EventNative();
     public static readonly EventNative OnAttack = new EventNative();
     public static readonly EventNative<Vector2> OnLook = new EventNative<Vector2>();

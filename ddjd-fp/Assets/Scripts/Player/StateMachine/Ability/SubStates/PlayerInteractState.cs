@@ -25,9 +25,11 @@ public class PlayerInteractState : PlayerAbilityState {
             if (_context.InteractableItem.tag == "Health") {
                 Events.OnCatchHealthPlant.Invoke();
                 _context.DestroyObject(_context.InteractableItem);
+                _context.GetItem(0);
             } else if (_context.InteractableItem.tag == "Crystal") {
                 Events.OnCatchCrystal.Invoke();
                 _context.DestroyObject(_context.InteractableItem);
+                _context.GetItem(1);
             }    
         }
 

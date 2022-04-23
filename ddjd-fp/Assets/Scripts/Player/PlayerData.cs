@@ -21,6 +21,16 @@ public class PlayerData {
     public int MaxHealth  {get { return _maxHealth; }  set { _maxHealth = value; }}
     #endregion
 
+    #region Player Inventory
+
+    private int _healthCrystal = 0;
+    private int _manaCrystal = 0;
+
+    public int HealthCrystal{get { return _healthCrystal; } set { _healthCrystal = value; }}
+    public int ManaCrystal { get { return _manaCrystal; } set {_manaCrystal = value;}}
+
+    #endregion
+
     #region Velocity
     private float _speed;
     private float _targetRotation = 0.0f;
