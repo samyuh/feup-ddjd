@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Events {
-    // Mobs
-
+    public static readonly EventNative OnToggleAim = new EventNative(); 
 
     // Player Events
     public static readonly EventNative OnSpawn = new EventNative(); // TODO
