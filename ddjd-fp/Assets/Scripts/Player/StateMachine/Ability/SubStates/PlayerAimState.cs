@@ -9,6 +9,7 @@ public class PlayerAimState : PlayerAbilityState {
     private float throwForce = 5f;
     private float throwUpwardForce = 5f;
     private bool readyToThrow = true; 
+    private GameObject companion = GameObject.Find("Companion");
 
     public PlayerAimState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
     base (currentContext, playerStateFactory, stateFactory) { }
@@ -43,7 +44,7 @@ public class PlayerAimState : PlayerAbilityState {
 
     private void OnThrow(InputAction.CallbackContext contextInput) {
         if (readyToThrow) {
-            GameObject projectile = _context.InstantiateObj(_context.ObjectToThrow,  _context.transform.position + new Vector3(0f, 2f, 0f), _context.Camera.MainCamera.transform.rotation);
+            GameObject projectile = _context.InstantiateObj(_context.ObjectToThrow,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
             Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
 
             Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
