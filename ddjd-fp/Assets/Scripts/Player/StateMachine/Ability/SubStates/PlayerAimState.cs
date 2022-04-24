@@ -19,6 +19,7 @@ public class PlayerAimState : PlayerAbilityState {
         readyToThrow = true;
         _context.PlayerInput.PlayerMeleeAttack.performed += OnThrow;
         _context.PlayerInput.PlayerAim.canceled += OnAimCancelled;
+        
     }  
 
     public override void ExitState() {
