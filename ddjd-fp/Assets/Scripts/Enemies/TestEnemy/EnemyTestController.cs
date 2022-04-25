@@ -20,6 +20,6 @@ public class EnemyTestController : MonoBehaviour {
     }
 
     public void Death() {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
