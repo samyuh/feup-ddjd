@@ -6,19 +6,23 @@ public class PlatformTrigger : MonoBehaviour
 {
     [SerializeField] private Animator myAnimationController;
 
-    private void OnTriggerMoveUp(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("MoveUp");
         if(other.CompareTag("Player"))
         {
             myAnimationController.SetBool("UpBool", true);
+            Debug.Log("true");
         }
     }
 
-    private void OnTriggerMoveDown(Collider other)
+    private void OnTriggerExit(Collider other)
     {
+        Debug.Log("MoveDown");
         if(other.CompareTag("Player"))
         {
             myAnimationController.SetBool("UpBool", false);
+            Debug.Log("false");
         }
     }
 }
