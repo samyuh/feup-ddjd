@@ -2,41 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovePlatformPressurePlate : MonoBehaviour
-{
-    public List<GameObject> targetPositions;
+public class MovePlatformPressurePlate : MonoBehaviour {
     public int speed;
+    public float distance;
 
-    public Vector3 _startPosition;
-    public Vector3 _targetPosition;
-    public float _distance;
-    public float _elapsedTime;
-    public int _nextPlatform;
-
+    private Vector3 _startPosition;
+    private Vector3 _targetPosition;
+    
+    private float _elapsedTime;
 
     void Start() {
-        _startPosition = targetPositions[0].transform.position;
-        _targetPosition = targetPositions[1].transform.position;
-        _nextPlatform = 1;
-
+        _startPosition = transform.position;
         _elapsedTime = 0f;
+
+        _targetPosition = new Vector3( _startPosition.x,  _startPosition.y + distance,  _startPosition.z);
     }
  
     void Update() {
-        if (transform.position == _targetPosition) {
-            _startPosition = transform.position;
-            _targetPosition =  targetPositions[_nextPlatform].transform.position;
-
-            _distance = Vector3.Distance(_startPosition, _targetPosition);
-            _elapsedTime = 0f;
-
-            _nextPlatform = (_nextPlatform + 1) % targetPositions.Count;
-        } 
-
-        // Distance moved equals elapsed time times speed
         _elapsedTime += Time.deltaTime;
+
         float distanceDisplacement = _elapsedTime * speed;
-        float interpolationRatio = distanceDisplacement / _distance;
+        float interpolationRatio = distanceDisplacement / distance;
         transform.position = Vector3.Lerp(_startPosition, _targetPosition, interpolationRatio);
     }
 }
