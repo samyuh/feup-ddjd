@@ -34,4 +34,7 @@ public static class Events {
     // // // Pause Menu
 
     // // // Inventory
+
+    // // // Pressure Plate
+     public static readonly EventNative OnPressurePlate  = new EventNative();
 }
