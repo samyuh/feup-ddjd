@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerAimState : PlayerAbilityState {
     [Header("Throwing")]
     private float throwCooldown = 1f;
-    private float throwForce = 5f;
-    private float throwUpwardForce = 5f;
+    private float throwForce = 40f;
+    private float throwUpwardForce = 1f;
     private bool readyToThrow = true; 
     private GameObject companion = GameObject.Find("Companion");
 
