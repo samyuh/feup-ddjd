@@ -45,7 +45,6 @@ public class CrystalWheelController: MonoBehaviour
     public void OnToggleCrystalWheel() 
     {
         active = !active;
-        Debug.Log(active);
         Cursor.lockState = active ? CursorLockMode.None : CursorLockMode.Locked;
         gameObject.SetActive(active);
     }

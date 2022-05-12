@@ -6,20 +6,35 @@ using UnityEngine.UI;
 using TMPro;
 
 public class CrystalWheel: MonoBehaviour {
-    public int id;
-    public string itemName;
-    public TextMeshProUGUI itemText;
+    [SerializeField] private int id;
+    [SerializeField] private Image itemImage;
+    [SerializeField] private TextMeshProUGUI itemText;
+
+    private CrystalData crystal;
     private bool _selected = false;
+
+    private void Awake()
+    {   
+        crystal = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().currentCrystals[id];
+        itemImage.sprite = crystal.icon;
+        
+        Events.OnChangeCrystal.AddListener(OnChangeCrystal);
+    }
+
+    private void OnChangeCrystal() {
+        crystal = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().currentCrystals[id];
+        itemImage.sprite = crystal.icon;
+    }
 
     private void Update() {
         if (_selected) {
-            itemText.text = itemName;
+            itemText.text = crystal.name;
         }
     }
 
     public void Select() {
         _selected = true;
-        Events.OnChangeSelectedCrystal.Invoke(id);
+        Events.OnChangeSelectedCrystal.Invoke(crystal.id);
     }
 
     public void Unselect() {
@@ -27,7 +42,7 @@ public class CrystalWheel: MonoBehaviour {
     }
 
     public void HoveEnter() {
-        itemText.text = itemName;
+        itemText.text = crystal.name;
     }
 
     public void HoveExit() {

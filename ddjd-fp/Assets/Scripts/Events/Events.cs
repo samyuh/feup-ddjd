@@ -31,6 +31,7 @@ public static class Events {
     public static readonly EventNative OnToggleAim = new EventNative(); 
 
     // // // Crystal Wheel
+    public static readonly EventNative OnChangeCrystal = new EventNative(); 
     public static readonly EventNative<int> OnChangeSelectedCrystal  = new EventNative<int>();
 
     // // // Pause Menu
