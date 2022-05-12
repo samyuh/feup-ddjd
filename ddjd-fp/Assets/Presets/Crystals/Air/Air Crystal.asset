@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6533ea6aaa563d49a3399af0797cae3, type: 3}
   m_Name: Air Crystal
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   name: Air
   icon: {fileID: 21300000, guid: 2eb71d7cbfc9a0049aca14d1918e9ceb, type: 3}
+  crystalProjectile: {fileID: 5395098307693501117, guid: da8b2699a25ff7746b5c50aa90cedfd5, type: 3}

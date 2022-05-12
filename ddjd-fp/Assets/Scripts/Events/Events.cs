@@ -31,12 +31,12 @@ public static class Events {
     public static readonly EventNative OnToggleAim = new EventNative(); 
 
     // // // Crystal Wheel
-    public static readonly EventNative OnChangeCrystal = new EventNative(); 
-    public static readonly EventNative<int> OnChangeSelectedCrystal  = new EventNative<int>();
+    public static readonly EventNative<CrystalData> OnSetActiveCrystal  = new EventNative<CrystalData>();
 
     // // // Pause Menu
 
     // // // Inventory
+    public static readonly EventNative OnChangeCrystalSlots = new EventNative(); 
 
     // // // Pressure Plate
      public static readonly EventNative OnPressurePlate  = new EventNative();

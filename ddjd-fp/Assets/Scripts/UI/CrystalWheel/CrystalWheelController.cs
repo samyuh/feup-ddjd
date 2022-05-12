@@ -10,7 +10,7 @@ public class CrystalWheelController: MonoBehaviour
     private static int _idCrystal = 1;
 
     private void Awake() {
-        Events.OnChangeSelectedCrystal.AddListener(OnChangeSelectedCrystal);
+        Events.OnSetActiveCrystal.AddListener(OnSetActiveCrystal);
     }
 
     private void Update() {
@@ -37,9 +37,9 @@ public class CrystalWheelController: MonoBehaviour
         }
     }
 
-    private void OnChangeSelectedCrystal(int idCrystal) 
+    private void OnSetActiveCrystal(CrystalData crystal) 
     {
-        _idCrystal = idCrystal;
+        _idCrystal = crystal.id;
     }
 
     public void OnToggleCrystalWheel() 

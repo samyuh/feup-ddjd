@@ -11,17 +11,18 @@ public class CrystalWheel: MonoBehaviour {
     [SerializeField] private TextMeshProUGUI itemText;
 
     private CrystalData crystal;
-    private bool _selected = false;
+    private bool _selected;
 
     private void Awake()
     {   
+        _selected = false;
         crystal = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().currentCrystals[id];
         itemImage.sprite = crystal.icon;
-        
-        Events.OnChangeCrystal.AddListener(OnChangeCrystal);
+
+        Events.OnChangeCrystalSlots.AddListener(OnChangeCrystalSlots);
     }
 
-    private void OnChangeCrystal() {
+    private void OnChangeCrystalSlots() {
         crystal = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().currentCrystals[id];
         itemImage.sprite = crystal.icon;
     }
@@ -34,7 +35,7 @@ public class CrystalWheel: MonoBehaviour {
 
     public void Select() {
         _selected = true;
-        Events.OnChangeSelectedCrystal.Invoke(crystal.id);
+        Events.OnSetActiveCrystal.Invoke(crystal);
     }
 
     public void Unselect() {
