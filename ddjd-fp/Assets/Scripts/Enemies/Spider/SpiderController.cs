@@ -7,12 +7,12 @@ public class SpiderController : MonoBehaviour {
     protected int _healthPoints;
     [SerializeField] private Slider _healthBar;
 
-    public float stopDistance = 0.25f;
-    public float followDistance = 1f;
-    private float speed = 5f;
-    public float maxSpeed = 0.025f;
-    public float acceleration = 0.00001f;
-    public float deceleration = 0.1f;
+    [SerializeField] private float stopDistance = 0.25f;
+    [SerializeField] private float followDistance = 1f;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float maxSpeed = 0.025f;
+    [SerializeField] private float acceleration = 0.00001f;
+    [SerializeField] private float deceleration = 0.1f;
 
     private GameObject _target;
 
@@ -21,30 +21,32 @@ public class SpiderController : MonoBehaviour {
         _target = GameObject.Find("Player");
     }
 
-    #region Move Spider
     private void Update() {
         transform.LookAt(_target.transform.position);
         
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hit)) {
             float distance = hit.distance;
-            Debug.Log(distance);
-            Debug.Log(followDistance);
 
             // Only follow after a certain _distance from the _target
             // Follows the _target until its close to his head
-            if (distance > followDistance) accelerate();
-            else decelarate();
+            if (distance > followDistance) Accelerate();
+            else {
+                Decelerate();
+
+                Attack();
+            }
 
             Move();
         }
     }
 
-    private void accelerate() {
+    #region Move Spider
+    private void Accelerate() {
         speed += acceleration * Time.deltaTime;
         if(speed > maxSpeed) speed = maxSpeed;
     }
     
-    private void decelarate() {
+    private void Decelerate() {
         speed -= deceleration * Time.deltaTime;
         if (speed < 0) speed = 0f;
     }
@@ -54,10 +56,21 @@ public class SpiderController : MonoBehaviour {
     }
     #endregion
 
+    #region Attack
     public void Attack() {
+        if (speed == 0f) {
+            Debug.Log("Attack");
 
+            // check attack cooldown
+
+            // if player in colliders
+                // attack
+                // set attack cooldown
+        }
     }
+    #endregion
     
+    #region Receive Damage
     public void ApplyDamage(int damage) {
         _healthPoints -= damage;
         if (_healthPoints < 0) Death();
@@ -69,4 +82,5 @@ public class SpiderController : MonoBehaviour {
     public void Death() {
         Destroy(gameObject);
     }
+    #endregion
 }
