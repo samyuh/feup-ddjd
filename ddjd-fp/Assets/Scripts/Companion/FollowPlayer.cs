@@ -10,10 +10,7 @@ public class FollowPlayer : MonoBehaviour {
     public float maxSpeed = 0.025f;
     public float acceleration = 0.00001f;
     public float deceleration = 0.1f;
-
-
-    
-    
+ 
     private GameObject _target;
 
     private void Start(){
@@ -40,6 +37,7 @@ public class FollowPlayer : MonoBehaviour {
         speed += acceleration * Time.deltaTime;
         if(speed > maxSpeed) speed = maxSpeed;
     }
+    
     private void decelarate(){
         speed -= deceleration * Time.deltaTime;
         if (speed < 0) speed = 0f;
