@@ -25,7 +25,7 @@ public class PlayerDashState : PlayerAbilityState {
         base.LogicUpdate();
 
         _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > 0.17f) {
+        if (_elapsedTime > 0.37f) {
             Vector3 targetDirection = Quaternion.Euler(0.0f, _context.Data.TargetRotation, 0.0f) * Vector3.forward;
             _context.Controller.transform.position = _context.Controller.transform.position + targetDirection * 2f;
 
