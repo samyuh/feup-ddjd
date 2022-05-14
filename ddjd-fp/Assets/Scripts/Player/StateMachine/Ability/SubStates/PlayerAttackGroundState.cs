@@ -79,9 +79,13 @@ public class PlayerAttackGroundState : PlayerAbilityState {
 
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 0.2f);
         foreach (var hitCollider in hitColliders) {
+            Debug.Log(hitCollider.gameObject.tag);
             if (hitCollider.gameObject.tag == "Enemy") {
                 hitCollider.gameObject.SendMessage("ApplyDamage", 30);
-            };
+            }
+            else if (hitCollider.gameObject.tag == "PuzzleCube") {
+                hitCollider.gameObject.SendMessage("Move", _startPosition);
+            }
         }
     }
 }
