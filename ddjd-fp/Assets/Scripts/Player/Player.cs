@@ -28,6 +28,8 @@ public class Player : MonoBehaviour {
     #region Interactable Items
     public CrystalData ActiveCrystal = null;
     public GameObject InteractableItem = null;
+    public GameObject SecondaryObjectToThrow = null;
+
     #endregion
 
     private void Awake() {

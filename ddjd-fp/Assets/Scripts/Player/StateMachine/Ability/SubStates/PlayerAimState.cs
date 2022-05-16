@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerAimState : PlayerAbilityState {
     [Header("Throwing")]
     private float throwCooldown = 1f;
-    private float throwForce = 40f;
+    private float throwForce = 15f;
     private float throwUpwardForce = 1f;
     private bool readyToThrow = true; 
     private GameObject companion = GameObject.Find("Companion");
@@ -47,19 +47,23 @@ public class PlayerAimState : PlayerAbilityState {
     }
 
     private void OnThrow(InputAction.CallbackContext contextInput) {
-        if (readyToThrow && _context.ActiveCrystal != null) {
-            // if DEFAULT
-            GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+        // Condition for Regular shooting
+        // if (readyToThrow && _context.ActiveCrystal != null) {
+        //     GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
+        //     Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+        //     Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
+        
+        //     projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
+        // }
 
-            Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
+        // Condition for flying tornado
+        if (readyToThrow) {
+            GameObject projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
 
-            projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
-            // ELSEIF AIR
-            // ELSEIF FIRE
-            // ELSEIF WATER
-            // ELSEIF EARTH
+            projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f);
+            
         }
+
     }
 
     protected virtual void OnAimCancelled(InputAction.CallbackContext context) {
