@@ -48,20 +48,27 @@ public class PlayerAimState : PlayerAbilityState {
 
     private void OnThrow(InputAction.CallbackContext contextInput) {
         // Condition for Regular shooting
-        // if (readyToThrow && _context.ActiveCrystal != null) {
-        //     GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-        //     Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-        //     Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
-        
-        //     projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
-        // }
+        if (readyToThrow && _context.ActiveCrystal != null) {
+            // ABILITIES
 
-        // Condition for flying tornado
-        if (readyToThrow) {
+            // DEFAULT (Obsidia Rocks from the ground)
+            // To Do
+
+            // Air (Tornado)
+            // GameObject projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
+            // projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f);    
+
+            // Fire (Fire Ball)
+            GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
+            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+            Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
+            projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
+
+            // Earth (To be defined)  
+        } else if (readyToThrow) {
+            // TORNADO
             GameObject projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-
-            projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f);
-            
+            projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f);    
         }
 
     }
