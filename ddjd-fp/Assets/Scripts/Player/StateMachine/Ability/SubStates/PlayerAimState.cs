@@ -47,13 +47,18 @@ public class PlayerAimState : PlayerAbilityState {
     }
 
     private void OnThrow(InputAction.CallbackContext contextInput) {
-        if (readyToThrow) {
-            GameObject projectile = _context.InstantiateObj(_context.ObjectToThrow,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
+        if (readyToThrow && _context.ActiveCrystal != null) {
+            // if DEFAULT
+            GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
             Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
 
             Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
 
             projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
+            // ELSEIF AIR
+            // ELSEIF FIRE
+            // ELSEIF WATER
+            // ELSEIF EARTH
         }
     }
 
