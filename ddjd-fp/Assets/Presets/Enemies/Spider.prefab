@@ -454,7 +454,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4597908553981423523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 250dd741bfc532c429e501fa716b0215, type: 3}
+  m_Script: {fileID: 11500000, guid: d5f795325783c0d42afa7c82f7210b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 3678988625039198155}
+  stopDistance: 0.25
+  followDistance: 3
+  maxSpeed: 0.025
+  acceleration: 0.00001
+  deceleration: 0.1
