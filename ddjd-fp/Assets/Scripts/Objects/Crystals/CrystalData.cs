@@ -7,4 +7,6 @@ public class CrystalData: ScriptableObject {
     public int id;
     public string name;
     public Sprite icon;
+
+    public GameObject crystalProjectile;
 }

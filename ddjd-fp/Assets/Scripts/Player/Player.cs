@@ -26,8 +26,10 @@ public class Player : MonoBehaviour {
     #endregion
 
     #region Interactable Items
+    public CrystalData ActiveCrystal = null;
     public GameObject InteractableItem = null;
-    public GameObject ObjectToThrow = null;
+    public GameObject SecondaryObjectToThrow = null;
+
     #endregion
 
     private void Awake() {
@@ -44,6 +46,13 @@ public class Player : MonoBehaviour {
         StateMachine = new StateMachine(this);
         StateFactory = new StateFactory(this, StateMachine);
         StateMachine.Initialize(StateFactory.IdleState);
+
+        // Crystal
+        Events.OnSetActiveCrystal.AddListener(SetActiveCrystal);
+    }
+
+    private void SetActiveCrystal(CrystalData newCrystal) {
+        ActiveCrystal = newCrystal;
     }
 
     private void Update() {
