@@ -5,6 +5,9 @@ using UnityEngine;
 public class BlockBehavior : MonoBehaviour
 {
     [SerializeField] int id;
+    [SerializeField] public GameObject Puzzle;
+    Vector3 targetPosition = new Vector3(1000f, 1000f, 1000f);
+    private float speed = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,7 @@ public class BlockBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     /*void OnCollisionStay(Collision collisionInfo)
@@ -51,11 +54,11 @@ public class BlockBehavior : MonoBehaviour
     }*/
 
     void MoveRequest(Vector3 playerPosition) {
-        (int, int) direction;
-        Debug.Log("Player X: " + playerPosition.x);
+        (int x, int z) direction = (0, 0);
+        /*Debug.Log("Player X: " + playerPosition.x);
         Debug.Log("Player Z: " + playerPosition.z);
         Debug.Log("Block X: " + gameObject.transform.position.x);
-        Debug.Log("Block Z: " + gameObject.transform.position.z);
+        Debug.Log("Block Z: " + gameObject.transform.position.z);*/
         if (gameObject.transform.position.x - playerPosition.x > 0.5) {
             direction = (1, 0);
         }
@@ -70,7 +73,13 @@ public class BlockBehavior : MonoBehaviour
             direction = (0, -1);
         }
 
-        //gameObject.transform.position += offset;
+        (int x, int z) cubePosition = ((int) gameObject.transform.position.x, (int) gameObject.transform.position.z);
 
+        Puzzle.gameObject.SendMessage("EvaluateMove", (cubePosition.x, cubePosition.z, direction.x, direction.z));
+
+    }
+
+    void Move((int x, int z) direction){
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x + direction.x, gameObject.transform.position.y, gameObject.transform.position.z + direction.z);
     }
 }

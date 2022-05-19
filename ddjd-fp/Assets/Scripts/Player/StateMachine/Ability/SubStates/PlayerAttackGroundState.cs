@@ -16,7 +16,6 @@ public class PlayerAttackGroundState : PlayerAbilityState {
 
     public override void EnterState() {
         base.EnterState();
-        Debug.Log("Enter State");
 
         _movingTowards = false;
         _closeUp = true;
@@ -85,8 +84,6 @@ public class PlayerAttackGroundState : PlayerAbilityState {
                 hitCollider.gameObject.SendMessage("ApplyDamage", 30);
             }
             else if (hitCollider.gameObject.tag == "PuzzleCube") {
-                Debug.Log(hitCollider.gameObject.tag);
-                Debug.Log("Yayy!");
                 hitCollider.gameObject.SendMessage("MoveRequest", _context.transform.position);
             }
         }
