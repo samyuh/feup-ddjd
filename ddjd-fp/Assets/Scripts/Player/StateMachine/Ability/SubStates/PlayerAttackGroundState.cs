@@ -87,7 +87,7 @@ public class PlayerAttackGroundState : PlayerAbilityState {
             else if (hitCollider.gameObject.tag == "PuzzleCube") {
                 Debug.Log(hitCollider.gameObject.tag);
                 Debug.Log("Yayy!");
-                hitCollider.gameObject.SendMessage("Move", _startPosition);
+                hitCollider.gameObject.SendMessage("MoveRequest", _context.transform.position);
             }
         }
     }

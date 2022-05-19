@@ -49,21 +49,25 @@ public class BlockBehavior : MonoBehaviour
         }
     }*/
 
-    void move(Vector3 playerPosition) {
+    void MoveRequest(Vector3 playerPosition) {
+        Debug.Log("Player X: " + playerPosition.x);
+        Debug.Log("Player Z: " + playerPosition.z);
+        Debug.Log("Block X: " + gameObject.transform.position.x);
+        Debug.Log("Block Z: " + gameObject.transform.position.z);
         if (gameObject.transform.position.x - playerPosition.x > 0.5) {
             Debug.Log("Move X");
             gameObject.transform.position += new Vector3(1, 0, 0);
         }
-        if (gameObject.transform.position.x - playerPosition.x < -0.5) {
+        else if (gameObject.transform.position.x - playerPosition.x < -0.5) {
             Debug.Log("Move X");
             gameObject.transform.position += new Vector3(-1, 0, 0);
         }
 
-        if (gameObject.transform.position.z - playerPosition.z > 0.5) {
+        else if (gameObject.transform.position.z - playerPosition.z > 0.5) {
             Debug.Log("Move Z");
             gameObject.transform.position += new Vector3(0, 0, 1);
         }
-        if (gameObject.transform.position.z - playerPosition.z < -0.5) {
+        else if (gameObject.transform.position.z - playerPosition.z < -0.5) {
             Debug.Log("Move Z");
             gameObject.transform.position += new Vector3(0, 0, -1);
         }
