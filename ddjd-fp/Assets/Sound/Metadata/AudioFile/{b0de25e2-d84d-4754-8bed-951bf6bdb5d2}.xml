@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b0de25e2-d84d-4754-8bed-951bf6bdb5d2}">
+		<property name="assetPath">
+			<value>briNote3_2.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>10.846166666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{38cc5cfc-ede5-4794-806d-293c61a942cc}</destination>
+		</relationship>
+	</object>
+</objects>
