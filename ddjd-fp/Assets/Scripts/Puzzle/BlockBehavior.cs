@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour
 {
+    [SerializeField] int id;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,26 +51,26 @@ public class BlockBehavior : MonoBehaviour
     }*/
 
     void MoveRequest(Vector3 playerPosition) {
+        (int, int) direction;
         Debug.Log("Player X: " + playerPosition.x);
         Debug.Log("Player Z: " + playerPosition.z);
         Debug.Log("Block X: " + gameObject.transform.position.x);
         Debug.Log("Block Z: " + gameObject.transform.position.z);
         if (gameObject.transform.position.x - playerPosition.x > 0.5) {
-            Debug.Log("Move X");
-            gameObject.transform.position += new Vector3(1, 0, 0);
+            direction = (1, 0);
         }
         else if (gameObject.transform.position.x - playerPosition.x < -0.5) {
-            Debug.Log("Move X");
-            gameObject.transform.position += new Vector3(-1, 0, 0);
+            direction = (-1, 0);
         }
 
         else if (gameObject.transform.position.z - playerPosition.z > 0.5) {
-            Debug.Log("Move Z");
-            gameObject.transform.position += new Vector3(0, 0, 1);
+            direction = (0, 1);
         }
         else if (gameObject.transform.position.z - playerPosition.z < -0.5) {
-            Debug.Log("Move Z");
-            gameObject.transform.position += new Vector3(0, 0, -1);
+            direction = (0, -1);
         }
+
+        //gameObject.transform.position += offset;
+
     }
 }
