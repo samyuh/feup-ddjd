@@ -57,6 +57,9 @@
 		</relationship>
 	</object>
 	<object class="MixerInput" id="{301c4008-d753-4677-a286-1932b52c7297}">
+		<relationship name="masters">
+			<destination>{82ae7bea-8fcd-4aa7-b961-a3af64e35f6a}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{f3a7a28a-98a5-4d29-bb9f-c68a0ceb3a60}</destination>
 		</relationship>
@@ -173,6 +176,12 @@
 	<object class="ThreeEQEffect" id="{1dd36bbf-d25b-4b89-ae7f-15188686b0ad}">
 		<property name="lowGain">
 			<value>-10</value>
+		</property>
+		<property name="highGain">
+			<value>-1.5</value>
+		</property>
+		<property name="crossoverSlope">
+			<value>0</value>
 		</property>
 	</object>
 	<object class="Automator" id="{da1c5b28-e616-4780-a9dc-19b86c0ac87e}">

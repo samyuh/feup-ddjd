@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{4596eed8-d115-4519-964f-8a148eca3ea4}">
+		<property name="name">
+			<value>mobNear</value>
+		</property>
+		<relationship name="folder">
+			<destination>{b55db872-3fed-4db1-bf02-42bcf4ac43d2}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{abafa7f2-0363-4285-8f78-c954478f3487}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{abafa7f2-0363-4285-8f78-c954478f3487}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
