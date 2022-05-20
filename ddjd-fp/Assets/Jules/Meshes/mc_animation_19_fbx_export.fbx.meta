@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98adf22750838bb4181fa8c5dedabbff
+guid: 5df25ca1a4b108046a7886235dd3a15a
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
@@ -31,8 +31,44 @@ ModelImporter:
       74: 8957346265529765638
     second: Armature|08_block
   - first:
-      74: -8872832812105748480
-    second: Armature|attack_iddle_idea
+      74: 8082350163125701452
+    second: Armature|09_light_attack
+  - first:
+      74: 4034486188479307088
+    second: Armature|10_medium_attack
+  - first:
+      74: -1360681420534550872
+    second: Armature|11_heavy_attack
+  - first:
+      74: -344829920280230383
+    second: Armature|12_pickup
+  - first:
+      74: -298921753781189019
+    second: Armature|13_read
+  - first:
+      74: 6029117474752260597
+    second: Armature|14_regen
+  - first:
+      74: -883614505798091253
+    second: Armature|14_regen_combat
+  - first:
+      74: 6794156548019756205
+    second: Armature|15_heal
+  - first:
+      74: 2833735503294041698
+    second: Armature|15_heal_combat
+  - first:
+      74: -7741261442421742152
+    second: Armature|16_hit_react
+  - first:
+      74: 4805577306579867318
+    second: Armature|17_dying
+  - first:
+      74: -289836343547992694
+    second: Armature|18_idle
+  - first:
+      74: 4790245302267701030
+    second: Armature|18_idle_combat
   externalObjects:
   - first:
       type: UnityEngine:Material
