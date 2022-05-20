@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCamera{
+public class PlayerCamera {
     private GameObject _mainCamera;
     public GameObject MainCamera {get {return _mainCamera;} set {_mainCamera = value;}}
     
@@ -12,14 +12,17 @@ public class PlayerCamera{
     public float CameraAngleOverride = 0.0f;
     public bool LockCameraPosition = false;
 
-    private GameObject _cinemachineCameraTarget;
+    private GameObject _playerCameraTarget;
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
     private const float _threshold = 0.01f;
 
+
+
     public PlayerCamera() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        _cinemachineCameraTarget = GameObject.FindGameObjectWithTag("PlayerCameraTarget");
+
+        _playerCameraTarget = GameObject.FindGameObjectWithTag("PlayerCameraTarget");
     }
 
     public void LateUpdateCamera(float magnitude, float lookAxisX, float lookAxisY) {
@@ -31,7 +34,7 @@ public class PlayerCamera{
         _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
         _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch,BottomClamp,TopClamp);
 
-        _cinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
+        _playerCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
     }
 
     private static float ClampAngle(float ifAngle, float ifMin, float ifMax) {
@@ -39,4 +42,5 @@ public class PlayerCamera{
         if (ifAngle > 360f) ifAngle -= 360f;
         return Mathf.Clamp(ifAngle, ifMin, ifMax);
     }
+
 }

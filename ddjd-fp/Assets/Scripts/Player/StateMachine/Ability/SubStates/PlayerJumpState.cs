@@ -19,7 +19,7 @@ public class PlayerJumpState : PlayerAbilityState {
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-		_stateMachine.ChangeState(_factory.FallingState);
+        _stateMachine.ChangeState(_factory.FallingState);
     }
 
     private void PerformJump() {

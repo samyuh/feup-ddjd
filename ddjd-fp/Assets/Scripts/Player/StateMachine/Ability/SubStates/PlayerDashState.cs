@@ -10,23 +10,25 @@ public class PlayerDashState : PlayerAbilityState {
 
     public override void EnterState() {
         base.EnterState();
+        _context.Controller.enabled = false;
         _elapsedTime = 0f;
         _context.Animator.SetBool("Dash", true);
     }  
 
     public override void ExitState() {
         base.ExitState();
+         _context.Controller.enabled = true;
         _context.Animator.SetBool("Dash", false);
     }
 
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-        Vector3 targetDirection = Quaternion.Euler(0.0f, _context.Data.TargetRotation, 0.0f) * Vector3.forward;
-        _context.Controller.Move(targetDirection * 12f * Time.deltaTime);
-
         _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > 0.5f) {
+        if (_elapsedTime > 0.37f) {
+            Vector3 targetDirection = Quaternion.Euler(0.0f, _context.Data.TargetRotation, 0.0f) * Vector3.forward;
+            _context.Controller.transform.position = _context.Controller.transform.position + targetDirection * 2f;
+
             _stateMachine.ChangeState(_factory.IdleState);
         } 
     }
