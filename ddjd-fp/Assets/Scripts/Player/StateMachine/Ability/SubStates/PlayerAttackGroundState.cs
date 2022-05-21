@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttackGroundState : PlayerAbilityState {
     public float _elapsedTime;
+    public static int _currentAttackIndex = 0;
+
     private bool _dealDamage;
     private bool _closeUp;
     private bool _movingTowards;
@@ -21,14 +23,15 @@ public class PlayerAttackGroundState : PlayerAbilityState {
         _closeUp = true;
         _dealDamage = true;
         _elapsedTime = 0f;
-        _context.Animator.SetBool("Attack", true);
-        
+        Debug.Log("Attack" + _currentAttackIndex.ToString());
+        _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), true);
     }
 
     public override void ExitState() {
         base.ExitState();
         
-        _context.Animator.SetBool("Attack", false);
+        _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), false);
+        _currentAttackIndex = (_currentAttackIndex + 1) % 3;
     }
 
     public override void LogicUpdate() {

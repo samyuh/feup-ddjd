@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Companion
       objectReference: {fileID: 0}
+    - target: {fileID: 5943940362630654700, guid: 7accfbbecf0d2c94e9e9c35873d282b3, type: 3}
+      propertyPath: waterHeight
+      value: 2.18
+      objectReference: {fileID: 0}
     - target: {fileID: 5943940362630654702, guid: 7accfbbecf0d2c94e9e9c35873d282b3, type: 3}
       propertyPath: m_RootOrder
       value: 2
