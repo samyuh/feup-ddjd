@@ -13,16 +13,19 @@ public class PlayerCamera {
     public bool LockCameraPosition = false;
 
     private GameObject _playerCameraTarget;
+    private GameObject _playerAimTarget;
+    
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
     private const float _threshold = 0.01f;
 
-
+    
 
     public PlayerCamera() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         _playerCameraTarget = GameObject.FindGameObjectWithTag("PlayerCameraTarget");
+        _playerAimTarget = GameObject.FindGameObjectWithTag("PlayerAimTarget");
     }
 
     public void LateUpdateCamera(float magnitude, float lookAxisX, float lookAxisY) {

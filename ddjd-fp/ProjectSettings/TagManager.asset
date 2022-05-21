@@ -11,7 +11,7 @@ TagManager:
   - PlayerCameraTarget
   - Enemy
   - MovingPlatform
-  - PlayerCameraAim
+  - PlayerAimTarget
   layers:
   - Default
   - TransparentFX

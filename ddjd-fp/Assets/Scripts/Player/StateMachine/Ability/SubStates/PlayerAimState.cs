@@ -34,7 +34,7 @@ public class PlayerAimState : PlayerAbilityState {
 
     public override void LogicUpdate() {
         base.LogicUpdate();
-
+        base.PlayerRotation();
         // after x elapsed time ready to throw  = true
 
         // Some movement of the player, 

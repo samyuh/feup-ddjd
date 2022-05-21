@@ -59,8 +59,6 @@ public class SpiderController : MonoBehaviour {
     #region Attack
     public void Attack() {
         if (speed == 0f) {
-            Debug.Log("Attack");
-
             // check attack cooldown
 
             // if player in colliders
