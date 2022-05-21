@@ -7,7 +7,9 @@ public class BlockBehavior : MonoBehaviour
     [SerializeField] int id;
     [SerializeField] public GameObject Puzzle;
     Vector3 targetPosition = new Vector3(1000f, 1000f, 1000f);
-    private float speed = 0.2f;
+    private float pushSpeed = 0.04f;
+    private float constantSpeed = 0.001f;
+    private float offset = 0.001f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,24 @@ public class BlockBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(targetPosition != new Vector3(1000f, 1000f, 1000f) && transform.position != targetPosition){
+            Debug.Log(transform.position);
+            Vector3 differenceVector = targetPosition - transform.position;
+            float differenceDistance = differenceVector.sqrMagnitude;
+
+            if(Mathf.Abs(differenceDistance) < offset){
+                transform.position = targetPosition;
+            }
+            else{
+                if(transform.position.x == targetPosition.x){
+                    transform.position = new Vector3(transform.position.x + differenceVector.x * pushSpeed, transform.position.y, transform.position.z + differenceVector.z * pushSpeed + constantSpeed);
+                }
+                else{
+                    transform.position = new Vector3(transform.position.x + differenceVector.x * pushSpeed + constantSpeed, transform.position.y, transform.position.z + differenceVector.z * pushSpeed);
+                }
+                
+            }
+        }
     }
 
     /*void OnCollisionStay(Collision collisionInfo)
@@ -80,6 +99,8 @@ public class BlockBehavior : MonoBehaviour
     }
 
     void Move((int x, int z) direction){
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x + direction.x, gameObject.transform.position.y, gameObject.transform.position.z + direction.z);
+        targetPosition = new Vector3(transform.position.x + direction.x, transform.position.y, transform.position.z + direction.z);
+        Debug.Log("Target position: " + targetPosition);
+        // gameObject.transform.position = new Vector3(gameObject.transform.position.x + direction.x, gameObject.transform.position.y, gameObject.transform.position.z + direction.z);
     }
 }
