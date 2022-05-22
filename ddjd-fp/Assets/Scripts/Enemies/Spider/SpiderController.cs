@@ -7,36 +7,37 @@ public class SpiderController : MonoBehaviour {
     protected int _healthPoints;
     [SerializeField] private Slider _healthBar;
 
-    [SerializeField] private float stopDistance = 0.25f;
-    [SerializeField] private float followDistance = 1f;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float maxSpeed = 0.025f;
-    [SerializeField] private float acceleration = 0.00001f;
-    [SerializeField] private float deceleration = 0.1f;
+    [SerializeField] private float maxDistance = 50f;
+    [SerializeField] private float followDistance = 2f;
+    [SerializeField] private float speed = 0f;
+    [SerializeField] private float maxSpeed = 0.5f;
+    [SerializeField] private float acceleration = 0.075f;
+    [SerializeField] private float deceleration = 0.5f;
 
     private GameObject _target;
+
+    private LayerMask mask;
 
     private void Awake() {
         _healthPoints = 350;
         _target = GameObject.Find("Player");
+        mask =  LayerMask.GetMask("Player");
     }
 
     private void Update() {
-        transform.LookAt(_target.transform.position);
         
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hit)) {
+        
+        if (Physics.Raycast(transform.position, new Vector3(_target.transform.position.x,0.5f ,_target.transform.position.z) - transform.position, out RaycastHit hit, maxDistance, mask)) {
             float distance = hit.distance;
-
+            
             // Only follow after a certain _distance from the _target
             // Follows the _target until its close to his head
             if (distance > followDistance) Accelerate();
-            else {
+            else{
                 Decelerate();
-
                 Attack();
             }
-
-            Move();
+            
         }
     }
 
@@ -44,15 +45,22 @@ public class SpiderController : MonoBehaviour {
     private void Accelerate() {
         speed += acceleration * Time.deltaTime;
         if(speed > maxSpeed) speed = maxSpeed;
+        Debug.Log("Accelerate");
+        Move();
     }
     
     private void Decelerate() {
         speed -= deceleration * Time.deltaTime;
         if (speed < 0) speed = 0f;
+        Debug.Log("Decelerate");
+        Move();
     }
 
     private void Move() {
-        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, speed);
+        Vector3 posit = new Vector3(_target.transform.position.x,0 ,_target.transform.position.z);
+        transform.LookAt(posit);
+
+        transform.position += transform.forward * speed;
     }
     #endregion
 
