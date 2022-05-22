@@ -465,15 +465,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678988625131607093, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: maxSpeed
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3678988625131607093, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: acceleration
-      value: 0.1
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 3678988625131607093, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: deceleration
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3678988625131607093, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: stopDistance
@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678988625131607093, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: followDistance
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3678988626651730577, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1373,6 +1373,10 @@ PrefabInstance:
     - target: {fileID: 9068561142336369984, guid: 0d80e5e960ee1174dadf85bd3606f695, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068561142336369984, guid: 0d80e5e960ee1174dadf85bd3606f695, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9068561142336369988, guid: 0d80e5e960ee1174dadf85bd3606f695, type: 3}
       propertyPath: m_RootOrder
