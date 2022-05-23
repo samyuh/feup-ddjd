@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - MovingPlatform
   - PlayerAimTarget
+  - PlayerCameraAim
+  - PuzzleCube
   layers:
   - Default
   - TransparentFX

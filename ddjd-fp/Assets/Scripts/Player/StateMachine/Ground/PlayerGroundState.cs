@@ -42,6 +42,7 @@ public class PlayerGroundState : PlayerState {
     }
 
     protected virtual void OnAim(InputAction.CallbackContext context) {
+        Debug.Log("hereeeeee");
         _stateMachine.ChangeState(_factory.AimState);
     }
 
