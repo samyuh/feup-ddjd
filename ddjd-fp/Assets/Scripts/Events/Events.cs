@@ -21,6 +21,9 @@ public static class Events {
     // // // Use
     public static readonly EventNative OnUseHealthCrystal = new EventNative();
     public static readonly EventNative OnUseManaCrystal = new EventNative();
+
+    // // // Button
+    public static readonly EventNative OnActivatePortal = new EventNative();
     
     // Menu
     //

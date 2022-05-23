@@ -43,7 +43,9 @@ public class PlayerInteractState : PlayerAbilityState {
                 Events.OnCatchManaCrystal.Invoke();
                 _context.DestroyObject(_context.InteractableItem);
                 _context.GetItem(1);
-            }    
+            } else if (_context.InteractableItem.tag == "PortalButton") {
+                Events.OnActivatePortal.Invoke();
+            }
         }
 
         _stateMachine.ChangeState(_factory.IdleState);
