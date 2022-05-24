@@ -8,8 +8,8 @@ public class InterfaceManager : MonoBehaviour
     [SerializeField] private AimController _aim;
     [SerializeField] private CrystalWheelController _crystalWheel;
     [SerializeField] private InventoryController _inventory;
+    [SerializeField] private PauseMenuController _pauseMenu;
     [SerializeField] private GameObject _gameOverlay;
-    [SerializeField] private GameObject _pauseMenu;
     
     void Awake()
     {   
@@ -37,6 +37,7 @@ public class InterfaceManager : MonoBehaviour
     }
 
     public void OnTogglePauseMenu() {
-        _pauseMenu.SetActive(true);
+        _pauseMenu.OnTogglePauseMenu();
+        Debug.Log("Pause Menu");
     }
 }
