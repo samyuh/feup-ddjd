@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
     #region Game Data
     [SerializeField] private GameData _data;
+    [SerializeField] public List<CrystalData> currentCrystals;
     #endregion
 
     #region Player
