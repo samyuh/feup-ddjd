@@ -1,9 +1,51 @@
 fileFormatVersion: 2
-guid: 99a784ae9ad01684882cd09ccb5fb064
+guid: 172e5107c9cba62429261cafe5c68e24
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
-  externalObjects: {}
+  internalIDToNameTable:
+  - first:
+      74: 6650035934922618329
+    second: armature|00_restpose
+  - first:
+      74: 7698290904893814006
+    second: armature|01_idle
+  - first:
+      74: -5603325291794320263
+    second: armature|01_idle_combat
+  - first:
+      74: -2580048005510128198
+    second: armature|02_walk
+  - first:
+      74: -4191670549711255292
+    second: armature|03_run
+  - first:
+      74: 1588640275948321269
+    second: armature|4_attack_light
+  - first:
+      74: 1031984478477592793
+    second: armature|5_attack_heavy
+  - first:
+      74: -1923645110921830864
+    second: armature|6_attack_react
+  - first:
+      74: 1931018857653627778
+    second: armature|7_dying
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystal_fire_mobspider
+    second: {fileID: 2100000, guid: 60ef659b8cbe2f247b7cb4cebae9201d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: darker_crystal_fire_mobspider
+    second: {fileID: 2100000, guid: 50230b4d3b254f0459e922ef63f0596c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: obsidian_fire_mobspider
+    second: {fileID: 2100000, guid: c69473a1b9eeb214f817dd30bd805d09, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
