@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttackGroundState : PlayerAbilityState {
     public float _elapsedTime;
+    public static int _currentAttackIndex = 0;
+
     private bool _dealDamage;
     private bool _closeUp;
     private bool _movingTowards;
@@ -21,14 +23,15 @@ public class PlayerAttackGroundState : PlayerAbilityState {
         _closeUp = true;
         _dealDamage = true;
         _elapsedTime = 0f;
-        _context.Animator.SetBool("Attack", true);
-        
+        Debug.Log("Attack" + _currentAttackIndex.ToString());
+        _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), true);
     }
 
     public override void ExitState() {
         base.ExitState();
         
-        _context.Animator.SetBool("Attack", false);
+        _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), false);
+        _currentAttackIndex = (_currentAttackIndex + 1) % 3;
     }
 
     public override void LogicUpdate() {
@@ -59,7 +62,7 @@ public class PlayerAttackGroundState : PlayerAbilityState {
 
         // TODO: 
         // Do this with raycast instead?
-        Vector3 spherePosition = new Vector3(_context.transform.position.x + 2f * _context.transform.TransformDirection(Vector3.forward).x, _context.transform.position.y + 0.3f, 
+        Vector3 spherePosition = new Vector3(_context.transform.position.x + 2f * _context.transform.TransformDirection(Vector3.forward).x, _context.transform.position.y + 0.2f, 
                                         _context.transform.position.z + 2f * _context.transform.TransformDirection(Vector3.forward).z);
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 1.3f);
 
@@ -74,14 +77,18 @@ public class PlayerAttackGroundState : PlayerAbilityState {
 
     private void DealDamage() {
         _dealDamage = false;
-        Vector3 spherePosition = new Vector3(_context.transform.position.x + 0.616f * _context.transform.TransformDirection(Vector3.forward).x, _context.transform.position.y + 0.3f, 
+        Vector3 spherePosition = new Vector3(_context.transform.position.x + 0.616f * _context.transform.TransformDirection(Vector3.forward).x, _context.transform.position.y - 0.1f, 
                                         _context.transform.position.z + 0.616f * _context.transform.TransformDirection(Vector3.forward).z);
 
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 0.2f);
         foreach (var hitCollider in hitColliders) {
+            
             if (hitCollider.gameObject.tag == "Enemy") {
                 hitCollider.gameObject.SendMessage("ApplyDamage", 30);
-            };
+            }
+            else if (hitCollider.gameObject.tag == "PuzzleCube") {
+                hitCollider.gameObject.SendMessage("MoveRequest", _context.transform.position);
+            }
         }
     }
 }

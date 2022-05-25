@@ -52,6 +52,15 @@ public abstract class PlayerState {
             _context.Data.RotationVelocity = rotationVelocity;
             
             _context.transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+        } else {
+            Debug.Log("Here");
+            _context.Data.TargetRotation = _context.Camera.MainCamera.transform.eulerAngles.y;
+            // Debug.Log(_context.Data.TargetRotation);
+            float rotationVelocity = _context.Data.RotationVelocity;
+            float rotation = Mathf.SmoothDampAngle(_context.transform.eulerAngles.y, _context.Data.TargetRotation, ref rotationVelocity, _context.Data.RotationSmoothTime);
+            _context.Data.RotationVelocity = rotationVelocity;
+            
+            _context.transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
         }
     }
 

@@ -11,7 +11,6 @@ public class PortalButton : MonoBehaviour
         if (collider.tag == "Player" && Input.GetKey("e"))
         {
             isPressed = true;
-            Debug.Log("Button was pressed!");
         }
     }
 }

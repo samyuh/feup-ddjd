@@ -97,7 +97,6 @@ public class InputHandler : MonoBehaviour {
     }
 
     private void OnToggleCrystalWheel(InputAction.CallbackContext context) {
-                Debug.Log("here");
         Events.OnToggleCrystalWheel.Invoke();
     }
 
