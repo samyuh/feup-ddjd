@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {   
 
-    public float stopDistance = 0.25f;
     public float followDistance = 3f;
     private float speed = 0f;
     public float maxSpeed = 0.025f;
     public float acceleration = 0.00001f;
     public float deceleration = 0.1f;
 
-    
-    
+
     private GameObject _target;
+    private GameObject _player;    
+
 
     private void Start(){
-        _target = GameObject.Find("Player");
+        _player = GameObject.Find("Player");
+        _target = GameObject.Find("CompanionPlace");
     }
 
     private void Update() {

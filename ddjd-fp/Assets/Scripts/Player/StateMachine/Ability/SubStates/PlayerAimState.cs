@@ -10,6 +10,7 @@ public class PlayerAimState : PlayerAbilityState {
     private float throwUpwardForce = 1f;
     private bool readyToThrow = true; 
     private GameObject companion = GameObject.Find("Companion");
+    private GameObject playerAimTarget = GameObject.Find("PlayerAimTarget");
 
     public PlayerAimState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
     base (currentContext, playerStateFactory, stateFactory) { }
@@ -59,7 +60,9 @@ public class PlayerAimState : PlayerAbilityState {
                 case "Air":
                     // Air (Tornado)
                     projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-                    projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f); 
+                    // projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f); 
+
+                    projectile.transform.LookAt(playerAimTarget.transform.position);
                     break;
 
                 case "Earth":
