@@ -23,7 +23,6 @@ public class BlockBehavior : MonoBehaviour
     void Update()
     {
         if(targetPosition != new Vector3(1000f, 1000f, 1000f) && transform.position != targetPosition){
-            Debug.Log(transform.position);
             Vector3 differenceVector = targetPosition - transform.position;
             float differenceDistance = differenceVector.sqrMagnitude;
 
@@ -92,7 +91,7 @@ public class BlockBehavior : MonoBehaviour
             direction = (0, -1);
         }
 
-        (int x, int z) cubePosition = ((int) gameObject.transform.position.x, (int) gameObject.transform.position.z);
+        (float x, float z) cubePosition = (gameObject.transform.position.x, gameObject.transform.position.z);
 
         Puzzle.gameObject.SendMessage("EvaluateMove", (cubePosition.x, cubePosition.z, direction.x, direction.z));
 

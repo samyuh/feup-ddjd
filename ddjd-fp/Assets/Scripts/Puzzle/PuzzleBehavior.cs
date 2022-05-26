@@ -20,8 +20,9 @@ public class PuzzleBehavior : MonoBehaviour
         
     }
 
-    public void EvaluateMove((int cubeX, int cubeZ, int directionX, int directionZ) values){
-        (int x, int z) cubePosition = (values.cubeX, values.cubeZ);
+    public void EvaluateMove((float cubeX, float cubeZ, int directionX, int directionZ) values){
+        (float x, float z) cubePosition = (values.cubeX, values.cubeZ);
+        Debug.Log("EVALUATE MOVE: " + cubePosition.x + ", " + cubePosition.z);
         (int x, int z) direction = (values.directionX, values.directionZ);
 
         if(isMoveValid(direction, cubePosition)){
@@ -33,16 +34,19 @@ public class PuzzleBehavior : MonoBehaviour
         }
     }
 
-    public bool isMoveValid((int x, int z) direction, (int x, int z) blockPosition) {
-        (int x, int z) finalPosition = (blockPosition.x + direction.x, blockPosition.z + direction.z);
+    public bool isMoveValid((int x, int z) direction, (float x, float z) blockPosition) {
+        (float x, float z) finalPosition = (blockPosition.x + direction.x, blockPosition.z + direction.z);
 
-        if (blockLeavesPuzzle(direction, (blockPosition.x, blockPosition.z - 10))) {
+        if (blockLeavesPuzzle(direction, (blockPosition.x, blockPosition.z))) {
             return false;
         }
 
         else{
             for(int i = 0; i < cubes.Count; i ++){
-                if(cubes[i].transform.position.x == finalPosition.x && cubes[i].transform.position.z == finalPosition.z){
+                /*if(cubes[i].transform.position.x == finalPosition.x && cubes[i].transform.position.z == finalPosition.z){
+                    return false;
+                }*/
+                if(Mathf.Abs(cubes[i].transform.position.x - finalPosition.x) < 0.01 && Mathf.Abs(cubes[i].transform.position.z - finalPosition.z) < 0.01){
                     return false;
                 }
             }
@@ -51,8 +55,13 @@ public class PuzzleBehavior : MonoBehaviour
         return true;
     }
 
-    public bool blockLeavesPuzzle((int x, int z) direction, (int x, int z) blockPosition){
-        if (blockPosition.x + direction.x < 0 || blockPosition.x + direction.x >= puzzleXLength || blockPosition.z + direction.z < 0 || blockPosition.z + direction.z >= puzzleXLength){
+    public bool blockLeavesPuzzle((int x, int z) direction, (float x, float z) blockPosition){
+        (float x, float z) finalPosition = (blockPosition.x + direction.x, blockPosition.z + direction.z);
+        Debug.Log("Block Position: " + blockPosition.x + ", " + blockPosition.z);
+        Debug.Log("Direction: " + direction.x + ", " + direction.z);
+        Debug.Log("Puzzle Position: " + transform.position.x + ", " + transform.position.z);
+        Debug.Log("Final Position: " + finalPosition.x + ", " + finalPosition.z);
+        if (blockPosition.x + direction.x < transform.position.x - 0.01 || blockPosition.x + direction.x >= puzzleXLength + transform.position.x - 0.01 || blockPosition.z + direction.z < transform.position.z - 0.01 || blockPosition.z + direction.z >= puzzleZLength + transform.position.z - 0.01){
             return true;
         }
 
