@@ -21,6 +21,7 @@ public class InputHandler : MonoBehaviour {
     private InputAction _playerInteract;
     private InputAction _playerUseItem;
     private InputAction _toggleInventory;
+    private InputAction _togglePauseMenu;
 
     public InputAction PlayerMovement { get { return _playerMovement; } set { _playerMovement = value; } }
     public InputAction PlayerRun { get { return _playerRun; } set { _playerRun = value; } }
@@ -30,7 +31,6 @@ public class InputHandler : MonoBehaviour {
     public InputAction PlayerJump { get { return _playerJump; } set { _playerJump = value; } }
     public InputAction PlayerMeleeAttack { get { return _playerMeleeAttack; } set { _playerMeleeAttack = value; } }
     public InputAction PlayerInteract { get { return _playerInteract; } set { _playerInteract = value; } }
-
     public InputAction PlayerUseItem { get { return _playerUseItem; } set { _playerUseItem = value; } }
     #endregion
 
@@ -58,6 +58,7 @@ public class InputHandler : MonoBehaviour {
         _playerInteract = _inputAction.Player.Interact;
         _playerUseItem = _inputAction.Player.UseItem;
         _toggleInventory = _inputAction.Player.Inventory;
+        _togglePauseMenu = _inputAction.Player.PauseMenu;
 
         EnablePlayerInput();
     }
@@ -67,6 +68,7 @@ public class InputHandler : MonoBehaviour {
         _playerCrystalWheel.canceled += OnToggleCrystalWheel;
 
         _toggleInventory.performed += OnToggleInventory;
+        _togglePauseMenu.performed += OnTogglePauseMenu;
 
         _playerMovement.performed += OnMovement;
         _playerMovement.canceled += OnMovement;
