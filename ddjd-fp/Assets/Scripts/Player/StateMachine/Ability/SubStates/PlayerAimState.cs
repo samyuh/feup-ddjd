@@ -10,6 +10,7 @@ public class PlayerAimState : PlayerAbilityState {
     private float throwUpwardForce = 1f;
     private bool readyToThrow = true; 
     private GameObject companion = GameObject.Find("Companion");
+    private GameObject playerAimTarget = GameObject.Find("PlayerAimTarget");
 
     public PlayerAimState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
     base (currentContext, playerStateFactory, stateFactory) { }
@@ -50,21 +51,34 @@ public class PlayerAimState : PlayerAbilityState {
         // Condition for Regular shooting
         if (readyToThrow && _context.ActiveCrystal != null) {
             // ABILITIES
-
+            GameObject projectile;
             // DEFAULT (Obsidia Rocks from the ground)
             // To Do
 
-            // Air (Tornado)
-            // GameObject projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-            // projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f);    
 
-            // Fire (Fire Ball)
-            GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-            Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
-            projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
+            switch(_context.ActiveCrystal.name){
+                case "Air":
+                    // Air (Tornado)
+                    projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
+                    // projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f); 
 
-            // Earth (To be defined)  
+                    projectile.transform.LookAt(playerAimTarget.transform.position);
+                    break;
+
+                case "Earth":
+                    projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
+                    Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+                    Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
+                    projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
+                    break;
+                case "Fire":
+                    // GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
+                    // Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+                    // Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
+                    // projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
+                    break;
+            }
+            
         } else if (readyToThrow) {
             // TORNADO
             GameObject projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);

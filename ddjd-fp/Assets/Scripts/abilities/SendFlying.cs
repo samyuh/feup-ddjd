@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class SendFlying : MonoBehaviour
 {
-
-    void Start(){
-        Debug.Log("Helloooo");
-
-    }
-
     void Update(){
         transform.position += transform.forward * Time.deltaTime * 15f;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {   
+    void OnCollisionEnter(Collision collision){   
         
-        Debug.Log("Collided with " + collision.collider.name);
-        
-        if (collision.body as Rigidbody)
-        {
-            Debug.Log("The object is " + collision.gameObject);
-            Debug.Log("body is " + collision.gameObject.GetComponent<Rigidbody>());
+        // TODO: Colocar um If para saber quais objetos elevamos. (Deve dar por tag)
+        if (collision.body as Rigidbody){
+            GameObject obj = collision.gameObject;
 
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 500,ForceMode.Force);
+            SendUpwards(obj);
+            DealDamage(obj);
         }
 
     }
+
+    private void SendUpwards(GameObject obj){
+        obj.GetComponent<Rigidbody>().AddForce(transform.up * 500,ForceMode.Force);
+    }
+
+
+    private void DealDamage(GameObject obj){
+        if(obj.tag == "Enemy"){
+            obj.SendMessage("ApplyDamage",30);
+        }
+        
+    }
+
+
 
 
 
