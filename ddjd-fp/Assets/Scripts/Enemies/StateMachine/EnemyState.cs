@@ -11,10 +11,12 @@ public class EnemyState {
     private float deceleration = 0.25f;
 
     private GameObject _target;
+    private GameObject _context;
     private LayerMask mask;
 
-    public EnemyState(int healthPoints, GameObject target) {
+    public EnemyState(int healthPoints, GameObject target, GameObject context) {
         _target = target;
+        _context = context;
 
         mask =  LayerMask.GetMask("Player");
     }
@@ -24,8 +26,7 @@ public class EnemyState {
     public void ExitState() { }
 
     public void LogicUpdate() { 
-        /*
-        if (Physics.Raycast(transform.position, _target.transform.position - transform.position, out RaycastHit hit, maxDistance, mask)) {
+        if (Physics.Raycast(_context.transform.position, _target.transform.position - _context.transform.position, out RaycastHit hit, maxDistance, mask)) {
             float distance = hit.distance;
 
             if (distance > followDistance) Accelerate();
@@ -34,7 +35,6 @@ public class EnemyState {
                 Attack();
             }
         }
-        */
     }
 
 	public void PhysicsUpdate() { }
@@ -53,10 +53,11 @@ public class EnemyState {
     }
 
     private void Move() {
-        Vector3 posit = new Vector3(_target.transform.position.x,0 ,_target.transform.position.z);
-        //transform.LookAt(posit);
+        Vector3 posit = new Vector3(_target.transform.position.x, 0 ,_target.transform.position.z);
+        _context.transform.LookAt(posit);
 
-        //transform.position += transform.forward * speed;
+        Debug.Log(_context.transform.forward);
+        _context.transform.position += _context.transform.forward * speed;
     }
     #endregion
 

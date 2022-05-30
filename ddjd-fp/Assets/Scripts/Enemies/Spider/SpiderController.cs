@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class SpiderController : MonoBehaviour {
     protected int _healthPoints = 350;
     [SerializeField] private Slider _healthBar;
+    [SerializeField] private GameObject spider;
 
     private EnemyState _enemy;
 
     private void Start() {
         _healthPoints = 350;
-        _enemy = new EnemyState(350, GameObject.Find("Player"));
+        _enemy = new EnemyState(350, GameObject.Find("Player"), spider);
     }
 
     private void Update() {
