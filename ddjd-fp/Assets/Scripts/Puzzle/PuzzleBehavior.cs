@@ -7,16 +7,26 @@ public class PuzzleBehavior : MonoBehaviour
     public List<GameObject> cubes = new List<GameObject>();
     [SerializeField] private int puzzleXLength;
     [SerializeField] private int puzzleZLength;
+    [SerializeField] private List<List<float>> solution = new List<List<float>>();
+    private int numberSpecialCubes;
+    private bool solved;
+    [SerializeField] public GameObject Door;
     
     // Start is called before the first frame update
     void Start()
     {
+        cubes.Clear();
+        FindObjectwithTag("SpecialPuzzleCube");
+        numberSpecialCubes = cubes.Count;
         FindObjectwithTag("PuzzleCube");
+        CreateSolution(transform.position.x, transform.position.z);
+        solved = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        solved = CheckSolution();
         
     }
 
@@ -70,7 +80,6 @@ public class PuzzleBehavior : MonoBehaviour
 
     public void FindObjectwithTag(string _tag)
     {
-        cubes.Clear();
         Transform parent = transform;
         GetChildObject(parent, _tag);
     }
@@ -89,5 +98,40 @@ public class PuzzleBehavior : MonoBehaviour
                 GetChildObject(child, _tag);
             }
         }
+    }
+
+    void CreateSolution(float puzzleX, float puzzleZ){
+        solution.Add(new List<float>{3 + puzzleX,3 + puzzleZ});
+        solution.Add(new List<float>{3 + puzzleX,1 + puzzleZ});
+        solution.Add(new List<float>{2 + puzzleX,2 + puzzleZ});
+        solution.Add(new List<float>{4 + puzzleX,2 + puzzleZ});
+        solution.Add(new List<float>{1 + puzzleX,3 + puzzleZ});
+        solution.Add(new List<float>{5 + puzzleX,3 + puzzleZ});
+        solution.Add(new List<float>{2 + puzzleX,4 + puzzleZ});
+        solution.Add(new List<float>{4 + puzzleX,4 + puzzleZ});
+    }
+
+    bool CheckSolution(){
+        for(int i = 0; i < solution.Count; i++){
+            bool ok = false;
+            for(int j = 0; j < cubes.Count; j++){
+                if(i < numberSpecialCubes){
+                    if(cubes[j].tag == "SpecialPuzzleCube" && solution[i][0] == cubes[j].transform.position.x && solution[i][1] == cubes[j].transform.position.z){
+                        ok = true;
+                        break;
+                    }
+                }
+                else{
+                    if(cubes[j].tag == "PuzzleCube" && solution[i][0] == cubes[j].transform.position.x && solution[i][1] == cubes[j].transform.position.z){
+                        ok = true;
+                        break;
+                    }
+                }
+            }
+            if(!ok){
+                return false;
+            }
+        }
+        return true;
     }
 }

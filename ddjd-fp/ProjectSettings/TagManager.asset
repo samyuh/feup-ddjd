@@ -13,6 +13,8 @@ TagManager:
   - MovingPlatform
   - PlayerCameraAim
   - PuzzleCube
+  - SpecialPuzzleCube
+  - Door
   layers:
   - Default
   - TransparentFX
