@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1017 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-2228.39,-4689.61)">
+        <g id="sliderB" transform="matrix(0.529661,0,0,0.0156937,141.521,4689.61)">
+            <rect x="3940" y="0" width="1920" height="1080" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="3940" y="0" width="1920" height="1080"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1.888,0,0,63.72,-4351.2,-16470)">
+                    <g transform="matrix(29.5,0,0,1,-423350,39.661)">
+                        <rect x="14500" y="225.788" width="33.898" height="3" style="fill:rgb(255,64,97);"/>
+                    </g>
+                    <g transform="matrix(0.0847458,0,0,0.0847458,4374.58,241.525)">
+                        <path d="M300,200L200,300L300,400L400,300L300,200Z" style="fill:rgb(255,64,97);"/>
+                    </g>
+                    <g transform="matrix(0.0847458,0,0,0.0847458,5374.58,241.525)">
+                        <path d="M300,200L200,300L300,400L400,300L300,200Z" style="fill:rgb(255,64,97);"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

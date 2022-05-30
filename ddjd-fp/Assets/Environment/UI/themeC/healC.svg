@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1988.13,-6015.49)">
+        <g id="healC" transform="matrix(0.14791,0,0,0.14791,2325.04,6029.2)">
+            <rect x="-2277.78" y="-92.74" width="458.365" height="458.365" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="-2277.78" y="-92.74" width="458.365" height="458.365"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(6.76088,0,0,6.76088,-85629.1,-751.639)">
+                    <g transform="matrix(1,0,0,1,10265.3,4.23729)">
+                        <path d="M2097.12,93.22L2063.22,127.119L2097.12,161.017L2131.02,127.119L2097.12,93.22ZM2097.12,97.463L2126.77,127.119C2126.77,127.119 2097.12,156.774 2097.12,156.774C2097.12,156.774 2067.46,127.119 2067.46,127.119L2097.12,97.463Z" style="fill:white;"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,7880.8,-335.848)">
+                        <path d="M4477.34,450.254L4477.34,462.966L4464.63,462.966L4460.39,467.204L4464.63,471.441L4477.34,471.441L4477.34,484.153L4481.58,488.39L4485.82,484.153L4485.82,471.441L4498.53,471.441L4502.76,467.204L4498.53,462.966L4485.82,462.966L4485.82,450.254L4481.58,446.017L4477.34,450.254Z" style="fill:white;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
