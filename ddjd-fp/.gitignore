@@ -24,7 +24,6 @@ fmod_editor.log
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-*.meta
 
 /[Ll]ibrary/
 /[Tt]emp/
