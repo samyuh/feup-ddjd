@@ -11,12 +11,12 @@ public class MainMenuScript : MonoBehaviour
     }
     public void NewGame()
     {
-        SceneManager.LoadScene("Isle 1 (Neutral)");
+        Debug.Log("Not Implemented");
     }
 
     public void Demo()
     {
-        Debug.Log("Not Implemented");
+        SceneManager.LoadScene("Isle 1 (Neutral)");
     }
 
     public void Options()
