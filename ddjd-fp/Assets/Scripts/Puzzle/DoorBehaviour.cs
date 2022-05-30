@@ -17,10 +17,10 @@ public class DoorBehaviour : MonoBehaviour
     }
 
     void Open(){
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+        transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
     }
 
     void Close(){
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+        transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
     }
 }

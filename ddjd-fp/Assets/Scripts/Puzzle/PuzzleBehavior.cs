@@ -20,14 +20,25 @@ public class PuzzleBehavior : MonoBehaviour
         numberSpecialCubes = cubes.Count;
         FindObjectwithTag("PuzzleCube");
         CreateSolution(transform.position.x, transform.position.z);
-        solved = true;
+        solved = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        solved = CheckSolution();
-        
+        if(!solved){
+            solved = CheckSolution();
+            if(solved){
+                Door.SendMessage("Open");
+            }
+        }
+
+        if(solved){
+            solved = CheckSolution();
+            if(!solved){
+                Door.SendMessage("Close");
+            }
+        }
     }
 
     public void EvaluateMove((float cubeX, float cubeZ, int directionX, int directionZ) values){
