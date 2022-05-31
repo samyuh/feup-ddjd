@@ -46,6 +46,11 @@ public class PlayerInteractState : PlayerAbilityState {
             } else if (_context.InteractableItem.tag == "PortalButton") {
                 Events.OnActivatePortal.Invoke();
             }
+            else if(_context.InteractableItem.tag == "Enemy"){
+                Debug.Log("Found the Enemy");
+                
+                Debug.Log("Teleport to: " + CheckPoint.GetActiveCheckPointPosition());
+            }
         }
 
         _stateMachine.ChangeState(_factory.IdleState);
