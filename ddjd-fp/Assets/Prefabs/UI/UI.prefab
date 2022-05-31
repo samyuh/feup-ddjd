@@ -4013,7 +4013,6 @@ GameObject:
   - component: {fileID: 8922354364247329853}
   - component: {fileID: 8922354364247329850}
   - component: {fileID: 8922354364247329848}
-  - component: {fileID: 3637735016412637331}
   - component: {fileID: 8922354364247329855}
   - component: {fileID: 8922354364247329854}
   - component: {fileID: 2089505520002865258}
@@ -4097,36 +4096,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3637735016412637331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8922354364247329852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &8922354364247329855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4140,7 +4109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
-  itemImage: {fileID: 3637735016412637331}
+  itemImage: {fileID: 0}
   itemText: {fileID: 8922354365316871253}
 --- !u!114 &8922354364247329854
 MonoBehaviour:
@@ -4243,7 +4212,6 @@ GameObject:
   - component: {fileID: 8922354364322842435}
   - component: {fileID: 8922354364322842488}
   - component: {fileID: 8922354364322842494}
-  - component: {fileID: 5587196406514459}
   - component: {fileID: 8922354364322842493}
   - component: {fileID: 8922354364322842492}
   - component: {fileID: 7106964085885841554}
@@ -4327,36 +4295,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5587196406514459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8922354364322842434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &8922354364322842493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4370,7 +4308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
-  itemImage: {fileID: 5587196406514459}
+  itemImage: {fileID: 0}
   itemText: {fileID: 8922354365316871253}
 --- !u!114 &8922354364322842492
 MonoBehaviour:
@@ -5385,7 +5323,6 @@ GameObject:
   - component: {fileID: 8922354365258286517}
   - component: {fileID: 8922354365258286514}
   - component: {fileID: 8922354365258286512}
-  - component: {fileID: 8627970593993964373}
   - component: {fileID: 8922354365258286519}
   - component: {fileID: 8922354365258286518}
   - component: {fileID: 6555021777210315347}
@@ -5469,36 +5406,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8627970593993964373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8922354365258286516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &8922354365258286519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5512,7 +5419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  itemImage: {fileID: 8627970593993964373}
+  itemImage: {fileID: 0}
   itemText: {fileID: 8922354365316871253}
 --- !u!114 &8922354365258286518
 MonoBehaviour:
@@ -6304,7 +6211,6 @@ GameObject:
   - component: {fileID: 8922354365731387624}
   - component: {fileID: 8922354365731387621}
   - component: {fileID: 8922354365731387627}
-  - component: {fileID: 8343295345205008534}
   - component: {fileID: 8922354365731387626}
   - component: {fileID: 8922354365731387625}
   - component: {fileID: 922191101400176301}
@@ -6388,36 +6294,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8343295345205008534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8922354365731387631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &8922354365731387626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6431,7 +6307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  itemImage: {fileID: 8343295345205008534}
+  itemImage: {fileID: 0}
   itemText: {fileID: 8922354365316871253}
 --- !u!114 &8922354365731387625
 MonoBehaviour:
