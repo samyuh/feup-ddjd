@@ -69,7 +69,17 @@ ModelImporter:
   - first:
       74: 4790245302267701030
     second: Armature|18_idle_combat
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mc_crystal
+    second: {fileID: 2100000, guid: 309c49a173ef1ad4db8a9157b8f16f2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mc_obsidian
+    second: {fileID: 2100000, guid: 6f32f607bc403704c8584bdab76cd905, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

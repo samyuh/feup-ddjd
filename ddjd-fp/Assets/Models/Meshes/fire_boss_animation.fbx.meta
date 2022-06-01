@@ -42,7 +42,22 @@ ModelImporter:
   - first:
       74: 5308887494613806773
     second: Armature|11_dying
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystal_boss_fire
+    second: {fileID: 2100000, guid: 49f1c398b51d21b469bb6967b3d659a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystal_darker_boss_fire
+    second: {fileID: 2100000, guid: a8dac52b475440048a6b3e856379a41f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: obsidian_boss_fire
+    second: {fileID: 2100000, guid: c69473a1b9eeb214f817dd30bd805d09, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

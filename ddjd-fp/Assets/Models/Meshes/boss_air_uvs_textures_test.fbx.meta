@@ -3,7 +3,22 @@ guid: 6da456ec61a7875498df16207acb8afc
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystal_boss_air
+    second: {fileID: 2100000, guid: c618169404e6dd343a6bd32f84587822, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystal_darker_boss_air
+    second: {fileID: 2100000, guid: 2aa40f40884ff964b8b3ae0e843cba71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: obsidian_boss_air
+    second: {fileID: 2100000, guid: 6d808775bc028904db6d33b1d37a591f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

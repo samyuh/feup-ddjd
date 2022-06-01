@@ -1,9 +1,41 @@
 fileFormatVersion: 2
-guid: 52144abba0f3b1b4c8ea488facc949c6
+guid: eeee555b6b145674caa25ab0d337d95c
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
-  externalObjects: {}
+  internalIDToNameTable:
+  - first:
+      74: -7562468572654777336
+    second: Armature|00_rest_pose
+  - first:
+      74: 5188967017736564342
+    second: Armature|01_float_slow
+  - first:
+      74: -8282698250260345039
+    second: Armature|02_float_fast
+  - first:
+      74: -151718055181118626
+    second: Armature|03_obsidian
+  - first:
+      74: -2223586184084479594
+    second: Armature|04_fire
+  - first:
+      74: -4533474626173354364
+    second: Armature|05_tornado
+  - first:
+      74: 2508463554149461403
+    second: Armature|06_idle
+  - first:
+      74: 4732073298350708027
+    second: Armature|07_fall
+  - first:
+      74: 5476920603726797673
+    second: Armature|08_dying
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 9dfe2f45bfd0d9846bc1daf7abb24d28, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
