@@ -51,6 +51,10 @@ public class PlayerInteractState : PlayerAbilityState {
                 
                 Debug.Log("Teleport to: " + CheckPoint.GetActiveCheckPointPosition());
             }
+            else if(_context.InteractableItem.tag == "CheckPoint"){
+                Debug.Log("Found The Checkpoint");
+                _context.InteractableItem.GetComponent<CheckPoint>().ActivateCheckPoint();
+            }
         }
 
         _stateMachine.ChangeState(_factory.IdleState);

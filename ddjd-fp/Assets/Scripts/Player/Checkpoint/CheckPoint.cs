@@ -62,7 +62,7 @@ public class CheckPoint : MonoBehaviour
     /// <summary>
     /// Activate the checkpoint
     /// </summary>
-    private void ActivateCheckPoint()
+    public void ActivateCheckPoint()
     {
         // We deactive all checkpoints in the scene
         foreach (GameObject cp in CheckPointsList)
@@ -99,12 +99,12 @@ public class CheckPoint : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // If the player passes through the checkpoint, we activate it
-        if (other.tag == "Player")
-        {
-            ActivateCheckPoint();
-        }
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     // If the player passes through the checkpoint, we activate it
+    //     if (other.tag == "Player")
+    //     {
+    //         ActivateCheckPoint();
+    //     }
+    // }
 }
