@@ -11,6 +11,8 @@ public class PuzzleBehavior : MonoBehaviour
     private int numberSpecialCubes;
     private bool solved;
     [SerializeField] public GameObject Door;
+    private List<(float cubeX, float cubeZ, float directionX, float directionZ)> moves = new List<(float cubeX, float cubeZ, float directionX, float directionZ)>();
+    bool reseting;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class PuzzleBehavior : MonoBehaviour
         FindObjectwithTag("PuzzleCube");
         CreateSolution(transform.position.x, transform.position.z);
         solved = false;
+        reseting = false;
     }
 
     // Update is called once per frame
@@ -43,12 +46,16 @@ public class PuzzleBehavior : MonoBehaviour
 
     public void EvaluateMove((float cubeX, float cubeZ, int directionX, int directionZ) values){
         (float x, float z) cubePosition = (values.cubeX, values.cubeZ);
-        Debug.Log("EVALUATE MOVE: " + cubePosition.x + ", " + cubePosition.z);
         (int x, int z) direction = (values.directionX, values.directionZ);
 
         if(isMoveValid(direction, cubePosition)){
             for(int i = 0; i < cubes.Count; i ++){
                 if(cubes[i].transform.position.x == cubePosition.x && cubes[i].transform.position.z == cubePosition.z){
+                    moves.Add((cubes[i].transform.position.x, cubes[i].transform.position.z, direction.x, direction.z));
+                    for(int j = 0; j < moves.Count; j++){
+                        Debug.Log("Cube Position: " + moves[j].cubeX + ", " + moves[j].cubeZ);
+                        Debug.Log("Move Direction: " + moves[j].directionX + ", " + moves[j].directionZ);
+                    }
                     cubes[i].SendMessage("Move", direction);
                 }
             }
@@ -78,10 +85,7 @@ public class PuzzleBehavior : MonoBehaviour
 
     public bool blockLeavesPuzzle((int x, int z) direction, (float x, float z) blockPosition){
         (float x, float z) finalPosition = (blockPosition.x + direction.x, blockPosition.z + direction.z);
-        Debug.Log("Block Position: " + blockPosition.x + ", " + blockPosition.z);
-        Debug.Log("Direction: " + direction.x + ", " + direction.z);
-        Debug.Log("Puzzle Position: " + transform.position.x + ", " + transform.position.z);
-        Debug.Log("Final Position: " + finalPosition.x + ", " + finalPosition.z);
+
         if (blockPosition.x + direction.x < transform.position.x - 0.01 || blockPosition.x + direction.x >= puzzleXLength + transform.position.x - 0.01 || blockPosition.z + direction.z < transform.position.z - 0.01 || blockPosition.z + direction.z >= puzzleZLength + transform.position.z - 0.01){
             return true;
         }
@@ -144,5 +148,28 @@ public class PuzzleBehavior : MonoBehaviour
             }
         }
         return true;
+    }
+
+    void Reset(){
+        if(reseting){
+            if(moves.Count > 0){
+                (float cubeX, float cubeZ, float directionX, float directionZ) move = moves[moves.Count - 1];
+                for(int i = 0; i < cubes.Count; i ++){
+                    if(cubes[i].transform.position.x == move.cubeX && cubes[i].transform.position.z == move.cubeZ){
+                        cubes[i].SendMessage("Move", (-move.directionX, -move.directionZ));
+                        moves.RemoveAt(moves.Count - 1);
+                        if(moves.Count == 0){
+                            reseting = false;
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    void StartReseting(){
+        reseting = true;
+        Reset();
     }
 }

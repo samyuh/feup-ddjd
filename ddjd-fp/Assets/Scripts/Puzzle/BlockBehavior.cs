@@ -28,6 +28,7 @@ public class BlockBehavior : MonoBehaviour
 
             if(Mathf.Abs(differenceDistance) < offset){
                 transform.position = targetPosition;
+                Puzzle.SendMessage("Reset");
             }
             else{
                 if(transform.position.x == targetPosition.x){
@@ -99,7 +100,5 @@ public class BlockBehavior : MonoBehaviour
 
     void Move((int x, int z) direction){
         targetPosition = new Vector3(transform.position.x + direction.x, transform.position.y, transform.position.z + direction.z);
-        Debug.Log("Target position: " + targetPosition);
-        // gameObject.transform.position = new Vector3(gameObject.transform.position.x + direction.x, gameObject.transform.position.y, gameObject.transform.position.z + direction.z);
     }
 }
