@@ -91,6 +91,12 @@ public class CheckPoint : MonoBehaviour
 
         // We search all the checkpoints in the current scene
         CheckPointsList = GameObject.FindGameObjectsWithTag("CheckPoint").ToList();
+        
+        foreach( GameObject x in CheckPointsList) {
+            Debug.Log("X elements");
+            Debug.Log( x.name);
+            Debug.Log("Checkpoint: " + x.GetComponent<CheckPoint>().Activated);
+        }
     }
 
     void OnTriggerEnter(Collider other)
