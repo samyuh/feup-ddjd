@@ -86,7 +86,7 @@ public class PlayerAttackGroundState : PlayerAbilityState {
             if (hitCollider.gameObject.tag == "Enemy") {
                 hitCollider.gameObject.SendMessage("ApplyDamage", 30);
             }
-            else if (hitCollider.gameObject.tag == "PuzzleCube") {
+            else if (hitCollider.gameObject.tag == "PuzzleCube" || hitCollider.gameObject.tag == "SpecialPuzzleCube") {
                 hitCollider.gameObject.SendMessage("MoveRequest", _context.transform.position);
             }
         }
