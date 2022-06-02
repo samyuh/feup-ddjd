@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001DD324CB9F8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002259E27ACF8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,159 +18,6 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 141)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 141)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] SystemI::createSound                     : filename = FMOD/Build/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001DD2E81C7D8 : node = 000001DC6B152D00
-[LOG] SystemI::createSound                     : add node to async list : head = 000001DA6EFA0908.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DD2E81C7D8
-[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6426240
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23168
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     filename = FMOD/Build/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001DC6B152E10
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSound                     :     setdata soundi = 000001DD2E81C988 : node = 000001DC6B152E40
-[LOG] SystemI::createSound                     :     add node to async list : head = 000001DA6EFA0908.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='dullNote3_2', format=5, channels=2, frequency=48000, lengthbytes=70208, lengthpcm=520616, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DD2E81C7D8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DD2E81C988
-[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6426240
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23168
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001DC6B152F50
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='briNote3_1', format=5, channels=2, frequency=48000, lengthbytes=74784, lengthpcm=520616, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DD2E81C988
-[LOG] SoundI::release                          : briNote3_1 (000001DC6855C948)
-[LOG] SoundI::release                          :     briNote3_1 (000001DD2F023568)
-[LOG] SoundI::release                          :     briNote3_1 (000001DC60185DF8)
-[LOG] SoundI::release                          : dullNote3_2 (000001DBCFBFE3E8)
-[LOG] SoundI::release                          :     dullNote3_2 (000001DD2F023088)
-[LOG] SoundI::release                          :     dullNote3_2 (000001DC60185738)
-[LOG] SystemI::createSound                     : filename = FMOD/Build/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001DC6855C438 : node = 000001DD6DED1E50
-[LOG] SystemI::createSound                     : add node to async list : head = 000001DA6EFA0908.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DC6855C438
-[LOG] SystemI::createSound                     : filename = FMOD/Build/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSound                     :     setdata soundi = 000001DC6855C948 : node = 000001DD6DED11D0
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6426240
-[LOG] SystemI::createSound                     :     add node to async list : head = 000001DA6EFA0908.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23168
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001DD6DED1F60
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='briNote2_1', format=5, channels=2, frequency=48000, lengthbytes=86144, lengthpcm=614770, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DC6855C438
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DC6855C948
-[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6426240
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23168
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001DD6DED12E0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='dullNote2_2', format=5, channels=2, frequency=48000, lengthbytes=80448, lengthpcm=614770, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DC6855C948
-[LOG] SoundI::release                          : dullNote2_1 (000001DC6855B6B8)
-[LOG] SoundI::release                          :     dullNote2_1 (000001DD7725CA48)
-[LOG] SoundI::release                          :     dullNote2_1 (000001DC60185078)
-[LOG] SoundI::release                          : briNote2_1 (000001DBCFBFE238)
-[LOG] SoundI::release                          :     briNote2_1 (000001DD2F023708)
-[LOG] SoundI::release                          :     briNote2_1 (000001DC60185588)
-[LOG] SystemI::createSound                     : filename = FMOD/Build/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001DD65167E58 : node = 000001DBCFC328C0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001DA6EFA0908.  list count = 0
-[LOG] SystemI::createSound                     : filename = FMOD/Build/Desktop/Master.bank : mode 02010082
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DD65167E58
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     setdata soundi = 000001DD651681B8 : node = 000001DD68AF1EF0
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSound                     :     add node to async list : head = 000001DA6EFA0908.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6426240
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23168
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001DBCFC329D0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='dullNote1_1', format=5, channels=2, frequency=48000, lengthbytes=56192, lengthpcm=708924, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DD65167E58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001DD651681B8
-[LOG] SystemI::createSoundInternal             :     Create name='FMOD/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6426240
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23168
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001DD68AF2000
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='briNote1_1', format=5, channels=2, frequency=48000, lengthbytes=74208, lengthpcm=708924, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999999.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001DD651681B8
-[LOG] SoundI::release                          : briNote1_2 (000001DC6855B508)
-[LOG] SoundI::release                          :     briNote1_2 (000001DD7725C8A8)
-[LOG] SoundI::release                          :     briNote1_2 (000001DC60185A98)
-[LOG] SoundI::release                          : dullNote1_1 (000001DC6855BBC8)
-[LOG] SoundI::release                          :     dullNote1_1 (000001DD7725C568)
-[LOG] SoundI::release                          :     dullNote1_1 (000001DC60185228)
-[LOG] SoundI::release                          :  (000001DD31CC1208)
-[LOG] SoundI::release                          :     briNote4_2 (000001DC636A4CB8)
-[LOG] SoundI::release                          : dullNote2_2 (000001DC6855C948)
-[LOG] SoundI::release                          :     dullNote2_2 (000001DD7725C088)
-[LOG] SoundI::release                          :     dullNote2_2 (000001DC5C2175B8)
-[LOG] SoundI::release                          : briNote1_1 (000001DD651681B8)
-[LOG] SoundI::release                          :     briNote1_1 (000001DD2F023568)
-[LOG] SoundI::release                          :     briNote1_1 (000001DC5C217C78)
-[LOG] SoundI::release                          : dullNote1_1 (000001DD65167E58)
-[LOG] SoundI::release                          :     dullNote1_1 (000001DD7725C228)
-[LOG] SoundI::release                          :     dullNote1_1 (000001DC5C217AC8)
-[LOG] SoundI::release                          : briNote3_1 (000001DD2E81C988)
-[LOG] SoundI::release                          :     briNote3_1 (000001DC60726918)
-[LOG] SoundI::release                          :     briNote3_1 (000001DD68444BD8)
-[LOG] SoundI::release                          : dullNote3_2 (000001DD2E81C7D8)
-[LOG] SoundI::release                          :     dullNote3_2 (000001DC607258D8)
-[LOG] SoundI::release                          :     dullNote3_2 (000001DD68444008)
-[LOG] SoundI::release                          : briNote2_1 (000001DC6855C438)
-[LOG] SoundI::release                          :     briNote2_1 (000001DD7725C3C8)
-[LOG] SoundI::release                          :     briNote2_1 (000001DC5C217408)
-[LOG] SoundI::release                          : _drumz_4_soundtrack (000001DBCFBFE748)
-[LOG] SoundI::release                          :     _drumz_4_soundtrack (000001DD2F023BE8)
-[LOG] SoundI::release                          :     _drumz_4_soundtrack (000001DC601858E8)
-[LOG] SoundI::release                          :  (000001DD31CC1AA8)
-[LOG] SoundI::release                          :     briNote4_1 (000001DC636A5678)
-[LOG] SoundI::release                          :  (000001DD31CC03A8)
-[LOG] SoundI::release                          :     dullNote4_2 (000001DC636A47D8)
-[LOG] SoundI::release                          :  (000001DD31CC07F8)
-[LOG] SoundI::release                          :     dullNote4_1 (000001DC636A42F8)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -178,5 +25,3 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
