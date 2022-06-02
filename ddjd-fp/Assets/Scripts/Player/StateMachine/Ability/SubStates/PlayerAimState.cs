@@ -58,7 +58,6 @@ public class PlayerAimState : PlayerAbilityState {
 
             switch(_context.ActiveCrystal.name){
                 case "Air":
-                    // Air (Tornado)
                     projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
                     // projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f); 
 
@@ -78,13 +77,7 @@ public class PlayerAimState : PlayerAbilityState {
                     // projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
                     break;
             }
-            
-        } else if (readyToThrow) {
-            // TORNADO
-            GameObject projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-            projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f);    
         }
-
     }
 
     protected virtual void OnAimCancelled(InputAction.CallbackContext context) {

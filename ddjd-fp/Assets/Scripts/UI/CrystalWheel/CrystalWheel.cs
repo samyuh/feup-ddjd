@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VectorGraphics;
 
 public class CrystalWheel: MonoBehaviour {
     [SerializeField] private int id;
-    [SerializeField] private Image itemImage;
+    [SerializeField] private SVGImage itemImage;
     [SerializeField] private TextMeshProUGUI itemText;
 
     private CrystalData crystal;

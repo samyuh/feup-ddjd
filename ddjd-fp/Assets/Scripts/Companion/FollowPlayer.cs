@@ -50,7 +50,7 @@ public class FollowPlayer : MonoBehaviour {
 
     private void Move() {
         // Value is hard coded for 1f vertical to be placed aproxximately in the _target's head (should change de code or the value if you wish to scale the _target size)
-        transform.position = Vector3.MoveTowards(transform.position,_target.transform.position + new Vector3(0f, 0.7f, 0f) ,speed);
+        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position + new Vector3(0f, 0.7f, 0f) ,speed);
     }
 
 }

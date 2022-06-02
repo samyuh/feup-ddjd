@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Game/Menus/Start Menu.unity
-    guid: f1d3419a454b6d04fa99b2aadf3bfdf2
-  - enabled: 1
-    path: Assets/Scenes/Game/Isles/Isle 1 (Neutral).unity
-    guid: 09fe61c48acb7b548ac16d407fcc5078
+    path: Assets/Scenes/Game/Isles/Isles (Demo).unity
+    guid: 39301fc0b16edc04783d5a41aad752a3
   m_configObjects: {}
