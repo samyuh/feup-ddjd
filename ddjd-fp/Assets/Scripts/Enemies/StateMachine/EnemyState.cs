@@ -4,11 +4,11 @@ public class EnemyState {
     protected int _healthPoints;
 
     private float maxDistance = 50f;
-    private float followDistance = 1f;
+    private float followDistance = 2f;
     private float speed = 0f;
-    private float maxSpeed = 0.025f;
+    private float maxSpeed = 0.5f;
     private float acceleration = 0.1f;
-    private float deceleration = 0.25f;
+    private float deceleration = 0.75f;
 
     private GameObject _target;
     private GameObject _context;
@@ -53,10 +53,10 @@ public class EnemyState {
     }
 
     private void Move() {
-        Vector3 posit = new Vector3(_target.transform.position.x, 0 ,_target.transform.position.z);
+        Vector3 posit = new Vector3(_target.transform.position.x, _target.transform.position.y - 0.7f ,_target.transform.position.z);
         _context.transform.LookAt(posit);
 
-        Debug.Log(_context.transform.forward);
+        // Debug.Log(_context.transform.forward);
         _context.transform.position += _context.transform.forward * speed;
     }
     #endregion

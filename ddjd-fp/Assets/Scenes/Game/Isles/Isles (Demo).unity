@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.56184906, g: 0.72206545, b: 0.81800187, a: 1}
+  m_IndirectSpecularColor: {r: 0.5618253, g: 0.7220555, b: 0.8180013, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -257,9 +257,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 1.0630112
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.59295654, z: 0}
 --- !u!1 &407140694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4597908553981423523, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
@@ -1105,15 +1105,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784393491908048153, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -88.99
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3784393491908048153, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 56
+      value: 60.325
       objectReference: {fileID: 0}
     - target: {fileID: 3784393491908048153, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -62.23
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3784393491908048153, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: m_LocalRotation.w
