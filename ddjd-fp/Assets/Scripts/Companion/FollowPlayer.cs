@@ -21,7 +21,6 @@ public class FollowPlayer : MonoBehaviour {
     }
 
     private void Update() {
-        
         if(Physics.Raycast(transform.position, _target.transform.position - transform.position, out RaycastHit hit)) {
             float distance = hit.distance;
 
