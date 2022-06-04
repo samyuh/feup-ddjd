@@ -35,7 +35,6 @@ public class SpiderAttack : EnemyState {
         if (_elapsedTime > 0.3f) {
             if (_dealDamage) DealDamage();
 
-            Debug.Log("Deal Damage");
             if (_context.Animator.GetCurrentAnimatorStateInfo(0).length < _context.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + 0.5f) {
                 _stateMachine.ChangeState(_stateFactory.SpiderWalk);
             }

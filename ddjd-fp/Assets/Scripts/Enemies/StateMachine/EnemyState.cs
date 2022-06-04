@@ -32,9 +32,7 @@ public abstract class EnemyState {
 
     public virtual void LogicUpdate() { }
 
-	public virtual void PhysicsUpdate() {
-        Debug.Log(speed);
-     }
+	public virtual void PhysicsUpdate() { }
 
     #region Move Spider
     protected void Accelerate() {

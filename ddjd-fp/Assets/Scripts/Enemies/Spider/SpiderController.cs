@@ -50,6 +50,11 @@ public class SpiderController : MonoBehaviour {
     }
 
     public void Death() {
+         _healthBar.value = 0;
+        StateMachine.ChangeState(StateFactory.SpiderDeath);
+    }
+
+    public void Destroy() {
         Destroy(gameObject);
     }
     #endregion

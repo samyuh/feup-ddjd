@@ -11,6 +11,8 @@ public class SpiderReceiveDamage : EnemyState {
 
     public override void EnterState() { 
         base.EnterState();
+
+        _context.Animator.SetBool("Damaged", true);
     }
 
     public override void ExitState() {
