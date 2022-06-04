@@ -29,7 +29,7 @@ public class InterfaceManager : MonoBehaviour
     }
 
     public void OnToggleInventory() {
-        _inventory.OnToggleInventory();
+        _pauseMenu.OnTogglePauseMenu();
     }
 
     public void OnToggleCrystalWheel() {
@@ -38,6 +38,5 @@ public class InterfaceManager : MonoBehaviour
 
     public void OnTogglePauseMenu() {
         _pauseMenu.OnTogglePauseMenu();
-        Debug.Log("Pause Menu");
     }
 }
