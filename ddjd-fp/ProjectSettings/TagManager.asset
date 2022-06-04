@@ -16,6 +16,8 @@ TagManager:
   - PuzzleCube
   - SpecialPuzzleCube
   - Door
+  - PortalButton
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
