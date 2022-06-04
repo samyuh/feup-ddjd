@@ -6,17 +6,32 @@ using UnityEngine.UI;
 public class SpiderController : MonoBehaviour {
     protected int _healthPoints = 350;
     [SerializeField] private Slider _healthBar;
-    [SerializeField] private GameObject spider;
+    
+    public GameObject Spider;
+    public GameObject Player;
 
-    private EnemyState _enemy;
+    private EnemyStateMachine _stateMachine;
+    
+    #region State Machine
+    public EnemyStateMachine StateMachine;
+    public EnemyFactory StateFactory;
+    #endregion
 
     private void Start() {
         _healthPoints = 350;
-        _enemy = new EnemyState(350, GameObject.Find("Player"), spider);
+        
+        // State Machine
+        StateMachine = new EnemyStateMachine(this);
+        StateFactory = new EnemyFactory(this, StateMachine);
+        StateMachine.Initialize(StateFactory.SpiderWalk);
     }
 
     private void Update() {
-        _enemy.LogicUpdate();
+        StateMachine.CurrentState.LogicUpdate();
+    }
+
+    private void FixedUpdate() {
+        StateMachine.CurrentState.PhysicsUpdate();
     }
 
     #region Receive Damage
