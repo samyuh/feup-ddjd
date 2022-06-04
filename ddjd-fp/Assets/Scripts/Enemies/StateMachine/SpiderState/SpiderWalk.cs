@@ -11,10 +11,14 @@ public class SpiderWalk : EnemyState {
 
     public override void EnterState() { 
         base.EnterState();
+
+        _context.Animator.SetBool("Run", true);
     }
 
     public override void ExitState() {
         base.ExitState();
+
+        _context.Animator.SetBool("Run", false);
     }
 
     public override void LogicUpdate() {

@@ -10,6 +10,11 @@ public class SpiderController : MonoBehaviour {
     public GameObject Spider;
     public GameObject Player;
 
+    #region Animator
+    private Animator _animator;
+    public Animator Animator {get { return _animator; } set { _animator = value;}}
+    #endregion
+
     private EnemyStateMachine _stateMachine;
     
     #region State Machine
@@ -19,6 +24,7 @@ public class SpiderController : MonoBehaviour {
 
     private void Start() {
         _healthPoints = 350;
+        _animator = GetComponent<Animator>();
         
         // State Machine
         StateMachine = new EnemyStateMachine(this);

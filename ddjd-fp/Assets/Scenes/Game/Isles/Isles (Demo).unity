@@ -258,8 +258,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &368069274
-CapsuleCollider:
+--- !u!65 &368069277
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -268,10 +268,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.0630112
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.59295654, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.27, y: 1.7, z: 1.24}
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!1 &407140694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4597908553981423523, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
@@ -1107,11 +1106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784393491908048153, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25
+      value: 12.74
       objectReference: {fileID: 0}
     - target: {fileID: 3784393491908048153, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 60.325
+      value: 54.57
       objectReference: {fileID: 0}
     - target: {fileID: 3784393491908048153, guid: 60ad24fe27224094e9824d98c1a27c1d, type: 3}
       propertyPath: m_LocalPosition.z

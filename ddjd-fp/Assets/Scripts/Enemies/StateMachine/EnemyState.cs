@@ -55,16 +55,4 @@ public abstract class EnemyState {
         _context.transform.position += _context.transform.forward * speed;
     }
     #endregion
-
-    #region Attack
-    protected void Attack() {
-        if (speed == 0f) {
-            // check attack cooldown
-
-            // if player in colliders
-                // attack
-                // set attack cooldown
-        }
-    }
-    #endregion
 }
