@@ -29,6 +29,8 @@ public class PlayerCamera {
     }
 
     public void LateUpdateCamera(float magnitude, float lookAxisX, float lookAxisY) {
+        if (Time.timeScale == 0f) return;
+        
         if (magnitude >= _threshold && !LockCameraPosition) {
             _cinemachineTargetYaw += lookAxisX;
             _cinemachineTargetPitch += lookAxisY;

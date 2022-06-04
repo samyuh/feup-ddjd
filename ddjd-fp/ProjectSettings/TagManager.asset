@@ -14,7 +14,8 @@ TagManager:
   - PlayerAimTarget
   - PlayerCameraAim
   - PuzzleCube
-  - CheckPoint
+  - SpecialPuzzleCube
+  - Door
   layers:
   - Default
   - TransparentFX

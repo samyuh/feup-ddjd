@@ -1,75 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyState {
-    protected int _healthPoints;
+public abstract class EnemyState {
+    protected SpiderController _context;
+    protected EnemyStateMachine _stateMachine;
+    protected EnemyFactory _stateFactory;
 
-    private float maxDistance = 50f;
-    private float followDistance = 1f;
-    private float speed = 0f;
-    private float maxSpeed = 0.025f;
-    private float acceleration = 0.1f;
-    private float deceleration = 0.25f;
+    protected GameObject _target;
+    protected LayerMask mask;
 
-    private GameObject _target;
-    private GameObject _context;
-    private LayerMask mask;
+    protected float maxDistance = 50f;
+    protected float followDistance = 2f;
+    protected float speed = 0f;
+    protected float maxSpeed = 0.05f;
+    protected float acceleration = 0.01f;
+    protected float deceleration = 0.25f;
 
-    public EnemyState(int healthPoints, GameObject target, GameObject context) {
-        _target = target;
-        _context = context;
+    public EnemyState(SpiderController context, EnemyStateMachine stateMachine,  EnemyFactory stateFactory) { //GameObject target, GameObject context) {
+       _context = context;
+       _stateMachine = stateMachine;
+       _stateFactory = stateFactory;
 
+        _target = GameObject.Find("Player");
         mask =  LayerMask.GetMask("Player");
     }
 
-    public void EnterState() { }
+    public virtual void EnterState() { }
 
-    public void ExitState() { }
+    public virtual void ExitState() { }
 
-    public void LogicUpdate() { 
-        if (Physics.Raycast(_context.transform.position, _target.transform.position - _context.transform.position, out RaycastHit hit, maxDistance, mask)) {
-            float distance = hit.distance;
+    public virtual void LogicUpdate() { }
 
-            if (distance > followDistance) Accelerate();
-            else {
-                Decelerate();
-                Attack();
-            }
-        }
-    }
-
-	public void PhysicsUpdate() { }
+	public virtual void PhysicsUpdate() { }
 
     #region Move Spider
-    private void Accelerate() {
+    protected void Accelerate() {
         speed += acceleration * Time.deltaTime;
         if(speed > maxSpeed) speed = maxSpeed;
         Move();
     }
     
-    private void Decelerate() {
+    protected void Decelerate() {
         speed -= deceleration * Time.deltaTime;
         if (speed < 0) speed = 0f;
         Move();
     }
 
-    private void Move() {
-        Vector3 posit = new Vector3(_target.transform.position.x, 0 ,_target.transform.position.z);
+    protected void Move() {
+        Vector3 posit = new Vector3(_target.transform.position.x, _target.transform.position.y - 0.7f ,_target.transform.position.z);
         _context.transform.LookAt(posit);
-
-        Debug.Log(_context.transform.forward);
         _context.transform.position += _context.transform.forward * speed;
-    }
-    #endregion
-
-    #region Attack
-    public void Attack() {
-        if (speed == 0f) {
-            // check attack cooldown
-
-            // if player in colliders
-                // attack
-                // set attack cooldown
-        }
     }
     #endregion
 }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   name: Earth
-  icon: {fileID: 21300000, guid: 6cb9c77b5d2afe04aad18d2bab739fd2, type: 3}
+  icon: {fileID: 3286163911610860551, guid: 4ff2db8d1e77dc84fb2b8f2884c51050, type: 3}
   crystalProjectile: {fileID: 5395098307693501117, guid: 25d7182bf960886498e8f66983316f89, type: 3}
