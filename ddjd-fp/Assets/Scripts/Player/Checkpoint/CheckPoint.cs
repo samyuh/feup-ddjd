@@ -32,7 +32,7 @@ public class CheckPoint : MonoBehaviour
     }
 
     public void OnDeathRespawn() {
-        Debug.Log("Morreu")
+        Debug.Log("Morreu");
     }
 
     #region Static Functions
