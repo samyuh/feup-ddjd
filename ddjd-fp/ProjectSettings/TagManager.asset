@@ -18,6 +18,7 @@ TagManager:
   - Door
   - PortalButton
   - CheckPoint
+  - Companion
   layers:
   - Default
   - TransparentFX

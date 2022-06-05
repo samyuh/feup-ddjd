@@ -19,8 +19,6 @@ public class PlayerCamera {
     private float _cinemachineTargetPitch;
     private const float _threshold = 0.01f;
 
-    
-
     public PlayerCamera() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
