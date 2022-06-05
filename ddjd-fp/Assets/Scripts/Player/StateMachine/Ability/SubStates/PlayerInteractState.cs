@@ -40,7 +40,7 @@ public class PlayerInteractState : PlayerAbilityState {
                 _context.DestroyObject(_context.InteractableItem);
                 _context.GetItem(0);
             } else if (_context.InteractableItem.tag == "Crystal") {
-                Events.OnCatchManaCrystal.Invoke();
+                Events.OnCatchCrystal.Invoke();
                 _context.DestroyObject(_context.InteractableItem);
                 _context.GetItem(1);
             } else if (_context.InteractableItem.tag == "PortalButton") {

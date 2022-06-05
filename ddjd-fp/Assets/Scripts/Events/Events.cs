@@ -11,16 +11,15 @@ public static class Events {
     public static readonly EventNative OnDeath = new EventNative(); // TODO
     // // Update Player Status
     public static readonly EventNative<int, int> OnHealthUpdate = new EventNative<int, int>();
-    public static readonly EventNative<int, int> OnManaUpdate = new EventNative<int, int>(); // TODO
+    public static readonly EventNative<int, int> OnCrystalManaUpdate = new EventNative<int, int>(); // TODO
 
     // // Player Actions
     // //
     // // // Catch
-    public static readonly EventNative OnCatchManaCrystal = new EventNative();
+    public static readonly EventNative OnCatchCrystal = new EventNative();
     public static readonly EventNative OnCatchHealthCrystal = new EventNative();
     // // // Use
     public static readonly EventNative OnUseHealthCrystal = new EventNative();
-    public static readonly EventNative OnUseManaCrystal = new EventNative();
 
     // // // Button
     public static readonly EventNative OnActivatePortal = new EventNative();

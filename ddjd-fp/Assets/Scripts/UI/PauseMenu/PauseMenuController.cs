@@ -21,14 +21,5 @@ public class PauseMenuController: MonoBehaviour
         } else {
             Time.timeScale = 1f;
         }
-
-        if(Map.activeSelf)  {
-            Map.SetActive(false);
-            gameObject.SetActive(true);
-        }
-        if(Items.activeSelf) {
-            Items.SetActive(false);
-            gameObject.SetActive(true);
-        }
     }
 }
