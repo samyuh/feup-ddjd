@@ -406,6 +406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 3678988625039198155}
+  Spider: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!95 &5025713744860059522
 Animator:
   serializedVersion: 4
