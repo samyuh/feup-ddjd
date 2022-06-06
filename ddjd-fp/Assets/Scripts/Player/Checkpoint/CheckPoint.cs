@@ -10,6 +10,7 @@ public class CheckPoint : MonoBehaviour
 
     #region Private Variables
     // private Animator thisAnimator;
+    GameObject player;
     #endregion
 
     #region Static Variables
@@ -19,6 +20,7 @@ public class CheckPoint : MonoBehaviour
     void Start()  {
         // thisAnimator = GetComponent<Animator>();
 
+        player = GameObject.Find("Player");
         // We search all the checkpoints in the current scene
         CheckPointsList = GameObject.FindGameObjectsWithTag("CheckPoint").ToList();
         
@@ -33,6 +35,14 @@ public class CheckPoint : MonoBehaviour
 
     public void OnDeathRespawn() {
         Debug.Log("Morreu");
+        Vector3 position = GetActiveCheckPointPosition();
+
+        if(position != new Vector3(0,0,0)){
+            player.transform.position = position;
+        }
+        else{
+            Debug.Log("No Active Checkpoints!!");
+        }
     }
 
     #region Static Functions
