@@ -11,6 +11,7 @@ public class CheckPoint : MonoBehaviour
     #region Private Variables
     // private Animator thisAnimator;
     GameObject player;
+    [SerializeField] private GameData data;
     #endregion
 
     #region Static Variables
@@ -24,12 +25,6 @@ public class CheckPoint : MonoBehaviour
         // We search all the checkpoints in the current scene
         CheckPointsList = GameObject.FindGameObjectsWithTag("CheckPoint").ToList();
         
-        foreach( GameObject x in CheckPointsList) {
-            Debug.Log("X elements");
-            Debug.Log( x.name);
-            Debug.Log("Checkpoint: " + x.GetComponent<CheckPoint>().Activated);
-        }
-
         Events.OnDeath.AddListener(OnDeathRespawn);
     }
 
@@ -39,6 +34,7 @@ public class CheckPoint : MonoBehaviour
 
         if(position != new Vector3(0,0,0)){
             player.transform.position = position;
+            RestoreState();
         }
         else{
             Debug.Log("No Active Checkpoints!!");
@@ -61,7 +57,6 @@ public class CheckPoint : MonoBehaviour
                 }
             }
         }
-
         return result;
     }
     #endregion
@@ -80,19 +75,18 @@ public class CheckPoint : MonoBehaviour
         // thisAnimator.SetBool("Active", true);
         Debug.Log("Checkpoint Activated");
 
-        // foreach (GameObject cp in CheckPointsList)
-        // {
-        //     Degub.Log(cp.transform.position);
-        // }
+        StoreState();
+
     }
     #endregion
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     // If the player passes through the checkpoint, we activate it
-    //     if (other.tag == "Player")
-    //     {
-    //         ActivateCheckPoint();
-    //     }
-    // }
+    private void StoreState(){
+        // Debug.Log(_data.Cu   rrentHealth);
+
+    }
+
+    private void RestoreState(){
+        // _data = data;
+    }
+   
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {   
 
-    public float followDistance = 3f;
+    public float followDistance = 1f;
     private float speed = 0f;
-    public float maxSpeed = 0.025f;
-    public float acceleration = 0.00001f;
+    public float maxSpeed = 0.1f;
+    public float acceleration = 0.05f;
     public float deceleration = 0.1f;
 
 

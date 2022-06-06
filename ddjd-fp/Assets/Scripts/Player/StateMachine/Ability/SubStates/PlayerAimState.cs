@@ -11,6 +11,9 @@ public class PlayerAimState : PlayerAbilityState {
     private bool readyToThrow = true; 
     private GameObject companion = GameObject.FindGameObjectWithTag("Companion");
     private GameObject playerAimTarget = GameObject.FindGameObjectWithTag("PlayerAimTarget");
+    private GameObject companionPlace = GameObject.Find("CompanionPlace");
+    private int layerMask;
+
 
     public PlayerAimState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
     base (currentContext, playerStateFactory, stateFactory) { }
@@ -22,6 +25,9 @@ public class PlayerAimState : PlayerAbilityState {
         Events.OnToggleAim.Invoke();
         _context.PlayerInput.PlayerMeleeAttack.performed += OnThrow;
         _context.PlayerInput.PlayerAim.canceled += OnAimCancelled;
+
+        layerMask = 1 << LayerMask.NameToLayer("Companion");
+        layerMask = ~layerMask;
         
     }  
 
@@ -42,6 +48,10 @@ public class PlayerAimState : PlayerAbilityState {
         // Some movement of the player, 
 
         // change player angle PlayerRotation on base
+
+        // Keep companion looking at target while aiming
+        companion.transform.position = companionPlace.transform.position;
+        companion.transform.rotation = Quaternion.RotateTowards(companion.transform.rotation, companionPlace.transform.rotation, 100f * Time.deltaTime);
     }
 
     public override void PhysicsUpdate() {
@@ -86,8 +96,9 @@ public class PlayerAimState : PlayerAbilityState {
                     break;
             }
             */
+            
 
-            if (Physics.Raycast(ray, out RaycastHit hit)) {
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask)) {
                 Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
                 Vector3 direction = (hit.point - companion.transform.position);
                 projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
