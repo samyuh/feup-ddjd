@@ -12,7 +12,6 @@ public class PlayerAimState : PlayerAbilityState {
     private GameObject companion = GameObject.FindGameObjectWithTag("Companion");
     private GameObject playerAimTarget = GameObject.FindGameObjectWithTag("PlayerAimTarget");
     private GameObject companionPlace = GameObject.Find("CompanionPlace");
-    private int layerMask;
 
 
     public PlayerAimState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
@@ -26,8 +25,6 @@ public class PlayerAimState : PlayerAbilityState {
         _context.PlayerInput.PlayerMeleeAttack.performed += OnThrow;
         _context.PlayerInput.PlayerAim.canceled += OnAimCancelled;
 
-        layerMask = 1 << LayerMask.NameToLayer("Companion");
-        layerMask = ~layerMask;
         
     }  
 
@@ -50,6 +47,7 @@ public class PlayerAimState : PlayerAbilityState {
         // change player angle PlayerRotation on base
 
         // Keep companion looking at target while aiming
+        
         companion.transform.position = companionPlace.transform.position;
         companion.transform.rotation = Quaternion.RotateTowards(companion.transform.rotation, companionPlace.transform.rotation, 100f * Time.deltaTime);
     }
@@ -65,8 +63,9 @@ public class PlayerAimState : PlayerAbilityState {
         // Condition for Regular shooting
         if (readyToThrow && _context.ActiveCrystal != null) {
             // ABILITIES
-            GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
+            // projectile.layer = LayerMask.NameToLayer("Projectile");
 
+            // Physics.IgnoreCollision(projectile.GetComponent<Collider>(),companion.GetComponent<Collider>());
             /*
             switch(_context.ActiveCrystal.name) {
                 case "Obsidia":
@@ -96,9 +95,10 @@ public class PlayerAimState : PlayerAbilityState {
                     break;
             }
             */
-            
 
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask)) {
+
+            if (Physics.Raycast(ray, out RaycastHit hit)) {
+                GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
                 Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
                 Vector3 direction = (hit.point - companion.transform.position);
                 projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
