@@ -23,6 +23,7 @@ public class PlayerAirState : PlayerState {
 
         if (GroundedCheck()) {
             _stateMachine.ChangeState(_factory.IdleState);
+            FMODUnity.RuntimeManager.PlayOneShot(_context.JumpFallSoundEvent);
         } 
     }
 

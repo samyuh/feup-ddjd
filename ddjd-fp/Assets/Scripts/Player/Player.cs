@@ -14,10 +14,16 @@ public class Player : MonoBehaviour {
     private Animator _animator;
     private CharacterController _controller;
     private InputHandler _playerInput;
+    private string _walkSoundEvent;
+    private string _jumpSoundEvent;
+    private string _jumpFallSoundEvent;
 
     public Animator Animator {get { return _animator; } set { _animator = value;}}
     public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
     public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
+    public string WalkSoundEvent {get { return _walkSoundEvent; } set { _walkSoundEvent = value;}}
+    public string JumpSoundEvent {get { return _jumpSoundEvent; } set { _jumpSoundEvent = value;}}
+    public string JumpFallSoundEvent {get { return _jumpFallSoundEvent; } set { _jumpFallSoundEvent = value;}}
     #endregion
 
     #region State Machine
@@ -41,6 +47,9 @@ public class Player : MonoBehaviour {
         _controller = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
         _data = new PlayerData();
+        _walkSoundEvent = "event:/Footsteps";
+        _jumpSoundEvent = "event:/jump";
+        _jumpFallSoundEvent = "event:/jumpFall";
 
         // State Machine
         StateMachine = new StateMachine(this);
