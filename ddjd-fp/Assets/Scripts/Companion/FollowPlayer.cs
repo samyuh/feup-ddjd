@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {   
 
-    public float followDistance = 1f;
+    public float followDistance = 2f;
     private float speed = 0f;
-    public float maxSpeed = 0.1f;
+    public float maxSpeed = 0.4f;
     public float acceleration = 0.05f;
     public float deceleration = 0.1f;
 
@@ -21,7 +21,7 @@ public class FollowPlayer : MonoBehaviour {
     }
 
     private void Update() {
-        if(Physics.Raycast(transform.position, _target.transform.position - transform.position, out RaycastHit hit)) {
+        if(Physics.Raycast(transform.position, _player.transform.position - transform.position, out RaycastHit hit)) {
             float distance = hit.distance;
 
             // Only follow after a certain _distance from the _target
@@ -37,19 +37,17 @@ public class FollowPlayer : MonoBehaviour {
     private void accelerate(){
         speed += acceleration * Time.deltaTime;
         if(speed > maxSpeed) speed = maxSpeed;
-
-        transform.LookAt(_target.transform.position + new Vector3(0,0.7f,0));
+        transform.LookAt(_target.transform.position);
     }
     private void decelarate(){
         speed -= deceleration * Time.deltaTime;
         if (speed < 0) speed = 0f;
-
         transform.rotation = Quaternion.RotateTowards(transform.rotation, _target.transform.rotation, 100f * Time.deltaTime);
     }
 
     private void Move() {
         // Value is hard coded for 1f vertical to be placed aproxximately in the _target's head (should change de code or the value if you wish to scale the _target size)
-        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position + new Vector3(0f, 0.7f, 0f) ,speed);
+        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position  ,speed);
     }
 
 }
