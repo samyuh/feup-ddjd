@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressurePlateBehaviour : MonoBehaviour
+public class PuzzleReseterBehaviour : MonoBehaviour
 {
     [SerializeField] public GameObject Puzzle;
 
@@ -18,9 +18,10 @@ public class PressurePlateBehaviour : MonoBehaviour
         
     }
 
-    private void CheckPressed()
+    private void RequestReset()
     {
-        Vector3 spherePosition = new Vector3(transform.position.x + 0.616f * transform.TransformDirection(Vector3.forward).x, transform.position.y - 0.1f, 
+        Puzzle.SendMessage("StartReseting");
+        /*Vector3 spherePosition = new Vector3(transform.position.x + 0.616f * transform.TransformDirection(Vector3.forward).x, transform.position.y - 0.1f, 
                                         transform.position.z + 0.616f * transform.TransformDirection(Vector3.forward).z);
 
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 0.2f);
@@ -29,6 +30,6 @@ public class PressurePlateBehaviour : MonoBehaviour
             if (hitCollider.gameObject.tag == "Player") {
                 Puzzle.SendMessage("StartReseting");
             }
-        }
+        }*/
     }
 }

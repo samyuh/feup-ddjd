@@ -15,6 +15,7 @@ TagManager:
   - PuzzleCube
   - SpecialPuzzleCube
   - Door
+  - PuzzleReseter
   layers:
   - Default
   - TransparentFX
