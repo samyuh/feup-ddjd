@@ -1,44 +1,28 @@
 fileFormatVersion: 2
-guid: a263e8eb93bbe2945b8611b94f65ee95
+guid: bc75661137f4d674e9f20b2606f0f491
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -7562468572654777336
+    second: Armature|00_rest_pose
+  - first:
+      74: 5560254568589694691
+    second: Armature|01_switch_down
+  - first:
+      74: -8329861579567444619
+    second: Armature|02_switch_up
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: crystal
-    second: {fileID: 2100000, guid: e87ba9b4604aace48a71436ff5482a10, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: crystal_portal
-    second: {fileID: 2100000, guid: b7a0137254bc3534ea985508478bef61, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: grass_road
-    second: {fileID: 2100000, guid: 1feadd80d94a58d4cabc4c56cc069a75, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: portal
-    second: {fileID: 2100000, guid: 00f9a88b7b7a17b4e979f06c31727f55, type: 2}
+    second: {fileID: 2100000, guid: 21590fde9ef18d84590fda36b53d6041, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: stone_dark
     second: {fileID: 2100000, guid: ffb85ca98f3af7a49aa310ce79c66510, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: stone_light
-    second: {fileID: 2100000, guid: ea16ae87affb2fe4aba2895720d70b0f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: stone_portal
-    second: {fileID: 2100000, guid: b2b1c638cd0827a48ac6b117b2172452, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
