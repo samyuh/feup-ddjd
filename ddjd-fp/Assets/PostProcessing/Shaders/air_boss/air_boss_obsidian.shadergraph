@@ -23,9 +23,6 @@
         },
         {
             "m_Id": "5e1ef7e83d244f0a96d51d3a46af08e1"
-        },
-        {
-            "m_Id": "8a205da22f094a3f8dab91ec9258ef27"
         }
     ],
     "m_Keywords": [],
@@ -675,9 +672,6 @@
         },
         {
             "m_Id": "542a6ed1b77349239208014205f22c11"
-        },
-        {
-            "m_Id": "8a205da22f094a3f8dab91ec9258ef27"
         },
         {
             "m_Id": "5e1ef7e83d244f0a96d51d3a46af08e1"
@@ -2191,35 +2185,6 @@
     "m_Property": {
         "m_Id": "5955b15367f9429baa7b38b813fcaedf"
     }
-}
-
-{
-    "m_SGVersion": 3,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
-    "m_ObjectId": "8a205da22f094a3f8dab91ec9258ef27",
-    "m_Guid": {
-        "m_GuidSerialized": "007a2999-37d3-4db1-9cc1-915639c955fa"
-    },
-    "m_Name": "Emission Color",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Emission Color",
-    "m_DefaultReferenceName": "_Emission_Color",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
-        "a": 0.3921568691730499
-    },
-    "isMainColor": false,
-    "m_ColorMode": 1
 }
 
 {

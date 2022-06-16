@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fire_spidermob_crystal
-  m_Shader: {fileID: -6465566751694194690, guid: 1fed30a3058f85847ba932a9ec9a7e82, type: 3}
+  m_Name: switch_crystal_neutral
+  m_Shader: {fileID: -6465566751694194690, guid: aa6700229e12d854caaa7dcaf8219f43, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -78,7 +78,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_e1638d2f9907484ab373353495f1cc1e_Out_0:
-        m_Texture: {fileID: 2800000, guid: be8d528225e74084ebc91f6da3937f2a, type: 3}
+        m_Texture: {fileID: 2800000, guid: df56663cfcd2f124a9e63816d70a9201, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -97,7 +97,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _Bottom_line: 0.6
+    - _Bottom_line: 0.3
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -116,20 +116,24 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Saturation: 0.5
+    - _Saturation_Switch: 0.1
+    - _Saturation_runes: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Top_Line: 0.7
+    - _Top_Line: 0.6
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_color: {r: 11.984314, g: 0.0627451, b: 0.0627451, a: 0.39215687}
-    - _Bottom_color: {r: 0, g: 0.078431375, b: 2.9960785, a: 0.3921569}
+    - _Base_color: {r: 2.3336656, g: 0.7899219, b: 15.223947, a: 0.39215687}
+    - _Bottom_color: {r: 2.9960785, g: 0.10980392, b: 2.1960785, a: 0.3921569}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Emission_Color: {r: 2.3336656, g: 0.7899219, b: 15.223947, a: 0.39215687}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Top_color: {r: 2.9960785, g: 0.09411765, b: 0, a: 0.3921569}
+    - _Top_color: {r: 0.53333336, g: 2.9960785, b: 2.2901962, a: 0.3921569}
   m_BuildTextureStacks: []
