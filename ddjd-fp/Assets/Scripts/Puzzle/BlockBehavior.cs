@@ -23,26 +23,29 @@ public class BlockBehavior : MonoBehaviour
     void Update()
     {
         if(targetPosition != new Vector3(1000f, 1000f, 1000f) && transform.position != targetPosition){
-            Vector3 differenceVector = targetPosition - transform.position;
-            float differenceDistance = differenceVector.sqrMagnitude;
+            // Vector3 differenceVector = targetPosition - transform.position;
+            // float differenceDistance = differenceVector.sqrMagnitude;
 
             //if(Mathf.Abs(differenceDistance) < offset){
-            if(targetPosition == transform.position){
-                //transform.position = targetPosition;
-                Puzzle.SendMessage("Reset");
-            }
-            else{
+            
+            
                 /*if(transform.position.x == targetPosition.x){
                     transform.position = new Vector3(transform.position.x + differenceVector.x * pushSpeed, transform.position.y, transform.position.z + differenceVector.z * pushSpeed + constantSpeed);
                 }
                 else{
                     transform.position = new Vector3(transform.position.x + differenceVector.x * pushSpeed + constantSpeed, transform.position.y, transform.position.z + differenceVector.z * pushSpeed);
                 }*/
-                var step =  pushSpeed * Time.deltaTime; // calculate distance to move
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-                
+            var step =  pushSpeed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+
+            if(targetPosition == transform.position){
+                //transform.position = targetPosition;
+                Puzzle.SendMessage("Reset");
             }
+                
+            
         }
+
     }
 
     /*void OnCollisionStay(Collision collisionInfo)
