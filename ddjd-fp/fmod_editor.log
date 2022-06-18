@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000015E44078E28 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002906F0F6998 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,45 +18,6 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 141)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 141)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] SoundI::release                          :  (0000015E51F9A078)
-[LOG] SoundI::release                          :     briNote4_2 (0000015E520418A8)
-[LOG] SoundI::release                          : dullNote2_2 (0000015E512B0858)
-[LOG] SoundI::release                          :     dullNote2_2 (0000015DEC609B58)
-[LOG] SoundI::release                          :     dullNote2_2 (0000015E51EA23F8)
-[LOG] SoundI::release                          : briNote1_2 (0000015E512B0D68)
-[LOG] SoundI::release                          :     briNote1_2 (0000015DEC60A378)
-[LOG] SoundI::release                          :     briNote1_2 (0000015E51EA25A8)
-[LOG] SoundI::release                          : dullNote1_1 (0000015E512B06A8)
-[LOG] SoundI::release                          :     dullNote1_1 (0000015DEC609678)
-[LOG] SoundI::release                          :     dullNote1_1 (0000015E51EA2248)
-[LOG] SoundI::release                          : briNote3_1 (0000015E512B2F28)
-[LOG] SoundI::release                          :     briNote3_1 (0000015E1F1613F8)
-[LOG] SoundI::release                          :     briNote3_1 (0000015E51EA2C68)
-[LOG] SoundI::release                          : dullNote3_1 (0000015E512AD918)
-[LOG] SoundI::release                          :     dullNote3_1 (0000015E515F92C8)
-[LOG] SoundI::release                          :     dullNote3_1 (0000015E51EA2908)
-[LOG] SoundI::release                          : briNote2_2 (0000015E512B1FF8)
-[LOG] SoundI::release                          :     briNote2_2 (0000015E515F9E28)
-[LOG] SoundI::release                          :     briNote2_2 (0000015E51EA2758)
-[LOG] SoundI::release                          : _drumz_4_soundtrack (0000015E512ADE28)
-[LOG] SoundI::release                          :     _drumz_4_soundtrack (0000015E1E90C6F8)
-[LOG] SoundI::release                          :     _drumz_4_soundtrack (0000015E51EA2098)
-[LOG] SoundI::release                          :  (0000015E51F9A358)
-[LOG] SoundI::release                          :     briNote4_1 (0000015E52041A48)
-[LOG] SoundI::release                          :  (0000015E51F9A1E8)
-[LOG] SoundI::release                          :     dullNote4_2 (0000015E52041568)
-[LOG] SoundI::release                          :  (0000015E51F9A7A8)
-[LOG] SoundI::release                          :     dullNote4_1 (0000015E52042408)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -64,5 +25,3 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.

@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3386795211923690757
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,11 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: switch_crystal_neutral
-  m_Shader: {fileID: -6465566751694194690, guid: aa6700229e12d854caaa7dcaf8219f43, type: 3}
+  m_Name: stone_portal_neutral
+  m_Shader: {fileID: -6465566751694194690, guid: 3870afed8da0c1a4b8e49dfdb849cb44, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -54,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f2dffd4e8735ad74590a85b092968659, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -77,8 +64,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_e1638d2f9907484ab373353495f1cc1e_Out_0:
-        m_Texture: {fileID: 2800000, guid: df56663cfcd2f124a9e63816d70a9201, type: 3}
+    - _Texture2DAsset_a5b393e1833742e18b454b41c2cbba7f_Out_0:
+        m_Texture: {fileID: 2800000, guid: f2dffd4e8735ad74590a85b092968659, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -97,7 +84,6 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _Bottom_line: 0.3
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -110,30 +96,37 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metallic: 0.5
+    - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Saturation: 0.5
-    - _Saturation_Switch: 0.1
     - _Saturation_runes: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Top_Line: 0.6
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_color: {r: 11.984314, g: 0.0627451, b: 0.0627451, a: 0.39215687}
-    - _Bottom_color: {r: 0, g: 0.078431375, b: 2.9960785, a: 0.3921569}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emission_Color: {r: 2.3336656, g: 0.7899219, b: 15.223947, a: 0.39215687}
+    - _BaseColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    - _Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    - _EmissionColor: {r: 3.2452831, g: 0.045923732, b: 0.10989713, a: 0.3921569}
+    - _Emission_Color: {r: 0.6910994, g: 0.29319367, b: 3.9999995, a: 0.3921569}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Top_color: {r: 2.9960785, g: 0.09411765, b: 0, a: 0.3921569}
   m_BuildTextureStacks: []
+--- !u!114 &3042032476386939142
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
