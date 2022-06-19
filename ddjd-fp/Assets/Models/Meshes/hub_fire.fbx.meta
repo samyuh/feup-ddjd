@@ -1,9 +1,45 @@
 fileFormatVersion: 2
-guid: b9935863be9afd247831e0ba637095fd
+guid: 7ce100482077ec341893238e55bf8c24
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
-  externalObjects: {}
+  internalIDToNameTable:
+  - first:
+      74: 1838667595378868517
+    second: Armature|00_restpose
+  - first:
+      74: -499739430431729624
+    second: Armature|01_float
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_stone
+    second: {fileID: 2100000, guid: ffb85ca98f3af7a49aa310ce79c66510, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystal_hub_fire
+    second: {fileID: 2100000, guid: b7a0137254bc3534ea985508478bef61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystal_hub_fire_emission
+    second: {fileID: 2100000, guid: 1f44fec4d40f1cf40be1fe23ab12cfe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: obdian_hub_fire_emission
+    second: {fileID: 2100000, guid: 1f44fec4d40f1cf40be1fe23ab12cfe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: obsidian_hub_fire
+    second: {fileID: 2100000, guid: bb2e9b42618e0d743a1778070e7c6167, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone_emission
+    second: {fileID: 2100000, guid: 1f44fec4d40f1cf40be1fe23ab12cfe2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
