@@ -6,6 +6,9 @@ using UnityEngine;
 public static class Events {
     // Player Events
     // Player
+    // // Dialog CutScene
+    public static readonly EventNative OnDialog = new EventNative();
+
     // // Player Events
     public static readonly EventNative OnSpawn = new EventNative(); // TODO
     public static readonly EventNative OnDeath = new EventNative(); // TODO
@@ -14,18 +17,16 @@ public static class Events {
     public static readonly EventNative<int, int> OnCrystalManaUpdate = new EventNative<int, int>(); // TODO
 
     // // Player Actions
-    // //
+    // // 
     // // // Catch
     public static readonly EventNative OnCatchCrystal = new EventNative();
     public static readonly EventNative OnCatchHealthCrystal = new EventNative();
     // // // Use
     public static readonly EventNative OnUseHealthCrystal = new EventNative();
-
     // // // Button
     public static readonly EventNative OnActivatePortal = new EventNative();
     
     // Menu
-    //
     // // Toggle States
     public static readonly EventNative OnTogglePauseMenu = new EventNative();
     public static readonly EventNative OnToggleCrystalWheel = new EventNative();

@@ -22,6 +22,7 @@ public class InputHandler : MonoBehaviour {
     private InputAction _playerUseItem;
     private InputAction _toggleInventory;
     private InputAction _togglePauseMenu;
+    private InputAction _nextDialog;
 
     public InputAction PlayerMovement { get { return _playerMovement; } set { _playerMovement = value; } }
     public InputAction PlayerRun { get { return _playerRun; } set { _playerRun = value; } }
@@ -59,6 +60,7 @@ public class InputHandler : MonoBehaviour {
         _playerUseItem = _inputAction.Player.UseItem;
         _toggleInventory = _inputAction.Player.Inventory;
         _togglePauseMenu = _inputAction.Player.PauseMenu;
+        _nextDialog = _inputAction.Player.NextDialog;
 
         EnablePlayerInput();
     }
@@ -79,6 +81,7 @@ public class InputHandler : MonoBehaviour {
         _playerInteract.performed += OnInteract;
         _playerUseItem.performed += OnUseItem;
 
+        _nextDialog.performed += OnDialog;
         _inputAction.Player.Enable();
     }
 
@@ -88,6 +91,10 @@ public class InputHandler : MonoBehaviour {
 
     private void Rebind() {
         // _playerJump.rebind("Gamepad/X");
+    }
+
+    private void OnDialog(InputAction.CallbackContext context) {
+        Events.OnDialog.Invoke();
     }
 
     private void OnTogglePauseMenu(InputAction.CallbackContext context) {

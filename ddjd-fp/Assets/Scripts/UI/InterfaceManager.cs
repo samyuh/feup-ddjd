@@ -16,10 +16,15 @@ public class InterfaceManager : MonoBehaviour
     [SerializeField] private TMP_Text _health;
     [SerializeField] private Sprite _healthSprite;
     [SerializeField] private Sprite _nothingSprite;
-
-     [SerializeField] private SVGImage _target;
     private int _numHealthPotions;
-    
+
+    [SerializeField] private SVGImage _target;
+
+    [SerializeField] private DialogManager _currentDialog;
+    [SerializeField] private GameObject _dialogOverlay;
+    [SerializeField] private TMP_Text _dialog;
+    private int _numDialog = 0;
+   
     void Awake()
     {   
         Events.OnToggleAim.AddListener(OnToggleAim);
@@ -29,11 +34,21 @@ public class InterfaceManager : MonoBehaviour
 
         Events.OnCatchHealthCrystal.AddListener(OnCollectHealth);
         Events.OnUseHealthCrystal.AddListener(OnUseHealth);
+
+        Events.OnDialog.AddListener(OnDialog);
+
+        //OnDialog();
     }
 
     void Update()
     {
         
+    }
+
+    public void OnDialog() {
+         _dialogOverlay.SetActive(true);
+        _dialog.text = _currentDialog.dialog[_numDialog];
+        _numDialog += 1;
     }
 
     public void OnUseHealth() {
