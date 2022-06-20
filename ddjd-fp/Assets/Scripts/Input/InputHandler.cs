@@ -81,7 +81,7 @@ public class InputHandler : MonoBehaviour {
         _playerInteract.performed += OnInteract;
         _playerUseItem.performed += OnUseItem;
 
-        _nextDialog.performed += OnDialog;
+        _nextDialog.performed += OnNextDialog;
         _inputAction.Player.Enable();
     }
 
@@ -93,8 +93,8 @@ public class InputHandler : MonoBehaviour {
         // _playerJump.rebind("Gamepad/X");
     }
 
-    private void OnDialog(InputAction.CallbackContext context) {
-        Events.OnDialog.Invoke();
+    private void OnNextDialog(InputAction.CallbackContext context) {
+        Events.OnNextDialog.Invoke();
     }
 
     private void OnTogglePauseMenu(InputAction.CallbackContext context) {

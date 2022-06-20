@@ -23,6 +23,7 @@ public class InterfaceManager : MonoBehaviour
     [SerializeField] private DialogManager _currentDialog;
     [SerializeField] private GameObject _dialogOverlay;
     [SerializeField] private TMP_Text _dialog;
+    private bool _dialogActive = false;
     private int _numDialog = 0;
    
     void Awake()
@@ -36,8 +37,7 @@ public class InterfaceManager : MonoBehaviour
         Events.OnUseHealthCrystal.AddListener(OnUseHealth);
 
         Events.OnDialog.AddListener(OnDialog);
-
-        //OnDialog();
+        Events.OnNextDialog.AddListener(OnNextDialog);
     }
 
     void Update()
@@ -46,9 +46,24 @@ public class InterfaceManager : MonoBehaviour
     }
 
     public void OnDialog() {
-         _dialogOverlay.SetActive(true);
-        _dialog.text = _currentDialog.dialog[_numDialog];
-        _numDialog += 1;
+        _dialogActive = !_dialogActive;
+
+        OnNextDialog();
+    }
+
+    public void OnNextDialog() {
+        if(_dialogActive) {
+            _dialogOverlay.SetActive(_dialogActive);
+
+            if (_currentDialog.dialog[_numDialog] == "CRLF") {
+                _dialogActive = false;
+                _dialogOverlay.SetActive(_dialogActive);
+            } else {
+                _dialog.text = _currentDialog.dialog[_numDialog];
+            }
+
+            _numDialog += 1;
+        }
     }
 
     public void OnUseHealth() {

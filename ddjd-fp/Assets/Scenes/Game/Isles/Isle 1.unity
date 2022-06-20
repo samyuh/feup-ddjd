@@ -431,6 +431,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23.8704
       objectReference: {fileID: 0}
+    - target: {fileID: 1169834546178884101, guid: 20a83ea6fb98f714780467a2493ab3c7, type: 3}
+      propertyPath: m_text
+      value: Press enter to continue...
+      objectReference: {fileID: 0}
     - target: {fileID: 1271208062225712482, guid: 20a83ea6fb98f714780467a2493ab3c7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -737,6 +741,69 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a83ea6fb98f714780467a2493ab3c7, type: 3}
+--- !u!4 &1252970789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7959405136878495848, guid: 6e06f5037479afa4eb950f7c99c8813e, type: 3}
+  m_PrefabInstance: {fileID: 217310951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1857328537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1857328538}
+  - component: {fileID: 1857328540}
+  - component: {fileID: 1857328539}
+  m_Layer: 0
+  m_Name: Dialog (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1857328538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857328537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.7, y: 60.1, z: -20.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1252970789}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1857328539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857328537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa35f8a07eb93d4bb6fccdd65113763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1857328540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857328537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.33, y: 4.75, z: 7.01}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2035623221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -826,3 +893,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd6f668c7e03ac34fa7d85c2e4628e9a, type: 3}
+--- !u!1 &2061206919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2061206920}
+  - component: {fileID: 2061206922}
+  - component: {fileID: 2061206921}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2061206920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061206919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.19, y: 53.21, z: -2.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1252970789}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2061206921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061206919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa35f8a07eb93d4bb6fccdd65113763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2061206922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061206919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.78, y: 4.75, z: 6.87}
+  m_Center: {x: 0, y: 0, z: 0}

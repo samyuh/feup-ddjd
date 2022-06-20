@@ -16,3 +16,7 @@ MonoBehaviour:
   dialog:
   - Agate? Where are you?
   - Don't worry! I will find you!
+  - CRLF
+  - You're here! I'm glad you're ok!
+  - Let's find a way out!
+  - CRLF

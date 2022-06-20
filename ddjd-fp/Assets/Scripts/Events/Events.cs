@@ -7,6 +7,7 @@ public static class Events {
     // Player Events
     // Player
     // // Dialog CutScene
+     public static readonly EventNative OnNextDialog = new EventNative();
     public static readonly EventNative OnDialog = new EventNative();
 
     // // Player Events
