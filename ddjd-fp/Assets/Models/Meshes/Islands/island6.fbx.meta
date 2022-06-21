@@ -33,7 +33,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: obsidian_dissolve
-    second: {fileID: 2100000, guid: 652c7579fb1c7a046a38a6292dfac7e7, type: 2}
+    second: {fileID: 2100000, guid: 61a87131fa779984d91e8c2545455876, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

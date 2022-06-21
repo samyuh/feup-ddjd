@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: obsidian
-  m_Shader: {fileID: -6465566751694194690, guid: fc8752ee99ffbd24aa9e76590ddaf9a1, type: 3}
+  m_Name: obsidian_dissolve_island6
+  m_Shader: {fileID: -6465566751694194690, guid: e5035c052c4820e4ea85522cc2af3c81, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -93,6 +93,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
+    - _Bottom_Line: 0.35
     - _Bottom_line: 0.35
     - _BumpScale: 1
     - _ClearCoat: 0
@@ -102,6 +103,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Dissolve_Ammount: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -109,6 +111,7 @@ Material:
     - _GlossinessSource: 0
     - _GlossyReflections: 0
     - _Metallic: 0.5
+    - _Noise_Scale: 30
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -128,6 +131,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Base_color: {r: 0, g: 0, b: 0, a: 0.3921569}
+    - _Bottom_Color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
     - _Bottom_color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 5.81563, g: 0.05455454, b: 0, a: 1}
