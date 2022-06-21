@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Dialog 1-4
   m_EditorClassIdentifier: 
   id: 4
-  dialog: []
+  dialog:
+  - character: Galena
+    text: "Oh! I remember these mushrooms! My father once told me that they\u2019re
+      used to make an adhesive to fix crystals.  Hmm, I wonder if it'll work on..
+      us now...? "

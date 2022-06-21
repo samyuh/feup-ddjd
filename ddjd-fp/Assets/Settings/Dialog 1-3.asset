@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae4d917783cf744b85c044d4b8dda27, type: 3}
   m_Name: Dialog 1-3
   m_EditorClassIdentifier: 
-  id: 0
-  dialog: []
+  id: 3
+  dialog:
+  - character: Galena
+    text: A mana crystal! They can restore magical power! Helpful if we ever push
+      ourselves too hard.
