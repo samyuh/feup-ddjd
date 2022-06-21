@@ -126,9 +126,6 @@
 		<property name="volume">
 			<value>2.5</value>
 		</property>
-		<property name="pitch">
-			<value>0.300000012</value>
-		</property>
 		<relationship name="modulators">
 			<destination>{a9683230-6c2c-422b-ba9f-533d27443a31}</destination>
 		</relationship>
@@ -151,9 +148,6 @@
 	<object class="RandomizerModulator" id="{a9683230-6c2c-422b-ba9f-533d27443a31}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
-		</property>
-		<property name="amount">
-			<value>3.5</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{deadc586-95be-4bba-89e9-de98f9eaeb04}">
