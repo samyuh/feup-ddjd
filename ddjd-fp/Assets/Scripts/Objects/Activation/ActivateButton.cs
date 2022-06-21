@@ -6,6 +6,7 @@ public class ActivateButton : MonoBehaviour {
     [SerializeField] private GameObject _button;
     [SerializeField] private GameObject _collider;
 
+    public int portal;
     private bool _alreadyActive = false;
     private Vector3 _startPosition;
     private Vector3 _targetPosition;
@@ -14,6 +15,7 @@ public class ActivateButton : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider) {
         if (collider.tag == "Player" && !_alreadyActive) {
+            Events.OnActivatePortal.Invoke(portal);
              _startPosition = _button.transform.position;
             _targetPosition =  new Vector3(_button.transform.position.x, _button.transform.position.y - 0.15f, _button.transform.position.z);
             _distance = Vector3.Distance(_startPosition, _targetPosition);

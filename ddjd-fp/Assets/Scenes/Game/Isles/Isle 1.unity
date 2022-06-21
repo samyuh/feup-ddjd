@@ -123,65 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &924210
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: 2f4eba533fc8c8c4c816dd2133db7831, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 0
-    - _BlendFloor: 0
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &162411386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6900120648770261078, guid: 20a83ea6fb98f714780467a2493ab3c7, type: 3}
   m_PrefabInstance: {fileID: 1234597453}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &213385184
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: 2f4eba533fc8c8c4c816dd2133db7831, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 0
-    - _BlendFloor: 0
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!43 &229037644
 Mesh:
   m_ObjectHideFlags: 0
@@ -671,6 +617,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &607407819
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: 2f4eba533fc8c8c4c816dd2133db7831, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
+--- !u!21 &714538243
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: 2f4eba533fc8c8c4c816dd2133db7831, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &750643538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -689,11 +689,15 @@ PrefabInstance:
     - target: {fileID: 1960585660877011715, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
       propertyPath: m_InstantiatedMaterial
       value: 
-      objectReference: {fileID: 213385184}
+      objectReference: {fileID: 714538243}
     - target: {fileID: 1960585660877011741, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 229037644}
+    - target: {fileID: 2447041692525699145, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3247218025189206913, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -811,6 +815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 475621870}
   _collider: {fileID: 1036990977}
+  portal: 0
 --- !u!65 &754031088
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1216,6 +1221,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a83ea6fb98f714780467a2493ab3c7, type: 3}
+--- !u!1 &1597595150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2447041692525699145, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
+  m_PrefabInstance: {fileID: 750643538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1651202132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 116472781363136214, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
+  m_PrefabInstance: {fileID: 750643538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1651202136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651202132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a62425dbe4105409595dc0435e1260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  _numberButton: 3
+  teleportPassage: {fileID: 1597595150}
 --- !u!1 &1675296126 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6551447080261280165, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
@@ -1235,6 +1265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 938427439}
   _collider: {fileID: 529955088}
+  portal: 0
 --- !u!65 &1675296129
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1444,6 +1475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 877250781}
   _collider: {fileID: 249406053}
+  portal: 0
 --- !u!65 &2133477463
 BoxCollider:
   m_ObjectHideFlags: 0

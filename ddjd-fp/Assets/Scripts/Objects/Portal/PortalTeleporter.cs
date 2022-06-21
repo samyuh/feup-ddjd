@@ -7,19 +7,16 @@ public class PortalTeleporter : MonoBehaviour
     public Transform player;
     public Transform receiver;
     public Transform button;
-    public PortalButton buttonScript;
 
     private bool playerIsOverlapping = false;
 
-    void Start()
-    {
-        buttonScript = button.GetComponent<PortalButton>();
+    void Start() {
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerIsOverlapping && buttonScript.isPressed){
+        if(playerIsOverlapping){
             print("Teleporting player");
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);

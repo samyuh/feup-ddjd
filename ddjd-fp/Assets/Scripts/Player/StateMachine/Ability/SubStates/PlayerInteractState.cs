@@ -43,10 +43,7 @@ public class PlayerInteractState : PlayerAbilityState {
                 Events.OnCatchCrystal.Invoke();
                 _context.DestroyObject(_context.InteractableItem);
                 _context.GetItem(1);
-            } else if (_context.InteractableItem.tag == "PortalButton") {
-                Events.OnActivatePortal.Invoke();
-            }
-            else if(_context.InteractableItem.tag == "Enemy"){
+            } else if(_context.InteractableItem.tag == "Enemy"){
                 Debug.Log("Found the Enemy");
                 
                 Debug.Log("Teleport to: " + CheckPoint.GetActiveCheckPointPosition());

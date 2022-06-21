@@ -8,11 +8,9 @@ public class PortalCamera : MonoBehaviour
     public Transform portal;
     public Transform otherPortal;
     public Transform button;
-    public PortalButton buttonScript;
 
     void Start()
     {
-        buttonScript = button.GetComponent<PortalButton>();
     }
 
     // Update is called once per frame
