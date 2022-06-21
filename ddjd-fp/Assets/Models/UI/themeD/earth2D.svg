@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 132 132" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-2047.03,-9499.08)">
+        <g id="EarthD" transform="matrix(0.286575,0,0,0.286575,2699.78,9525.65)">
+            <rect x="-2277.78" y="-92.74" width="458.365" height="458.365" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="-2277.78" y="-92.74" width="458.365" height="458.365"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(3.48949,0,0,3.48949,-18810.1,-1204.45)">
+                    <g transform="matrix(0.847458,0,0,0.847458,4633.94,214.776)">
+                        <path d="M200,122.5L122.5,200L200,277.5L277.5,200L200,122.5ZM200,145L145,200L200,255L255,200L200,145Z" style="fill:rgb(255,168,104);"/>
+                    </g>
+                    <g transform="matrix(1,0,0,1,1040.55,-492.343)">
+                        <path d="M3758.64,880.847L3758.64,906.271L3733.22,880.847L3758.64,880.847ZM3792.54,880.847L3767.12,906.271L3767.12,880.847L3792.54,880.847ZM3767.12,872.373L3767.12,846.949L3792.54,872.373L3767.12,872.373ZM3758.64,872.373L3733.22,872.373L3758.64,846.949L3758.64,872.373Z" style="fill:rgb(255,168,104);"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -12,16 +12,24 @@ public class InterfaceManager : MonoBehaviour
     [SerializeField] private InventoryController _inventory;
     [SerializeField] private PauseMenuController _pauseMenu;
     [SerializeField] private GameObject _gameOverlay;
+    [SerializeField] private GameObject _dialogOverlay;
 
+    // REFACTOR
     [SerializeField] private TMP_Text _health;
     [SerializeField] private Sprite _healthSprite;
     [SerializeField] private Sprite _nothingSprite;
-
-     [SerializeField] private SVGImage _target;
     private int _numHealthPotions;
+    [SerializeField] private SVGImage _target;
+    // REFACTOR
     
-    void Awake()
-    {   
+    [SerializeField] private TMP_Text _dialogCharacter;
+    [SerializeField] private TMP_Text _dialogText;
+
+    private DialogManager _currentDialog;
+    private bool _dialogActive = false;
+    private int _numDialog = 0;
+   
+    void Awake() {   
         Events.OnToggleAim.AddListener(OnToggleAim);
         Events.OnToggleInventory.AddListener(OnToggleInventory);
         Events.OnToggleCrystalWheel.AddListener(OnToggleCrystalWheel);
@@ -29,11 +37,32 @@ public class InterfaceManager : MonoBehaviour
 
         Events.OnCatchHealthCrystal.AddListener(OnCollectHealth);
         Events.OnUseHealthCrystal.AddListener(OnUseHealth);
+
+        Events.OnDialog.AddListener(OnDialog);
+        Events.OnNextDialog.AddListener(OnNextDialog);
     }
 
-    void Update()
-    {
-        
+    public void OnDialog(DialogManager currentDialog) {
+        _currentDialog = currentDialog;
+
+        _dialogActive = !_dialogActive;
+        OnNextDialog();
+    }
+
+    public void OnNextDialog() {
+        if(_dialogActive) {
+            _dialogOverlay.SetActive(_dialogActive);
+            
+            if (_numDialog == _currentDialog.dialog.Count) {
+                _dialogActive = false;
+                _numDialog = 0;
+                _dialogOverlay.SetActive(_dialogActive);
+            } else {
+                _dialogCharacter.text = _currentDialog.dialog[_numDialog].character;
+                _dialogText.text =_currentDialog.dialog[_numDialog].text;
+                _numDialog += 1;
+            }
+        }
     }
 
     public void OnUseHealth() {

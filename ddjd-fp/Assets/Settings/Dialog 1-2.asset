@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae4d917783cf744b85c044d4b8dda27, type: 3}
+  m_Name: Dialog 1-2
+  m_EditorClassIdentifier: 
+  id: 2
+  dialog:
+  - character: Galena
+    text: "Agate! You got me worried for a second! I told you not to\u2026"
+  - character: Agate
+    text: Meow
+  - character: Galena
+    text: "Wait\u2026 You found a map? This must\u2019ve been left behind by some
+      poor adventurer. "
+  - character: Galena
+    text: "I can barely recognize this place anymore, but it seems fairly recent\u2026
+      like it was made after the corruption."
+  - character: Galena
+    text: "Better keep it, getting lost out here wouldn\u2019t be nice. Good girl! "
+  - character: Agate
+    text: '*purrs*'
