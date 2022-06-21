@@ -5,8 +5,9 @@ using UnityEngine;
 
 [System.Serializable]
 public class ColorSwatch {
-    public string name;
-    public Color rgb;
+    public string Name;
+    [ColorUsage(true, true)]
+    public Color HDR;
 }
  
 [CreateAssetMenu(menuName="Color Manager")]
