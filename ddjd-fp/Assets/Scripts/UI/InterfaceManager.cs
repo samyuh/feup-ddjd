@@ -12,22 +12,24 @@ public class InterfaceManager : MonoBehaviour
     [SerializeField] private InventoryController _inventory;
     [SerializeField] private PauseMenuController _pauseMenu;
     [SerializeField] private GameObject _gameOverlay;
+    [SerializeField] private GameObject _dialogOverlay;
 
+    // REFACTOR
     [SerializeField] private TMP_Text _health;
     [SerializeField] private Sprite _healthSprite;
     [SerializeField] private Sprite _nothingSprite;
     private int _numHealthPotions;
-
     [SerializeField] private SVGImage _target;
+    // REFACTOR
+    
+    [SerializeField] private TMP_Text _dialogCharacter;
+    [SerializeField] private TMP_Text _dialogText;
 
-    [SerializeField] private DialogManager _currentDialog;
-    [SerializeField] private GameObject _dialogOverlay;
-    [SerializeField] private TMP_Text _dialog;
+    private DialogManager _currentDialog;
     private bool _dialogActive = false;
     private int _numDialog = 0;
    
-    void Awake()
-    {   
+    void Awake() {   
         Events.OnToggleAim.AddListener(OnToggleAim);
         Events.OnToggleInventory.AddListener(OnToggleInventory);
         Events.OnToggleCrystalWheel.AddListener(OnToggleCrystalWheel);
@@ -40,29 +42,26 @@ public class InterfaceManager : MonoBehaviour
         Events.OnNextDialog.AddListener(OnNextDialog);
     }
 
-    void Update()
-    {
-        
-    }
+    public void OnDialog(DialogManager currentDialog) {
+        _currentDialog = currentDialog;
 
-    public void OnDialog() {
         _dialogActive = !_dialogActive;
-
         OnNextDialog();
     }
 
     public void OnNextDialog() {
         if(_dialogActive) {
             _dialogOverlay.SetActive(_dialogActive);
-
-            if (_currentDialog.dialog[_numDialog] == "CRLF") {
+            
+            if (_numDialog == _currentDialog.dialog.Count) {
                 _dialogActive = false;
+                _numDialog = 0;
                 _dialogOverlay.SetActive(_dialogActive);
             } else {
-                _dialog.text = _currentDialog.dialog[_numDialog];
+                _dialogCharacter.text = _currentDialog.dialog[_numDialog].character;
+                _dialogText.text =_currentDialog.dialog[_numDialog].text;
+                _numDialog += 1;
             }
-
-            _numDialog += 1;
         }
     }
 
