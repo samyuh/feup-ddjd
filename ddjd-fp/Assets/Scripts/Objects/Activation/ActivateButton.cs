@@ -28,7 +28,7 @@ public class ActivateButton : MonoBehaviour {
             if (_button.transform.position != _targetPosition) {
                 // Distance moved equals elapsed time times speed
                 _elapsedTime += Time.deltaTime;
-                float distanceDisplacement = _elapsedTime * 0.05f;
+                float distanceDisplacement = _elapsedTime * 0.15f;
                 float interpolationRatio = distanceDisplacement / _distance;
                 _button.transform.position = Vector3.Lerp(_startPosition, _targetPosition, interpolationRatio);
                 _collider.transform.position = _button.transform.position;
