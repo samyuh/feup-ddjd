@@ -93,6 +93,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
+    - _Border_size: -30
     - _Bottom_Line: 0.35
     - _Bottom_line: 0.35
     - _BumpScale: 1
@@ -134,7 +135,7 @@ Material:
     - _Bottom_Color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
     - _Bottom_color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
-    - _Dissolve_color: {r: 0.40120766, g: 0.18903337, b: 2.109215, a: 0.39215687}
+    - _Dissolve_color: {r: 2.3215687, g: 1.1294118, b: 11.984314, a: 0.39215687}
     - _EmissionColor: {r: 5.81563, g: 0.05455454, b: 0, a: 1}
     - _Emission_Color: {r: 2.3336656, g: 0.7899219, b: 15.223947, a: 0.39215687}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
