@@ -1,8 +1,47 @@
 fileFormatVersion: 2
-guid: 6da456ec61a7875498df16207acb8afc
+guid: 713a0c9da5febc7429610b33628cd1ac
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1838667595378868517
+    second: Armature|00_restpose
+  - first:
+      74: 1699216234322225140
+    second: Armature|01_idle
+  - first:
+      74: -7247700828303187261
+    second: Armature|01_idle_combat
+  - first:
+      74: -5723267836939942316
+    second: Armature|02_walk_cycle
+  - first:
+      74: -2333315012743274609
+    second: Armature|03_run
+  - first:
+      74: 119927684352101200
+    second: Armature|04_attack_light
+  - first:
+      74: -9036823333288842962
+    second: Armature|05_attack_medium
+  - first:
+      74: -7808294455819311668
+    second: Armature|06_attack_heavy
+  - first:
+      74: 5988036785786521081
+    second: Armature|07_invisibility
+  - first:
+      74: -8987029816817930137
+    second: Armature|08_meteor_shower
+  - first:
+      74: -7632345239825220079
+    second: Armature|09_call_minions
+  - first:
+      74: -315338889711336073
+    second: Armature|10_hit_react
+  - first:
+      74: 5308887494613806773
+    second: Armature|11_dying
   externalObjects:
   - first:
       type: UnityEngine:Material

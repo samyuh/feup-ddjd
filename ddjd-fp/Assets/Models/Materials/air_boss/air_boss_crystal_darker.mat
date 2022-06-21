@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: air_boss_crystal_darker
-  m_Shader: {fileID: -6465566751694194690, guid: 309ec2855b1dc434abf480e8a03054a4, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 398e60a712927fb439ae7e87ac082b7c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -97,6 +97,8 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
+    - _Border_size: -40
+    - _Bottom_Line: 0.35
     - _Bottom_line: 0.3
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -105,12 +107,14 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Dissolve_Ammount: 0.005
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0.5
+    - _Noise_Scale: 70
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -127,8 +131,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Base_color: {r: 0.43137255, g: 0.5803922, b: 1.2862746, a: 0.39215687}
+    - _Bottom_Color: {r: 1.772549, g: 2.2431374, b: 2.9960785, a: 0.3921569}
     - _Bottom_color: {r: 16, g: 16, b: 16, a: 0.3921569}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Dissolve_color: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Top_color: {r: 5.3403134, g: 5.3403134, b: 5.3403134, a: 0.3921569}

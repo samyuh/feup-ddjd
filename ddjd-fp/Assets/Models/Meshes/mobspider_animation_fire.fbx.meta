@@ -45,7 +45,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: obsidian_fire_mobspider
-    second: {fileID: 2100000, guid: c69473a1b9eeb214f817dd30bd805d09, type: 2}
+    second: {fileID: 2100000, guid: 2b5e08dada6be2345a30b92861453c0c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
