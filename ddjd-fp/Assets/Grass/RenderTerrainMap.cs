@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+ 
 [ExecuteInEditMode]
 public class RenderTerrainMap : MonoBehaviour
 {
-
+ 
     public Camera camToDrawWith;
     // layer to render
     [SerializeField]
@@ -18,19 +18,19 @@ public class RenderTerrainMap : MonoBehaviour
     Terrain[] terrains;
     // map resolution
     public int resolution = 512;
-
+ 
     // padding the total size
     public float adjustScaling = 2.5f;
     // update texture every frame
     [SerializeField]
     bool RealTimeDiffuse;
     RenderTexture tempTex;
-
+ 
     private Bounds bounds;
     // resolution of the map
-
+ 
     // Start is called before the first frame update
-
+ 
     void GetBounds()
     {
         bounds = new Bounds(transform.position, Vector3.zero);
@@ -41,7 +41,7 @@ public class RenderTerrainMap : MonoBehaviour
                 bounds.Encapsulate(renderer.bounds);
             }
         }
-
+ 
         if (terrains.Length > 0)
         {
             foreach (Terrain terrain in terrains)
@@ -50,7 +50,7 @@ public class RenderTerrainMap : MonoBehaviour
             }
         }
     }
-
+ 
     void OnEnable()
     {
         tempTex = new RenderTexture(resolution, resolution, 24);
@@ -58,15 +58,15 @@ public class RenderTerrainMap : MonoBehaviour
         SetUpCam();
         DrawDiffuseMap();
     }
-
-
+ 
+ 
     void Start()
     {
         GetBounds();
         SetUpCam();
         DrawDiffuseMap();
     }
-
+ 
     void OnRenderObject()
     {
         if (!RealTimeDiffuse)
@@ -75,7 +75,7 @@ public class RenderTerrainMap : MonoBehaviour
         }
         UpdateTex();
     }
-
+ 
     void UpdateTex()
     {
         camToDrawWith.enabled = true;
@@ -86,7 +86,7 @@ public class RenderTerrainMap : MonoBehaviour
     {
         DrawToMap("_TerrainDiffuse");
     }
-
+ 
     void DrawToMap(string target)
     {
         camToDrawWith.enabled = true;
@@ -98,7 +98,7 @@ public class RenderTerrainMap : MonoBehaviour
         Shader.SetGlobalTexture(target, tempTex);
         camToDrawWith.enabled = false;
     }
-
+ 
     void SetUpCam()
     {
         if (camToDrawWith == null)
@@ -112,5 +112,5 @@ public class RenderTerrainMap : MonoBehaviour
         camToDrawWith.transform.position = bounds.center + new Vector3(0, bounds.extents.y + 5f, 0);
         camToDrawWith.transform.parent = gameObject.transform;
     }
-
+ 
 }
