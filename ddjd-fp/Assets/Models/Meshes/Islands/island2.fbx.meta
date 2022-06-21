@@ -13,17 +13,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_crystal_portal
-    second: {fileID: 2100000, guid: b7a0137254bc3534ea985508478bef61, type: 2}
+    second: {fileID: 2100000, guid: eab97aa78c9488d4995d7a83f22a7168, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_portal_passage
-    second: {fileID: 2100000, guid: 00f9a88b7b7a17b4e979f06c31727f55, type: 2}
+    second: {fileID: 2100000, guid: c8a6ef3f3df505e42a296bac09d4432c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_stone_portal
-    second: {fileID: 2100000, guid: b2b1c638cd0827a48ac6b117b2172452, type: 2}
+    second: {fileID: 2100000, guid: 0659457ca9f98d34c9e05a89c69cd773, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -33,17 +33,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: neutral_crystal_portal
-    second: {fileID: 2100000, guid: 08633be1e308f26459e0a23643b384e8, type: 2}
+    second: {fileID: 2100000, guid: d3b580c86928fda47a7838c348f289b3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: neutral_portal_passage
-    second: {fileID: 2100000, guid: 00f9a88b7b7a17b4e979f06c31727f55, type: 2}
+    second: {fileID: 2100000, guid: c71a534db382f744f8e3a3a1a69223bf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: neutral_stone_portal
-    second: {fileID: 2100000, guid: fc972dcdaa748b24a95e650e666e5017, type: 2}
+    second: {fileID: 2100000, guid: b039a6b5a1f20d242bceb7dc99bf3350, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

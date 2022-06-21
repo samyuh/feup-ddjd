@@ -13,17 +13,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_crystal_portal
-    second: {fileID: 2100000, guid: b7a0137254bc3534ea985508478bef61, type: 2}
+    second: {fileID: 2100000, guid: 6ed2020577cac91479ffe15cf3d4b53e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_portal_passage
-    second: {fileID: 2100000, guid: 00f9a88b7b7a17b4e979f06c31727f55, type: 2}
+    second: {fileID: 2100000, guid: f88bf64d50c9fe84597972cc5713d641, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_stone_portal
-    second: {fileID: 2100000, guid: b2b1c638cd0827a48ac6b117b2172452, type: 2}
+    second: {fileID: 2100000, guid: 831570bfbde02374b9887f6ca39cdeb1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -33,17 +33,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: neutral_crystal_portal
-    second: {fileID: 2100000, guid: 08633be1e308f26459e0a23643b384e8, type: 2}
+    second: {fileID: 2100000, guid: 78c042a1fc658fb44986eabd2960f4a1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: neutral_portal_passage
-    second: {fileID: 2100000, guid: 4a8ed07ce55c5da47bfb4219bf77deac, type: 2}
+    second: {fileID: 2100000, guid: 8d1d76b6b76ecb248901ff10a7a9d08e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: neutral_stone_portal
-    second: {fileID: 2100000, guid: fc972dcdaa748b24a95e650e666e5017, type: 2}
+    second: {fileID: 2100000, guid: 0c74fb4e5f9116e48876362943447568, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -53,7 +53,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: slab_crystal
-    second: {fileID: 2100000, guid: b7a0137254bc3534ea985508478bef61, type: 2}
+    second: {fileID: 2100000, guid: 8a85a86634df4604aad08657aecbd3f6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

@@ -1,89 +1,33 @@
 fileFormatVersion: 2
-guid: 1ba46df07e941994689016ff4a30a05e
+guid: f27a0adfee063d94d8eae3dc6c487084
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1838667595378868517
+    second: Armature|00_restpose
+  - first:
+      74: 1699216234322225140
+    second: Armature|01_idle
+  - first:
+      74: 9207281805797019579
+    second: Armature|02_save
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: air_crystal_portal
-    second: {fileID: 2100000, guid: 844ddd4e59161924a97c09f8f74af459, type: 2}
+      name: save_crystal
+    second: {fileID: 2100000, guid: 67f9834215492ce4987020ee0fab7c00, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: air_portal_passage
-    second: {fileID: 2100000, guid: 56f23a74de64ef645aa2a98e1c02ac06, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: air_stone_portal
-    second: {fileID: 2100000, guid: 7fc035896d5887c42ae4c9c017b9f044, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: crystal
-    second: {fileID: 2100000, guid: 0ac8c3f9b67532b49a6e545ea708df1c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: deactivated_crystal_portal
-    second: {fileID: 2100000, guid: 37db37f9f9a0a9e448ea030dabcdde28, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: deactivated_portal_passage
-    second: {fileID: 2100000, guid: 95c9736b8d7c3dc43a39e9fdc2db13ac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: deactivated_stone_portal
-    second: {fileID: 2100000, guid: 00a4745e4f0c1e74c99e38915028babe, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: fire_crystal_portal
-    second: {fileID: 2100000, guid: 2fabdb8d68c15c047bfcc4ab146d9ffd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: fire_portal_passage
-    second: {fileID: 2100000, guid: 94d60110acebcf84686e659bb01adf9e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: fire_stone_portal
-    second: {fileID: 2100000, guid: 25b5bb07b5eda9b4bb504a5c96458051, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: island4_grass_road
-    second: {fileID: 2100000, guid: da86af6531822c846a04a063be51983c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: mage_portal_crystal
-    second: {fileID: 2100000, guid: cd744233a09c5f44384087790260141a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: mage_portal_passage
-    second: {fileID: 2100000, guid: ca580d255c923994da682ea213f935e7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: mage_portal_stone
-    second: {fileID: 2100000, guid: 4be33d9dd558a7d499deb75f8ee11049, type: 2}
+      name: save_emission
+    second: {fileID: 2100000, guid: db47dbaa70ba86b419bbab4534fe316a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: stone_dark
     second: {fileID: 2100000, guid: ffb85ca98f3af7a49aa310ce79c66510, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: stone_light
-    second: {fileID: 2100000, guid: ea16ae87affb2fe4aba2895720d70b0f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

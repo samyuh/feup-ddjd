@@ -13,17 +13,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_crystal_portal
-    second: {fileID: 2100000, guid: b7a0137254bc3534ea985508478bef61, type: 2}
+    second: {fileID: 2100000, guid: b30ebd12dd61af04a8b934533abfec5b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_portal_passage
-    second: {fileID: 2100000, guid: 00f9a88b7b7a17b4e979f06c31727f55, type: 2}
+    second: {fileID: 2100000, guid: cf8d555d59b2924408c15d1257e3772f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fire_stone_portal
-    second: {fileID: 2100000, guid: b2b1c638cd0827a48ac6b117b2172452, type: 2}
+    second: {fileID: 2100000, guid: fd3fca99e61887547ada7bf190b2c44a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

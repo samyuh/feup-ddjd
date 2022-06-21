@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: air_crystal_portal
-    second: {fileID: 2100000, guid: eab8d2411375f334590e1ea8d8ed1625, type: 2}
+    second: {fileID: 2100000, guid: 23731774fee845a4bbfab74ccb15794f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: air_portal_passage
-    second: {fileID: 2100000, guid: 2efcf8c89359b9141875f167db2c8bbe, type: 2}
+    second: {fileID: 2100000, guid: f0e9c00a1a2a6204f868d211630b7353, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: air_stone_portal
-    second: {fileID: 2100000, guid: 12f8e4a71551fc844bce5df16c11d812, type: 2}
+    second: {fileID: 2100000, guid: 2918f009d36054948b8ed15db14964b6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
