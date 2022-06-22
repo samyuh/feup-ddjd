@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mc_obsidian
-  m_Shader: {fileID: -6465566751694194690, guid: 3c33cbc554bc5e74ea8fc303a560fe23, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ab228d310206fbf4e95743045008c92b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -76,6 +76,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: df56663cfcd2f124a9e63816d70a9201, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_d306b96729574d72878ac32c3828884f_Out_0:
+        m_Texture: {fileID: 2800000, guid: df56663cfcd2f124a9e63816d70a9201, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -93,6 +97,8 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
+    - _Border_size: -30
+    - _Bottom_Line: 0.35
     - _Bottom_line: 0.35
     - _BumpScale: 1
     - _ClearCoat: 0
@@ -102,6 +108,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Dissolve_Ammount: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -109,6 +116,7 @@ Material:
     - _GlossinessSource: 0
     - _GlossyReflections: 0
     - _Metallic: 0.5
+    - _Noise_Scale: 70
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -128,12 +136,14 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Base_color: {r: 0, g: 0, b: 0, a: 0.3921569}
-    - _Bottom_color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
+    - _Bottom_Color: {r: 0.26666668, g: 0.20392157, b: 2.9960785, a: 0.3921569}
+    - _Bottom_color: {r: 0.26666668, g: 0.20392157, b: 2.9960785, a: 0.3921569}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Dissolve_color: {r: 0.64012325, g: 0.32014558, b: 3.2319458, a: 0.39215687}
     - _EmissionColor: {r: 5.81563, g: 0.05455454, b: 0, a: 1}
-    - _Emission_Color: {r: 0.41837046, g: 0.24711147, b: 1.8064697, a: 0.39215687}
+    - _Emission_Color: {r: 0.64012325, g: 0.32014558, b: 3.2319458, a: 0.39215687}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Top_color: {r: 0.026889404, g: 0.00035599942, b: 0.0754717, a: 0.3921569}
+    - _Top_color: {r: 0.21960784, g: 0.015686275, b: 0.5647059, a: 0.3921569}
   m_BuildTextureStacks: []
 --- !u!114 &2740849992525089304
 MonoBehaviour:
