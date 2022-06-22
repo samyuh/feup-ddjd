@@ -12,4 +12,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d5926115fa1df409b06d1b224dfc90, type: 3}
   m_Name: Color Manager
   m_EditorClassIdentifier: 
-  ColorList: []
+  ColorList:
+  - Name: obsidian_base_color
+    HDR: {r: 0, g: 0, b: 0, a: 0.3921569}
+  - Name: obsidian_top_color
+    HDR: {r: 0.21960784, g: 0.015686275, b: 0.5647059, a: 0.3921569}
+  - Name: obsidian_bottom_color
+    HDR: {r: 0.26666668, g: 0.20392157, b: 2.9960785, a: 0.3921569}
+  - Name: neutral_base_color
+    HDR: {r: 0.6431373, g: 0.32941177, b: 2.9960785, a: 0.39215687}
+  - Name: neutral_top_color
+    HDR: {r: 0.53333336, g: 2.9960785, b: 2.2901962, a: 0.3921569}
+  - Name: neutral_bottom_color
+    HDR: {r: 2.9960785, g: 0.10980392, b: 2.1960785, a: 0.3921569}
+  - Name: neutral_emission_color
+    HDR: {r: 0.64012325, g: 0.32014558, b: 3.2319458, a: 0.39215687}
+  - Name: air_base_color
+    HDR: {r: 5.145098, g: 6.7137256, b: 11.984314, a: 0.39215687}
+  - Name: air_top_color
+    HDR: {r: 0.6431373, g: 0.6745098, b: 2.9960785, a: 0.3921569}
+  - Name: air_bottom_color
+    HDR: {r: 1.772549, g: 2.2431374, b: 2.9960785, a: 0.3921569}
+  - Name: air_emission_color
+    HDR: {r: 11.984314, g: 11.984314, b: 11.984314, a: 0.3921569}
+  - Name: fire_base_color
+    HDR: {r: 2.9960785, g: 0.047058824, b: 0.10980392, a: 0.39215687}
+  - Name: fire_top_color
+    HDR: {r: 2.9960785, g: 0.5803922, b: 0, a: 0.3921569}
+  - Name: fire_bottom_color
+    HDR: {r: 0, g: 0.8560677, b: 2.9960785, a: 0.3921569}
+  - Name: fire_darker_color
+    HDR: {r: 0.67331773, g: 0.04128837, b: 0.06145971, a: 0.39215687}
+  - Name: fire_emission_color
+    HDR: {r: 3.5872905, g: 0.084605895, b: 0.23689654, a: 0.39215687}
+  - Name: deactivated_crystal
+    HDR: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 0.39215687}
+  - Name: deactivated_crystal_top
+    HDR: {r: 0.6431373, g: 0.6745098, b: 2.9960785, a: 0.3921569}
+  - Name: deactivated_crystal_bottom
+    HDR: {r: 1.772549, g: 2.2431374, b: 2.9960785, a: 0.3921569}
+  - Name: deactivated_emission
+    HDR: {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 0.3921569}
+  - Name: sky_color_neutral
+    HDR: {r: 0.6415094, g: 0.6142755, b: 0.6142755, a: 1}
+  - Name: equator_color_neutral
+    HDR: {r: 0.24630654, g: 0.3672986, b: 0.38679248, a: 1}
+  - Name: ground_color_neutral
+    HDR: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  - Name: sky_color_fire
+    HDR: {r: 0, g: 0, b: 0, a: 1}
+  - Name: equator_color_fire
+    HDR: {r: 0.24630654, g: 0.3672986, b: 0.38679248, a: 1}
+  - Name: ground_color_fire
+    HDR: {r: 0.7264151, g: 0.43516377, b: 0.43804634, a: 1}
+  - Name: sky_color_air
+    HDR: {r: 0.38679248, g: 0.37402102, b: 0.37402102, a: 1}
+  - Name: equator_color_air
+    HDR: {r: 0.24630654, g: 0.3672986, b: 0.38679248, a: 1}
+  - Name: ground_color_air
+    HDR: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
