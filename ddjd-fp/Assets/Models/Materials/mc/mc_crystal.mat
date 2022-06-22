@@ -121,12 +121,12 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Top_Line: 0.6
+    - _Top_Line: 0.5
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_color: {r: 2.3336656, g: 0.7899219, b: 15.223947, a: 0.39215687}
+    - _Base_color: {r: 0.56043667, g: 0.25098035, b: 2.9960785, a: 0.39215687}
     - _Bottom_color: {r: 2.9960785, g: 0.10980392, b: 2.1960785, a: 0.3921569}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

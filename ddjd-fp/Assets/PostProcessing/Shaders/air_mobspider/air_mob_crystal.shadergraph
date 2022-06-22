@@ -4922,7 +4922,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"b7feebfc9bf9d2f4992223a59e987f0f\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"be8d528225e74084ebc91f6da3937f2a\",\"type\":3}}",
         "m_Guid": ""
     }
 }

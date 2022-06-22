@@ -132,14 +132,14 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Base_color: {r: 0, g: 0, b: 0, a: 0.3921569}
-    - _Bottom_Color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
+    - _Bottom_Color: {r: 0.26666668, g: 0.20392157, b: 2.9960785, a: 0.3921569}
     - _Bottom_color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Dissolve_color: {r: 4, g: 4, b: 4, a: 0.3921569}
     - _EmissionColor: {r: 5.81563, g: 0.05455454, b: 0, a: 1}
     - _Emission_Color: {r: 0.83769625, g: 0, b: 3.9999995, a: 0.3921569}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Top_color: {r: 0.026889404, g: 0.00035599942, b: 0.0754717, a: 0.3921569}
+    - _Top_color: {r: 0.21960784, g: 0.015686275, b: 0.5647059, a: 0.3921569}
   m_BuildTextureStacks: []
 --- !u!114 &2740849992525089304
 MonoBehaviour:
