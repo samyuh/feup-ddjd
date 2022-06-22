@@ -93,6 +93,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
+    - _Border_size: -30
     - _Bottom_Line: 0.35
     - _Bottom_line: 0.35
     - _BumpScale: 1
@@ -131,14 +132,14 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Base_color: {r: 0, g: 0, b: 0, a: 0.3921569}
-    - _Bottom_Color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
+    - _Bottom_Color: {r: 0.5696174, g: 0.2932964, b: 2.7034273, a: 0.39215687}
     - _Bottom_color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
-    - _Dissolve_color: {r: 0.40120766, g: 0.18903337, b: 2.109215, a: 0.39215687}
+    - _Dissolve_color: {r: 0.7058824, g: 0.42352942, b: 2.9960785, a: 0.39215687}
     - _EmissionColor: {r: 5.81563, g: 0.05455454, b: 0, a: 1}
     - _Emission_Color: {r: 2.3336656, g: 0.7899219, b: 15.223947, a: 0.39215687}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Top_color: {r: 0.026889404, g: 0.00035599942, b: 0.0754717, a: 0.3921569}
+    - _Top_color: {r: 0.21960784, g: 0.015686275, b: 0.5647059, a: 0.3921569}
   m_BuildTextureStacks: []
 --- !u!114 &2740849992525089304
 MonoBehaviour:
