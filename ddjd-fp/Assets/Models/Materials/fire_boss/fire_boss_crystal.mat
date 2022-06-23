@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fire_spidermob_crystal
+  m_Name: fire_boss_crystal
   m_Shader: {fileID: -6465566751694194690, guid: 4bb36056ea5d242499a4f7f1a38d9917, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -108,6 +108,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Dissolve_Ammount: 0
+    - _Dissolve_Amount: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
