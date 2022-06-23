@@ -17,12 +17,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: save_crystal
-    second: {fileID: 2100000, guid: 67f9834215492ce4987020ee0fab7c00, type: 2}
+    second: {fileID: 2100000, guid: 99c82d87ea14de04c9d38d090c545381, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: save_emission
-    second: {fileID: 2100000, guid: db47dbaa70ba86b419bbab4534fe316a, type: 2}
+    second: {fileID: 2100000, guid: 706dbb9ca2aa2364f9ae288df5142b26, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

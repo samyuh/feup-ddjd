@@ -378,7 +378,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "467bb04b19554007b6d016a85d38d4e7",
     "m_Id": 0,
-    "m_DisplayName": "Island1 Saturation",
+    "m_DisplayName": "Island4 Saturation",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -547,10 +547,10 @@
     "m_Guid": {
         "m_GuidSerialized": "f094eac1-44d5-41b0-b143-964e951eed78"
     },
-    "m_Name": "Island1 Saturation",
+    "m_Name": "Island4 Saturation",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Island1 Saturation",
-    "m_DefaultReferenceName": "_Island1_Saturation",
+    "m_RefNameGeneratedByDisplayName": "Island4 Saturation",
+    "m_DefaultReferenceName": "_Island4_Saturation",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,

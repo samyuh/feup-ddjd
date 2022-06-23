@@ -45,7 +45,7 @@ MonoBehaviour:
     HDR: {r: 0.67331773, g: 0.04128837, b: 0.06145971, a: 0.39215687}
   - Name: fire_emission_color
     HDR: {r: 3.5872905, g: 0.084605895, b: 0.23689654, a: 0.39215687}
-  - Name: deactivated_crystal
+  - Name: deactivated_crystal_base
     HDR: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 0.39215687}
   - Name: deactivated_crystal_top
     HDR: {r: 0.6431373, g: 0.6745098, b: 2.9960785, a: 0.3921569}
