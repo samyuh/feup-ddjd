@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: stone_dark
+    second: {fileID: 2100000, guid: ffb85ca98f3af7a49aa310ce79c66510, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: stone_light
     second: {fileID: 2100000, guid: ea16ae87affb2fe4aba2895720d70b0f, type: 2}
   materials:
