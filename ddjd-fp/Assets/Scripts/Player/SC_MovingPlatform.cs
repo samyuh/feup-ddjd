@@ -14,14 +14,12 @@ public class SC_MovingPlatform : MonoBehaviour
     Quaternion activeLocalPlatformRotation;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update()  {
         if (activePlatform != null)
         {
             Vector3 newGlobalPlatformPoint = activePlatform.TransformPoint(activeLocalPlatformPoint);
@@ -55,18 +53,13 @@ public class SC_MovingPlatform : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // Make sure we are really standing on a straight platform *NEW*
-        // Not on the underside of one and not falling down from it either!
-        if (hit.moveDirection.y < -0.9 && hit.normal.y > 0.41)
-        {
-            if (activePlatform != hit.collider.transform)
-            {
+        // TODO: PUT NULL WHEN JUMP
+        if (hit.moveDirection.y < -0.9 && hit.normal.y > 0.41) {
+            if (activePlatform != hit.collider.transform) {
                 activePlatform = hit.collider.transform;
                 UpdateMovingPlatform();
             }
-        }
-        else
-        {
+        } else {
             activePlatform = null;
         }
     }
