@@ -13,4 +13,8 @@ public class ColorSwatch {
 [CreateAssetMenu(menuName="Color Manager")]
 public class ColorManager: ScriptableObject {
     public List<ColorSwatch> ColorList;
+
+    public Color getColor(string name) {
+        return ColorList.Find(x => x.Name == name).HDR;
+    } 
 }
