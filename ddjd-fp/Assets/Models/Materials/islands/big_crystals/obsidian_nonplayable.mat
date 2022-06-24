@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: i4a6_clear__crystal
+  m_Name: obsidian_nonplayable
   m_Shader: {fileID: -6465566751694194690, guid: fac8e1a95e08cef4bbc098c030e3e725, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
