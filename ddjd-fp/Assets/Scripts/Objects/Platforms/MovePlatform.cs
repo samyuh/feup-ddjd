@@ -6,11 +6,11 @@ public class MovePlatform : MonoBehaviour {
     public List<GameObject> targetPositions;
     public int speed;
 
-    public Vector3 _startPosition;
-    public Vector3 _targetPosition;
-    public float _distance;
-    public float _elapsedTime;
-    public int _nextPlatform;
+    private Vector3 _startPosition;
+    private Vector3 _targetPosition;
+    private float _distance;
+    private float _elapsedTime;
+    private int _nextPlatform;
 
 
     void Start() {
