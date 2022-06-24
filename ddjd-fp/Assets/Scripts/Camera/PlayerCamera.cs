@@ -19,8 +19,6 @@ public class PlayerCamera {
     private float _cinemachineTargetPitch;
     private const float _threshold = 0.01f;
 
-    
-
     public PlayerCamera() {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
@@ -29,6 +27,8 @@ public class PlayerCamera {
     }
 
     public void LateUpdateCamera(float magnitude, float lookAxisX, float lookAxisY) {
+        if (Time.timeScale == 0f) return;
+        
         if (magnitude >= _threshold && !LockCameraPosition) {
             _cinemachineTargetYaw += lookAxisX;
             _cinemachineTargetPitch += lookAxisY;

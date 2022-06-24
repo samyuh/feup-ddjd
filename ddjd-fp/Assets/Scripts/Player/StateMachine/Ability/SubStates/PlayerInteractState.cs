@@ -40,11 +40,17 @@ public class PlayerInteractState : PlayerAbilityState {
                 _context.DestroyObject(_context.InteractableItem);
                 _context.GetItem(0);
             } else if (_context.InteractableItem.tag == "Crystal") {
-                Events.OnCatchManaCrystal.Invoke();
+                Events.OnCatchCrystal.Invoke();
                 _context.DestroyObject(_context.InteractableItem);
                 _context.GetItem(1);
-            } else if (_context.InteractableItem.tag == "PortalButton") {
-                Events.OnActivatePortal.Invoke();
+            } else if(_context.InteractableItem.tag == "Enemy"){
+                Debug.Log("Found the Enemy");
+                
+                Debug.Log("Teleport to: " + CheckPoint.GetActiveCheckPointPosition());
+            }
+            else if(_context.InteractableItem.tag == "CheckPoint"){
+                Debug.Log("Found The Checkpoint");
+                _context.InteractableItem.GetComponent<CheckPoint>().ActivateCheckPoint();
             }
         }
 

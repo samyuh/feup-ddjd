@@ -14,11 +14,16 @@ TagManager:
   - PlayerAimTarget
   - PlayerCameraAim
   - PuzzleCube
+  - SpecialPuzzleCube
+  - Door
+  - PortalButton
+  - CheckPoint
+  - Companion
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Teste
   - Water
   - UI
   - Dynamic Platforms

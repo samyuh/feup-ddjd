@@ -143,6 +143,15 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextDialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""26046d7e-5e19-4b7d-bdcd-7ffc86ab9931"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -343,6 +352,17 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                     ""action"": ""Save"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04bcd42b-6dc4-4e33-a580-9c54cfe7e321"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -364,6 +384,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         m_Player_Save = m_Player.FindAction("Save", throwIfNotFound: true);
+        m_Player_NextDialog = m_Player.FindAction("NextDialog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -436,6 +457,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_PauseMenu;
     private readonly InputAction m_Player_Save;
+    private readonly InputAction m_Player_NextDialog;
     public struct PlayerActions
     {
         private @InputController m_Wrapper;
@@ -453,6 +475,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputAction @Save => m_Wrapper.m_Player_Save;
+        public InputAction @NextDialog => m_Wrapper.m_Player_NextDialog;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -501,6 +524,9 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 @Save.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSave;
                 @Save.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSave;
                 @Save.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSave;
+                @NextDialog.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextDialog;
+                @NextDialog.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextDialog;
+                @NextDialog.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextDialog;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -544,6 +570,9 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 @Save.started += instance.OnSave;
                 @Save.performed += instance.OnSave;
                 @Save.canceled += instance.OnSave;
+                @NextDialog.started += instance.OnNextDialog;
+                @NextDialog.performed += instance.OnNextDialog;
+                @NextDialog.canceled += instance.OnNextDialog;
             }
         }
     }
@@ -563,5 +592,6 @@ public partial class @InputController : IInputActionCollection2, IDisposable
         void OnInventory(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
         void OnSave(InputAction.CallbackContext context);
+        void OnNextDialog(InputAction.CallbackContext context);
     }
 }

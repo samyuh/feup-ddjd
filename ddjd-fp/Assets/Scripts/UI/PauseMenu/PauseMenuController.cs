@@ -15,15 +15,11 @@ public class PauseMenuController: MonoBehaviour
         _active = !_active;
         Cursor.lockState = _active ? CursorLockMode.None : CursorLockMode.Locked;
         gameObject.SetActive(_active);
-        if(Map.activeSelf)
-        {
-            Map.SetActive(false);
-            gameObject.SetActive(true);
-        }
-        if(Items.activeSelf)
-        {
-            Items.SetActive(false);
-            gameObject.SetActive(true);
+
+        if(_active) {
+            Time.timeScale = 0f;
+        } else {
+            Time.timeScale = 1f;
         }
     }
 }

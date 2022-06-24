@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   name: Air
-  icon: {fileID: 21300000, guid: 2eb71d7cbfc9a0049aca14d1918e9ceb, type: 3}
-  crystalProjectile: {fileID: 5395098307693501117, guid: da8b2699a25ff7746b5c50aa90cedfd5, type: 3}
+  icon: {fileID: 3286163911610860551, guid: 9dee8aef16e44eb4ea0de2459e84993b, type: 3}
+  crystalProjectile: {fileID: 6332326714193742194, guid: 67f10ecb4804ddb2b86c80dbae68003c, type: 3}

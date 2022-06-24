@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: air_boss_obsidian
-  m_Shader: {fileID: -6465566751694194690, guid: 44d94e40959e7db4688d5c35a5862b8c, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 398e60a712927fb439ae7e87ac082b7c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -93,6 +93,8 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
+    - _Border_size: -40
+    - _Bottom_Line: 0.35
     - _Bottom_line: 0.35
     - _BumpScale: 1
     - _ClearCoat: 0
@@ -102,13 +104,17 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Dissolve_Ammount: 0
+    - _Dissolve_Amount: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Fresnel_Power: 3
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossinessSource: 0
     - _GlossyReflections: 0
     - _Metallic: 0.5
+    - _Noise_Scale: 70
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -128,12 +134,15 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Base_color: {r: 0, g: 0, b: 0, a: 0.3921569}
+    - _Bottom_Color: {r: 0.26666668, g: 0.20392157, b: 2.9960785, a: 0.3921569}
     - _Bottom_color: {r: 0.03542846, g: 0.029369881, b: 0.41509438, a: 0.3921569}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Dissolve_color: {r: 11.984314, g: 11.984314, b: 11.984314, a: 0.3921569}
     - _EmissionColor: {r: 5.81563, g: 0.05455454, b: 0, a: 1}
     - _Emission_Color: {r: 0.83769625, g: 0, b: 3.9999995, a: 0.3921569}
+    - _Fresnel_Color: {r: 0.6431373, g: 0.6745098, b: 2.9960785, a: 0.3921569}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Top_color: {r: 0.026889404, g: 0.00035599942, b: 0.0754717, a: 0.3921569}
+    - _Top_color: {r: 0.21960784, g: 0.015686275, b: 0.5647059, a: 0.3921569}
   m_BuildTextureStacks: []
 --- !u!114 &2740849992525089304
 MonoBehaviour:

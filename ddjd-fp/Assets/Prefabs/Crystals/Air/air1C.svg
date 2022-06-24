@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 132 132" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-2047.03,-6368.88)">
+        <g id="AirC" transform="matrix(0.286575,0,0,0.286575,2699.78,6395.45)">
+            <rect x="-2277.78" y="-92.74" width="458.365" height="458.365" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="-2277.78" y="-92.74" width="458.365" height="458.365"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g>
+                    <g transform="matrix(1.18288,0,0,1.18288,-2403.46,-218.421)">
+                        <path d="M300,200L200,300L400,300L300,200Z" style="fill:white;"/>
+                    </g>
+                    <g transform="matrix(2.95719,0,0,2.95719,-2640.03,-454.996)">
+                        <path d="M200,122.5L122.5,200L200,277.5L277.5,200L200,122.5ZM200,145L145,200L200,255L255,200L200,145Z" style="fill:white;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

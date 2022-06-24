@@ -30,7 +30,22 @@ ModelImporter:
   - first:
       74: 1931018857653627778
     second: armature|7_dying
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crystal_air_mobspider
+    second: {fileID: 2100000, guid: c64693cd5ba9200498b56729a29aa32b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: darker_crystal_air_mobspider
+    second: {fileID: 2100000, guid: b7ad6b3e32ff8b74fbd1d18d25add51c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: obsidian_air_mobspider
+    second: {fileID: 2100000, guid: fa1558cd4c20e924999102b5e67d5a1d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

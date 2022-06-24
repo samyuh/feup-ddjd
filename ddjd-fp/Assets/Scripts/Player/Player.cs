@@ -94,8 +94,8 @@ public class Player : MonoBehaviour {
 
     public void ApplyDamage(int damage) {
         _data.CurrentHealth -= damage;
-
-        if (_data.CurrentHealth < 0) Events.OnDeath.Invoke();
+        
+        if (_data.CurrentHealth <= 0) Events.OnDeath.Invoke();
         else Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
     }
 

@@ -6,7 +6,12 @@ public class DealDamage : MonoBehaviour{
     
     void Start(){
         Debug.Log("Hello, Im shooting Earth");
+
+        // Maybe plce this inside instantitiation zone because some projectiles might not usethis script
+        Object.Destroy(gameObject, 5.0f);
+ 
     }
+
 
     void OnCollisionEnter(Collision collision){   
         Debug.Log("Colliding");

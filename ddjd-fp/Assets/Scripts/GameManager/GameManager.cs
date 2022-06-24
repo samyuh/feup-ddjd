@@ -29,9 +29,8 @@ public class GameManager : MonoBehaviour {
     private void EnablePlayer() {
         Events.OnHealthUpdate.AddListener(HealthUpdate);
         Events.OnCatchHealthCrystal.AddListener(CatchHealthCrystal);
-        Events.OnCatchManaCrystal.AddListener(CatchManaCrystal);
+        Events.OnCatchCrystal.AddListener(CatchCrystal);
         Events.OnUseHealthCrystal.AddListener(UseHealthCrystal);
-        Events.OnUseManaCrystal.AddListener(UseManaCrystal);
     }
 
     private void HealthUpdate(int currentHealth, int maxHealth) {
@@ -49,8 +48,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void CatchManaCrystal() {
+    private void CatchCrystal() {
         _data.ManaCrystal += 1;
+        // UPDATE CRYSTALS COLLECTED
         Debug.Log("Collected Mana Crystal");
     }
 
@@ -58,12 +58,6 @@ public class GameManager : MonoBehaviour {
     {
         _data.HealthCrystal -= 1;
         Debug.Log("Used Health Crystal");
-    }
-
-    private void UseManaCrystal()
-    {
-        _data.ManaCrystal -= 1;
-        Debug.Log("Used Mana Crystal");
     }
     #endregion
 }

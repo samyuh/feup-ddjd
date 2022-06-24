@@ -9,8 +9,10 @@ public class PlayerAimState : PlayerAbilityState {
     private float throwForce = 15f;
     private float throwUpwardForce = 1f;
     private bool readyToThrow = true; 
-    private GameObject companion = GameObject.Find("Companion");
-    private GameObject playerAimTarget = GameObject.Find("PlayerAimTarget");
+    private GameObject companion = GameObject.FindGameObjectWithTag("Companion");
+    private GameObject playerAimTarget = GameObject.FindGameObjectWithTag("PlayerAimTarget");
+    private GameObject companionPlace = GameObject.Find("CompanionPlace");
+
 
     public PlayerAimState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
     base (currentContext, playerStateFactory, stateFactory) { }
@@ -22,6 +24,7 @@ public class PlayerAimState : PlayerAbilityState {
         Events.OnToggleAim.Invoke();
         _context.PlayerInput.PlayerMeleeAttack.performed += OnThrow;
         _context.PlayerInput.PlayerAim.canceled += OnAimCancelled;
+
         
     }  
 
@@ -35,12 +38,18 @@ public class PlayerAimState : PlayerAbilityState {
 
     public override void LogicUpdate() {
         base.LogicUpdate();
+
         base.PlayerRotation();
         // after x elapsed time ready to throw  = true
 
         // Some movement of the player, 
 
         // change player angle PlayerRotation on base
+
+        // Keep companion looking at target while aiming
+        
+        companion.transform.position = companionPlace.transform.position;
+        companion.transform.rotation = Quaternion.RotateTowards(companion.transform.rotation, companionPlace.transform.rotation, 100f * Time.deltaTime);
     }
 
     public override void PhysicsUpdate() {
@@ -48,29 +57,36 @@ public class PlayerAimState : PlayerAbilityState {
     }
 
     private void OnThrow(InputAction.CallbackContext contextInput) {
+        Vector2 screenCenterPoint = new Vector2(Screen.width /2f, Screen.height / 2f);
+        Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
+
         // Condition for Regular shooting
         if (readyToThrow && _context.ActiveCrystal != null) {
             // ABILITIES
-            GameObject projectile;
-            // DEFAULT (Obsidia Rocks from the ground)
-            // To Do
+            // projectile.layer = LayerMask.NameToLayer("Projectile");
 
-
-            switch(_context.ActiveCrystal.name){
+            // Physics.IgnoreCollision(projectile.GetComponent<Collider>(),companion.GetComponent<Collider>());
+            /*
+            switch(_context.ActiveCrystal.name) {
+                case "Obsidia":
+                    
+                    toShot = true;
+                    break;
                 case "Air":
-                    // Air (Tornado)
-                    projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-                    // projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f); 
-
-                    projectile.transform.LookAt(playerAimTarget.transform.position);
+                    projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position, _context.Camera.MainCamera.transform.rotation);
+                    toShot = true;
                     break;
 
                 case "Earth":
+
                     projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
+                    
                     Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
                     Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
-                    projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
+                    projectileRb.AddForce(forceToAdd,ForceMode.Impulse);                    
+   
                     break;
+
                 case "Fire":
                     // GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
                     // Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
@@ -78,13 +94,16 @@ public class PlayerAimState : PlayerAbilityState {
                     // projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
                     break;
             }
-            
-        } else if (readyToThrow) {
-            // TORNADO
-            GameObject projectile = _context.InstantiateObj(_context.SecondaryObjectToThrow, companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-            projectile.transform.LookAt(_context.Camera.MainCamera.transform.position +  _context.Camera.MainCamera.transform.forward * 100f);    
-        }
+            */
 
+
+            if (Physics.Raycast(ray, out RaycastHit hit)) {
+                GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
+                Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+                Vector3 direction = (hit.point - companion.transform.position);
+                projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
+            }
+        }
     }
 
     protected virtual void OnAimCancelled(InputAction.CallbackContext context) {
