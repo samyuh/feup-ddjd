@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: air_boss_obsidian
-  m_Shader: {fileID: -6465566751694194690, guid: 78a37620c41c5234a921ef166ead6c71, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 398e60a712927fb439ae7e87ac082b7c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -108,6 +108,7 @@ Material:
     - _Dissolve_Amount: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Fresnel_Power: 3
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossinessSource: 0
@@ -139,6 +140,7 @@ Material:
     - _Dissolve_color: {r: 11.984314, g: 11.984314, b: 11.984314, a: 0.3921569}
     - _EmissionColor: {r: 5.81563, g: 0.05455454, b: 0, a: 1}
     - _Emission_Color: {r: 0.83769625, g: 0, b: 3.9999995, a: 0.3921569}
+    - _Fresnel_Color: {r: 0.6431373, g: 0.6745098, b: 2.9960785, a: 0.3921569}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Top_color: {r: 0.21960784, g: 0.015686275, b: 0.5647059, a: 0.3921569}
   m_BuildTextureStacks: []

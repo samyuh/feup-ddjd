@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3386795211923690757
+--- !u!114 &-2301598270613528156
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: air_boss_crystal_darker
-  m_Shader: {fileID: -6465566751694194690, guid: 398e60a712927fb439ae7e87ac082b7c, type: 3}
+  m_Name: invisibility
+  m_Shader: {fileID: -6465566751694194690, guid: 01d75cf8823dfe8438fd5e7e59671a5d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -77,10 +77,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_e1638d2f9907484ab373353495f1cc1e_Out_0:
-        m_Texture: {fileID: 2800000, guid: b7feebfc9bf9d2f4992223a59e987f0f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -97,9 +93,6 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _Border_size: -40
-    - _Bottom_Line: 0.35
-    - _Bottom_line: 0.3
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -107,16 +100,13 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Dissolve_Ammount: 0.005
-    - _Dissolve_Amount: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Fresnel_Power: 3
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metallic: 0.5
-    - _Noise_Scale: 70
+    - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -127,18 +117,12 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Top_Line: 0.6
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_color: {r: 0.43137255, g: 0.5803922, b: 1.2862746, a: 0.39215687}
-    - _Bottom_Color: {r: 1.772549, g: 2.2431374, b: 2.9960785, a: 0.3921569}
-    - _Bottom_color: {r: 16, g: 16, b: 16, a: 0.3921569}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Dissolve_color: {r: 11.984314, g: 11.984314, b: 11.984314, a: 0.3921569}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Color: {r: 0.6431373, g: 0.6745098, b: 2.9960785, a: 0.3921569}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Top_color: {r: 5.3403134, g: 5.3403134, b: 5.3403134, a: 0.3921569}
   m_BuildTextureStacks: []
