@@ -864,9 +864,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e18db632c85feb458b5110d50be7361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  element: 0
   _colors: {fileID: 11400000, guid: ab8a42c4bcf67c64b8b893cb2dc94db8, type: 2}
   _switchCrystal: {fileID: 2100000, guid: 2eca683eece6a214b94fa2e9d654e604, type: 2}
-  _button: {fileID: 105064924}
+  _armature: {fileID: 105064924}
   _collider: {fileID: 750643539}
   portal: 0
 --- !u!114 &456949862 stripped
@@ -937,6 +938,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563e9244d63441b46b6650cb88e9e073, type: 3}
+--- !u!84 &465571393
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &529955088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5006940833216616824, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
@@ -1828,71 +1866,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a83ea6fb98f714780467a2493ab3c7, type: 3}
---- !u!21 &1295902108
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: 2f4eba533fc8c8c4c816dd2133db7831, type: 3}
-  m_ValidKeywords:
-  - BLEND
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 5
-    - _BlendFloor: 1
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
---- !u!84 &1346995410
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1440214476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1261780566715280535, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
@@ -1923,9 +1896,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e18db632c85feb458b5110d50be7361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  element: 0
   _colors: {fileID: 11400000, guid: ab8a42c4bcf67c64b8b893cb2dc94db8, type: 2}
   _switchCrystal: {fileID: 2100000, guid: b71d4b5030f133242b253270336f15ce, type: 2}
-  _button: {fileID: 820178695}
+  _armature: {fileID: 820178695}
   _collider: {fileID: 750643541}
   portal: 0
 --- !u!1 &1651202132 stripped
@@ -1969,9 +1943,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e18db632c85feb458b5110d50be7361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  element: 0
   _colors: {fileID: 11400000, guid: ab8a42c4bcf67c64b8b893cb2dc94db8, type: 2}
   _switchCrystal: {fileID: 2100000, guid: e00d2dc757e48264ab4c18dcf3227149, type: 2}
-  _button: {fileID: 938427439}
+  _armature: {fileID: 938427439}
   _collider: {fileID: 529955088}
   portal: 0
 --- !u!65 &1675296129
@@ -1997,6 +1972,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9035317006056744715, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
   m_PrefabInstance: {fileID: 750643538}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1902829698
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: 2f4eba533fc8c8c4c816dd2133db7831, type: 3}
+  m_ValidKeywords:
+  - BLEND
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 5
+    - _BlendFloor: 1
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &2135165650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,7 +2092,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 128
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 1346995410}
+  m_TargetTexture: {fileID: 465571393}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -2108,7 +2111,7 @@ Transform:
   m_GameObject: {fileID: 7578124130265979157}
   m_LocalRotation: {x: 0.7071072, y: -0.000000029802322, z: -0.00000005797483, w: 0.7071065}
   m_LocalPosition: {x: 1.2495499, y: 63.021347, z: -2.263317}
-  m_LocalScale: {x: 1, y: 1.0000036, z: 1.0000036}
+  m_LocalScale: {x: 1, y: 1.000005, z: 1.000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7480166256482646582}
@@ -2245,7 +2248,7 @@ MonoBehaviour:
   topTint: {r: 1, g: 1, b: 1, a: 1}
   bottomTint: {r: 0, g: 0, b: 1, a: 1}
   castShadow: 1
-  m_InstantiatedMaterial: {fileID: 1295902108}
+  m_InstantiatedMaterial: {fileID: 1902829698}
 --- !u!33 &6634793646345785866
 MeshFilter:
   m_ObjectHideFlags: 0
