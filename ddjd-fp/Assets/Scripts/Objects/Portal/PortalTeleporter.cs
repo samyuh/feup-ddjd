@@ -9,29 +9,29 @@ public class PortalTeleporter : MonoBehaviour
     public Transform receiver;
 
     private bool playerIsOverlapping = false;
+    [SerializeField] bool canTeleport;
+    [SerializeField] string currentScene;
+    [SerializeField] string nextScene;
+    /*[SerializeField] GameObject Info;
 
-    void Start() {}
+    private InfoScript infoScript;
+
+    void Awake(){
+        infoScript = Info.GetComponent<InfoScript>();
+    }*/
+
+    void Start() {
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerIsOverlapping) {
-            print("Teleporting player");
-            //Vector3 portalToPlayer = player.position - transform.position;
-            //float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
+        if(playerIsOverlapping && canTeleport) {
 
-            //if(dotProduct < 0f) {
-            //    float rotationDiff = - Quaternion.Angle(transform.rotation, receiver.rotation);
-            //    rotationDiff += 180;
-            //    player.Rotate(Vector3.up, rotationDiff);
-
-            //    Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
-            //    player.position = receiver.position + positionOffset;
-            //
-            //SceneManager.LoadScene("OtherSceneName", LoadSceneMode.Additive);
-                SceneManager.LoadScene("Isle 2");
-                playerIsOverlapping = false;
-        
+            /*infoScript.savedPositions[currentScene] = player.transform.position;*/
+            SceneManager.LoadScene(nextScene);
+            playerIsOverlapping = false;
         }
     }
 
@@ -47,5 +47,9 @@ public class PortalTeleporter : MonoBehaviour
         if(other.tag == "Player") {
             playerIsOverlapping = false;
         }
+    }
+
+    void Activate(){
+        canTeleport = true;
     }
 }

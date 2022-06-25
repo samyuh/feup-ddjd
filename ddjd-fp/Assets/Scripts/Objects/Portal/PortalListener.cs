@@ -17,6 +17,8 @@ public class PortalListener : MonoBehaviour {
     [SerializeField] private Material _stonePortal;
     [SerializeField] private Material _passagePortal;
 
+    [SerializeField] public GameObject Teleporter;
+
     public void Awake() {
         if (element == ElementType.Fire) {
             _strElement = "fire";
@@ -43,6 +45,7 @@ public class PortalListener : MonoBehaviour {
                 _crystalPortal.SetColor("_Bottom_color", _colors.getColor(_strElement +"_bottom_color"));
                 _stonePortal.SetColor("_Emission_Color", _colors.getColor(_strElement +"_emission_color"));
                 _passagePortal.SetFloat("_Dissolve_Amount", 0.5f);
+                Teleporter.SendMessage("Activate");
             }
         }
     }
