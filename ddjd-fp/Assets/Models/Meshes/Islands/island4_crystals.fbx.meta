@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 35233601fc3580449aa6e5f4e6c376b1
+guid: 34ba549bc8e92834191d9d4587fd2495
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: crystal_non_playable
-    second: {fileID: 2100000, guid: 0e4421fc637aaf940bf1731853141b82, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: stone_dark
-    second: {fileID: 2100000, guid: ffb85ca98f3af7a49aa310ce79c66510, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: stone_light
-    second: {fileID: 2100000, guid: ea16ae87affb2fe4aba2895720d70b0f, type: 2}
+      name: crystal
+    second: {fileID: 2100000, guid: 0ac8c3f9b67532b49a6e545ea708df1c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -106,7 +96,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
