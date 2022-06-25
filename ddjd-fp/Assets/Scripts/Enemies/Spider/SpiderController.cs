@@ -15,6 +15,9 @@ public class SpiderController : MonoBehaviour {
     public Animator Animator {get { return _animator; } set { _animator = value;}}
     #endregion
 
+    private string _runSoundEvent;
+    public string RunSoundEvent {get { return _runSoundEvent; } set { _runSoundEvent = value;}}
+
     private EnemyStateMachine _stateMachine;
     
     #region State Machine
@@ -25,6 +28,7 @@ public class SpiderController : MonoBehaviour {
     private void Start() {
         _healthPoints = 350;
         _animator = GetComponent<Animator>();
+        _runSoundEvent = "event:/spidermob_run";
         
         // State Machine
         StateMachine = new EnemyStateMachine(this);

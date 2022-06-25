@@ -13,6 +13,9 @@ public class PlayerDashState : PlayerAbilityState {
         _context.Controller.enabled = false;
         _elapsedTime = 0f;
         _context.Animator.SetBool("Dash", true);
+
+        // Dash sound
+        FMODUnity.RuntimeManager.PlayOneShot(_context.DodgeSoundEvent);
     }  
 
     public override void ExitState() {

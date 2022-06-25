@@ -25,6 +25,20 @@ public class PlayerAttackGroundState : PlayerAbilityState {
         _elapsedTime = 0f;
         Debug.Log("Attack" + _currentAttackIndex.ToString());
         _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), true);
+
+        // Attack sound
+        switch (_currentAttackIndex) {
+            case 0:
+                FMODUnity.RuntimeManager.PlayOneShot(_context.LightAttackSoundEvent);
+                break;
+            case 1:
+                FMODUnity.RuntimeManager.PlayOneShot(_context.MediumAttackSoundEvent);
+                break;
+            case 2:
+                FMODUnity.RuntimeManager.PlayOneShot(_context.HeavyAttackSoundEvent);
+                break;
+        }
+        
     }
 
     public override void ExitState() {

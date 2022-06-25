@@ -13,6 +13,10 @@ public class SpiderWalk : EnemyState {
         base.EnterState();
 
         _context.Animator.SetBool("Run", true);
+
+        // Running Sound
+        FMODUnity.RuntimeManager.PlayOneShot(_context.RunSoundEvent);
+
     }
 
     public override void ExitState() {
