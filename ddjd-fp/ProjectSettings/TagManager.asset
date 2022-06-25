@@ -19,6 +19,7 @@ TagManager:
   - PortalButton
   - CheckPoint
   - Companion
+  - PuzzleReseter
   layers:
   - Default
   - TransparentFX

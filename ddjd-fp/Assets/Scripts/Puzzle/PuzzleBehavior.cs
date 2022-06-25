@@ -51,7 +51,7 @@ public class PuzzleBehavior : MonoBehaviour
         if(isMoveValid(direction, cubePosition)){
             for(int i = 0; i < cubes.Count; i ++){
                 if(cubes[i].transform.position.x == cubePosition.x && cubes[i].transform.position.z == cubePosition.z){
-                    moves.Add((cubes[i].transform.position.x, cubes[i].transform.position.z, direction.x, direction.z));
+                    moves.Add((cubes[i].transform.position.x + direction.x, cubes[i].transform.position.z + direction.z, direction.x, direction.z));
                     for(int j = 0; j < moves.Count; j++){
                         Debug.Log("Cube Position: " + moves[j].cubeX + ", " + moves[j].cubeZ);
                         Debug.Log("Move Direction: " + moves[j].directionX + ", " + moves[j].directionZ);
@@ -152,11 +152,14 @@ public class PuzzleBehavior : MonoBehaviour
 
     void Reset(){
         if(reseting){
+            Debug.Log(moves.Count);
             if(moves.Count > 0){
                 (float cubeX, float cubeZ, float directionX, float directionZ) move = moves[moves.Count - 1];
+                Debug.Log("Move:" + move.cubeX + ", " + move.cubeZ + ", " + move.directionX + ", " + move.directionZ);
                 for(int i = 0; i < cubes.Count; i ++){
                     if(cubes[i].transform.position.x == move.cubeX && cubes[i].transform.position.z == move.cubeZ){
-                        cubes[i].SendMessage("Move", (-move.directionX, -move.directionZ));
+                        (int x, int z) direction = ((int)-move.directionX, (int)-move.directionZ);
+                        cubes[i].SendMessage("Move", direction);
                         moves.RemoveAt(moves.Count - 1);
                         if(moves.Count == 0){
                             reseting = false;

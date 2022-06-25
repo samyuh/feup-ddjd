@@ -89,6 +89,9 @@ public class PlayerAttackGroundState : PlayerAbilityState {
             else if (hitCollider.gameObject.tag == "PuzzleCube" || hitCollider.gameObject.tag == "SpecialPuzzleCube") {
                 hitCollider.gameObject.SendMessage("MoveRequest", _context.transform.position);
             }
+            else if (hitCollider.gameObject.tag == "PuzzleReseter") {
+                hitCollider.gameObject.SendMessage("RequestReset");
+            }
         }
     }
 }
