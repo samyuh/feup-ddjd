@@ -15,14 +15,16 @@ public class SpiderWalk : EnemyState {
         _context.Animator.SetBool("Run", true);
 
         // Running Sound
-        FMODUnity.RuntimeManager.PlayOneShot(_context.RunSoundEvent);
-
+        //FMOD.Studio.EventInstance coiso = FMODUnity.RuntimeManager.CreateInstance("event:/spidermob_run");
+        //coiso.start();
     }
 
     public override void ExitState() {
         base.ExitState();
 
         _context.Animator.SetBool("Run", false);
+        //_context.RunSoundEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        //_context.RunSoundEvent.release();
     }
 
     public override void LogicUpdate() {

@@ -15,8 +15,8 @@ public class SpiderController : MonoBehaviour {
     public Animator Animator {get { return _animator; } set { _animator = value;}}
     #endregion
 
-    private string _runSoundEvent;
-    public string RunSoundEvent {get { return _runSoundEvent; } set { _runSoundEvent = value;}}
+    private FMOD.Studio.EventInstance _runSoundInstance;
+    //public FMOD.Studio.EventInstance _runSoundInstance {get { return _runSoundInstance; } set { _runSoundInstance = value;}}
 
     private EnemyStateMachine _stateMachine;
     
@@ -28,7 +28,12 @@ public class SpiderController : MonoBehaviour {
     private void Start() {
         _healthPoints = 350;
         _animator = GetComponent<Animator>();
-        _runSoundEvent = "event:/spidermob_run";
+        //_runSoundEvent = FMODUnity.RuntimeManager.CreateInstance("event:/spidermob_run");
+
+        _runSoundInstance = FMODUnity.RuntimeManager.CreateInstance("event:/spidermob_run");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(_runSoundInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        //_runSoundEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(_context.gameObject.transform));
+        //_runSoundInstance.start();
         
         // State Machine
         StateMachine = new EnemyStateMachine(this);
@@ -56,6 +61,8 @@ public class SpiderController : MonoBehaviour {
     public void Death() {
          _healthBar.value = 0;
         StateMachine.ChangeState(StateFactory.SpiderDeath);
+        _runSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _runSoundInstance.release();
     }
 
     public void Destroy() {

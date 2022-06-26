@@ -41,8 +41,6 @@ public class Player : MonoBehaviour {
     public string DodgeSoundEvent {get { return _dodgeSoundEvent; } set { _dodgeSoundEvent = value;}}
     public string BlockSoundEvent {get { return _blockSoundEvent; } set { _blockSoundEvent = value;}}
 
-    //public string DeathSoundEvent {get { return _deathSoundEvent; } set { _deathSoundEvent = value;}}
-    //public string HitSoundEvent {get { return _hitSoundEvent; } set { _hitSoundEvent = value;}}
     #endregion
 
     #region State Machine
@@ -68,6 +66,8 @@ public class Player : MonoBehaviour {
         _data = new PlayerData();
 
         // Player Sounds
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Terrain", 1);
+
         _walkSoundEvent = "event:/Footsteps";
         _jumpSoundEvent = "event:/jump";
         _jumpFallSoundEvent = "event:/jumpFall";
