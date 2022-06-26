@@ -7,6 +7,9 @@ public class PuzzleBehavior : MonoBehaviour
     public List<GameObject> cubes = new List<GameObject>();
     [SerializeField] private int puzzleXLength;
     [SerializeField] private int puzzleZLength;
+    [SerializeField] private float puzzleXOffset;
+    [SerializeField] private float puzzleZOffset;
+    [SerializeField] private float pushStep;
     [SerializeField] private List<List<float>> solution = new List<List<float>>();
     private int numberSpecialCubes;
     private bool solved;
@@ -24,6 +27,9 @@ public class PuzzleBehavior : MonoBehaviour
         CreateSolution(transform.position.x, transform.position.z);
         solved = false;
         reseting = false;
+        for(int i = 0; i < cubes.Count; i++){
+            cubes[i].SendMessage("SetPushStep", pushStep);
+        }
     }
 
     // Update is called once per frame
@@ -49,6 +55,7 @@ public class PuzzleBehavior : MonoBehaviour
         (int x, int z) direction = (values.directionX, values.directionZ);
 
         if(isMoveValid(direction, cubePosition)){
+            Debug.Log("MOVE WAS VALID");
             for(int i = 0; i < cubes.Count; i ++){
                 if(cubes[i].transform.position.x == cubePosition.x && cubes[i].transform.position.z == cubePosition.z){
                     moves.Add((cubes[i].transform.position.x + direction.x, cubes[i].transform.position.z + direction.z, direction.x, direction.z));
@@ -63,9 +70,10 @@ public class PuzzleBehavior : MonoBehaviour
     }
 
     public bool isMoveValid((int x, int z) direction, (float x, float z) blockPosition) {
-        (float x, float z) finalPosition = (blockPosition.x + direction.x, blockPosition.z + direction.z);
+        (float x, float z) finalPosition = (blockPosition.x + direction.x * pushStep, blockPosition.z + direction.z * pushStep);
 
         if (blockLeavesPuzzle(direction, (blockPosition.x, blockPosition.z))) {
+            Debug.Log("BLOCK LEAVES PUZZLE");
             return false;
         }
 
@@ -84,9 +92,14 @@ public class PuzzleBehavior : MonoBehaviour
     }
 
     public bool blockLeavesPuzzle((int x, int z) direction, (float x, float z) blockPosition){
-        (float x, float z) finalPosition = (blockPosition.x + direction.x, blockPosition.z + direction.z);
+        (float x, float z) finalPosition = (blockPosition.x + direction.x * pushStep, blockPosition.z + direction.z * pushStep);
 
-        if (blockPosition.x + direction.x < transform.position.x - 0.01 || blockPosition.x + direction.x >= puzzleXLength + transform.position.x - 0.01 || blockPosition.z + direction.z < transform.position.z - 0.01 || blockPosition.z + direction.z >= puzzleZLength + transform.position.z - 0.01){
+        Debug.Log("Puzzle X: " + (transform.position.x + puzzleXOffset));
+        Debug.Log("Puzzle Z: " + (transform.position.z + puzzleZOffset));
+        Debug.Log("Cube X: " + finalPosition.x);
+        Debug.Log("Cube Z: " + finalPosition.z);
+
+        if (blockPosition.x + direction.x * pushStep < transform.position.x + puzzleXOffset - 0.01 || blockPosition.x + direction.x * pushStep >= puzzleXLength * pushStep + transform.position.x + puzzleXOffset - 0.01 || blockPosition.z + direction.z * pushStep < transform.position.z + puzzleZOffset - 0.01 || blockPosition.z + direction.z * pushStep >= puzzleZLength * pushStep + transform.position.z + puzzleZOffset - 0.01){
             return true;
         }
 
