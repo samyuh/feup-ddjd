@@ -55,14 +55,9 @@ public class PuzzleBehavior : MonoBehaviour
         (int x, int z) direction = (values.directionX, values.directionZ);
 
         if(isMoveValid(direction, cubePosition)){
-            Debug.Log("MOVE WAS VALID");
             for(int i = 0; i < cubes.Count; i ++){
                 if(cubes[i].transform.position.x == cubePosition.x && cubes[i].transform.position.z == cubePosition.z){
-                    moves.Add((cubes[i].transform.position.x + direction.x, cubes[i].transform.position.z + direction.z, direction.x, direction.z));
-                    for(int j = 0; j < moves.Count; j++){
-                        Debug.Log("Cube Position: " + moves[j].cubeX + ", " + moves[j].cubeZ);
-                        Debug.Log("Move Direction: " + moves[j].directionX + ", " + moves[j].directionZ);
-                    }
+                    moves.Add((cubes[i].transform.position.x + direction.x * pushStep, cubes[i].transform.position.z + direction.z * pushStep, direction.x, direction.z));
                     cubes[i].SendMessage("Move", direction);
                 }
             }
@@ -73,15 +68,11 @@ public class PuzzleBehavior : MonoBehaviour
         (float x, float z) finalPosition = (blockPosition.x + direction.x * pushStep, blockPosition.z + direction.z * pushStep);
 
         if (blockLeavesPuzzle(direction, (blockPosition.x, blockPosition.z))) {
-            Debug.Log("BLOCK LEAVES PUZZLE");
             return false;
         }
 
         else{
             for(int i = 0; i < cubes.Count; i ++){
-                /*if(cubes[i].transform.position.x == finalPosition.x && cubes[i].transform.position.z == finalPosition.z){
-                    return false;
-                }*/
                 if(Mathf.Abs(cubes[i].transform.position.x - finalPosition.x) < 0.01 && Mathf.Abs(cubes[i].transform.position.z - finalPosition.z) < 0.01){
                     return false;
                 }
@@ -93,11 +84,6 @@ public class PuzzleBehavior : MonoBehaviour
 
     public bool blockLeavesPuzzle((int x, int z) direction, (float x, float z) blockPosition){
         (float x, float z) finalPosition = (blockPosition.x + direction.x * pushStep, blockPosition.z + direction.z * pushStep);
-
-        Debug.Log("Puzzle X: " + (transform.position.x + puzzleXOffset));
-        Debug.Log("Puzzle Z: " + (transform.position.z + puzzleZOffset));
-        Debug.Log("Cube X: " + finalPosition.x);
-        Debug.Log("Cube Z: " + finalPosition.z);
 
         if (blockPosition.x + direction.x * pushStep < transform.position.x + puzzleXOffset - 0.01 || blockPosition.x + direction.x * pushStep >= puzzleXLength * pushStep + transform.position.x + puzzleXOffset - 0.01 || blockPosition.z + direction.z * pushStep < transform.position.z + puzzleZOffset - 0.01 || blockPosition.z + direction.z * pushStep >= puzzleZLength * pushStep + transform.position.z + puzzleZOffset - 0.01){
             return true;
@@ -168,9 +154,8 @@ public class PuzzleBehavior : MonoBehaviour
             Debug.Log(moves.Count);
             if(moves.Count > 0){
                 (float cubeX, float cubeZ, float directionX, float directionZ) move = moves[moves.Count - 1];
-                Debug.Log("Move:" + move.cubeX + ", " + move.cubeZ + ", " + move.directionX + ", " + move.directionZ);
                 for(int i = 0; i < cubes.Count; i ++){
-                    if(cubes[i].transform.position.x == move.cubeX && cubes[i].transform.position.z == move.cubeZ){
+                    if(Mathf.Abs(cubes[i].transform.position.x - move.cubeX) < 0.01 && Mathf.Abs(cubes[i].transform.position.z - move.cubeZ) < 0.01){
                         (int x, int z) direction = ((int)-move.directionX, (int)-move.directionZ);
                         cubes[i].SendMessage("Move", direction);
                         moves.RemoveAt(moves.Count - 1);
