@@ -7,6 +7,9 @@ public class PuzzleBehavior : MonoBehaviour
     public List<GameObject> cubes = new List<GameObject>();
     [SerializeField] private int puzzleXLength;
     [SerializeField] private int puzzleZLength;
+    [SerializeField] private float puzzleXOffset;
+    [SerializeField] private float puzzleZOffset;
+    [SerializeField] private float pushStep;
     [SerializeField] private List<List<float>> solution = new List<List<float>>();
     private int numberSpecialCubes;
     private bool solved;
@@ -24,6 +27,9 @@ public class PuzzleBehavior : MonoBehaviour
         CreateSolution(transform.position.x, transform.position.z);
         solved = false;
         reseting = false;
+        for(int i = 0; i < cubes.Count; i++){
+            cubes[i].SendMessage("SetPushStep", pushStep);
+        }
     }
 
     // Update is called once per frame
@@ -51,11 +57,7 @@ public class PuzzleBehavior : MonoBehaviour
         if(isMoveValid(direction, cubePosition)){
             for(int i = 0; i < cubes.Count; i ++){
                 if(cubes[i].transform.position.x == cubePosition.x && cubes[i].transform.position.z == cubePosition.z){
-                    moves.Add((cubes[i].transform.position.x + direction.x, cubes[i].transform.position.z + direction.z, direction.x, direction.z));
-                    for(int j = 0; j < moves.Count; j++){
-                        Debug.Log("Cube Position: " + moves[j].cubeX + ", " + moves[j].cubeZ);
-                        Debug.Log("Move Direction: " + moves[j].directionX + ", " + moves[j].directionZ);
-                    }
+                    moves.Add((cubes[i].transform.position.x + direction.x * pushStep, cubes[i].transform.position.z + direction.z * pushStep, direction.x, direction.z));
                     cubes[i].SendMessage("Move", direction);
                 }
             }
@@ -63,7 +65,7 @@ public class PuzzleBehavior : MonoBehaviour
     }
 
     public bool isMoveValid((int x, int z) direction, (float x, float z) blockPosition) {
-        (float x, float z) finalPosition = (blockPosition.x + direction.x, blockPosition.z + direction.z);
+        (float x, float z) finalPosition = (blockPosition.x + direction.x * pushStep, blockPosition.z + direction.z * pushStep);
 
         if (blockLeavesPuzzle(direction, (blockPosition.x, blockPosition.z))) {
             return false;
@@ -71,9 +73,6 @@ public class PuzzleBehavior : MonoBehaviour
 
         else{
             for(int i = 0; i < cubes.Count; i ++){
-                /*if(cubes[i].transform.position.x == finalPosition.x && cubes[i].transform.position.z == finalPosition.z){
-                    return false;
-                }*/
                 if(Mathf.Abs(cubes[i].transform.position.x - finalPosition.x) < 0.01 && Mathf.Abs(cubes[i].transform.position.z - finalPosition.z) < 0.01){
                     return false;
                 }
@@ -84,9 +83,9 @@ public class PuzzleBehavior : MonoBehaviour
     }
 
     public bool blockLeavesPuzzle((int x, int z) direction, (float x, float z) blockPosition){
-        (float x, float z) finalPosition = (blockPosition.x + direction.x, blockPosition.z + direction.z);
+        (float x, float z) finalPosition = (blockPosition.x + direction.x * pushStep, blockPosition.z + direction.z * pushStep);
 
-        if (blockPosition.x + direction.x < transform.position.x - 0.01 || blockPosition.x + direction.x >= puzzleXLength + transform.position.x - 0.01 || blockPosition.z + direction.z < transform.position.z - 0.01 || blockPosition.z + direction.z >= puzzleZLength + transform.position.z - 0.01){
+        if (blockPosition.x + direction.x * pushStep < transform.position.x + puzzleXOffset - 0.01 || blockPosition.x + direction.x * pushStep >= puzzleXLength * pushStep + transform.position.x + puzzleXOffset - 0.01 || blockPosition.z + direction.z * pushStep < transform.position.z + puzzleZOffset - 0.01 || blockPosition.z + direction.z * pushStep >= puzzleZLength * pushStep + transform.position.z + puzzleZOffset - 0.01){
             return true;
         }
 
@@ -155,9 +154,8 @@ public class PuzzleBehavior : MonoBehaviour
             Debug.Log(moves.Count);
             if(moves.Count > 0){
                 (float cubeX, float cubeZ, float directionX, float directionZ) move = moves[moves.Count - 1];
-                Debug.Log("Move:" + move.cubeX + ", " + move.cubeZ + ", " + move.directionX + ", " + move.directionZ);
                 for(int i = 0; i < cubes.Count; i ++){
-                    if(cubes[i].transform.position.x == move.cubeX && cubes[i].transform.position.z == move.cubeZ){
+                    if(Mathf.Abs(cubes[i].transform.position.x - move.cubeX) < 0.01 && Mathf.Abs(cubes[i].transform.position.z - move.cubeZ) < 0.01){
                         (int x, int z) direction = ((int)-move.directionX, (int)-move.directionZ);
                         cubes[i].SendMessage("Move", direction);
                         moves.RemoveAt(moves.Count - 1);

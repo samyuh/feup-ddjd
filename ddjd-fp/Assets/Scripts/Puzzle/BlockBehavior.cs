@@ -10,6 +10,7 @@ public class BlockBehavior : MonoBehaviour
     private float pushSpeed = 2.0f;
     private float constantSpeed = 0.001f;
     private float offset = 0.001f;
+    private float pushStep = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -105,6 +106,10 @@ public class BlockBehavior : MonoBehaviour
     }
 
     void Move((int x, int z) direction){
-        targetPosition = new Vector3(transform.position.x + direction.x, transform.position.y, transform.position.z + direction.z);
+        targetPosition = new Vector3(transform.position.x + direction.x * pushStep, transform.position.y, transform.position.z + direction.z * pushStep);
+    }
+
+    void SetPushStep(float step){
+        pushStep = step;
     }
 }
