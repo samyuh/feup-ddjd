@@ -28,6 +28,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7992107093365103933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/galena_dodge
+  m_EditorClassIdentifier: 
+  Path: event:/galena_dodge
+  Guid:
+    Data1: 1576154130
+    Data2: 1319584956
+    Data3: 1187524761
+    Data4: 779700459
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7169026741374765124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/galena_mediumattack
+  m_EditorClassIdentifier: 
+  Path: event:/galena_mediumattack
+  Guid:
+    Data1: 1892959614
+    Data2: 1138040420
+    Data3: -1393740638
+    Data4: 472193433
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6932201996579268535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +324,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-1693352638852072396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/spidermob_run
+  m_EditorClassIdentifier: 
+  Path: event:/spidermob_run
+  Guid:
+    Data1: -1054614129
+    Data2: 1196480815
+    Data3: 559971758
+    Data4: -362737216
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1472416481010734326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,10 +443,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637918409405756298
+  lastModified: 637919365267833850
   FileSizes:
   - Name: Desktop
-    Value: 6449408
+    Value: 6637088
   Exists: 1
 --- !u!114 &-643652144803022908
 MonoBehaviour:
@@ -442,13 +523,22 @@ MonoBehaviour:
   - {fileID: -9070752738346515899}
   - {fileID: -4914321158614435149}
   - {fileID: 4548144965627049675}
+  - {fileID: -7992107093365103933}
+  - {fileID: 6567531947740525216}
+  - {fileID: 8602818619964961061}
+  - {fileID: 651700526040263044}
+  - {fileID: -7169026741374765124}
+  - {fileID: -1693352638852072396}
+  - {fileID: 751460454565262303}
+  - {fileID: 1947683293529744828}
+  - {fileID: 1719771317902933408}
   EditorParameters:
   - {fileID: -4899552010908613474}
   MasterBanks:
   - {fileID: -882789056616525796}
   StringsBanks:
   - {fileID: 1882038596287148703}
-  cacheTime: 637918409405776209
+  cacheTime: 637919365267843821
   cacheVersion: 10
 --- !u!114 &638916264614082115
 MonoBehaviour:
@@ -475,6 +565,60 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: -1420136239822429074}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &651700526040263044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/galena_heavyattack
+  m_EditorClassIdentifier: 
+  Path: event:/galena_heavyattack
+  Guid:
+    Data1: 2098124400
+    Data2: 1181040614
+    Data3: -1059727432
+    Data4: -229811237
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &751460454565262303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/galena_death
+  m_EditorClassIdentifier: 
+  Path: event:/galena_death
+  Guid:
+    Data1: 889145764
+    Data2: 1288565467
+    Data3: -589583946
+    Data4: -398961765
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -558,6 +702,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1719771317902933408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/galena_block
+  m_EditorClassIdentifier: 
+  Path: event:/galena_block
+  Guid:
+    Data1: -279928596
+    Data2: 1076159443
+    Data3: -1782696537
+    Data4: 935667252
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1882038596287148703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,11 +744,38 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637918409405776209
+  lastModified: 637919365267843821
   FileSizes:
   - Name: Desktop
-    Value: 1228
+    Value: 1632
   Exists: 1
+--- !u!114 &1947683293529744828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/galena_hitreact
+  m_EditorClassIdentifier: 
+  Path: event:/galena_hitreact
+  Guid:
+    Data1: -772858153
+    Data2: 1337692558
+    Data3: 163224727
+    Data4: -864962904
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2000192205985989263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,6 +1047,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6567531947740525216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/galena_lightattack
+  m_EditorClassIdentifier: 
+  Path: event:/galena_lightattack
+  Guid:
+    Data1: 1744224798
+    Data2: 1243376791
+    Data3: 1294511236
+    Data4: 432194415
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7100044850308261818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,6 +1120,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1228
   Exists: 1
+--- !u!114 &8602818619964961061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/galena_heal
+  m_EditorClassIdentifier: 
+  Path: event:/galena_heal
+  Guid:
+    Data1: 1436679998
+    Data2: 1308798417
+    Data3: -68543607
+    Data4: 845714866
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8761797647435534805
 MonoBehaviour:
   m_ObjectHideFlags: 0
