@@ -14,16 +14,33 @@ public class Player : MonoBehaviour {
     private Animator _animator;
     private CharacterController _controller;
     private InputHandler _playerInput;
+
     private string _walkSoundEvent;
     private string _jumpSoundEvent;
     private string _jumpFallSoundEvent;
+    private string _deathSoundEvent;
+    private string _hitSoundEvent;
+    private string _healSoundEvent;
+    private string _lightAttackSoundEvent;
+    private string _mediumAttackSoundEvent;
+    private string _heavyAttackSoundEvent;
+    private string _dodgeSoundEvent;
+    private string _blockSoundEvent;
+
 
     public Animator Animator {get { return _animator; } set { _animator = value;}}
     public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
     public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
+
     public string WalkSoundEvent {get { return _walkSoundEvent; } set { _walkSoundEvent = value;}}
     public string JumpSoundEvent {get { return _jumpSoundEvent; } set { _jumpSoundEvent = value;}}
     public string JumpFallSoundEvent {get { return _jumpFallSoundEvent; } set { _jumpFallSoundEvent = value;}}
+    public string LightAttackSoundEvent {get { return _lightAttackSoundEvent; } set { _lightAttackSoundEvent = value;}}
+    public string MediumAttackSoundEvent {get { return _mediumAttackSoundEvent; } set { _mediumAttackSoundEvent = value;}}
+    public string HeavyAttackSoundEvent {get { return _heavyAttackSoundEvent; } set { _heavyAttackSoundEvent = value;}}
+    public string DodgeSoundEvent {get { return _dodgeSoundEvent; } set { _dodgeSoundEvent = value;}}
+    public string BlockSoundEvent {get { return _blockSoundEvent; } set { _blockSoundEvent = value;}}
+
     #endregion
 
     #region State Machine
@@ -47,9 +64,21 @@ public class Player : MonoBehaviour {
         _controller = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
         _data = new PlayerData();
+
+        // Player Sounds
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Terrain", 1);
+
         _walkSoundEvent = "event:/Footsteps";
         _jumpSoundEvent = "event:/jump";
         _jumpFallSoundEvent = "event:/jumpFall";
+        _deathSoundEvent = "event:/galena_death";
+        _hitSoundEvent = "event:/galena_hitreact";
+        _healSoundEvent = "event:/galena_heal";
+        _lightAttackSoundEvent = "event:/galena_lightattack";
+        _mediumAttackSoundEvent = "event:/galena_mediumattack";
+        _heavyAttackSoundEvent = "event:/galena_heavyattack";
+        _dodgeSoundEvent = "event:/galena_dodge";
+        _blockSoundEvent = "event:/galena_block";
 
         // State Machine
         StateMachine = new StateMachine(this);
@@ -95,8 +124,16 @@ public class Player : MonoBehaviour {
     public void ApplyDamage(int damage) {
         _data.CurrentHealth -= damage;
         
-        if (_data.CurrentHealth <= 0) Events.OnDeath.Invoke();
-        else Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
+        if (_data.CurrentHealth <= 0) {
+            Events.OnDeath.Invoke();
+            // death sound
+            FMODUnity.RuntimeManager.PlayOneShot(_deathSoundEvent);
+        }
+        else {
+            Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
+            // damage sound
+            FMODUnity.RuntimeManager.PlayOneShot(_hitSoundEvent);
+        }
     }
 
 
@@ -124,6 +161,10 @@ public class Player : MonoBehaviour {
                 Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
             }
             _data.HealthCrystal -= 1;
+
+            // heal sound
+            FMODUnity.RuntimeManager.PlayOneShot(_healSoundEvent);
+
         } else {
             print("No Health Crystals");
         }
