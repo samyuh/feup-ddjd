@@ -1062,7 +1062,6 @@ GameObject:
   m_Component:
   - component: {fileID: 266131131610635628}
   - component: {fileID: 7863856737185440883}
-  - component: {fileID: 7863856737185440880}
   - component: {fileID: 7863856737185440882}
   m_Layer: 0
   m_Name: Companion
@@ -1103,24 +1102,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7863856737185440880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961998788488562115}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 092a14c12a148de459a00b72e1e2c8f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  underwaterDrag: 3
-  underwaterAngularDrag: 1
-  airDrag: 0
-  airAngularDrag: 0.05
-  floatinPower: 15
-  waterHeight: 1.9
 --- !u!114 &7863856737185440882
 MonoBehaviour:
   m_ObjectHideFlags: 0
