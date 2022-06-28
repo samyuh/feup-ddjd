@@ -45,9 +45,14 @@ public class CrystalWheel: MonoBehaviour {
 
     public void HoveEnter() {
         itemText.text = crystal.name;
+        Debug.Log(itemImage.sprite);
+        Vector3 scale = new Vector3( 1, 1, 1f );
+        itemImage.rectTransform.localScale = scale;
     }
 
     public void HoveExit() {
         itemText.text = "";
+        Vector3 scale = new Vector3( 0.55f, 0.55f, 1f );
+        itemImage.rectTransform.localScale = scale;
     }
 }
