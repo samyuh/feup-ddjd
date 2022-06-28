@@ -10,12 +10,15 @@ public class InventoryController: MonoBehaviour
     private bool _active = false;
     
     [SerializeField] private GameObject _crystalInterface;
+    [SerializeField] private GameObject _scrollsInterface;
     [SerializeField] private GameObject _potionInterface;
 
     private SVGImage[] _crystalList;
+    private SVGImage[] _scrollsList;
     private SVGImage[] _potionList;
 
     private int _crystalNum = 0;
+    private int _scrollNum = 0;
     private int _potionNum = 0;
 
     // TODO: REFACTOR THIS
@@ -27,7 +30,9 @@ public class InventoryController: MonoBehaviour
     {   
         gameObject.SetActive(false);
 
+        #region Earn new Crystal
         Events.OnCatchCrystal.AddListener(OnCollectCrystal);
+        #endregion
 
         #region Health
         Events.OnCatchHealthCrystal.AddListener(OnCollectHealth);
@@ -38,10 +43,18 @@ public class InventoryController: MonoBehaviour
             child.sprite = _nothing;
         }
         #endregion
+
+        #region Scroll
+        Events.OnCatchScroll.AddListener(OnCollectScroll);
+        #endregion
     }
 
     public void OnCollectCrystal() {
-       
+       Debug.Log("Collect Crystal");
+    }
+
+    public void OnCollectScroll() {
+       Debug.Log("Collect Scroll");
     }
 
     public void OnCollectHealth() {
@@ -68,5 +81,9 @@ public class InventoryController: MonoBehaviour
             Time.timeScale = 1f;
         }
 
+    }
+
+    public void OpenScroll() { 
+        
     }
 }

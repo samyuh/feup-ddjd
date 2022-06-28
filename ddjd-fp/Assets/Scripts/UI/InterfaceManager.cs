@@ -14,13 +14,14 @@ public class InterfaceManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverlay;
     [SerializeField] private GameObject _dialogOverlay;
 
-    // REFACTOR
+    [SerializeField] private Sprite _nothingSprite;
+
+    #region Health
     [SerializeField] private TMP_Text _health;
     [SerializeField] private Sprite _healthSprite;
-    [SerializeField] private Sprite _nothingSprite;
     private int _numHealthPotions;
     [SerializeField] private SVGImage _target;
-    // REFACTOR
+    #endregion
     
     [SerializeField] private TMP_Text _dialogCharacter;
     [SerializeField] private TMP_Text _dialogText;
