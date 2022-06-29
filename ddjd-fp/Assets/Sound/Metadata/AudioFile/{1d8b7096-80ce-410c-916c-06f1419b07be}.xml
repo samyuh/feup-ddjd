@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1d8b7096-80ce-410c-916c-06f1419b07be}">
+		<property name="assetPath">
+			<value>agate_floatslow.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.0234375</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{38cc5cfc-ede5-4794-806d-293c61a942cc}</destination>
+		</relationship>
+	</object>
+</objects>
