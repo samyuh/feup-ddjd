@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,10 @@ public class Player : MonoBehaviour {
     private CharacterController _controller;
     private InputHandler _playerInput;
 
+    public Animator Animator {get { return _animator; } set { _animator = value;}}
+    public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
+    public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
+
     private string _walkSoundEvent;
     private string _jumpSoundEvent;
     private string _jumpFallSoundEvent;
@@ -26,11 +31,6 @@ public class Player : MonoBehaviour {
     private string _heavyAttackSoundEvent;
     private string _dodgeSoundEvent;
     private string _blockSoundEvent;
-
-
-    public Animator Animator {get { return _animator; } set { _animator = value;}}
-    public CharacterController Controller  {get { return _controller; } set { _controller = value;}}
-    public InputHandler PlayerInput {get { return _playerInput; } set { _playerInput = value;}}
 
     public string WalkSoundEvent {get { return _walkSoundEvent; } set { _walkSoundEvent = value;}}
     public string JumpSoundEvent {get { return _jumpSoundEvent; } set { _jumpSoundEvent = value;}}
@@ -140,11 +140,12 @@ public class Player : MonoBehaviour {
     public void GetItem(int item) {
         if(item == 0 && _data.HealthCrystal < _data.MaxHealthCrystal) {
             _data.HealthCrystal += 1;
-            print("Health Crystal: " + _data.HealthCrystal);
+            
         }
         else if(item == 1) {
-            _data.ManaCrystal += 1;
-            print("Mana Crystal: " + _data.ManaCrystal);
+            int currentMana = Math.Min(_data.ManaCrystal + 100, _data.MaxMana);
+
+            Events.OnCrystalManaUpdate.Invoke(currentMana, _data.MaxMana);
         }
     }
 

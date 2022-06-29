@@ -101,6 +101,8 @@ public class PlayerAimState : PlayerAbilityState {
                 Vector3 direction = (hit.point - companion.transform.position);
                 projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
             }
+
+            
         }
     }
 
