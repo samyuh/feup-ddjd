@@ -1283,6 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37bb9406bca3d54da97ad1ef9f6a565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canTeleport: 1
   currentScene: 1
   nextScene: 2
 --- !u!64 &1455027595

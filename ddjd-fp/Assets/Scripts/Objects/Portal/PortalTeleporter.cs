@@ -8,8 +8,8 @@ public class PortalTeleporter : MonoBehaviour
     private bool playerIsOverlapping = false;
     [SerializeField] private bool canTeleport;
 
-    [SerializeField] string currentScene = "1";
-    [SerializeField] string nextScene = "2";
+    [SerializeField] string currentScene;
+    [SerializeField] string nextScene;
 
     void Update()
     {
