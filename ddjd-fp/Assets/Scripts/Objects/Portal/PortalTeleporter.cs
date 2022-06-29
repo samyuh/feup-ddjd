@@ -9,16 +9,10 @@ public class PortalTeleporter : MonoBehaviour
     public Transform receiver;
 
     private bool playerIsOverlapping = false;
-    [SerializeField] bool canTeleport;
-    [SerializeField] string currentScene;
+    private bool canTeleport;
+
+    [SerializeField] private GameManager _gameManager;
     [SerializeField] string nextScene;
-    /*[SerializeField] GameObject Info;
-
-    private InfoScript infoScript;
-
-    void Awake(){
-        infoScript = Info.GetComponent<InfoScript>();
-    }*/
 
     void Start() {
 
@@ -28,10 +22,12 @@ public class PortalTeleporter : MonoBehaviour
     void Update()
     {
         if(playerIsOverlapping && canTeleport) {
+            _gameManager.UpdateCurrentIsland(2);
 
-            /*infoScript.savedPositions[currentScene] = player.transform.position;*/
             SceneManager.LoadScene(nextScene);
             playerIsOverlapping = false;
+
+            player = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
 

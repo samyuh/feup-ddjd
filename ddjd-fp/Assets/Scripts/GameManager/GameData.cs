@@ -12,7 +12,10 @@ public class GameData: ScriptableObject {
         public int healthCrystal;
         public int maxHealthCrystal;
         public int manaCrystal;
-        
+
+        public int currentIsland;
+        public int teleportId;
+
         public static Data GetInstance() {
             if (!_instance) {
                 _instance = FindObjectOfType<Data>();
@@ -23,10 +26,14 @@ public class GameData: ScriptableObject {
 
                 // Initialize Values
                 _instance.currentHealth = 0;
-                _instance.maxHealth = 0;
                 _instance.healthCrystal = 0;
+                _instance.maxHealth = 0;
+                
                 _instance.manaCrystal = 0;
                 _instance.maxHealthCrystal = 10;
+
+                _instance.currentIsland = 0;
+                _instance.teleportId = 1;
             }
 
             return _instance;
@@ -43,5 +50,9 @@ public class GameData: ScriptableObject {
     public int HealthCrystal { get { return Data.GetInstance().healthCrystal; } set { Data.GetInstance().healthCrystal = value; } }
     public int MaxHealthCrystal { get { return Data.GetInstance().maxHealthCrystal; } set { Data.GetInstance().maxHealthCrystal = value; } }
     public int ManaCrystal { get { return Data.GetInstance().manaCrystal; } set { Data.GetInstance().manaCrystal = value; } }
+    #endregion
+
+    #region Current Island
+    public int CurrentIsland { get { return Data.GetInstance().currentIsland; } set { Data.GetInstance().currentIsland = value; } }
     #endregion
 }

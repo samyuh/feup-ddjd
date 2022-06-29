@@ -24,8 +24,6 @@ public abstract class EnemyState {
 
         _target = GameObject.Find("Player");
         mask =  LayerMask.GetMask("Player");
-
-        Debug.Log("State");
     }
 
     public virtual void EnterState() { }

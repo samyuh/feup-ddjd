@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game/Isles/Isles (Demo).unity
     guid: 39301fc0b16edc04783d5a41aad752a3
   - enabled: 1
