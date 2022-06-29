@@ -1,0 +1,68 @@
+{
+    "name": "Obsidia",
+    "description": "Galena and their pet companion, Agate, must fight their way through several ruins in order to cleanse the magical crystals from the dark nature that corrupted them and unravel the mysteries about the events that have transpired.",
+    "year": "2022",
+    "authors": [
+        {
+            "name": "Hugo Guimarães",
+            "role": "Developer"
+        },
+        {
+            "name": "Diogo Samuel Fernandes",
+            "role": "Developer"
+        },
+        {
+            "name": "Beatriz Mendes",
+            "role": "Developer"
+        },
+        {
+            "name": "Pedro Pinto",
+            "role": "Developer"
+        },
+        {
+            "name": "Pedro Azevedo",
+            "role": "Developer"
+        },
+        {
+            "name": "Gustavo Tavares",
+            "role": "Developer"
+        },
+        {
+            "name": "Sérgio Coutim",
+            "role": "Sound Designer"
+        },
+        {
+            "name": "Ian Knudsen",
+            "role": "Sound Designer"
+        },
+        {
+            "name": "Júlia Valente",
+            "role": "3D Modeller"
+        },
+        {
+            "name": "Pedro Costa",
+            "role": "3D Modeller"
+        }
+    ],
+    "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "Puzzle"
+    ],
+    "operative_system": [
+        "Windows"
+    ],
+    "executables": [
+        "game.executable CHANGE THIS"
+    ],
+    "UC": "DDJD",
+    "website": "CHANGE THIS",
+    "icon": "CHANGE THIS",
+    "media": [
+        {
+            "filename": "CHANGE THIS",
+            "media_type": "image"
+        }
+    ]
+}
