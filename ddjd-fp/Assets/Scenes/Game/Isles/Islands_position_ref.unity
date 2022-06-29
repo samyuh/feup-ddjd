@@ -496,6 +496,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8674472391603640704, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8853390280323388675, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -530,6 +534,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+--- !u!1 &590513492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 590513493}
+  - component: {fileID: 590513494}
+  m_Layer: 0
+  m_Name: HubCleanse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &590513493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590513492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1041452095}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &590513494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590513492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d42b7aa3158d3e4e8164c260d5a138c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colors: {fileID: 11400000, guid: ab8a42c4bcf67c64b8b893cb2dc94db8, type: 2}
+  i1_grass_road: {fileID: 2100000, guid: 1feadd80d94a58d4cabc4c56cc069a75, type: 2}
+  i2_grass_road: {fileID: 2100000, guid: c30fa4b2bb9f7844aaab93e1b1452f4b, type: 2}
+  i3_grass_road: {fileID: 2100000, guid: 5af7eb61bfda3b84b88760ed70631f37, type: 2}
+  i1a3_crystal: {fileID: 2100000, guid: e87ba9b4604aace48a71436ff5482a10, type: 2}
+  i3_obsidian: {fileID: 2100000, guid: bb2e9b42618e0d743a1778070e7c6167, type: 2}
+  i4_grass_road: {fileID: 2100000, guid: da86af6531822c846a04a063be51983c, type: 2}
+  i5_grass_road: {fileID: 2100000, guid: f1c64183874619e4b9be1bdba8a48405, type: 2}
+  i6_grass_road: {fileID: 2100000, guid: 1b002f4cec3a48644b745b882ce3e848, type: 2}
+  i4a6_crystal: {fileID: 2100000, guid: 0ac8c3f9b67532b49a6e545ea708df1c, type: 2}
+  i6_obsidian: {fileID: 2100000, guid: e63a6a7c9851ca344829c2d0e3b19f23, type: 2}
 --- !u!1001 &673923791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -644,6 +703,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28213fd228dd17642b987a68b1818791, type: 3}
+--- !u!4 &1041452095 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8048611464311844743, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+  m_PrefabInstance: {fileID: 475278498}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1162297200
 PrefabInstance:
   m_ObjectHideFlags: 0

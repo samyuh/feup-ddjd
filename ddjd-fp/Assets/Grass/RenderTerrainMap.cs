@@ -96,7 +96,7 @@ public class RenderTerrainMap : MonoBehaviour
         Shader.SetGlobalVector("_OrthographicCamPos", camToDrawWith.transform.position);
         camToDrawWith.Render();
         Shader.SetGlobalTexture(target, tempTex);
-        camToDrawWith.enabled = false;
+        camToDrawWith.enabled = true;
     }
  
     void SetUpCam()
