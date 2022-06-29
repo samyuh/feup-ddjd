@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{c123dd8f-d92f-4750-ae7d-6021c01161ea}">
 		<property name="name">
-			<value>spidermob_run</value>
+			<value>spider_run</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>

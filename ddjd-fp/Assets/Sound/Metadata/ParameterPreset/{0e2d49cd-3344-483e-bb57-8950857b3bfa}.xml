@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{0e2d49cd-3344-483e-bb57-8950857b3bfa}">
+		<property name="name">
+			<value>Portal dissolve</value>
+		</property>
+		<relationship name="folder">
+			<destination>{b55db872-3fed-4db1-bf02-42bcf4ac43d2}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1f55d80a-7dd7-48e6-8ecc-e4b8a026df48}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1f55d80a-7dd7-48e6-8ecc-e4b8a026df48}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
