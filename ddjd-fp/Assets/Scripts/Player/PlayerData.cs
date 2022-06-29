@@ -16,20 +16,22 @@ public class PlayerData {
     #region Player Status
     private int _currentHealth = 700;
     private int _maxHealth = 700;
-
     public int CurrentHealth  {get { return _currentHealth; }  set { _currentHealth = value; }}
     public int MaxHealth  {get { return _maxHealth; }  set { _maxHealth = value; }}
+
+    private int _manaCrystal = 300;
+    private int _maxMana = 700;
+    public int ManaCrystal { get { return _manaCrystal; } set {_manaCrystal = value;} }
+    public int MaxMana { get { return _manaCrystal; } set {_manaCrystal = value;} }
     #endregion
 
     #region Player Inventory
 
     private int _healthCrystal = 0;
-    public int _maxHealthCrystal = 10;
-    private int _manaCrystal = 0;
-
+    public int _maxHealthCrystal = 100;
     public int HealthCrystal{get { return _healthCrystal; } set { _healthCrystal = value; }}
     public int MaxHealthCrystal{get { return _maxHealthCrystal; } set { _maxHealthCrystal = value; }}
-    public int ManaCrystal { get { return _manaCrystal; } set {_manaCrystal = value;}}
+
 
     #endregion
 

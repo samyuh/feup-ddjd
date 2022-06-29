@@ -7,12 +7,13 @@ public static class Events {
     // Player Events
     // Player
     // // Dialog CutScene
-     public static readonly EventNative OnNextDialog = new EventNative();
+    public static readonly EventNative OnNextDialog = new EventNative();
     public static readonly EventNative<DialogManager> OnDialog = new EventNative<DialogManager>();
 
     // // Player Events
     public static readonly EventNative OnSpawn = new EventNative(); // TODO
     public static readonly EventNative OnDeath = new EventNative(); // TODO
+
     // // Update Player Status
     public static readonly EventNative<int, int> OnHealthUpdate = new EventNative<int, int>();
     public static readonly EventNative<int, int> OnCrystalManaUpdate = new EventNative<int, int>(); // TODO
@@ -27,7 +28,8 @@ public static class Events {
     public static readonly EventNative OnUseHealthCrystal = new EventNative();
     // // // Button
     public static readonly EventNative<int> OnActivatePortal = new EventNative<int>();
-    
+    public static readonly EventNative<int> OnDeActivatePortal = new EventNative<int>();
+
     // Menu
     // // Toggle States
     public static readonly EventNative OnTogglePauseMenu = new EventNative();

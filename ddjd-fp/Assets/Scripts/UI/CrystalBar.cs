@@ -9,5 +9,11 @@ public class CrystalBar: MonoBehaviour {
     
     private void Awake() {
        _crystalBar = GetComponent<Slider>();
+       
+       Events.OnCrystalManaUpdate.AddListener(CrystalManaUpdate);
+    }
+
+    private void CrystalManaUpdate(int currentCrystal, int maxCrystal) {
+        _crystalBar.value = (float) currentCrystal / (float) maxCrystal;
     }
 }

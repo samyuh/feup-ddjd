@@ -58,12 +58,10 @@ public class GameManager : MonoBehaviour {
     }
 
     private void CatchCrystal() {
-        _data.ManaCrystal += 1;
-        Debug.Log("Collected Mana Crystal");
+        
     }
 
-    private void UseHealthCrystal()
-    {
+    private void UseHealthCrystal() {
         _data.HealthCrystal -= 1;
         Debug.Log("Used Health Crystal");
     }
