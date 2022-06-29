@@ -12,6 +12,7 @@ public class SpiderWalk : EnemyState {
     public override void EnterState() { 
         base.EnterState();
 
+        Debug.Log("walk");
         _context.Animator.SetBool("Run", true);
 
         // Running Sound
@@ -32,6 +33,7 @@ public class SpiderWalk : EnemyState {
 
         if (Physics.Raycast(_context.transform.position, _target.transform.position - _context.transform.position, out RaycastHit hit, maxDistance, mask)) {
             float distance = hit.distance;
+            Debug.Log("here");
 
             if (distance > followDistance)  {
                 Accelerate();

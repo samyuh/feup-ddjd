@@ -30,8 +30,8 @@ public class SpiderController : MonoBehaviour {
         _animator = GetComponent<Animator>();
         //_runSoundEvent = FMODUnity.RuntimeManager.CreateInstance("event:/spidermob_run");
 
-        _runSoundInstance = FMODUnity.RuntimeManager.CreateInstance("event:/spidermob_run");
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(_runSoundInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        //_runSoundInstance = FMODUnity.RuntimeManager.CreateInstance("event:/spidermob_run");
+        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(_runSoundInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
         //_runSoundEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(_context.gameObject.transform));
         //_runSoundInstance.start();
         

@@ -19,12 +19,10 @@ public class CheckPoint : MonoBehaviour
     #endregion
 
     void Start()  {
-        // thisAnimator = GetComponent<Animator>();
-
         player = GameObject.Find("Player");
         // We search all the checkpoints in the current scene
         CheckPointsList = GameObject.FindGameObjectsWithTag("CheckPoint").ToList();
-        
+    
         Events.OnDeath.AddListener(OnDeathRespawn);
     }
 
@@ -62,9 +60,7 @@ public class CheckPoint : MonoBehaviour
     #endregion
 
     #region Private Functions
-    // Activate the checkpoint
     public void ActivateCheckPoint() {
-        // We deactive all checkpoints in the scene
         foreach (GameObject cp in CheckPointsList) {
             cp.GetComponent<CheckPoint>().Activated = false;
             // cp.GetComponent<Animator>().SetBool("Active", false);
@@ -80,7 +76,7 @@ public class CheckPoint : MonoBehaviour
     }
     #endregion
 
-    private void StoreState(){
+    private void StoreState() {
         // Debug.Log(_data.Cu   rrentHealth);
 
     }

@@ -13,7 +13,7 @@ public abstract class EnemyState {
     protected float maxDistance = 50f;
     protected float followDistance = 2f;
     protected float speed = 0f;
-    protected float maxSpeed = 0.05f;
+    protected float maxSpeed = 0.03f;
     protected float acceleration = 0.01f;
     protected float deceleration = 0.25f;
 
@@ -24,6 +24,8 @@ public abstract class EnemyState {
 
         _target = GameObject.Find("Player");
         mask =  LayerMask.GetMask("Player");
+
+        Debug.Log("State");
     }
 
     public virtual void EnterState() { }
