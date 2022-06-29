@@ -100,6 +100,7 @@ public class PlayerAimState : PlayerAbilityState {
                 Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
                 Vector3 direction = (hit.point - companion.transform.position);
                 projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
+                projectileRb.angularDrag = 100;
             }
 
             
