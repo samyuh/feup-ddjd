@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour 
 {
-    #region Public Variables
-    public bool Activated = false;
-    #endregion
+    public ColorManager _colors;
+    public GameData data;
 
-    #region Private Variables
-    // private Animator thisAnimator;
-    GameObject player;
-    [SerializeField] private GameData data;
-    #endregion
+    public bool _activated = false;
+    private GameObject player;
+    
+    [SerializeField] private Material _saveCrystal;
+    [SerializeField] private Material _saveEmission;
 
-    #region Static Variables
     public static List<GameObject> CheckPointsList;
-    #endregion
 
     void Start()  {
         player = GameObject.Find("Player");
@@ -26,6 +23,7 @@ public class CheckPoint : MonoBehaviour
 
     public void OnDeathRespawn() {
         Debug.Log("Morreu");
+
         Vector3 position = GetActiveCheckPointPosition();
 
         if(position != new Vector3(0,0,0)){
@@ -38,15 +36,12 @@ public class CheckPoint : MonoBehaviour
     }
 
     #region Static Functions
-    // Get position of the last activated checkpoint
     public static Vector3 GetActiveCheckPointPosition() {
-        // If player die without activate any checkpoint, we will return a default position
         Vector3 result = new Vector3(0, 0, 0);
 
         if (CheckPointsList != null)  {
             foreach (GameObject cp in CheckPointsList) {
-                // We search the activated checkpoint to get its position
-                if (cp.GetComponent<CheckPoint>().Activated)
+                if (cp.GetComponent<CheckPoint>()._activated)
                 {
                     result = cp.transform.position;
                     break;
@@ -60,14 +55,15 @@ public class CheckPoint : MonoBehaviour
     #region Private Functions
     public void ActivateCheckPoint() {
         foreach (GameObject cp in CheckPointsList) {
-            cp.GetComponent<CheckPoint>().Activated = false;
+            cp.GetComponent<CheckPoint>()._activated = false;
             // cp.GetComponent<Animator>().SetBool("Active", false);
         }
 
-        // We activated the current checkpoint
-        Activated = true;
-        // thisAnimator.SetBool("Active", true);
-        Debug.Log("Checkpoint Activated");
+        _saveCrystal.SetFloat("_Transparency", 1f);
+        _saveEmission.SetColor("_EmissionColor", _colors.getColor("neutral_emission_color"));
+
+        _activated = true;
+        Debug.Log("Checkpoint _activated");
 
         StoreState();
 

@@ -3,5 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HubCleanse : MonoBehaviour {
-
+    void Awake() {
+        
+    }
 }
