@@ -548,6 +548,37 @@ Material:
     - _Fade: 0.26
     m_Colors: []
   m_BuildTextureStacks: []
+--- !u!1 &314056189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314056190}
+  m_Layer: 0
+  m_Name: portal_1_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &314056190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314056189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.14, y: 52.83, z: 17.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437004583 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7719125275640340390, guid: 54f2dcf3b8290db4b8b64693a48f4440, type: 3}
@@ -1252,10 +1283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37bb9406bca3d54da97ad1ef9f6a565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  receiver: {fileID: 0}
-  _gameManager: {fileID: 0}
-  nextScene: Isle 2
+  currentScene: 1
+  nextScene: 2
 --- !u!64 &1455027595
 MeshCollider:
   m_ObjectHideFlags: 0

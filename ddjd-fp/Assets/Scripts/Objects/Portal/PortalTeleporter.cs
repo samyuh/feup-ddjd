@@ -5,29 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class PortalTeleporter : MonoBehaviour
 {
-    public Transform player;
-    public Transform receiver;
-
     private bool playerIsOverlapping = false;
-    private bool canTeleport;
+    [SerializeField] private bool canTeleport;
 
-    [SerializeField] private GameManager _gameManager;
-    [SerializeField] string nextScene;
+    [SerializeField] string currentScene = "1";
+    [SerializeField] string nextScene = "2";
 
-    void Start() {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(playerIsOverlapping && canTeleport) {
-            _gameManager.UpdateCurrentIsland(2);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Debug.Log(GameObject.Find("portal_" + nextScene + "_" + currentScene).transform.position);
 
-            SceneManager.LoadScene(nextScene);
+            player.transform.position = GameObject.Find("portal_" + nextScene + "_" + currentScene).transform.position;
             playerIsOverlapping = false;
-
-            player = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
 
