@@ -174,6 +174,33 @@ MonoBehaviour:
   - Stone
   - Dirt
   Exists: 1
+--- !u!114 &-5578015907894877992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/boss_firetornado
+  m_EditorClassIdentifier: 
+  Path: event:/boss_firetornado
+  Guid:
+    Data1: 161217861
+    Data2: 1221478980
+    Data3: -1419263069
+    Data4: 966695771
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5003628823780247553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +227,33 @@ MonoBehaviour:
   - Stone
   - Dirt
   Exists: 1
+--- !u!114 &-4936467515087930838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Agate_fireball_muzzle
+  m_EditorClassIdentifier: 
+  Path: event:/Agate_fireball_muzzle
+  Guid:
+    Data1: -346734144
+    Data2: 1109455241
+    Data3: 1117453482
+    Data4: 1111923942
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4914321158614435149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +378,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-3102138069457395008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/boss_meteor
+  m_EditorClassIdentifier: 
+  Path: event:/boss_meteor
+  Guid:
+    Data1: 724255748
+    Data2: 1079321545
+    Data3: -154048087
+    Data4: 1439931970
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2875
 --- !u!114 &-1693352638852072396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,10 +524,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637919365267833850
+  lastModified: 637921181464524098
   FileSizes:
   - Name: Desktop
-    Value: 6637088
+    Value: 7008800
   Exists: 1
 --- !u!114 &-643652144803022908
 MonoBehaviour:
@@ -532,14 +613,48 @@ MonoBehaviour:
   - {fileID: 751460454565262303}
   - {fileID: 1947683293529744828}
   - {fileID: 1719771317902933408}
+  - {fileID: 318622595329362252}
+  - {fileID: -3102138069457395008}
+  - {fileID: 6707007166187780659}
+  - {fileID: -5578015907894877992}
+  - {fileID: 2963988434226514044}
+  - {fileID: -4936467515087930838}
+  - {fileID: 5986199999031950916}
   EditorParameters:
   - {fileID: -4899552010908613474}
   MasterBanks:
   - {fileID: -882789056616525796}
   StringsBanks:
   - {fileID: 1882038596287148703}
-  cacheTime: 637919365267843821
+  cacheTime: 637921181464564132
   cacheVersion: 10
+--- !u!114 &318622595329362252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/boss_spikeattack
+  m_EditorClassIdentifier: 
+  Path: event:/boss_spikeattack
+  Guid:
+    Data1: -1567098878
+    Data2: 1197213421
+    Data3: 758192548
+    Data4: -91127382
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &638916264614082115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,10 +859,10 @@ MonoBehaviour:
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637919365267843821
+  lastModified: 637921181464564132
   FileSizes:
   - Name: Desktop
-    Value: 1632
+    Value: 1956
   Exists: 1
 --- !u!114 &1947683293529744828
 MonoBehaviour:
@@ -852,6 +967,33 @@ MonoBehaviour:
   Parameters:
   - {fileID: 3055641871081234455}
   - {fileID: -4130799588567031333}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2963988434226514044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Agate_fireball_impact
+  m_EditorClassIdentifier: 
+  Path: event:/Agate_fireball_impact
+  Guid:
+    Data1: 401516957
+    Data2: 1321748239
+    Data3: 1319098774
+    Data4: 1489895195
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -1019,6 +1161,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5986199999031950916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Agate_fireball_trail
+  m_EditorClassIdentifier: 
+  Path: event:/Agate_fireball_trail
+  Guid:
+    Data1: -621463046
+    Data2: 1315737838
+    Data3: -77151
+    Data4: 1687754354
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
 --- !u!114 &6040828452185978629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,6 +1237,33 @@ MonoBehaviour:
   Banks:
   - {fileID: -882789056616525796}
   IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6707007166187780659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/boss_tornado
+  m_EditorClassIdentifier: 
+  Path: event:/boss_tornado
+  Guid:
+    Data1: -684385480
+    Data2: 1314662871
+    Data3: -1920308077
+    Data4: -619921481
+  Banks:
+  - {fileID: -882789056616525796}
+  IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
