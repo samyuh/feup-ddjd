@@ -171,9 +171,6 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void invokeDeath() {
-        Events.OnDeath.Invoke();
-    }
 
     public void DestroyObject(GameObject otherObject){
         Destroy(otherObject);

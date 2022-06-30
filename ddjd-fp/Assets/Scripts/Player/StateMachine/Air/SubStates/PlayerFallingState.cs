@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerFallingState : PlayerAirState {
     private float _elapsedTime;
+    private float _fallTime;
 
     public PlayerFallingState(Player currentContext, StateMachine playerStateFactory, StateFactory stateFactory) : 
     base (currentContext, playerStateFactory, stateFactory) { }
@@ -11,6 +12,8 @@ public class PlayerFallingState : PlayerAirState {
     public override void EnterState() {
         base.EnterState();
         _targetVelocity = 5f;
+        _fallTime = 4f;
+        _elapsedTime = 0f;
      }
 
     public override void ExitState() {
@@ -21,11 +24,10 @@ public class PlayerFallingState : PlayerAirState {
 
     public override void LogicUpdate() {
         base.LogicUpdate();
-        int fallTime = 4;
 
         _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > fallTime) {
-            _context.invokeDeath();
+        if (_elapsedTime > _fallTime) {
+            Events.OnDeath.Invoke();
         }
     }
 }

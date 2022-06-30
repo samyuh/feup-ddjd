@@ -18,21 +18,21 @@ public class CheckPoint : MonoBehaviour
     void Start()  {
         player = GameObject.Find("Player");
         CheckPointsList = GameObject.FindGameObjectsWithTag("CheckPoint").ToList();
+
         Events.OnDeath.AddListener(OnDeathRespawn);
     }
 
     public void OnDeathRespawn() {
-        Debug.Log("Morreu");
-
         Vector3 position = GetActiveCheckPointPosition();
 
-        if(position != new Vector3(0,0,0)){
-            player.transform.position = position;
-            RestoreState();
+        if (position != new Vector3(0,0,0)) {
+            player.transform.position = new Vector3(position.x + 3f, position.y + 2f, position.z);
         }
-        else{
-            Debug.Log("No Active Checkpoints!!");
+        else {
+            player.transform.position = new Vector3(20, 52, -3);
         }
+
+        RestoreState();
     }
 
     #region Static Functions
@@ -41,8 +41,7 @@ public class CheckPoint : MonoBehaviour
 
         if (CheckPointsList != null)  {
             foreach (GameObject cp in CheckPointsList) {
-                if (cp.GetComponent<CheckPoint>()._activated)
-                {
+                if (cp.GetComponent<CheckPoint>()._activated) {
                     result = cp.transform.position;
                     break;
                 }
@@ -52,7 +51,6 @@ public class CheckPoint : MonoBehaviour
     }
     #endregion
 
-    #region Private Functions
     public void ActivateCheckPoint() {
         foreach (GameObject cp in CheckPointsList) {
             cp.GetComponent<CheckPoint>()._activated = false;
@@ -63,20 +61,15 @@ public class CheckPoint : MonoBehaviour
         _saveEmission.SetColor("_EmissionColor", _colors.getColor("neutral_emission_color"));
 
         _activated = true;
-        Debug.Log("Checkpoint _activated");
-
         StoreState();
-
     }
-    #endregion
+
 
     private void StoreState() {
-        // Debug.Log(_data.Cu   rrentHealth);
-
+        
     }
 
-    private void RestoreState(){
-        // _data = data;
+    private void RestoreState() {
+        
     }
-   
 }
