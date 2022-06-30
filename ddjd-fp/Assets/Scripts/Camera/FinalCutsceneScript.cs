@@ -13,6 +13,7 @@ public class FinalCutsceneScript : MonoBehaviour
     public CinemachineBrain brain;
 
     private bool play = false;  
+    private bool alreadyPlayed = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -27,8 +28,9 @@ public class FinalCutsceneScript : MonoBehaviour
     }
 
     void Update() {
-        if (play) {
+        if (play && !alreadyPlayed) {
             play = false;
+            alreadyPlayed = true;
             timeline.Play();
             Destroy(gameObject);
         }
