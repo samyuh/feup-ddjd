@@ -10,29 +10,30 @@ public class InventoryController: MonoBehaviour
     private bool _active = false;
     
     [SerializeField] private GameObject _crystalInterface;
-    [SerializeField] private GameObject _scrollsInterface;
     [SerializeField] private GameObject _potionInterface;
 
     private SVGImage[] _crystalList;
-    private SVGImage[] _scrollsList;
     private SVGImage[] _potionList;
 
     private int _crystalNum = 0;
     private int _scrollNum = 0;
     private int _potionNum = 0;
 
-    // TODO: REFACTOR THIS
+    // Power
     [SerializeField] private Sprite _nothing;
     [SerializeField] private Sprite _airCrystal;
     [SerializeField] private Sprite _health;
 
-    private void Awake()
-    {   
-        gameObject.SetActive(false);
+    // Scroll
+     [SerializeField] private GameObject _map;
+    [SerializeField] private GameObject _elements;
 
-        #region Earn new Crystal
-        Events.OnCatchCrystal.AddListener(OnCollectCrystal);
-        #endregion
+    [SerializeField] private SVGImage _scrollsMap;
+    [SerializeField] private SVGImage _scrollsText;
+    [SerializeField] private Sprite _scrollSprite;
+
+    private void Awake() {   
+        gameObject.SetActive(false);
 
         #region Health
         Events.OnCatchHealthCrystal.AddListener(OnCollectHealth);
@@ -49,12 +50,14 @@ public class InventoryController: MonoBehaviour
         #endregion
     }
 
-    public void OnCollectCrystal() {
-       Debug.Log("Collect Crystal");
-    }
-
-    public void OnCollectScroll() {
-       Debug.Log("Collect Scroll");
+    public void OnCollectScroll(int id) {
+       if (id == 0) {
+        _map.GetComponent<Button>().enabled = true;
+        _scrollsMap.sprite = _scrollSprite;
+       } else if (id == 1) {
+        _elements.GetComponent<Button>().enabled = true;
+        _scrollsText.sprite = _scrollSprite;
+       }
     }
 
     public void OnCollectHealth() {

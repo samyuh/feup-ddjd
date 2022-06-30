@@ -24,7 +24,7 @@ public static class Events {
     // // 
     // // // Catch
     public static readonly EventNative OnCatchCrystal = new EventNative();
-    public static readonly EventNative OnCatchScroll = new EventNative();
+    public static readonly EventNative<int> OnCatchScroll = new EventNative<int>();
     public static readonly EventNative OnCatchHealthCrystal = new EventNative();
     // // // Use
     public static readonly EventNative OnUseHealthCrystal = new EventNative();
