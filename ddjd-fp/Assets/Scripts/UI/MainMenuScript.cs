@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    [SerializeField] GameObject options;
+    [SerializeField] GameObject menu;
+
     public void LoadGame()
     {
         Debug.Log("Not Implemented");
@@ -21,7 +24,8 @@ public class MainMenuScript : MonoBehaviour
 
     public void Options()
     {
-        Debug.Log("Not Implemented");
+        options.SetActive(true);
+        menu.SetActive(false);
     }
 
     public void Quit() {
