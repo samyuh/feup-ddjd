@@ -88,6 +88,14 @@ public class Player : MonoBehaviour {
 
         // Crystal
         Events.OnSetActiveCrystal.AddListener(SetActiveCrystal);
+        Events.OnDialog.AddListener(OnDialog);
+    }
+
+    private void OnDialog(DialogManager _) {
+        Events.DisableMovement.Invoke();
+        PlayerInput.Movement = Vector2.zero;
+        StateMachine.ChangeState(StateFactory.IdleState);
+
     }
 
     private void SetActiveCrystal(CrystalData newCrystal) {

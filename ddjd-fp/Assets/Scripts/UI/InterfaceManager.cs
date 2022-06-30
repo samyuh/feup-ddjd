@@ -64,8 +64,6 @@ public class InterfaceManager : MonoBehaviour
     }
     public void OnDialog(DialogManager currentDialog) {
         _playerController.enabled = false;
-
-        Events.DisableMovement.Invoke();
         _currentDialog = currentDialog;
 
         _dialogActive = !_dialogActive;

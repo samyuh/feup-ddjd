@@ -44,7 +44,7 @@ public class InputHandler : MonoBehaviour {
     public bool Interact {get; set;}
     public bool UseItem {get; set;}
     #endregion
-    
+
     private void Awake() {
         _inputAction = new InputController();
         
