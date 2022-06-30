@@ -92,6 +92,8 @@ public class InputHandler : MonoBehaviour {
         _playerUseItem.performed += OnUseItem;
         _playerMovement.performed += OnMovement;
         _playerMovement.canceled += OnMovement;
+
+        _toggleInventory.performed += OnToggleInventory;
     }
 
     private void DisableMovement() {
@@ -101,6 +103,8 @@ public class InputHandler : MonoBehaviour {
         _playerUseItem.performed -= OnUseItem;
         _playerMovement.performed -= OnMovement;
         _playerMovement.canceled -= OnMovement;
+
+        _toggleInventory.performed -= OnToggleInventory;
     }
 
     private void Rebind() {

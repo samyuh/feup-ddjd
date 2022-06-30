@@ -15,7 +15,7 @@ public class PlayerRunState : PlayerGroundState {
         base.EnterState();
         _walkSoundPeriod = 200;
         _startTicks = DateTime.Now.Ticks;
-        _targetVelocity = 15f;
+        _targetVelocity = 10f;
         _context.Animator.SetBool("Run", true);
 
         _context.PlayerInput.PlayerRun.performed += OnRun;
