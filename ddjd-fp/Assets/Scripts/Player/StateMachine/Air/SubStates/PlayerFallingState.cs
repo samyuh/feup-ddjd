@@ -11,6 +11,7 @@ public class PlayerFallingState : PlayerAirState {
 
     public override void EnterState() {
         base.EnterState();
+        Events.OnFreeFall.Invoke();
         _targetVelocity = 5f;
         _fallTime = 4f;
         _elapsedTime = 0f;

@@ -5,26 +5,17 @@ using UnityEngine;
 public class Options : MonoBehaviour
 {
     [SerializeField] public bool grass;
-    [SerializeField] public bool mageisle;
     
     public GameObject grassSelected;
-    public GameObject mageIsleSelected;
 
     void Update()
     {
-        grassSelected.SetActive(grass);
-        mageIsleSelected.SetActive(mageisle);     
+        grassSelected.SetActive(grass);  
     }    
 
     public void ToggleGrass()
     {
         grass = !grass;
         Debug.Log(grass);
-    }
-
-    public void ToggleMageIsle()
-    {
-        mageisle = !mageisle;
-        Debug.Log(mageisle);
     }
 }

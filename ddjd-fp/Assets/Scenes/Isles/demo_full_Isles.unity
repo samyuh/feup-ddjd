@@ -920,7 +920,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7695109830180570502, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+    - {fileID: 4395196467576193400, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+    - {fileID: 5950269010900330311, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+    - {fileID: 3228502856296861631, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
 --- !u!1 &590513492
 GameObject:

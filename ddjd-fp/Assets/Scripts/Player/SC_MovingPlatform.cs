@@ -16,6 +16,11 @@ public class SC_MovingPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         controller = GetComponent<CharacterController>();
+        Events.OnFreeFall.AddListener(SetNullPlatform);
+    }
+
+    private void SetNullPlatform() {
+        activePlatform = null;
     }
 
     // Update is called once per frame

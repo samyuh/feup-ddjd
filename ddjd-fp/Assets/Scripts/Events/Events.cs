@@ -12,6 +12,7 @@ public static class Events {
     public static readonly EventNative FinishDialog = new EventNative();
 
     // // Player Events 
+    public static readonly EventNative OnFreeFall = new EventNative(); 
     public static readonly EventNative OnDeath = new EventNative(); 
     public static readonly EventNative<int> OnBossBattle = new EventNative<int>();
     public static readonly EventNative<int> OnCleanZone = new EventNative<int>();
