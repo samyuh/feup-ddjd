@@ -28,8 +28,8 @@ public class BossWalk : BossState {
         //_context.RunSoundEvent.release();
     }
 
-    public override void LogicUpdate() {
-        base.LogicUpdate();
+    public override void PhysicsUpdate() {
+        base.PhysicsUpdate();
 
         if (Physics.Raycast(_context.transform.position, _target.transform.position - _context.transform.position, out RaycastHit hit, maxDistance, mask)) {
             float distance = hit.distance;

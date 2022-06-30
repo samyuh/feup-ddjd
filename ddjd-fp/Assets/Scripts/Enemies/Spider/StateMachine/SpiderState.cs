@@ -13,7 +13,7 @@ public abstract class SpiderState {
     protected float maxDistance = 50f;
     protected float followDistance = 2f;
     protected float speed = 0f;
-    protected float maxSpeed = 0.25f;
+    protected float maxSpeed = 0.08f;
     protected float acceleration = 0.2f;
     protected float deceleration = 1f;
 
