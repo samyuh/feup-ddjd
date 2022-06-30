@@ -6788,7 +6788,6 @@ GameObject:
   - component: {fileID: 5467380980241914861}
   - component: {fileID: 5467380980241914858}
   - component: {fileID: 5467380980241914859}
-  - component: {fileID: 3228502856296861631}
   m_Layer: 0
   m_Name: Crystal Bottom
   m_TagString: Untagged
@@ -6961,19 +6960,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &3228502856296861631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5467380980241914857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac9261aef109974d89771a802eb2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 0}
 --- !u!1 &5467380980317360279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6987,7 +6973,6 @@ GameObject:
   - component: {fileID: 5467380980317360299}
   - component: {fileID: 5467380980317360296}
   - component: {fileID: 5467380980317360297}
-  - component: {fileID: 5950269010900330311}
   m_Layer: 0
   m_Name: Crystal Right
   m_TagString: Untagged
@@ -7160,19 +7145,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &5950269010900330311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5467380980317360279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac9261aef109974d89771a802eb2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 0}
 --- !u!1 &5467380980570086153
 GameObject:
   m_ObjectHideFlags: 0
@@ -7262,7 +7234,6 @@ GameObject:
   - component: {fileID: 5467380980652617534}
   - component: {fileID: 5467380980652617535}
   - component: {fileID: 5467380980652617532}
-  - component: {fileID: 4395196467576193400}
   m_Layer: 0
   m_Name: Crystal Left
   m_TagString: Untagged
@@ -7435,19 +7406,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &4395196467576193400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5467380980652617530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac9261aef109974d89771a802eb2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 0}
 --- !u!1 &5467380980804006558
 GameObject:
   m_ObjectHideFlags: 0
@@ -7588,7 +7546,6 @@ GameObject:
   - component: {fileID: 5467380981255492197}
   - component: {fileID: 5467380981255492194}
   - component: {fileID: 5467380981255492195}
-  - component: {fileID: 7695109830180570502}
   m_Layer: 0
   m_Name: Crystal Top
   m_TagString: Untagged
@@ -7761,19 +7718,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &7695109830180570502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5467380981255492193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac9261aef109974d89771a802eb2f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 5467380980002908138}
 --- !u!1 &5467380981257525539
 GameObject:
   m_ObjectHideFlags: 0
@@ -11023,6 +10967,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: aea9e8e2d825df445ba58ead73077eb0, type: 2}
+  _airCrystal: {fileID: 0}
+  _fireCrystal: {fileID: 0}
   currentCrystals:
   - {fileID: 11400000, guid: 3af0cc3cdadbef24692f8aff53a6464f, type: 2}
   - {fileID: 11400000, guid: 08a016eb5dc867a4e803e2fe59512fae, type: 2}
@@ -12142,12 +12088,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1715d570d8e705e4cb2ff45285d3bba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _crystalInterface: {fileID: 4643967414966354851}
-  _scrollsInterface: {fileID: 0}
   _potionInterface: {fileID: 5021986646919264322}
   _nothing: {fileID: 3286163911610860551, guid: 45debf74940707146979a38f88b60f01, type: 3}
-  _airCrystal: {fileID: 3286163911610860551, guid: 9dee8aef16e44eb4ea0de2459e84993b, type: 3}
   _health: {fileID: 3286163911610860551, guid: d000c75deb462f94b9d3d0808b5dd903, type: 3}
+  _map: {fileID: 0}
+  _elements: {fileID: 0}
+  _scrollsMap: {fileID: 0}
+  _scrollsText: {fileID: 0}
+  _scrollSprite: {fileID: 0}
+  _airCrystal: {fileID: 3286163911610860551, guid: 9dee8aef16e44eb4ea0de2459e84993b, type: 3}
+  _fireCrystal: {fileID: 0}
+  _firstSpot: {fileID: 0}
+  _secondSpot: {fileID: 0}
 --- !u!1 &8701491984010908659
 GameObject:
   m_ObjectHideFlags: 0
