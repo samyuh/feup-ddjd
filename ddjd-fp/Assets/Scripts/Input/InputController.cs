@@ -333,6 +333,17 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""b22fe1be-7c63-4164-80e6-e74fd9b139ba"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a986bd03-4635-4345-8838-a9fe473840e3"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
