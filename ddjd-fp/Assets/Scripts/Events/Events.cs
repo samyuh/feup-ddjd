@@ -9,6 +9,7 @@ public static class Events {
     // // Dialog CutScene
     public static readonly EventNative OnNextDialog = new EventNative();
     public static readonly EventNative<DialogManager> OnDialog = new EventNative<DialogManager>();
+    public static readonly EventNative FinishDialog = new EventNative();
 
     // // Player Events
     public static readonly EventNative OnSpawn = new EventNative(); // TODO

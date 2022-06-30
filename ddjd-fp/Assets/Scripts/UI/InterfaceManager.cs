@@ -13,6 +13,10 @@ public class InterfaceManager : MonoBehaviour
     [SerializeField] private PauseMenuController _pauseMenu;
     [SerializeField] private GameObject _gameOverlay;
     [SerializeField] private GameObject _dialogOverlay;
+    private GameObject _player;
+    private CharacterController _playerController;
+    private Animator _playerAnimator;
+    private Player _playerScript;
 
     [SerializeField] private Sprite _nothingSprite;
 
@@ -41,9 +45,20 @@ public class InterfaceManager : MonoBehaviour
 
         Events.OnDialog.AddListener(OnDialog);
         Events.OnNextDialog.AddListener(OnNextDialog);
+        Events.FinishDialog.AddListener(FinishDialog);
+
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerController = _player.GetComponent<CharacterController>();
+        _playerAnimator = _player.GetComponent<Animator>();
+        _playerScript = _player.GetComponent<Player>();
     }
 
     public void OnDialog(DialogManager currentDialog) {
+        _playerController.enabled = false;
+        _playerScript.enabled = false;
+        /*_playerAnimator.SetBool("Idle", true);
+        _playerAnimator.enabled = false;*/
+        
         _currentDialog = currentDialog;
 
         _dialogActive = !_dialogActive;
@@ -58,12 +73,18 @@ public class InterfaceManager : MonoBehaviour
                 _dialogActive = false;
                 _numDialog = 0;
                 _dialogOverlay.SetActive(_dialogActive);
+                Events.FinishDialog.Invoke();
             } else {
                 _dialogCharacter.text = _currentDialog.dialog[_numDialog].character;
                 _dialogText.text =_currentDialog.dialog[_numDialog].text;
                 _numDialog += 1;
             }
         }
+    }
+
+    public void FinishDialog(){
+        _playerController.enabled = true;
+        _playerScript.enabled = true;
     }
 
     public void OnUseHealth() {
