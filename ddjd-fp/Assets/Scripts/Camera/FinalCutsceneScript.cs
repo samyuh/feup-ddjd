@@ -30,6 +30,7 @@ public class FinalCutsceneScript : MonoBehaviour
         if (play) {
             play = false;
             timeline.Play();
+            Destroy(gameObject);
         }
     }
 

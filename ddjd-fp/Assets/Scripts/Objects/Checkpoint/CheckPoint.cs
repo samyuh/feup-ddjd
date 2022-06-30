@@ -54,22 +54,20 @@ public class CheckPoint : MonoBehaviour
     public void ActivateCheckPoint() {
         foreach (GameObject cp in CheckPointsList) {
             cp.GetComponent<CheckPoint>()._activated = false;
-            // cp.GetComponent<Animator>().SetBool("Active", false);
         }
 
         _saveCrystal.SetFloat("_Transparency", 1f);
         _saveEmission.SetColor("_EmissionColor", _colors.getColor("neutral_emission_color"));
 
         _activated = true;
-        StoreState();
     }
 
-
-    private void StoreState() {
-        
-    }
 
     private void RestoreState() {
-        
+        player.GetComponent<Player>().Data.CurrentHealth = 700;
+        player.GetComponent<Player>().Data.ManaCrystal = 700;
+
+        Events.OnHealthUpdate.Invoke(700, 700);
+        Events.OnCrystalManaUpdate.Invoke(700, 700);
     }
 }
