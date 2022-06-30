@@ -5,6 +5,13 @@ using UnityEngine;
 public class HubCleanse : MonoBehaviour {
     [SerializeField] private ColorManager _colors;
 
+    #region galenaagate
+    [SerializeField] private Material mc_crystal;
+    [SerializeField] private Material mc_obsidian;
+
+    [SerializeField] private Material companion_crystal;
+    #endregion
+
     #region regionOne
     [SerializeField] private Material i1_grass_road;
     [SerializeField] private Material i2_grass_road;
@@ -30,7 +37,33 @@ public class HubCleanse : MonoBehaviour {
 
     private void Awake() {
         Events.OnCleanZone.AddListener(CleanedZone);
+
+        Events.OnSetActiveCrystal.AddListener(CrystalChange);
     }
+
+    private void CrystalChange(CrystalData data) {
+        string crystal = "";
+
+        if (data.id == 0) {
+            crystal = "neutral";
+        } else if (data.id == 1) {
+            crystal = "fire";
+        } else if (data.id == 2) {
+            crystal = "air";
+        }
+        
+
+        mc_crystal.SetColor("_Base_color", _colors.getColor(crystal + "_base_color"));
+        mc_crystal.SetColor("_Top_color", _colors.getColor(crystal +  "_top_color"));
+        mc_crystal.SetColor("_Bottom_color", _colors.getColor(crystal + "_bottom_color"));
+
+        mc_obsidian.SetColor("_Emission_Color", _colors.getColor(crystal + "_emission_color"));
+        mc_obsidian.SetColor("_Dissolve_color", _colors.getColor(crystal + "_emission_color"));
+
+        companion_crystal.SetColor("_Base_color", _colors.getColor(crystal + "_base_color"));
+        companion_crystal.SetColor("_Top_color", _colors.getColor(crystal + "_top_color"));
+        companion_crystal.SetColor("_Bottom_color", _colors.getColor(crystal + "_bottom_color"));
+    }   
 
     private void CleanedZone(int id) {
         if (id == 3) {

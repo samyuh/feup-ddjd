@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6533ea6aaa563d49a3399af0797cae3, type: 3}
   m_Name: Fire Crystal
   m_EditorClassIdentifier: 
-  id: 3
+  id: 1
   name: Fire
   icon: {fileID: 3286163911610860551, guid: b91255f4c11cfda47aaf0cc05e8fabe0, type: 3}
   crystalProjectile: {fileID: 1979048356021752, guid: 7be0d2751aeb8d940b39a9cbbb8ff20e, type: 3}

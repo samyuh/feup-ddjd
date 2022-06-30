@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6533ea6aaa563d49a3399af0797cae3, type: 3}
   m_Name: Obsidia
   m_EditorClassIdentifier: 
-  id: 3
+  id: 0
   name: Obsidia
   icon: {fileID: 3286163911610860551, guid: 3aa5cb157cffd8d4eb8e78962cf3dd6a, type: 3}
   crystalProjectile: {fileID: 5395098307693501117, guid: d2b2ad5a90f125242ae3bb0f53ed1c1f, type: 3}
