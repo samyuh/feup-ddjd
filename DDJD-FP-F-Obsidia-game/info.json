@@ -89,6 +89,10 @@
             "media_type": "image"
         },
         {
+            "filename": "puzzle.png",
+            "media_type": "image"
+        },
+        {
             "filename": "rangedattackonboss.png",
             "media_type": "image"
         },
