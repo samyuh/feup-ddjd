@@ -13,9 +13,9 @@ public abstract class SpiderState {
     protected float maxDistance = 50f;
     protected float followDistance = 2f;
     protected float speed = 0f;
-    protected float maxSpeed = 0.03f;
-    protected float acceleration = 0.01f;
-    protected float deceleration = 0.25f;
+    protected float maxSpeed = 0.08f;
+    protected float acceleration = 0.2f;
+    protected float deceleration = 1f;
 
     public SpiderState(SpiderController context, SpiderStateMachine stateMachine,  SpiderFactory stateFactory) { //GameObject target, GameObject context) {
        _context = context;
