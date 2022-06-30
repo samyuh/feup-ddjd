@@ -22,7 +22,6 @@ public class BossWalk : BossState {
     public override void ExitState() {
         base.ExitState();
 
-        Debug.Log("here");
         _context.Animator.SetBool("Run", false);
 
         //_context.RunSoundEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
