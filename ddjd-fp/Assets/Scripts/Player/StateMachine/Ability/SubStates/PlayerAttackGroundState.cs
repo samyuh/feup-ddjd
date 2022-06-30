@@ -23,7 +23,7 @@ public class PlayerAttackGroundState : PlayerAbilityState {
         _closeUp = true;
         _dealDamage = true;
         _elapsedTime = 0f;
-        Debug.Log("Attack" + _currentAttackIndex.ToString());
+
         _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), true);
 
         // Attack sound

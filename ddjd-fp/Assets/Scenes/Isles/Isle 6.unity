@@ -498,7 +498,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.28, y: 1.72, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &137796113
 MeshRenderer:
@@ -558,7 +558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137796110}
   m_LocalRotation: {x: 0, y: 0.14953533, z: 0, w: 0.9887564}
-  m_LocalPosition: {x: -44.2, y: 54.46, z: 15.9}
+  m_LocalPosition: {x: 0.44, y: 57.38, z: -33.58}
   m_LocalScale: {x: 11.2, y: 1, z: 26.99}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1209,6 +1209,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 190a5280832816040ac431fc2b5b8379, type: 3}
+--- !u!1 &882258316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8938990339789650682, guid: 5db4e43065d072d4cb12b072514e805f, type: 3}
+  m_PrefabInstance: {fileID: 56399390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &882258317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882258316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a62425dbe4105409595dc0435e1260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: 0
+  _colors: {fileID: 0}
+  id: 10
+  _numberButton: 0
+  _crystalPortal: {fileID: 2100000, guid: 23731774fee845a4bbfab74ccb15794f, type: 2}
+  _stonePortal: {fileID: 2100000, guid: 2918f009d36054948b8ed15db14964b6, type: 2}
+  _passagePortal: {fileID: 2100000, guid: f0e9c00a1a2a6204f868d211630b7353, type: 2}
+  Teleporter: {fileID: 1487252044}
 --- !u!1 &1044091532
 GameObject:
   m_ObjectHideFlags: 0

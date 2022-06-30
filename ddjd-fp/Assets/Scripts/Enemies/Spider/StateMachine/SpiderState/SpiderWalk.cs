@@ -11,21 +11,13 @@ public class SpiderWalk : SpiderState {
 
     public override void EnterState() { 
         base.EnterState();
-
-        Debug.Log("walk");
         _context.Animator.SetBool("Run", true);
-
-        // Running Sound
-        //FMOD.Studio.EventInstance coiso = FMODUnity.RuntimeManager.CreateInstance("event:/spidermob_run");
-        //coiso.start();
     }
 
     public override void ExitState() {
         base.ExitState();
 
         _context.Animator.SetBool("Run", false);
-        //_context.RunSoundEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        //_context.RunSoundEvent.release();
     }
 
     public override void PhysicsUpdate() {
@@ -33,7 +25,6 @@ public class SpiderWalk : SpiderState {
 
         if (Physics.Raycast(_context.transform.position, _target.transform.position - _context.transform.position, out RaycastHit hit, maxDistance, mask)) {
             float distance = hit.distance;
-            //Debug.Log("here");
 
             if (distance > followDistance)  {
                 Accelerate();

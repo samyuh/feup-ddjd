@@ -125,17 +125,23 @@ public class Player : MonoBehaviour {
         _data.CurrentHealth -= damage;
         
         if (_data.CurrentHealth <= 0) {
-            Events.OnDeath.Invoke();
-            // death sound
             FMODUnity.RuntimeManager.PlayOneShot(_deathSoundEvent);
+            StartCoroutine(DeathWaiter());
+
+            
         }
         else {
             Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
-            // damage sound
             FMODUnity.RuntimeManager.PlayOneShot(_hitSoundEvent);
         }
     }
 
+    IEnumerator DeathWaiter() {
+        Animator.SetBool("Death", true);
+        yield return new WaitForSeconds(4);
+        Animator.SetBool("Death", false);
+        Events.OnDeath.Invoke();
+    }
 
     public void GetItem(int item) {
         if(item == 0 && _data.HealthCrystal < _data.MaxHealthCrystal) {
@@ -165,9 +171,6 @@ public class Player : MonoBehaviour {
 
             // heal sound
             FMODUnity.RuntimeManager.PlayOneShot(_healSoundEvent);
-
-        } else {
-            print("No Health Crystals");
         }
     }
 

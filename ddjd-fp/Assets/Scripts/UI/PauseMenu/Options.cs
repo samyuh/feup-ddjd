@@ -16,6 +16,5 @@ public class Options : MonoBehaviour
     public void ToggleGrass()
     {
         grass = !grass;
-        Debug.Log(grass);
     }
 }

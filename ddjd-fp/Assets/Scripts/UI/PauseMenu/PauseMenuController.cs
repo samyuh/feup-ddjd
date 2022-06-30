@@ -25,7 +25,6 @@ public class PauseMenuController: MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("Quitting");
         Application.Quit();
     }
 }

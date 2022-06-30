@@ -151,7 +151,6 @@ public class PuzzleBehavior : MonoBehaviour
 
     void Reset(){
         if(reseting){
-            Debug.Log(moves.Count);
             if(moves.Count > 0){
                 (float cubeX, float cubeZ, float directionX, float directionZ) move = moves[moves.Count - 1];
                 for(int i = 0; i < cubes.Count; i ++){
