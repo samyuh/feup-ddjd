@@ -20,6 +20,9 @@ public static class Events {
     public static readonly EventNative GetFire = new EventNative(); 
     public static readonly EventNative GetAir = new EventNative(); 
 
+    public static readonly EventNative DisableMovement = new EventNative(); 
+    public static readonly EventNative EnableMovement = new EventNative(); 
+
     // // Update Player Status
     public static readonly EventNative<int, int> OnHealthUpdate = new EventNative<int, int>();
     public static readonly EventNative<int, int> OnCrystalManaUpdate = new EventNative<int, int>(); // TODO

@@ -64,6 +64,8 @@ public class InterfaceManager : MonoBehaviour
     }
     public void OnDialog(DialogManager currentDialog) {
         _playerController.enabled = false;
+
+        Events.DisableMovement.Invoke();
         _currentDialog = currentDialog;
 
         _dialogActive = !_dialogActive;
@@ -79,6 +81,7 @@ public class InterfaceManager : MonoBehaviour
                 _numDialog = 0;
                 _dialogOverlay.SetActive(_dialogActive);
                 Events.FinishDialog.Invoke();
+                
             } else {
                 _dialogCharacter.text = _currentDialog.dialog[_numDialog].character;
                 _dialogText.text =_currentDialog.dialog[_numDialog].text;
@@ -87,7 +90,8 @@ public class InterfaceManager : MonoBehaviour
         }
     }
 
-    public void FinishDialog(){
+    public void FinishDialog() {
+        Events.EnableMovement.Invoke();
         _playerController.enabled = true;
         _playerScript.enabled = true;
     }

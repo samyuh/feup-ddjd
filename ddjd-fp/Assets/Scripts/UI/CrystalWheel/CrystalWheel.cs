@@ -17,8 +17,6 @@ public class CrystalWheel: MonoBehaviour {
     private void Awake()
     {   
         _selected = false;
-        crystal = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().currentCrystals[id];
-        itemImage.sprite = crystal.icon;
 
         Events.OnChangeCrystalSlots.AddListener(OnChangeCrystalSlots);
     }
@@ -29,6 +27,9 @@ public class CrystalWheel: MonoBehaviour {
     }
 
     private void Update() {
+        crystal = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().currentCrystals[id];
+        itemImage.sprite = crystal.icon;
+
         if (_selected) {
             itemText.text = crystal.name;
         }

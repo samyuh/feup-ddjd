@@ -52,8 +52,9 @@ public class Player : MonoBehaviour {
     public CrystalData ActiveCrystal = null;
     public GameObject InteractableItem = null;
     public GameObject SecondaryObjectToThrow = null;
-
     #endregion
+
+    private bool _dying = false;
 
     private void Awake() {
         // External Components needed
@@ -124,11 +125,9 @@ public class Player : MonoBehaviour {
     public void ApplyDamage(int damage) {
         _data.CurrentHealth -= damage;
         
-        if (_data.CurrentHealth <= 0) {
+        if (_data.CurrentHealth <= 0 & !_dying) {
             FMODUnity.RuntimeManager.PlayOneShot(_deathSoundEvent);
             StartCoroutine(DeathWaiter());
-
-            
         }
         else {
             Events.OnHealthUpdate.Invoke(_data.CurrentHealth, _data.MaxHealth);
@@ -137,10 +136,14 @@ public class Player : MonoBehaviour {
     }
 
     IEnumerator DeathWaiter() {
+        _dying = true;
         Animator.SetBool("Death", true);
+        Events.DisableMovement.Invoke();
         yield return new WaitForSeconds(4);
         Animator.SetBool("Death", false);
         Events.OnDeath.Invoke();
+        Events.EnableMovement.Invoke();
+        _dying = false;
     }
 
     public void GetItem(int item) {

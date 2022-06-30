@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour {
 
     private void FireCrystal() {
         currentCrystals[1] = _fireCrystal;
+
+        Debug.Log("Here");
     }
 
     private void AirCrystal() {

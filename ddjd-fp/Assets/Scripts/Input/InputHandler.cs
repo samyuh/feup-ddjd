@@ -48,6 +48,9 @@ public class InputHandler : MonoBehaviour {
     private void Awake() {
         _inputAction = new InputController();
         
+        Events.DisableMovement.AddListener(DisableMovement);
+        Events.EnableMovement.AddListener(EnableMovement);
+
         _playerMovement = _inputAction.Player.Move;
         _playerCrystalWheel = _inputAction.Player.CrystalWheel;
         _playerRun = _inputAction.Player.Run;
@@ -62,31 +65,38 @@ public class InputHandler : MonoBehaviour {
         _togglePauseMenu = _inputAction.Player.PauseMenu;
         _nextDialog = _inputAction.Player.NextDialog;
 
-        EnablePlayerInput();
-    }
-
-    private void EnablePlayerInput() {
         _playerCrystalWheel.performed += OnToggleCrystalWheel;
         _playerCrystalWheel.canceled += OnToggleCrystalWheel;
-
-        _toggleInventory.performed += OnToggleInventory;
-        _togglePauseMenu.performed += OnTogglePauseMenu;
-
+        _playerInteract.performed += OnInteract;
+        _playerUseItem.performed += OnUseItem;
         _playerMovement.performed += OnMovement;
         _playerMovement.canceled += OnMovement;
 
         _playerLook.performed += OnLook;
         _playerLook.canceled += OnLook;
-
-        _playerInteract.performed += OnInteract;
-        _playerUseItem.performed += OnUseItem;
-
+        _toggleInventory.performed += OnToggleInventory;
+        _togglePauseMenu.performed += OnTogglePauseMenu;
         _nextDialog.performed += OnNextDialog;
+
         _inputAction.Player.Enable();
     }
 
-    private void DisablePlayerInput() {
-        _inputAction.Player.Disable();
+    private void EnableMovement() {
+        _playerCrystalWheel.performed += OnToggleCrystalWheel;
+        _playerCrystalWheel.canceled += OnToggleCrystalWheel;
+        _playerInteract.performed += OnInteract;
+        _playerUseItem.performed += OnUseItem;
+        _playerMovement.performed += OnMovement;
+        _playerMovement.canceled += OnMovement;
+    }
+
+    private void DisableMovement() {
+       _playerCrystalWheel.performed -= OnToggleCrystalWheel;
+        _playerCrystalWheel.canceled -= OnToggleCrystalWheel;
+        _playerInteract.performed -= OnInteract;
+        _playerUseItem.performed -= OnUseItem;
+        _playerMovement.performed -= OnMovement;
+        _playerMovement.canceled -= OnMovement;
     }
 
     private void Rebind() {
