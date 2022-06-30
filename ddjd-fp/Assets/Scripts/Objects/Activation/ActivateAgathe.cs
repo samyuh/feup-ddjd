@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ActivateAgathe : MonoBehaviour {
-    [SerializeField] private FollowPlayer _agatheFollow;
+    private FollowPlayer _agatheFollow;
 
     void Awake() {
-        _agatheFollow.enabled = false;
+        _agatheFollow = GameObject.FindGameObjectWithTag("Companion").GetComponent<FollowPlayer>();
     }
 
     void OnTriggerStay(Collider collider) {
