@@ -1006,6 +1006,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colors: {fileID: 11400000, guid: ab8a42c4bcf67c64b8b893cb2dc94db8, type: 2}
+  mc_crystal: {fileID: 2100000, guid: 309c49a173ef1ad4db8a9157b8f16f2b, type: 2}
+  mc_obsidian: {fileID: 2100000, guid: 6f32f607bc403704c8584bdab76cd905, type: 2}
+  companion_crystal: {fileID: 2100000, guid: 9dfe2f45bfd0d9846bc1daf7abb24d28, type: 2}
   i1_grass_road: {fileID: 2100000, guid: 1feadd80d94a58d4cabc4c56cc069a75, type: 2}
   i2_grass_road: {fileID: 2100000, guid: c30fa4b2bb9f7844aaab93e1b1452f4b, type: 2}
   i3_grass_road: {fileID: 2100000, guid: 5af7eb61bfda3b84b88760ed70631f37, type: 2}
