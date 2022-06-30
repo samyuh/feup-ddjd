@@ -552,6 +552,22 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5467380980141705394, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: _airSprite
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 27d871faf9930d9429770fbeb9e6f841, type: 3}
+    - target: {fileID: 5467380980141705394, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: _fireSprite
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: b91255f4c11cfda47aaf0cc05e8fabe0, type: 3}
+    - target: {fileID: 5467380980141705394, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: _mainCrystal
+      value: 
+      objectReference: {fileID: 475278499}
+    - target: {fileID: 5467380980141705394, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: _obsidiaSprite
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 3aa5cb157cffd8d4eb8e78962cf3dd6a, type: 3}
     - target: {fileID: 5467380980804006545, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -934,6 +950,17 @@ PrefabInstance:
     - {fileID: 5950269010900330311, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
     - {fileID: 3228502856296861631, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+--- !u!114 &475278499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2033138591438181469, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+  m_PrefabInstance: {fileID: 475278498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &590513492
 GameObject:
   m_ObjectHideFlags: 0
