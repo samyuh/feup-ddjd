@@ -215,12 +215,6 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Run
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: Attack0
     m_Type: 4
     m_DefaultFloat: 0
@@ -234,6 +228,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Attack2
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Run
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -539,22 +539,22 @@ AnimatorStateMachine:
     m_Position: {x: 490, y: -370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -996615132256969395}
-    m_Position: {x: -270, y: 420, z: 0}
+    m_Position: {x: -190, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8556012498250392033}
     m_Position: {x: -10, y: -170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3703194841248721874}
-    m_Position: {x: -460, y: 200, z: 0}
+    m_Position: {x: -250, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6764673710948992353}
     m_Position: {x: 440, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2453815824069489596}
-    m_Position: {x: 10, y: 210, z: 0}
+    m_Position: {x: 30, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8819186038898284603}
-    m_Position: {x: 340, y: 210, z: 0}
+    m_Position: {x: 290, y: -20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -618,7 +618,7 @@ AnimatorState:
   m_Motion: {fileID: -2333315012743274609, guid: 6533c3dd459cfb541bd3dc1f06086138, type: 3}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: Death
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1101 &8586688527536791241

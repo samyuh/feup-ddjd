@@ -20,3 +20,6 @@ MonoBehaviour:
     text: "My father once told me that they’re used to make an adhesive to fix crystals"
   - character: Galena
     text: "Hmm, I wonder if it'll work on.. us now...?"
+  - character: Tutorial
+    text: "Press Q to use an health item and regenerate some of the health you lost"
+
