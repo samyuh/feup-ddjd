@@ -112,7 +112,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 881063424689082348}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8048611464465064338}
+        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &165834241872096576
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,6 +3737,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &3768602910905979521
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,7 +5798,11 @@ MonoBehaviour:
   _pauseMenu: {fileID: 8048611464465064338}
   _gameOverlay: {fileID: 5467380981359263837}
   _dialogOverlay: {fileID: 2856352563986672701}
+  _mainCrystal: {fileID: 0}
   _nothingSprite: {fileID: 3286163911610860551, guid: 45debf74940707146979a38f88b60f01, type: 3}
+  _obsidiaSprite: {fileID: 0}
+  _airSprite: {fileID: 0}
+  _fireSprite: {fileID: 0}
   _health: {fileID: 2951064643720383054}
   _healthSprite: {fileID: 3286163911610860551, guid: d000c75deb462f94b9d3d0808b5dd903, type: 3}
   _target: {fileID: 1953439051085437077}
