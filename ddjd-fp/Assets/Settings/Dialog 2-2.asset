@@ -17,6 +17,10 @@ MonoBehaviour:
   - character: Tutorial
     text: "It’s GO time!"
   - character: Tutorial
-    text: "For Galena’s melee attacks, press the RMB"
+    text: "For Galena’s melee attacks, press the LMB"
   - character: Tutorial
-    text: "For Agate’s attacks, press ???? to aim and ???? to shoot"
+    text: "Agate can also help you in combat with it's shooting!"
+  - character: Tutorial
+    text: "First, choose the spell you want to be used with TAB"
+  - character: Tutorial
+    text: "Then, use the RMB to aim and the LMB to fire"
