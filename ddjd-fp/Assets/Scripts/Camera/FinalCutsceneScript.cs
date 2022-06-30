@@ -32,6 +32,7 @@ public class FinalCutsceneScript : MonoBehaviour
             play = false;
             alreadyPlayed = true;
             timeline.Play();
+            Destroy(gameObject);
         }
     }
 

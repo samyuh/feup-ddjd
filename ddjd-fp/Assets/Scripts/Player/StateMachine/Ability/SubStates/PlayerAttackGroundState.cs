@@ -95,7 +95,7 @@ public class PlayerAttackGroundState : PlayerAbilityState {
         Vector3 spherePosition = new Vector3(_context.transform.position.x + 1f * _context.transform.TransformDirection(Vector3.forward).x, _context.transform.position.y - 0.1f, 
                                         _context.transform.position.z + 1f * _context.transform.TransformDirection(Vector3.forward).z);
 
-        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 0.2f);
+        Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 1f);
         foreach (var hitCollider in hitColliders) {
             
             if (hitCollider.gameObject.tag == "Enemy") {
