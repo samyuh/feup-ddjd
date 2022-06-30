@@ -743,11 +743,11 @@ PrefabInstance:
     - target: {fileID: 8048611463573635303, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: currentCrystals.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 08a016eb5dc867a4e803e2fe59512fae, type: 2}
+      objectReference: {fileID: 11400000, guid: c9e30b94017dd9f4f9e27c63cc4d8e36, type: 2}
     - target: {fileID: 8048611463573635303, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: currentCrystals.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 05612a871c619de4193a1cf430b006c6, type: 2}
+      objectReference: {fileID: 11400000, guid: c9e30b94017dd9f4f9e27c63cc4d8e36, type: 2}
     - target: {fileID: 8048611464311844740, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: m_Name
       value: GameHandler
