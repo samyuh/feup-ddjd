@@ -8,6 +8,7 @@ public class PlayerJumpState : PlayerAbilityState {
 
     public override void EnterState() {
         base.EnterState();
+        Events.OnFreeFall.Invoke();
         _context.Animator.SetBool("Jump", true);
         FMODUnity.RuntimeManager.PlayOneShot(_context.JumpSoundEvent);
         PerformJump();
