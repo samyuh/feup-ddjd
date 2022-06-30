@@ -35,8 +35,12 @@ public class HubCleanse : MonoBehaviour {
     private void CleanedZone(int id) {
         if (id == 3) {
             CleanseIsle3();
+
+            
         } else if (id == 6) {
             CleanseIsle6();
+
+
         }
     }
 

@@ -42,7 +42,7 @@ public class PortalTeleporter : MonoBehaviour
         }
     }
 
-    public void Activate(){
+    public void Activate() {
         canTeleport = true;
     }
 

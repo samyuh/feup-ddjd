@@ -16,7 +16,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void Demo()
     {
-        SceneManager.LoadScene("Isles (Demo)");
+        SceneManager.LoadScene("demo_full_isles");
     }
 
     public void Options()

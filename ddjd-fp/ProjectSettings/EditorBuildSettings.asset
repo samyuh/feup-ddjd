@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Game/Isles/Isles (Demo).unity
+    path: 
     guid: 39301fc0b16edc04783d5a41aad752a3
   - enabled: 1
     path: Assets/Scenes/Isles/Isle 1.unity
@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Isles/Isle 6.unity
     guid: 96284a3c7cf94654b85ea23cb37b4c30
+  - enabled: 1
+    path: Assets/Scenes/Isles/demo_full_Isles.unity
+    guid: 55f3d6fbace4f844a823555e7828737c
+  - enabled: 1
+    path: Assets/Scenes/Menus/Start Menu.unity
+    guid: 5997fea9d889b68448deb51e150b8552
   m_configObjects: {}

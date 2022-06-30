@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class BossController : MonoBehaviour {
     protected int _healthPoints = 700;
     [SerializeField] private Slider _healthBar;
+    [SerializeField] private int _portalBefore;
+    [SerializeField] private int _portalAfter;
     [SerializeField] private int _isle;
 
     #region Animator
@@ -51,7 +53,8 @@ public class BossController : MonoBehaviour {
          _healthBar.value = 0;
         StateMachine.ChangeState(StateFactory.BossDeath);
 
-        Events.OnActivatePortal.Invoke(_isle);
+        Events.OnActivatePortal.Invoke(_portalBefore);
+        Events.OnActivatePortal.Invoke(_portalAfter);
         Events.OnCleanZone.Invoke(_isle);
     }
 
