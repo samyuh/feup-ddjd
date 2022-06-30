@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae4d917783cf744b85c044d4b8dda27, type: 3}
+  m_Name: Dialog 5-1
+  m_EditorClassIdentifier: 
+  id: 1
+  dialog:
+  - character: Tutorial
+    text: "Galena can’t fly, good thing there is a puzzle there with some nice climbable stone steps"
+  - character: Tutorial
+    text: "To move the pieces, hit them with one of Galena’s melee attacks"
+  - character: Tutorial
+    text: "If you get stuck, use the reset button next to the puzzle"

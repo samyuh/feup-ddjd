@@ -27,3 +27,10 @@ MonoBehaviour:
     text: 'Where did she go? '
   - character: Galena
     text: "Sigh\u2026 Let\u2019s find the cat then, as always\u2026"
+  - character: Tutorial
+    text: "You need to find Agate"
+  - character: Tutorial
+    text: "Use your mouse to control the camera" 
+  - character: Tutorial
+    text: "Press W, A, S, D to walk. You can also run by holding SHIFT" 
+   

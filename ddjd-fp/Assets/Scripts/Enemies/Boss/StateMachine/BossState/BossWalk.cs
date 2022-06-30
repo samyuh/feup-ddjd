@@ -22,20 +22,17 @@ public class BossWalk : BossState {
     public override void ExitState() {
         base.ExitState();
 
-        Debug.Log("here");
         _context.Animator.SetBool("Run", false);
 
         //_context.RunSoundEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         //_context.RunSoundEvent.release();
     }
 
-    public override void LogicUpdate() {
-        base.LogicUpdate();
+    public override void PhysicsUpdate() {
+        base.PhysicsUpdate();
 
         if (Physics.Raycast(_context.transform.position, _target.transform.position - _context.transform.position, out RaycastHit hit, maxDistance, mask)) {
             float distance = hit.distance;
-            //Debug.Log("here");
-
             if (distance > followDistance)  {
                 Accelerate();
             }
