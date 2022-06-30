@@ -26,6 +26,12 @@ public class PortalListener : MonoBehaviour {
             _strElement = "air";
         }
 
+        _crystalPortal.SetColor("_Base_color",_colors.getColor("deactivated_crystal_base"));
+        _crystalPortal.SetColor("_Top_color", _colors.getColor("deactivated_crystal_top"));
+        _crystalPortal.SetColor("_Bottom_color", _colors.getColor("deactivated_crystal_bottom"));
+         _stonePortal.SetColor("_Emission_Color", _colors.getColor("deactivated_emission"));
+        _passagePortal.SetFloat("_Dissolve_Amount", 50f);
+
         Events.OnActivatePortal.AddListener(ActivatePortal);
         Events.OnDeactivatePortal.AddListener(DeactivatePortal);
     }

@@ -15,10 +15,16 @@ public class PortalTeleporter : MonoBehaviour
     {
         if(playerIsOverlapping && canTeleport) {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            Debug.Log(GameObject.Find("portal_" + nextScene + "_" + currentScene).transform.position);
 
+            GameObject rootObject = GameObject.Find("island" + nextScene);
+            GameObject grassNext = rootObject.transform.Find( "grass_" + nextScene).gameObject;
+            GameObject grassCurrent = GameObject.Find("grass_" + currentScene);
+
+            Debug.Log("grass_" + nextScene);
+            grassNext.SetActive(true);
             player.transform.position = GameObject.Find("portal_" + nextScene + "_" + currentScene).transform.position;
             playerIsOverlapping = false;
+            grassCurrent.SetActive(false);
         }
     }
 
