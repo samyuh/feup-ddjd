@@ -57,11 +57,43 @@
         "game.executable CHANGE THIS"
     ],
     "UC": "DDJD",
-    "website": "CHANGE THIS",
-    "icon": "CHANGE THIS",
+    "website": "https://samuuuh.itch.io/obsidia",
+    "icon": "Obsidia_Icon.png",
     "media": [
         {
-            "filename": "CHANGE THIS",
+            "filename": "dialog.png",
+            "media_type": "image"
+        },
+        {
+            "filename": "elementalwheel.png",
+            "media_type": "image"
+        },
+        {
+            "filename": "fireelement.png",
+            "media_type": "image"
+        },
+        {
+            "filename": "lockedportal.png",
+            "media_type": "image"
+        },
+        {
+            "filename": "mainmenu.png",
+            "media_type": "image"
+        },
+        {
+            "filename": "map.png",
+            "media_type": "image"
+        },
+        {
+            "filename": "obsidianattack.png",
+            "media_type": "image"
+        },
+        {
+            "filename": "rangedattackonboss.png",
+            "media_type": "image"
+        },
+        {
+            "filename": "unlockedportal.png",
             "media_type": "image"
         }
     ]
