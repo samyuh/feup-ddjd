@@ -1242,6 +1242,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1374562619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374562616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7d094455ea17288b7959a23b178ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colors: {fileID: 11400000, guid: ab8a42c4bcf67c64b8b893cb2dc94db8, type: 2}
+  data: {fileID: 11400000, guid: aea9e8e2d825df445ba58ead73077eb0, type: 2}
+  _activated: 0
+  _saveCrystal: {fileID: 2100000, guid: 662091bce73183e4ba67a2b3c4a5f6b8, type: 2}
+  _saveEmission: {fileID: 2100000, guid: c530d743cc050bb4b88be4b5c08091dd, type: 2}
 --- !u!1 &1575279536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5771434061176645771, guid: 528071de0184e1548acd9fae8b16056c, type: 3}
@@ -1338,6 +1355,10 @@ PrefabInstance:
     - target: {fileID: 4124591511723546629, guid: 528071de0184e1548acd9fae8b16056c, type: 3}
       propertyPath: m_Name
       value: Isle 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670026571697828698, guid: 528071de0184e1548acd9fae8b16056c, type: 3}
+      propertyPath: m_TagString
+      value: CheckPoint
       objectReference: {fileID: 0}
     - target: {fileID: 9188307231517460846, guid: 528071de0184e1548acd9fae8b16056c, type: 3}
       propertyPath: m_Enabled

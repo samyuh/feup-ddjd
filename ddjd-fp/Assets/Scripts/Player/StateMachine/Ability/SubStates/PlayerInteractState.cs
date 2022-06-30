@@ -46,13 +46,7 @@ public class PlayerInteractState : PlayerAbilityState {
             } else if(_context.InteractableItem.tag == "Scroll"){
                 Events.OnCatchScroll.Invoke(0);
                 _context.DestroyObject(_context.InteractableItem);
-            } else if(_context.InteractableItem.tag == "Enemy"){
-                Debug.Log("Found the Enemy");
-                
-                Debug.Log("Teleport to: " + CheckPoint.GetActiveCheckPointPosition());
-            }
-            else if(_context.InteractableItem.tag == "CheckPoint"){
-                Debug.Log("Found The Checkpoint");
+            }  else if(_context.InteractableItem.tag == "CheckPoint"){
                 _context.InteractableItem.GetComponent<CheckPoint>().ActivateCheckPoint();
             }
         }
