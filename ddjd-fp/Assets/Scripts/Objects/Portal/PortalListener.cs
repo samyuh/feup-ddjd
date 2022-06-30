@@ -36,7 +36,7 @@ public class PortalListener : MonoBehaviour {
         if (portalNumber == id) {
             _numberButton -= 1;
 
-            if (_numberButton == 0) {
+            if (_numberButton <= 0) {
                 _crystalPortal.SetColor("_Base_color",_colors.getColor(_strElement +"_base_color"));
                 _crystalPortal.SetColor("_Top_color", _colors.getColor(_strElement +"_top_color"));
                 _crystalPortal.SetColor("_Bottom_color", _colors.getColor(_strElement +"_bottom_color"));
@@ -49,7 +49,6 @@ public class PortalListener : MonoBehaviour {
 
     private void DeactivatePortal(int portalNumber) {
         if (portalNumber == id) {
-            _numberButton -= 1;
 
             Debug.Log("here");
             _crystalPortal.SetColor("_Base_color",_colors.getColor("deactivated_crystal_base"));
