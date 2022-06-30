@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     #region Game Data
     [SerializeField] private GameData _data;
+    [SerializeField] private  CrystalData _airCrystal;
+    [SerializeField] private CrystalData _fireCrystal;
     [SerializeField] public List<CrystalData> currentCrystals;
     #endregion
 
@@ -31,15 +33,17 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Isle 5", LoadSceneMode.Additive);
         SceneManager.LoadScene("Isle 6", LoadSceneMode.Additive);
 
-        EnablePlayer();
+        EnablePlayer(); 
     }
 
     #region Player
     private void EnablePlayer() {
         Events.OnHealthUpdate.AddListener(HealthUpdate);
         Events.OnCatchHealthCrystal.AddListener(CatchHealthCrystal);
-        Events.OnCatchCrystal.AddListener(CatchCrystal);
         Events.OnUseHealthCrystal.AddListener(UseHealthCrystal);
+
+        Events.GetFire.AddListener(FireCrystal);
+        Events.GetAir.AddListener(AirCrystal);
     }
 
     private void HealthUpdate(int currentHealth, int maxHealth) {
@@ -48,22 +52,21 @@ public class GameManager : MonoBehaviour {
     }
 
     private void CatchHealthCrystal() {
-        if(_data.HealthCrystal > _data.MaxHealthCrystal) {
-            Debug.Log("Can't Carry More Health Crystals");
-        } else {
+        if(_data.HealthCrystal < _data.MaxHealthCrystal) {
             _data.HealthCrystal += 1;
-            Debug.Log("Collected Health Crystal");
-
         }
     }
 
-    private void CatchCrystal() {
-        
+    private void FireCrystal() {
+        currentCrystals[1] = _fireCrystal;
+    }
+
+    private void AirCrystal() {
+        currentCrystals[2] = _airCrystal;
     }
 
     private void UseHealthCrystal() {
         _data.HealthCrystal -= 1;
-        Debug.Log("Used Health Crystal");
     }
 
     public void UpdateCurrentIsland(int number)

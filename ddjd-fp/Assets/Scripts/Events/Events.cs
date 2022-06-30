@@ -16,12 +16,14 @@ public static class Events {
     public static readonly EventNative<int> OnBossBattle = new EventNative<int>();
     public static readonly EventNative<int> OnCleanZone = new EventNative<int>();
 
+    public static readonly EventNative GetFire = new EventNative(); 
+    public static readonly EventNative GetAir = new EventNative(); 
+
     // // Update Player Status
     public static readonly EventNative<int, int> OnHealthUpdate = new EventNative<int, int>();
     public static readonly EventNative<int, int> OnCrystalManaUpdate = new EventNative<int, int>(); // TODO
 
     // // Player Actions
-    // // 
     // // // Catch
     public static readonly EventNative OnCatchCrystal = new EventNative();
     public static readonly EventNative<int> OnCatchScroll = new EventNative<int>();
