@@ -112,5 +112,4 @@ public class RenderTerrainMap : MonoBehaviour
         camToDrawWith.transform.position = bounds.center + new Vector3(0, bounds.extents.y + 5f, 0);
         camToDrawWith.transform.parent = gameObject.transform;
     }
- 
 }
