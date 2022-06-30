@@ -15,9 +15,5 @@ public class CrystalBar: MonoBehaviour {
 
     private void CrystalManaUpdate(int currentCrystal, int maxCrystal) {
         _crystalBar.value = (float) currentCrystal / (float) maxCrystal;
-
-        Debug.Log(currentCrystal );
-        Debug.Log(maxCrystal);
-        Debug.Log(_crystalBar.value);
     }
 }
