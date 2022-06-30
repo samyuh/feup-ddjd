@@ -29,7 +29,15 @@ public class HubCleanse : MonoBehaviour {
     private float _obsidian;
 
     private void Awake() {
-        CleanseIsle3();
+        Events.OnCleanZone.AddListener(CleanedZone);
+    }
+
+    private void CleanedZone(int id) {
+        if (id == 3) {
+            CleanseIsle3();
+        } else if (id == 6) {
+            CleanseIsle6();
+        }
     }
 
     private void CleanseIsle3() {
