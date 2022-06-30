@@ -294,6 +294,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 163538454093437732, guid: 5db4e43065d072d4cb12b072514e805f, type: 3}
+      propertyPath: m_TagString
+      value: CheckPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 6580367373960489779, guid: 5db4e43065d072d4cb12b072514e805f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 54.6
@@ -405,6 +409,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &56399398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56399393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7d094455ea17288b7959a23b178ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colors: {fileID: 11400000, guid: ab8a42c4bcf67c64b8b893cb2dc94db8, type: 2}
+  data: {fileID: 11400000, guid: aea9e8e2d825df445ba58ead73077eb0, type: 2}
+  _activated: 0
+  _saveCrystal: {fileID: 2100000, guid: a0af4ba9cfda4114e8efe7ac5bae1fbb, type: 2}
+  _saveEmission: {fileID: 2100000, guid: 347ec9845bdb7cb42bfb9c5eef37d3b4, type: 2}
 --- !u!1 &70173185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5771919205068876842, guid: 5db4e43065d072d4cb12b072514e805f, type: 3}
