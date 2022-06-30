@@ -22,7 +22,7 @@ public class PortalListener : MonoBehaviour {
     public void Awake() {
         if (element == ElementType.Fire) {
             _strElement = "fire";
-        } else if (element == ElementType.Fire) {
+        } else if (element == ElementType.Air) {
             _strElement = "air";
         } else {
             _strElement = "neutral";
