@@ -15,4 +15,12 @@ MonoBehaviour:
   id: 1
   dialog:
   - character: Tutorial
-    text: "You can save your progress in the save hubs, they are located near the entrance portal to each island"
+    text: "Combat can be dangerous! You can save your progress in the save hubs, they are located near the entrance portal to each island"
+  - character: Tutorial
+    text: "For Galena’s melee attacks, press the LMB"
+  - character: Tutorial
+    text: "Agate can also help you in combat with it's shooting!"
+  - character: Tutorial
+    text: "First, choose the spell you want to be used with TAB"
+  - character: Tutorial
+    text: "Then, use the RMB to aim and the LMB to fire"
