@@ -58,7 +58,9 @@ public class PlayerAttackGroundState : PlayerAbilityState {
             if (_context.Animator.GetCurrentAnimatorStateInfo(0).length < _context.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + 0.5f) {
                 _stateMachine.ChangeState(_factory.IdleState);
             }
-        } else if (_elapsedTime > 0.20f) {
+        } 
+        /* else if (_elapsedTime > 0.20f) {
+            
             if (_closeUp) CloseUp();
 
             if (_movingTowards) { 
@@ -68,14 +70,13 @@ public class PlayerAttackGroundState : PlayerAbilityState {
                 Vector3 targetPos = Vector3.Lerp(_startPosition, _destination, interpolationRatio);
                 _context.Controller.Move(targetPos - _context.Controller.transform.position);
             }
-        }
+             }
+            */
+       
     }
 
     private void CloseUp() {
         _closeUp = false;
-
-        // TODO: 
-        // Do this with raycast instead?
         Vector3 spherePosition = new Vector3(_context.transform.position.x + 2f * _context.transform.TransformDirection(Vector3.forward).x, _context.transform.position.y + 0.2f, 
                                         _context.transform.position.z + 2f * _context.transform.TransformDirection(Vector3.forward).z);
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 1.3f);
@@ -91,8 +92,8 @@ public class PlayerAttackGroundState : PlayerAbilityState {
 
     private void DealDamage() {
         _dealDamage = false;
-        Vector3 spherePosition = new Vector3(_context.transform.position.x + 0.616f * _context.transform.TransformDirection(Vector3.forward).x, _context.transform.position.y - 0.1f, 
-                                        _context.transform.position.z + 0.616f * _context.transform.TransformDirection(Vector3.forward).z);
+        Vector3 spherePosition = new Vector3(_context.transform.position.x + 1f * _context.transform.TransformDirection(Vector3.forward).x, _context.transform.position.y - 0.1f, 
+                                        _context.transform.position.z + 1f * _context.transform.TransformDirection(Vector3.forward).z);
 
         Collider[] hitColliders = Physics.OverlapSphere(spherePosition, 0.2f);
         foreach (var hitCollider in hitColliders) {
