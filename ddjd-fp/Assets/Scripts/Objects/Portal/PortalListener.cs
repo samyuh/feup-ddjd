@@ -22,8 +22,10 @@ public class PortalListener : MonoBehaviour {
     public void Awake() {
         if (element == ElementType.Fire) {
             _strElement = "fire";
-        } else {
+        } else if (element == ElementType.Fire) {
             _strElement = "air";
+        } else {
+            _strElement = "neutral";
         }
 
         Events.OnActivatePortal.AddListener(ActivatePortal);
