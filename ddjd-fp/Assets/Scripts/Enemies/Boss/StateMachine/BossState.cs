@@ -13,8 +13,8 @@ public abstract class BossState {
     protected float maxDistance = 50f;
     protected float followDistance = 7f;
     protected float speed = 0f;
-    protected float maxSpeed = 1.0f;
-    protected float acceleration = 0.1f;
+    protected float maxSpeed = 0.25f;
+    protected float acceleration = 0.2f;
     protected float deceleration = 1f;
 
     public BossState(BossController context, BossStateMachine stateMachine,  BossFactory stateFactory) { //GameObject target, GameObject context) {
