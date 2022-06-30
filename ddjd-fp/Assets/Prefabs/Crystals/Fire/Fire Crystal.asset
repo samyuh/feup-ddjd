@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 3
   name: Fire
   icon: {fileID: 3286163911610860551, guid: b91255f4c11cfda47aaf0cc05e8fabe0, type: 3}
-  crystalProjectile: {fileID: 5395098307693501117, guid: ba287251d96aec744963f57da0280f4a, type: 3}
+  crystalProjectile: {fileID: 1979048356021752, guid: 7be0d2751aeb8d940b39a9cbbb8ff20e, type: 3}
