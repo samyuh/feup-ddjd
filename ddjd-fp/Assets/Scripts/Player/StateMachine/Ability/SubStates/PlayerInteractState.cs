@@ -44,8 +44,7 @@ public class PlayerInteractState : PlayerAbilityState {
                 _context.DestroyObject(_context.InteractableItem);
                 _context.GetItem(1);
             } else if(_context.InteractableItem.tag == "Scroll"){
-                Debug.Log("Catch the scroll");
-                Events.OnCatchScroll.Invoke();
+                Events.OnCatchScroll.Invoke(0);
                 _context.DestroyObject(_context.InteractableItem);
             } else if(_context.InteractableItem.tag == "Enemy"){
                 Debug.Log("Found the Enemy");

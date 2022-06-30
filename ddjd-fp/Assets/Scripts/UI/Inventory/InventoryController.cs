@@ -9,30 +9,37 @@ public class InventoryController: MonoBehaviour
 {
     private bool _active = false;
     
-    [SerializeField] private GameObject _crystalInterface;
-    [SerializeField] private GameObject _scrollsInterface;
+    #region Health
     [SerializeField] private GameObject _potionInterface;
-
-    private SVGImage[] _crystalList;
-    private SVGImage[] _scrollsList;
     private SVGImage[] _potionList;
-
-    private int _crystalNum = 0;
-    private int _scrollNum = 0;
     private int _potionNum = 0;
 
-    // TODO: REFACTOR THIS
     [SerializeField] private Sprite _nothing;
-    [SerializeField] private Sprite _airCrystal;
     [SerializeField] private Sprite _health;
+    #endregion
 
-    private void Awake()
-    {   
+    #region Scroll
+     [SerializeField] private GameObject _map;
+    [SerializeField] private GameObject _elements;
+
+    [SerializeField] private SVGImage _scrollsMap;
+    [SerializeField] private SVGImage _scrollsText;
+    [SerializeField] private Sprite _scrollSprite;
+    #endregion
+
+    #region Crystal
+     [SerializeField] private Sprite _airCrystal;
+    [SerializeField] private Sprite _fireCrystal;
+
+    [SerializeField] private SVGImage _firstSpot;
+    [SerializeField] private SVGImage _secondSpot;
+    #endregion
+
+    private void Awake() {   
         gameObject.SetActive(false);
 
-        #region Earn new Crystal
-        Events.OnCatchCrystal.AddListener(OnCollectCrystal);
-        #endregion
+        Events.GetFire.AddListener(FireCrystal);
+        Events.GetAir.AddListener(AirCrystal);
 
         #region Health
         Events.OnCatchHealthCrystal.AddListener(OnCollectHealth);
@@ -49,12 +56,22 @@ public class InventoryController: MonoBehaviour
         #endregion
     }
 
-    public void OnCollectCrystal() {
-       Debug.Log("Collect Crystal");
+    public void FireCrystal() {
+        _firstSpot.sprite = _fireCrystal;
     }
 
-    public void OnCollectScroll() {
-       Debug.Log("Collect Scroll");
+    public void AirCrystal() {
+        _secondSpot.sprite = _airCrystal;
+    }
+
+    public void OnCollectScroll(int id) {
+       if (id == 0) {
+        _map.GetComponent<Button>().enabled = true;
+        _scrollsMap.sprite = _scrollSprite;
+       } else if (id == 1) {
+        _elements.GetComponent<Button>().enabled = true;
+        _scrollsText.sprite = _scrollSprite;
+       }
     }
 
     public void OnCollectHealth() {
@@ -81,9 +98,5 @@ public class InventoryController: MonoBehaviour
             Time.timeScale = 1f;
         }
 
-    }
-
-    public void OpenScroll() { 
-        
     }
 }

@@ -36,11 +36,11 @@ public class HubCleanse : MonoBehaviour {
         if (id == 3) {
             CleanseIsle3();
 
-            
+            Events.GetFire.Invoke();
         } else if (id == 6) {
             CleanseIsle6();
 
-
+            Events.GetAir.Invoke();
         }
     }
 
