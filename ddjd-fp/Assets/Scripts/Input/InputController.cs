@@ -323,7 +323,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""559d0a62-14e2-4b03-8f10-146a59005862"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -334,7 +334,7 @@ public partial class @InputController : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a986bd03-4635-4345-8838-a9fe473840e3"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
