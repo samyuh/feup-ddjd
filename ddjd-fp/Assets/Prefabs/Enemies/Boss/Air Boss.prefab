@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 7824122004688485174}
   - component: {fileID: 7824122004688485175}
   m_Layer: 0
-  m_Name: Fire Boss
+  m_Name: Air Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,8 +230,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7824122004688485196}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 6533c3dd459cfb541bd3dc1f06086138, type: 3}
-  m_Controller: {fileID: 9100000, guid: 14f3cc9cc309a0f4f904987f7017ff29, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 713a0c9da5febc7429610b33628cd1ac, type: 3}
+  m_Controller: {fileID: 9100000, guid: 3b0d1a5cbf2f8fd449ab7c61e7751234, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6533c3dd459cfb541bd3dc1f06086138, type: 3}
       propertyPath: m_Name
-      value: Fire Boss
+      value: Air Boss
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 6533c3dd459cfb541bd3dc1f06086138, type: 3}
