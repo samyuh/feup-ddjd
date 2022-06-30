@@ -38,13 +38,6 @@ public class PlayerAimState : PlayerAbilityState {
         base.LogicUpdate();
 
         base.PlayerRotation();
-        // after x elapsed time ready to throw  = true
-
-        // Some movement of the player, 
-
-        // change player angle PlayerRotation on base
-
-        // Keep companion looking at target while aiming
         
         companion.transform.position = companionPlace.transform.position;
         companion.transform.rotation = Quaternion.RotateTowards(companion.transform.rotation, companionPlace.transform.rotation, 100f * Time.deltaTime);
@@ -96,14 +89,17 @@ public class PlayerAimState : PlayerAbilityState {
 
 
             if (Physics.Raycast(ray, out RaycastHit hit)) {
-                GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
-                Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-                Vector3 direction = (hit.point - companion.transform.position);
-                projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
-                projectileRb.angularDrag = 100;
-            }
+                if (_context.Data.ManaCrystal >= 100) {
+                    GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
+                    Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+                    Vector3 direction = (hit.point - companion.transform.position);
+                    projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
+                    projectileRb.angularDrag = 100;
 
-            
+                    _context.Data.ManaCrystal -= 100;
+                    Events.OnCrystalManaUpdate.Invoke(_context.Data.ManaCrystal, _context.Data.MaxMana);
+                }
+            }
         }
     }
 

@@ -396,6 +396,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5467380979657660718, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5467380980804006545, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -403,6 +407,10 @@ PrefabInstance:
     - target: {fileID: 5467380980804006545, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467380980804006545, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7687419120476037716, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -420,6 +428,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8048611463573635303, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: currentCrystals.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 08a016eb5dc867a4e803e2fe59512fae, type: 2}
+    - target: {fileID: 8048611463573635303, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+      propertyPath: currentCrystals.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c9e30b94017dd9f4f9e27c63cc4d8e36, type: 2}
     - target: {fileID: 8048611464311844740, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: m_Name
       value: GameHandler
@@ -972,7 +988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7568085503226362796, guid: cd6f668c7e03ac34fa7d85c2e4628e9a, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.615202
+      value: 1.7770833
       objectReference: {fileID: 0}
     - target: {fileID: 7863856737185440882, guid: cd6f668c7e03ac34fa7d85c2e4628e9a, type: 3}
       propertyPath: m_Enabled
@@ -992,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8712649731985762925, guid: cd6f668c7e03ac34fa7d85c2e4628e9a, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.615202
+      value: 1.7770833
       objectReference: {fileID: 0}
     - target: {fileID: 8712649732034958355, guid: cd6f668c7e03ac34fa7d85c2e4628e9a, type: 3}
       propertyPath: m_ChildCameras.Array.size
@@ -1057,3 +1073,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d0d290e5d00f94480657a8136aed75, type: 3}
+--- !u!1 &2128526035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5467380979657660716, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
+  m_PrefabInstance: {fileID: 475278498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2128526038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128526035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6639db7ecb2614a8252b5e3d1b9af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

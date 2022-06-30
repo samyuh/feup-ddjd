@@ -55,7 +55,7 @@ public class InterfaceManager : MonoBehaviour
 
     public void OnDialog(DialogManager currentDialog) {
         _playerController.enabled = false;
-        _playerScript.enabled = false;
+        //_playerScript.enabled = false;
         /*_playerAnimator.SetBool("Idle", true);
         _playerAnimator.enabled = false;*/
         

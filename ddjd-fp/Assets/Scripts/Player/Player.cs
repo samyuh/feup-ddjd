@@ -144,8 +144,8 @@ public class Player : MonoBehaviour {
         }
         else if(item == 1) {
             int currentMana = Math.Min(_data.ManaCrystal + 100, _data.MaxMana);
-
-            Events.OnCrystalManaUpdate.Invoke(currentMana, _data.MaxMana);
+            _data.ManaCrystal = currentMana;
+            Events.OnCrystalManaUpdate.Invoke(_data.ManaCrystal, _data.MaxMana);
         }
     }
 
