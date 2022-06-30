@@ -31,9 +31,4 @@ public class SendFlying : MonoBehaviour
         }
         
     }
-
-
-
-
-
 }

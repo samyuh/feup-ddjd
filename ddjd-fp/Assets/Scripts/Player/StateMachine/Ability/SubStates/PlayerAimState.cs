@@ -51,57 +51,43 @@ public class PlayerAimState : PlayerAbilityState {
         Vector2 screenCenterPoint = new Vector2(Screen.width /2f, Screen.height / 2f);
         Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
 
-        // Condition for Regular shooting
         if (readyToThrow && _context.ActiveCrystal != null) {
-            // ABILITIES
-            // projectile.layer = LayerMask.NameToLayer("Projectile");
+           if ((_context.Data.ManaCrystal >= 100) && (Physics.Raycast(ray, out RaycastHit hit))) {
+                GameObject projectile;
+                Rigidbody projectileRb;
+                Vector3 direction;
+                switch(_context.ActiveCrystal.name) {
+                    case "Obsidia":
+                        projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
 
-            // Physics.IgnoreCollision(projectile.GetComponent<Collider>(),companion.GetComponent<Collider>());
-            /*
-            switch(_context.ActiveCrystal.name) {
-                case "Obsidia":
-                    
-                    toShot = true;
-                    break;
-                case "Air":
-                    projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position, _context.Camera.MainCamera.transform.rotation);
-                    toShot = true;
-                    break;
+                        _context.Data.ManaCrystal -= 100;
+                        Events.OnCrystalManaUpdate.Invoke(_context.Data.ManaCrystal, _context.Data.MaxMana);
+                        break;
+                    case "Air":
+                        projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
+                        projectileRb = projectile.GetComponent<Rigidbody>();
+                        direction = (hit.point - companion.transform.position);
+                        projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
+                        projectileRb.angularDrag = 100;
 
-                case "Earth":
+                        _context.Data.ManaCrystal -= 100;
+                        Events.OnCrystalManaUpdate.Invoke(_context.Data.ManaCrystal, _context.Data.MaxMana);
+                        break;
+                    case "Fire":
+                        projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
+                        projectileRb = projectile.GetComponent<Rigidbody>();
+                        direction = (hit.point - companion.transform.position);
+                        projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
+                        projectileRb.angularDrag = 100;
 
-                    projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-                    
-                    Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-                    Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
-                    projectileRb.AddForce(forceToAdd,ForceMode.Impulse);                    
-   
-                    break;
-
-                case "Fire":
-                    // GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile,  companion.transform.position + new Vector3(0f, 0f, 0f), _context.Camera.MainCamera.transform.rotation);
-                    // Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-                    // Vector3 forceToAdd = _context.Camera.MainCamera.transform.forward * throwForce + _context.transform.up * throwUpwardForce;
-                    // projectileRb.AddForce(forceToAdd,ForceMode.Impulse);
-                    break;
-            }
-            */
-
-
-            if (Physics.Raycast(ray, out RaycastHit hit)) {
-                if (_context.Data.ManaCrystal >= 100) {
-                    GameObject projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);
-                    Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-                    Vector3 direction = (hit.point - companion.transform.position);
-                    projectileRb.AddForce(direction.normalized *  throwForce, ForceMode.Impulse);
-                    projectileRb.angularDrag = 100;
-
-                    _context.Data.ManaCrystal -= 100;
-                    Events.OnCrystalManaUpdate.Invoke(_context.Data.ManaCrystal, _context.Data.MaxMana);
+                        _context.Data.ManaCrystal -= 100;
+                        Events.OnCrystalManaUpdate.Invoke(_context.Data.ManaCrystal, _context.Data.MaxMana);
+                        break;
                 }
             }
         }
     }
+    
 
     protected virtual void OnAimCancelled(InputAction.CallbackContext context) {
         _stateMachine.ChangeState(_factory.IdleState);
