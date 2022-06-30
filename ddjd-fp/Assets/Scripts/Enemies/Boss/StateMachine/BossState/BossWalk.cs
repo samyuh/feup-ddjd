@@ -33,8 +33,6 @@ public class BossWalk : BossState {
 
         if (Physics.Raycast(_context.transform.position, _target.transform.position - _context.transform.position, out RaycastHit hit, maxDistance, mask)) {
             float distance = hit.distance;
-            //Debug.Log("here");
-
             if (distance > followDistance)  {
                 Accelerate();
             }

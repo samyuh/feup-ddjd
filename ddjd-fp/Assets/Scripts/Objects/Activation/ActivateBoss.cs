@@ -10,7 +10,7 @@ public class ActivateBoss : MonoBehaviour {
         if (collider.tag == "Player") {
             _bossController.enabled = true;
             Events.OnDeactivatePortal.Invoke(_portal);
-            // ANIMATION
+
             Destroy(gameObject);
         }
     }
