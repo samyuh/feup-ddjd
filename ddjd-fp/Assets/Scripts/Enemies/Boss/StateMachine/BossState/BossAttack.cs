@@ -8,13 +8,15 @@ using UnityEngine.InputSystem;
 public class BossAttack : BossState {
     private float _elapsedTime;
     private bool _dealDamage;
+    public static int _currentAttackIndex = 0;
     
     public BossAttack(BossController context, BossStateMachine stateMachine,  BossFactory stateFactory) : 
     base (context, stateMachine, stateFactory) { }
 
     public override void EnterState() { 
         base.EnterState();
-        _context.Animator.SetBool("LightAttack", true);
+        //_context.Animator.SetBool("LightAttack", true);
+        _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), true);
         
         _dealDamage = true;
         _elapsedTime = 0f;
@@ -24,7 +26,9 @@ public class BossAttack : BossState {
     public override void ExitState() {
         base.ExitState();
 
-        _context.Animator.SetBool("LightAttack", false);
+        //_context.Animator.SetBool("LightAttack", false);
+        _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), false);
+        _currentAttackIndex = (_currentAttackIndex + 1) % 3;
     }
 
     public override void LogicUpdate() {
