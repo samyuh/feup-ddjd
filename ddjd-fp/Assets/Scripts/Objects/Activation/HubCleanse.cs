@@ -49,7 +49,7 @@ public class HubCleanse : MonoBehaviour {
         i1a3_crystal.SetColor("_Top_color", _colors.getColor("neutral_top_color"));
         i1a3_crystal.SetColor("_Bottom_color", _colors.getColor("neutral_bottom_color"));
 
-        _i = 0f;
+        _i = 0.5f;
         StartCoroutine(Grass3());
 
         _obsidian = 0f;
@@ -61,7 +61,7 @@ public class HubCleanse : MonoBehaviour {
         i4a6_crystal.SetColor("_Top_color", _colors.getColor("neutral_top_color"));
         i4a6_crystal.SetColor("_Bottom_color", _colors.getColor("neutral_bottom_color"));
 
-        _i = 0f;
+        _i = 0.5f;
         StartCoroutine(Grass6());
 
         _obsidian = 0f;
