@@ -18,8 +18,9 @@ public class HubCleanse : MonoBehaviour {
     [SerializeField] private Material i3_grass_road;
 
     [SerializeField] private Material i1a3_crystal;
-
+    
     [SerializeField] private Material i3_obsidian;
+    [SerializeField] private Material i3_hub;
     #endregion
     
     #region regionTwo
@@ -30,6 +31,7 @@ public class HubCleanse : MonoBehaviour {
     [SerializeField] private Material i4a6_crystal;
 
     [SerializeField] private Material i6_obsidian;
+    [SerializeField] private Material i6_hub;
     #endregion
 
     private float _i;
@@ -43,7 +45,6 @@ public class HubCleanse : MonoBehaviour {
 
     private void CrystalChange(CrystalData data) {
         string crystal = "";
-
         if (data.id == 0) {
             crystal = "neutral";
         } else if (data.id == 1) {
@@ -52,7 +53,6 @@ public class HubCleanse : MonoBehaviour {
             crystal = "air";
         }
         
-
         mc_crystal.SetColor("_Base_color", _colors.getColor(crystal + "_base_color"));
         mc_crystal.SetColor("_Top_color", _colors.getColor(crystal +  "_top_color"));
         mc_crystal.SetColor("_Bottom_color", _colors.getColor(crystal + "_bottom_color"));
@@ -68,11 +68,9 @@ public class HubCleanse : MonoBehaviour {
     private void CleanedZone(int id) {
         if (id == 3) {
             CleanseIsle3();
-
             Events.GetFire.Invoke();
         } else if (id == 6) {
             CleanseIsle6();
-
             Events.GetAir.Invoke();
         }
     }
@@ -86,7 +84,7 @@ public class HubCleanse : MonoBehaviour {
         StartCoroutine(Grass3());
 
         _obsidian = 0f;
-        StartCoroutine(Obsidian(i3_obsidian));
+        StartCoroutine(Obsidian(i3_obsidian, i3_hub));
     }
 
      private void CleanseIsle6() {
@@ -98,7 +96,7 @@ public class HubCleanse : MonoBehaviour {
         StartCoroutine(Grass6());
 
         _obsidian = 0f;
-        StartCoroutine(Obsidian(i6_obsidian));
+        StartCoroutine(Obsidian(i6_obsidian, i6_hub));
     }
 
     IEnumerator Grass3() {
@@ -121,9 +119,10 @@ public class HubCleanse : MonoBehaviour {
         }
     }
 
-    IEnumerator Obsidian(Material Obsidian) {
+    IEnumerator Obsidian(Material Obsidian, Material Hub) {
         while (_obsidian <= 1f) { 
             Obsidian.SetFloat("_Dissolve_Amount", _obsidian);
+            Hub.SetFloat("_Dissolve_Amount", _obsidian);
             _obsidian += 0.01f;
             yield return new WaitForSeconds(.05f);
         }

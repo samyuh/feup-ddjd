@@ -36,7 +36,6 @@ public class PlayerAimState : PlayerAbilityState {
 
     public override void LogicUpdate() {
         base.LogicUpdate();
-
         base.PlayerRotation();
         
         companion.transform.position = companionPlace.transform.position;
@@ -56,6 +55,8 @@ public class PlayerAimState : PlayerAbilityState {
                 GameObject projectile;
                 Rigidbody projectileRb;
                 Vector3 direction;
+
+                GameObject.FindGameObjectWithTag("CompanionAnimator").GetComponent<Animator>().SetTrigger(_context.ActiveCrystal.name);
                 switch(_context.ActiveCrystal.name) {
                     case "Obsidia":
                         projectile = _context.InstantiateObj(_context.ActiveCrystal.crystalProjectile, companion.transform.position, _context.Camera.MainCamera.transform.rotation);

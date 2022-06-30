@@ -22,6 +22,7 @@ TagManager:
   - PuzzleReseter
   - Scroll
   - grass
+  - CompanionAnimator
   layers:
   - Default
   - TransparentFX

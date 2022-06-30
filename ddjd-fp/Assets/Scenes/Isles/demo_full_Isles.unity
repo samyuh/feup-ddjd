@@ -743,11 +743,11 @@ PrefabInstance:
     - target: {fileID: 8048611463573635303, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: currentCrystals.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: c9e30b94017dd9f4f9e27c63cc4d8e36, type: 2}
+      objectReference: {fileID: 11400000, guid: 08a016eb5dc867a4e803e2fe59512fae, type: 2}
     - target: {fileID: 8048611463573635303, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: currentCrystals.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: c9e30b94017dd9f4f9e27c63cc4d8e36, type: 2}
+      objectReference: {fileID: 11400000, guid: 05612a871c619de4193a1cf430b006c6, type: 2}
     - target: {fileID: 8048611464311844740, guid: 94dd44c685f11b14988cf8b718d2d9aa, type: 3}
       propertyPath: m_Name
       value: GameHandler
@@ -1014,11 +1014,13 @@ MonoBehaviour:
   i3_grass_road: {fileID: 2100000, guid: 5af7eb61bfda3b84b88760ed70631f37, type: 2}
   i1a3_crystal: {fileID: 2100000, guid: e87ba9b4604aace48a71436ff5482a10, type: 2}
   i3_obsidian: {fileID: 2100000, guid: bb2e9b42618e0d743a1778070e7c6167, type: 2}
+  i3_hub: {fileID: 2100000, guid: 652c7579fb1c7a046a38a6292dfac7e7, type: 2}
   i4_grass_road: {fileID: 2100000, guid: da86af6531822c846a04a063be51983c, type: 2}
   i5_grass_road: {fileID: 2100000, guid: f1c64183874619e4b9be1bdba8a48405, type: 2}
   i6_grass_road: {fileID: 2100000, guid: 1b002f4cec3a48644b745b882ce3e848, type: 2}
   i4a6_crystal: {fileID: 2100000, guid: 0ac8c3f9b67532b49a6e545ea708df1c, type: 2}
   i6_obsidian: {fileID: 2100000, guid: e63a6a7c9851ca344829c2d0e3b19f23, type: 2}
+  i6_hub: {fileID: 2100000, guid: 61a87131fa779984d91e8c2545455876, type: 2}
 --- !u!1001 &673923791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1495,6 +1497,10 @@ PrefabInstance:
     - target: {fileID: 1311029131818606929, guid: cd6f668c7e03ac34fa7d85c2e4628e9a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570202110314215261, guid: cd6f668c7e03ac34fa7d85c2e4628e9a, type: 3}
+      propertyPath: m_TagString
+      value: CompanionAnimator
       objectReference: {fileID: 0}
     - target: {fileID: 5878452980096347318, guid: cd6f668c7e03ac34fa7d85c2e4628e9a, type: 3}
       propertyPath: m_LocalPosition.x
