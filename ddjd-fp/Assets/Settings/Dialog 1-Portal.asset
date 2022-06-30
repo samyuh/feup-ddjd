@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   dialog:
-  - character: Galena
-    text: Something must activate the Portal... Let's try to find something...
+  - character: Tutorial
+    text: "If a portal is deactivated, make sure to step on all the switches spread across the map so you can proceed to the next area"

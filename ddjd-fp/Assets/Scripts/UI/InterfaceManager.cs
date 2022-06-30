@@ -18,7 +18,11 @@ public class InterfaceManager : MonoBehaviour
     private Animator _playerAnimator;
     private Player _playerScript;
 
+    [SerializeField] private SVGImage _mainCrystal;
     [SerializeField] private Sprite _nothingSprite;
+    [SerializeField] private Sprite _obsidiaSprite;
+    [SerializeField] private Sprite _airSprite;
+    [SerializeField] private Sprite _fireSprite;
 
     #region Health
     [SerializeField] private TMP_Text _health;
@@ -47,18 +51,19 @@ public class InterfaceManager : MonoBehaviour
         Events.OnNextDialog.AddListener(OnNextDialog);
         Events.FinishDialog.AddListener(FinishDialog);
 
+        Events.OnSetActiveCrystal.AddListener(MainCrystal);
+
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerController = _player.GetComponent<CharacterController>();
         _playerAnimator = _player.GetComponent<Animator>();
         _playerScript = _player.GetComponent<Player>();
     }
 
+    public void MainCrystal(CrystalData data) {
+        _mainCrystal.sprite = data.icon;
+    }
     public void OnDialog(DialogManager currentDialog) {
         _playerController.enabled = false;
-        //_playerScript.enabled = false;
-        /*_playerAnimator.SetBool("Idle", true);
-        _playerAnimator.enabled = false;*/
-        
         _currentDialog = currentDialog;
 
         _dialogActive = !_dialogActive;

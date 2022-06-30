@@ -11,10 +11,15 @@ public class PortalTeleporter : MonoBehaviour
     [SerializeField] string currentScene;
     [SerializeField] string nextScene;
 
+
+
+
     void Update()
     {
         if(playerIsOverlapping && canTeleport) {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject companion = GameObject.FindGameObjectWithTag("Companion");
+            GameObject companionPlace = GameObject.Find("CompanionPlace");
 
             GameObject rootObject = GameObject.Find("island" + nextScene);
             GameObject grassNext = rootObject.transform.Find( "grass_" + nextScene).gameObject;
@@ -23,6 +28,7 @@ public class PortalTeleporter : MonoBehaviour
             Debug.Log("grass_" + nextScene);
             grassNext.SetActive(true);
             player.transform.position = GameObject.Find("portal_" + nextScene + "_" + currentScene).transform.position;
+            companion.transform.position = companionPlace.transform.position;
             playerIsOverlapping = false;
             grassCurrent.SetActive(false);
         }

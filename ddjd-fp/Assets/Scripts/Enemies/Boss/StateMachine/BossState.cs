@@ -11,7 +11,7 @@ public abstract class BossState {
     protected LayerMask mask;
 
     protected float maxDistance = 50f;
-    protected float followDistance = 7f;
+    protected float followDistance = 4f;
     protected float speed = 0f;
     protected float maxSpeed = 0.08f;
     protected float acceleration = 0.2f;
