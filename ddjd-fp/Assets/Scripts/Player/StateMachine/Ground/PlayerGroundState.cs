@@ -12,7 +12,10 @@ public class PlayerGroundState : PlayerState {
     public override void EnterState() { 
         base.EnterState();
 
-        _context.PlayerInput.PlayerAim.performed += OnAim;
+
+        if( _context.PlayerInput.PlayerAim != null) {
+             _context.PlayerInput.PlayerAim.performed += OnAim;
+        }
         _context.PlayerInput.PlayerJump.performed += OnJump;
         _context.PlayerInput.PlayerMeleeAttack.performed += OnMeleeAttack;
         _context.PlayerInput.PlayerInteract.performed += OnInteract;
@@ -22,8 +25,10 @@ public class PlayerGroundState : PlayerState {
     public override void ExitState() {
         base.ExitState();
 
-        
-        _context.PlayerInput.PlayerAim.performed -= OnAim;
+        if( _context.PlayerInput.PlayerAim != null) {
+             _context.PlayerInput.PlayerAim.performed -= OnAim;
+        }
+       
         _context.PlayerInput.PlayerJump.performed -= OnJump;
         _context.PlayerInput.PlayerMeleeAttack.performed -= OnMeleeAttack;
         _context.PlayerInput.PlayerInteract.performed -= OnInteract;

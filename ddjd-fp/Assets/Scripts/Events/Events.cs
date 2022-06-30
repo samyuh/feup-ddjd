@@ -22,6 +22,7 @@ public static class Events {
 
     public static readonly EventNative DisableMovement = new EventNative(); 
     public static readonly EventNative EnableMovement = new EventNative(); 
+    public static readonly EventNative EnableAim = new EventNative(); 
 
     // // Update Player Status
     public static readonly EventNative<int, int> OnHealthUpdate = new EventNative<int, int>();

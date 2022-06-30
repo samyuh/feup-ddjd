@@ -50,12 +50,12 @@ public class InputHandler : MonoBehaviour {
         
         Events.DisableMovement.AddListener(DisableMovement);
         Events.EnableMovement.AddListener(EnableMovement);
+        Events.EnableAim.AddListener(EnableAim);
 
         _playerMovement = _inputAction.Player.Move;
         _playerCrystalWheel = _inputAction.Player.CrystalWheel;
         _playerRun = _inputAction.Player.Run;
         _playerDash = _inputAction.Player.Dash;
-        _playerAim = _inputAction.Player.Aim;
         _playerLook = _inputAction.Player.Look;
         _playerJump = _inputAction.Player.Jump;
         _playerMeleeAttack = _inputAction.Player.MeleeAttack;
@@ -79,6 +79,10 @@ public class InputHandler : MonoBehaviour {
         _nextDialog.performed += OnNextDialog;
 
         _inputAction.Player.Enable();
+    }
+
+    private void EnableAim() {
+        _playerAim = _inputAction.Player.Aim;
     }
 
     private void EnableMovement() {

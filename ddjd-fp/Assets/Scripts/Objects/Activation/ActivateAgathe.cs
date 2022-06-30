@@ -12,6 +12,7 @@ public class ActivateAgathe : MonoBehaviour {
     void OnTriggerStay(Collider collider) {
         if (collider.tag == "Player") {
             _agatheFollow.enabled = true;
+            Events.EnableAim.Invoke();
         }
     }
 }
