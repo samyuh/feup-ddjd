@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   element: 0
-  _colors: {fileID: 0}
+  _colors: {fileID: 11400000, guid: ab8a42c4bcf67c64b8b893cb2dc94db8, type: 2}
   id: 10
   _numberButton: 0
   _crystalPortal: {fileID: 2100000, guid: 23731774fee845a4bbfab74ccb15794f, type: 2}
