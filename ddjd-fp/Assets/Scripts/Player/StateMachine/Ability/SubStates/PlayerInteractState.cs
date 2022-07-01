@@ -43,8 +43,13 @@ public class PlayerInteractState : PlayerAbilityState {
                 Events.OnCatchCrystal.Invoke();
                 _context.DestroyObject(_context.InteractableItem);
                 _context.GetItem(1);
-            } else if(_context.InteractableItem.tag == "Scroll"){
-                Events.OnCatchScroll.Invoke(0);
+            } else if(_context.InteractableItem.tag == "Scroll") {
+                if (_context.InteractableItem.name == "Map") {
+                    Events.OnCatchScroll.Invoke(0);
+                } else {
+                    Events.OnCatchScroll.Invoke(1);
+                }
+                
                 _context.DestroyObject(_context.InteractableItem);
             }  else if(_context.InteractableItem.tag == "CheckPoint"){
                 _context.InteractableItem.GetComponent<CheckPoint>().ActivateCheckPoint();

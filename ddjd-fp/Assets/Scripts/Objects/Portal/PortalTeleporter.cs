@@ -25,6 +25,7 @@ public class PortalTeleporter : MonoBehaviour
             GameObject grassNext = rootObject.transform.Find( "grass_" + nextScene).gameObject;
             GameObject grassCurrent = GameObject.Find("grass_" + currentScene);
 
+            grassNext.SetActive(false);
             grassNext.SetActive(true);
             player.transform.position = GameObject.Find("portal_" + nextScene + "_" + currentScene).transform.position;
             companion.transform.position = companionPlace.transform.position;
@@ -33,15 +34,13 @@ public class PortalTeleporter : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerEnter(Collider other) {
         if(other.tag == "Player") {
             playerIsOverlapping = true;
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
+    void OnTriggerExit(Collider other) {
         if(other.tag == "Player") {
             playerIsOverlapping = false;
         }
@@ -51,7 +50,7 @@ public class PortalTeleporter : MonoBehaviour
         canTeleport = true;
     }
 
-    public void Deactivate(){
+    public void Deactivate() {
         canTeleport = false;
     }
 }

@@ -26,9 +26,8 @@ public class PlayerData {
     #endregion
 
     #region Player Inventory
-
     private int _healthCrystal = 0;
-    public int _maxHealthCrystal = 100;
+    public int _maxHealthCrystal = 12;
     public int HealthCrystal{get { return _healthCrystal; } set { _healthCrystal = value; }}
     public int MaxHealthCrystal{get { return _maxHealthCrystal; } set { _maxHealthCrystal = value; }}
 

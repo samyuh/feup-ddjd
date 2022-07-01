@@ -29,8 +29,9 @@ MonoBehaviour:
   - character: Agate
     text: '*purrs*'
   - character: Tutorial
-    text: "See those symbols? Those are helpful items you will need during your journey"
+    text: See those symbols? Those are helpful items you will need during your journey
   - character: Tutorial
-    text: "Press E to pick them up"
+    text: Press E to pick them up
   - character: Tutorial
-    text: "You can find them on the menu by pressing ESC???? or use them directly by pressing ????"
+    text: You can find them on the menu by pressing I or use them directly by pressing
+      Q (Just Health Potions)
