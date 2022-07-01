@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalListener : MonoBehaviour {
-    public enum ElementType { Fire, Air }
+    public enum ElementType { Fire, Air, Neutral }
     public ElementType element;
     
     private string _strElement; 
@@ -24,7 +24,7 @@ public class PortalListener : MonoBehaviour {
             _strElement = "fire";
         } else if (element == ElementType.Air) {
             _strElement = "air";
-        } else {
+        } else  if (element == ElementType.Neutral) {
             _strElement = "neutral";
         }
         /*
@@ -34,7 +34,7 @@ public class PortalListener : MonoBehaviour {
         _stonePortal.SetColor("_Emission_Color", _colors.getColor("deactivated_emission"));
         _passagePortal.SetFloat("_Dissolve_Amount", 50f);
         */
-        
+
         Events.OnActivatePortal.AddListener(ActivatePortal);
         Events.OnDeactivatePortal.AddListener(DeactivatePortal);
     }
