@@ -65,8 +65,6 @@ public class InventoryController: MonoBehaviour
     }
 
     public void OnCollectScroll(int id) {
-        Debug.Log("here");
-        Debug.Log(id);
        if (id == 0) {
         _map.GetComponent<Button>().enabled = true;
         _scrollsMap.sprite = _scrollSprite;

@@ -15,7 +15,6 @@ public class BossAttack : BossState {
 
     public override void EnterState() { 
         base.EnterState();
-        Debug.Log(_currentAttackIndex);
         _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), true);
         _dealDamage = true;
         _elapsedTime = 0f;
