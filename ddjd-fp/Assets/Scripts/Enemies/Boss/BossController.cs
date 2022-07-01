@@ -52,7 +52,8 @@ public class BossController : MonoBehaviour {
     }
 
     public void Death() {
-         _healthBar.value = 0;
+        _healthBar.value = 0;
+        Destroy(transform.Find("Canvas").gameObject);
         StateMachine.ChangeState(StateFactory.BossDeath);
 
         Events.OnActivatePortal.Invoke(_portalBefore);
