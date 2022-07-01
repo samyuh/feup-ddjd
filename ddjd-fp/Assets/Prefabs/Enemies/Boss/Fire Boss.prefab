@@ -221,6 +221,7 @@ MonoBehaviour:
   _portalBefore: 3
   _portalAfter: 4
   _isle: 3
+  Projectile: {fileID: 1293327866213822918, guid: 01b19e0aaee45bc4e85d55b41fc4e51a, type: 3}
 --- !u!95 &7824122004688485174
 Animator:
   serializedVersion: 4

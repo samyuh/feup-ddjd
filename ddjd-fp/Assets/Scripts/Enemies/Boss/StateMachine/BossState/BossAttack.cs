@@ -15,9 +15,8 @@ public class BossAttack : BossState {
 
     public override void EnterState() { 
         base.EnterState();
-        //_context.Animator.SetBool("LightAttack", true);
+        Debug.Log(_currentAttackIndex);
         _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), true);
-        
         _dealDamage = true;
         _elapsedTime = 0f;
         speed = 0f;
@@ -25,8 +24,6 @@ public class BossAttack : BossState {
 
     public override void ExitState() {
         base.ExitState();
-
-        //_context.Animator.SetBool("LightAttack", false);
         _context.Animator.SetBool("Attack" + _currentAttackIndex.ToString(), false);
         _currentAttackIndex = (_currentAttackIndex + 1) % 3;
     }
@@ -34,7 +31,6 @@ public class BossAttack : BossState {
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-        
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime > 0.3f) {
             if (_dealDamage) DealDamage();
@@ -47,6 +43,11 @@ public class BossAttack : BossState {
 
     protected void DealDamage() {
         _dealDamage = false;
-        _target.SendMessage("ApplyDamage", 50);
+
+        if (_currentAttackIndex == 2) {
+            _target.SendMessage("ApplyDamage", 150);
+        } else {
+            _target.SendMessage("ApplyDamage", 50);
+        }
     }
 }

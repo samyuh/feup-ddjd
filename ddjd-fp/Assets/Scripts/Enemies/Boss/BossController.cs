@@ -20,10 +20,12 @@ public class BossController : MonoBehaviour {
     #region State Machine
     public BossStateMachine StateMachine;
     public BossFactory StateFactory;
+
+    public GameObject Projectile;
     #endregion
 
     private void Start() {
-        _healthPoints = 350;
+        _healthPoints = 500;
         _animator = GetComponent<Animator>();
 
         // State Machine
@@ -62,4 +64,8 @@ public class BossController : MonoBehaviour {
         Destroy(gameObject);
     }
     #endregion
+
+    public GameObject InstantiateObj(Vector3 second, Quaternion third) {
+        return Instantiate(Projectile, second, third);
+    }
 }
